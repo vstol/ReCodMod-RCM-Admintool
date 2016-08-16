@@ -238,6 +238,10 @@ if (empty($game_patch))
            {
             $game_patch = 'cod1_' . $mpshortver . '';
            }
+          else if (strpos($mpgamenname, 'main') !== false)
+           {
+            $game_patch = 'cod1_' . $mpshortver . '';
+           }		   
           else
            {
             $game_patch = 'cod1_1.41';

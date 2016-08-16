@@ -144,11 +144,11 @@ fclose($connx);
 
 if (strpos($_SERVER['OS'], 'Windows') !== false)
 {
-		if (strpos($xxkmb, '\^7') !== false)
-		$pppath = $pppath.'\main';
+		//if (strpos($xxkmb, '\^7') !== false)
+		//$pppath = $pppath.'\main';
 
 if ($fourr == "^7")
-$fourr = sevenofff($fourr);
+echo 'FOUUR'.$fourr = sevenofff($fourr);
 
 if(empty($fourr))
 $fourr = 'main';
@@ -172,11 +172,11 @@ sleep (3000);
 exit; }
   
 }else{
-	if (strpos($xxkmb, '/^7') !== false)
-		$pppath = $pppath.'/main';
+	//if (strpos($xxkmb, '/^7') !== false)
+	//	$pppath = $pppath.'/main';
 
 if ($fourr == "^7")
-$fourr = sevenofff($fourr);
+echo 'FOUUR'.$fourr = sevenofff($fourr);
 
 if(empty($fourr))
 $fourr = 'main';

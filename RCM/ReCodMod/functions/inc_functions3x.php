@@ -116,10 +116,10 @@ $i_nam = explode("#;#;#", $fff);
 
 		}
 	
-if ($game_patch == 'cod1_1.1')
-{
-$chistx = $i_namea;
+if ($game_patch == 'cod1_1.1'){
 $i_name = trim(GetPlainName($i_namea));
+$i_name = onefxx($i_name);
+$chistx = onefxx($i_namea);
 }
 
 $valid_id = is_numeric($i_id);
@@ -130,10 +130,6 @@ else
 $valid_ping = is_numeric($i_ping); 	
 }
 
-if ($game_patch == 'cod1_1.1'){
-$i_name = onefxx($i_name);
-$chistx = onefxx($chistx);
-}
 	//if(empty($valid_id))
 	//	return;
 ?>
