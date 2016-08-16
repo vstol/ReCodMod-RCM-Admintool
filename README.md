@@ -378,11 +378,11 @@ New fun messages - gj, shit, wp, n1.
 
 Open __CoDaM_CodCommands.pk3 and in file callback.gsc 
 
-find
++ find
 
 self playerMsg( level.cocoColor + "Command not found: ^7" + chatcmd[ 0 ] + " " + combineChatCommand( chatcmd, " " ));
 
-add after that line
++ add after that line - this 2 lines
 
 printconsole("say;" + self.name+";"+chatcmd[ 0 ]+" "+ combineChatCommand( chatcmd, " " )+"\n");
 
