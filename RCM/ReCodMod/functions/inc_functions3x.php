@@ -118,8 +118,22 @@ $i_nam = explode("#;#;#", $fff);
 	
 if ($game_patch == 'cod1_1.1'){
 $i_name = trim(GetPlainName($i_namea));
-$i_name = onefxx($i_name);
-$chistx = onefxx($i_namea);
+$i_name = $i_ping;
+$chistx = $i_namea;
+
+
+$chistx = preg_replace("/[[:space:]][0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/", "%%", $chistx);
+if (strpos($chistx,'%%') !== false){
+list($thatlinev, $nonexv) = explode('%%', $chistx);
+$chistx = preg_replace("/\s[0-9]{1,3}/", "", $thatline);
+}
+
+$i_name = preg_replace("/[[:space:]][0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/", "%%", $i_name);
+if (strpos($i_name,'%%') !== false){
+list($thatline, $nonex) = explode('%%', $i_name);
+$i_name = preg_replace("/\s[0-9]{1,3}/", "", $thatline);
+}
+
 }
 
 $valid_id = is_numeric($i_id);
