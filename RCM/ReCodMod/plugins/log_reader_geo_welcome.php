@@ -280,6 +280,9 @@ $db5 = NULL;
 if(!empty($connect))
 fclose($connect);  
 	  }
+	  
+if(empty($tfinishh))	  
+	$tfinishh = 1;	  
 if($tfinishh > 30) 
 	exit;
  }
