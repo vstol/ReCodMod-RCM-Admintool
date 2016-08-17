@@ -210,7 +210,7 @@ AddToLog("[".$datetime."] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");
 			  usleep($sleep_rcon);
 			rcon('say  ^7"'.$rules_msgtoall_kicked_bad_name.'"', $i_name);
 			}
-		continue;
+		//continue;
 		}	
  		
 //////////////////////////////============================	 IP RANGES
