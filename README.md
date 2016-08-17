@@ -158,7 +158,7 @@ sudo apt-get install php7.0-mbstring
 cd /tmp
 
 # Download Admin Mod from GitHub
-sudo wget https://github.com/EXRecod/ReCodMod-RCM-Admintool/archive/master.zip
+sudo wget https://github.com/EXRecod/ReCodMod-RCM-Admintool/raw/master/RCM_GNU_LINUX.zip
 
 # Make folders
 sudo mkdir /opt/rcm/myserver
@@ -167,10 +167,10 @@ sudo mkdir /opt/rcm/myserver
 sudo apt-get install unzip
 
 #Unpack to folder
-sudo unzip master.zip -d /tmp/
+sudo unzip RCM_GNU_LINUX.zip -d /tmp/
 
 #go to unarchived folder
-cd /tmp/ReCodMod-RCM-Admintool-master/
+cd /tmp/RCM_GNU_LINUX/
 
 #rename RCM folder to your (myserver) name without symbols - example: NexonRifles
 sudo mv RCM myserver 
