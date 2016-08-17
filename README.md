@@ -7,10 +7,7 @@ New final version RCM[V.3.x.x] working in all GNU/linux systems and Windows with
 
 This version not compactible for x2.2 version update, compactible only |RCM/ReCodMod/databases/| files(ban database, and another sql bases)
 
-#WHAT'S NEW? WHEN COME OUT?
-
-Come out 6.-14.August /2016
-
+#WHAT'S NEW? 
 + Support gmail email service for !report and !support
 + Included rcm admintool auto update. 
 + New commands: 
