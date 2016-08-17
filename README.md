@@ -113,7 +113,7 @@ Download last day update, unarchive .zip and replace your old files with new fil
 --------------------------------------------------------------
 HOW INSTALL IN WINDOWS!
 ==============================================================
-#For windows need download and unarchive this archive RCM-Admintool-WINDOWS.exe
+#For windows need download RCM-WINDOWS.part1.rar and RCM-WINDOWS.part2.rar in ONE folder and unarchive this archive RCM-WINDOWS.part1.rar
 
 #Need edit all_connection.php for RCM AdminMod working
 //Edit first this file for working
