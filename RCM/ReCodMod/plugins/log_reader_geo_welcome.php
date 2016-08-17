@@ -56,7 +56,8 @@ if ($x_stop_lp == 0)
      }
    }
   /////////////////SD GAMETYPE TIMELIMIT FIX/////////////////	
-  if ($game_patch == 'cod1_1.1')
+    $counttdot = substr_count($parseline, ';');
+            if ($counttdot == 2)
     list($noon, $idk, $nickname) = explode(';', $parseline);
   else
     list($noon, $guid, $idk, $nickname) = explode(';', $parseline);
