@@ -846,6 +846,9 @@ fclose($connect);
 
 } 
 	  }
+	  
+if(empty($tfinishh))	  
+	$tfinishh = 1;
 if($tfinishh > 20){
 if(!empty($db))
 $db = NULL;
