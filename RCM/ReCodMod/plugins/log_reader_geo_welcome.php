@@ -70,7 +70,7 @@ if ($x_stop_lp == 0)
    {
     $geoxx  = 0;
     $limitj = substr_count($parseline, ';'); // 3
-    if ($limitj == 3)
+    if (($limitj == 3) || ($limitj == 2))
      {
       //echo "\n[CNT] : [",$datetime, "] : ".$nickr." : ".$msgr;	
       $vote_cgu = 0;
