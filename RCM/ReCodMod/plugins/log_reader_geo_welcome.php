@@ -242,6 +242,10 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
        } ///end loop
       //ob_end_flush(); 
       echo '   =W=   ' . $tfinishh = (microtime(true) - $start);
+	  
+	if(empty($tfinishh))
+$tfinishh = 1;	  
+	  
 	  if($tfinishh > 30) {
 	if(!empty($db))
 $db = NULL;
