@@ -119,6 +119,68 @@ $i_namex = afdasfawf($i_name);
 
   if(empty($foridnum))
 		  $foridnum = $i_id;
+	  
+if((trim($server_ip) == trim($i_ip)) && ($na1 == $na2))
+{
+	$igroup = '0';
+	$groupxx = '^1Admin';	
+
+try
+  {
+	   if (empty($adminlists))	  
+$db = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db1.sqlite');
+else
+$db = new PDO('sqlite:'.$adminlists);
+ //$db->exec("DELETE FROM x_db_admins WHERE s_adm='$i_ip'");
+   $sql =  "SELECT * FROM `x_db_admins` WHERE s_adm='$i_ip' limit 1";
+ 		
+    $statt = $db->query($sql)->fetchColumn();
+
+                    if ($statt > 0) {  
+										
+usleep($sleep_rcon*3);
+if ($game_patch == 'cod1_1.1')
+	rcon('say ^6 ^3You already in RCM system, dont need do that again!', ''); 
+else
+rcon('tell '.$idnum.' ^6 ^3You already in RCM system, dont need do that again!', ''); 
+++$x_stop_lp;	
+						
+					}
+
+
+if (empty($statt)) {
+	
+if(empty($groupxx))
+$groupxx = '^5Member';	
+						
+usleep($sleep_rcon*3);
+if ($game_patch == 'cod1_1.1'){
+rcon('say ^6 ^3Crangulations ^3you in '.$groupxx.' ^7group, ^3thanks for login!', '');	
+}else
+rcon('tell '.$idnum.' ^6 ^3Crangulations ^7'.$chistx.' ^3you in '.$groupxx.' ^7group, ^3thanks for login!', '');	
+	
+	$date = date('Y.m.d H.i.s');
+
+
+
+if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '$igroup', '$guidn')") > 0) {
+echo "Created IN DATABASE.". "\n"; 
+++$x_stop_lp;						
+						
+					}}
+    		
+$sql = null;
+$db = NULL;
+$statt = null;
+  }
+  catch(PDOException $e)
+  {
+    print ' FILE:  '.__FILE__.'  Exception : '.$e->getMessage();
+ }	
+	
+	
+}	
+
 
 if ($game_patch != 'cod1_1.1') {
 
