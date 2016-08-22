@@ -20,14 +20,10 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 + !rules - server rules list.
 + !date or !time - your date and time , time zone display
 + !kickall - kick all players
-+ !killserver - off server
 + !logout - out from your group to user group.
 + !banall - ban all players
 + !lastban - dispplay last banned player
-+ !banlist mb - banlist weight (megabytes)
 + !login -password-  or !log -password-
-+ !stop -msg- | -autokick- | -autoban- | -stats- | -geo- | 
-+ !run -msg- | -autokick- | -autoban- | -stats- | -geo- |
 + New geo welcome database
 + Manual ip adreses inserting for admins control. in cfg/_groups.php
 + Fixed chat gametype, ban, kick and map vote plugins!
@@ -78,9 +74,9 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 
 #HOW INSTALL!
 
-#1st STEP  (only for cod1 1.1)
+# STEP  (only for cod1 1.1)
 
-We need to make a couple of changes in cod1 1.1 bugged version game_mp_x86.dll (windows) and game.mp.i386.so (linux). In another version non changes.
+We need to make changes in cod1 1.1 bugged version game_mp_x86.dll (windows) and game.mp.i386.so (linux). In another versions non changes.
 
 In fact changed : to ;
 
@@ -92,12 +88,6 @@ or download it (need register) from http://recod.ru/forum/viewtopic.php?f=35&t=9
 
 and replace in your server
 
-#2nd STEP (for all call of duty versions)
-In your game server/main or mod folder config file add (example: in dedicated.cfg)
-+ seta g_log "games_mp.log"
-+ set g_logsync "1"
-
- You can check in rcontool with command g_log  and g_logsync
  
 #HOW UPDATE! 
 
