@@ -120,10 +120,14 @@ $i_namex = afdasfawf($i_name);
   if(empty($foridnum))
 		  $foridnum = $i_id;
 	  
-if((trim($server_ip) == trim($i_ip)) && ($na1 == $na2))
+$xdot = '.';	  
+$dropip = explode(".", $i_ip);	  
+$server_ip = trim($server_ip);
+
+if((strpos($server_ip, $dropip[0] . $xdot . $dropip[1] . $xdot) !== false) && ($na1 == $na2))
 {
 	$igroup = '0';
-	$groupxx = '^1Admin';	
+	$groupxx = '^1Local Admin';	
 
 try
   {
