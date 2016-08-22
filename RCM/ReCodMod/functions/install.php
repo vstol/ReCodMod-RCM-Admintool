@@ -77,6 +77,15 @@ touch($cpath.'ReCodMod/x_cache/z-vote-map.log');
 touch($cpath.'ReCodMod/x_update/update.log');
 
 //touch($cpath.'ReCodMod/x_errors/z-vote-map.log');
+
+chmod($cpath."ReCodMod/x_crontime/", 0777);
+chmod($cpath."ReCodMod/x_errors/", 0777);
+chmod($cpath."ReCodMod/x_logs/", 0777);
+chmod($cpath."ReCodMod/x_logs/archive/chat/", 0777);
+chmod($cpath."ReCodMod/x_cron/", 0777);
+chmod($cpath."ReCodMod/x_update/", 0777);
+chmod($cpath."ReCodMod/x_cache/", 0777);
+
 echo "Install - Ok.\n";
 }}
 

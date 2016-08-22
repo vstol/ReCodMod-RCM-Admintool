@@ -3,6 +3,9 @@
 // Prefix for chat commands, you can use ! @ # $ % ^ * ~ ,  or letter - q w r t o r y .
 $ixz = "!";   
 
+//Fast geo welcome when player connecting - 1 / When player connected - 0
+$fast_geowelcome = 1;
+
 // KIck who want to try use admin commands!
 $kicknotingrp = 1;
 

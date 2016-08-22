@@ -113,7 +113,16 @@ echo "\n\n Your use wrong rcon password -> ($server_rconpass = )
 \n  RCM NOT WORK \n\n";
 	sleep (7000);
 	exit;}
-
+	else{
+		     usleep($sleep_rcon);
+          require $cpath . 'ReCodMod/functions/inc_functions2.php';
+              for ($i = 0; $i < 1; $i++) {
+              require $cpath . 'ReCodMod/functions/inc_functions3.php';
+            usleep($sleep_rcon*2);
+			    rcon('set g_log games_mp.log', '');
+			    usleep($sleep_rcon*2);
+                rcon('set g_logsync 1', '');}	
+	}
 	
 if (preg_match("/No rconpassword/i", $rconpassss)){ 
 echo "\n\n No rconpassword set on your game server!\n\n";
@@ -148,7 +157,7 @@ if (strpos($_SERVER['OS'], 'Windows') !== false)
 		//$pppath = $pppath.'\main';
 
 if ($fourr == "^7")
-echo 'FOUUR'.$fourr = sevenofff($fourr);
+echo 'WIN'.$fourr = sevenofff($fourr);
 
 if(empty($fourr))
 $fourr = 'main';
@@ -176,7 +185,7 @@ exit; }
 	//	$pppath = $pppath.'/main';
 
 if ($fourr == "^7")
-echo 'FOUUR'.$fourr = sevenofff($fourr);
+echo 'WIN'.$fourr = sevenofff($fourr);
 
 if(empty($fourr))
 $fourr = 'main';
@@ -230,7 +239,7 @@ else{
                             usleep($sleep_rcon*2);
 			    rcon('set g_log games_mp.log', '');
 			    usleep($sleep_rcon*2);
-                            rcon('set g_logsync 1', '');}	
+                rcon('set g_logsync 1', '');}	
 }
 
 

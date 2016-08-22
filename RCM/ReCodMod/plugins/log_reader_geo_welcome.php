@@ -95,7 +95,16 @@ if ($x_stop_lp == 0)
             $x_namex = clearnamex($i_name);
             //$vip     = (array_search($i_name, $r_adm, true) !== false);
             require $cpath . 'ReCodMod/plugins/ban1.php';
-            if (($i_ping != 111) && ($i_ping != '999'))
+
+		   if(empty($fast_geowelcome))
+			   $fast_geowelcome = 0;
+		   
+           if ($fast_geowelcome == 1)
+		   $nothingg = ($i_ping >= '0');
+           else
+		   $nothingg = (($i_ping != 111) && ($i_ping != '999'));
+
+		   if ($nothingg)
              {
               $i_namex = afdasfawf($i_name);
               $x_date  = date('Y-m-d H:i:s');

@@ -110,16 +110,15 @@ Download last day update, unarchive .zip and replace your old files with new fil
 --------------------------------------------------------------
 HOW INSTALL IN WINDOWS!
 ==============================================================
-#For windows need download RCM-WINDOWS.part1.rar and RCM-WINDOWS.part2.rar in ONE folder and unarchive this archive RCM-WINDOWS.part1.rar
+#For windows need download https://github.com/EXRecod/ReCodMod-RCM-Admintool/archive/master.zip and unarchive this archive, and than
+unarchive RCM-WIN_php.zip from ReCodMod-RCM-Admintool-master archive. From RCM-WIN_php.zip archive add RCM files (File go.bat and php folder) in main RCM folder.
 
 #Need edit all_connection.php for RCM AdminMod working
 //Edit first this file for working
 
 Edit this file from cfg/_connection.php
 
-Important factor FOR $mplogfile line!
-
-Example for windows with double slash: $mplogfile = "c:\\\servers\\\cod1\\\cod1.1\\\main\\\games_mp.log"
+Example for windows: $mplogfile = "c:\servers\cod1\cod1.1\main\games_mp.log"
 
 //Another two you can edit later
 
@@ -155,7 +154,7 @@ sudo apt-get install php7.0-mbstring
 cd /tmp
 
 # Download Admin Mod from GitHub
-sudo wget https://github.com/EXRecod/ReCodMod-RCM-Admintool/raw/master/RCM_GNU_LINUX.zip
+sudo wget https://github.com/EXRecod/ReCodMod-RCM-Admintool/archive/master.zip
 
 # Make folders
 sudo mkdir /opt/rcm/myserver
@@ -164,10 +163,10 @@ sudo mkdir /opt/rcm/myserver
 sudo apt-get install unzip
 
 #Unpack to folder
-sudo unzip RCM_GNU_LINUX.zip -d /tmp/
+sudo unzip ReCodMod-RCM-Admintool-master.zip -d /tmp/
 
 #go to unarchived folder
-cd /tmp/RCM_GNU_LINUX/
+cd /tmp/ReCodMod-RCM-Admintool-master/
 
 #rename RCM folder to your (myserver) name without symbols - example: NexonRifles
 sudo mv RCM myserver 
