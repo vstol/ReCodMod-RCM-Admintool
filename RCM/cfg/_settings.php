@@ -24,20 +24,20 @@ $website = "recod.ru";
 $geox = 1;
 
 // Without autorized cd keys with guid = 0 need web server or website connection / with guid system add ($guids = 1;) // // Support only [cod1 p1.4, p1.5, cod uo all p, cod2 all p, cod4 all p] versions  - if use $guids = 1; change to  $code = 0;
-$guids = 1;    
+$guids = 0;    
 
 /////////ANTIFAKE NAMES PROTECTING
 //Using another players name - warning messages for players \\\\\ 1 - ON  , 0 - OFF
-$fakealert = 1;
+$fakealert = 0;
 //Protect using another players nicknames \\\\\ 1 - ON  , 0 - OFF
-$namefaker = 1;
+$namefaker = 0;
 //Protect using another players nicknames with kick from server \\\\\ 1 - ON  , 0 - OFF
 $namefakerkick = 0;
            
 // Kick blacklisted STOPFORUMSPAM.COM ip adress, known ip proxy users from database will be kicked!
 $stopforumspam = 0;   
      
-// Set to your time zone, for database an logs creating.
+// Set to your time zone, for database and logs creating.
 date_default_timezone_set( 'Europe/Kaliningrad' );  
        
 // scheduler, enter $rules_schedule[hour in 24h format 0-23][minute 0-59] = 'command';
@@ -61,7 +61,7 @@ $wdislk = '3';    //\\ Server dislike warns limit, after this number limit - ban
 $deadchat = 0; 
 
 // Player can be added in top list when player has 1000 frags. Better add 5000 kills limit for !top // Less of 1000 longer top updating)
-$limm = "500";   
+$limm = "50";   
 
 $v_time_gtx = 100;  //gametype vote time
 $v_time_map = 100;  //map vote time
