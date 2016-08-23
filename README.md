@@ -101,7 +101,7 @@ Download last day update, unarchive .zip and replace your old files with new fil
 #HOW INSTALL IN WINDOWS!
 
 For windows need download https://github.com/EXRecod/ReCodMod-RCM-Admintool/archive/master.zip and unarchive this archive, and than
-unarchive RCM-WIN_php.zip from ReCodMod-RCM-Admintool-master archive. From RCM-WIN_php.zip archive add RCM files (File go.bat and php folder) in main RCM folder.
+unarchive RCM-WIN_php.zip from ReCodMod-RCM-Admintool-master unarchived folder. From RCM-WIN_php.zip archive add RCM files (File go.bat and php folder) in main RCM folder.
 
 #Need edit _connection.php for RCM AdminMod working
 //Edit first this file for working
