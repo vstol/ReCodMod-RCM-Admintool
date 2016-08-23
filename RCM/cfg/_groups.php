@@ -20,13 +20,13 @@ $moderator_code = 'moderatorpassword';
 //special guests.
 $specialguests_code = 'SPECIAL_GUEST_SECURE_PASSWOORD';   
 //guests
-$guest = 'GUEST_SECURE_PASSWORD'; 
+$guest = 'x'; 
 //vip players (donators)
-$vip_code = 'vippass';  
+$vip_code = 'x';  
 //clan member
-$clan_member = 'CLAN_MEMBERpass';  
+$clan_member = 'x';  
 //vip players (donators)
-$topplayer = 'TOP_PLAYER_SECURE_PASSWORD';   
+$topplayer = 'x';   
 
 
 
