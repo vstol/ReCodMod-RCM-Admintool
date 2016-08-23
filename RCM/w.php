@@ -473,7 +473,7 @@ while (true)
                       ++$x_stop_lp;
                    }
                  }
-                if ($knownplayr > 0)
+                if (($knownplayr > 0) && (!empty($connect)))
                   fclose($connect);
                 echo '  ..  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
                 ++$x_stop_lp;
