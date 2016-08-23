@@ -10,7 +10,7 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 #What it has!
 + Full administrator server control with chat commands.
 + Report and support commands system, players can sent messages from game chat to Admin @mail.
- Support gmail email service for !report and !support
+ Support gmail, yahoo, yandex, and another email services for !report and !support
 + !rules - server rules list.
 + !date or !time - your date and time , time zone display
 + !kickall - kick all players
