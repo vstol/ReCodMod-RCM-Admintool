@@ -1,6 +1,5 @@
 <?php 
 
-//
 
 $messagenm1 = '^1Do not use ^3CHEATS^1, or ^3BAN!';
 
