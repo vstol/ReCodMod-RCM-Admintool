@@ -47,8 +47,8 @@ $rules_schedule[9][0] = 'exec a__config_day.cfg';
 
 
 // 1 - CHAT FLOOD, SWEARING, AND CHAT SPAM PROTECTING , 0 - OFF protection
-$chat_protect = 1;  
-$flood_time = false; //1 second btween messages
+$chat_protect = 0;  
+$flood_time = false; //1 second between messages
 $flood_time_cmd = 2;    /// time between messages for flood protect
 $flood_time_cmd2 = 3;   /// time between command messages for flood protect
 //\\************************************************************************************//\\
@@ -57,7 +57,7 @@ $wswear = '10';   //\\ Swearing warns limit, after this number limit - ban!
 $wspams = '2';    //\\ Spam warns limit, after this number limit - ban!
 $wdislk = '3';    //\\ Server dislike warns limit, after this number limit - ban!
 //\\************************************************************************************//\\
-// Deadchat beta xD  Dead chat 1 - on, 0 - off/
+// Deadchat beta xD  Dead chat 1 - on, 0 - off/ Death chat / beta for cod 1.1
 $deadchat = 0; 
 
 // Player can be added in top list when player has 1000 frags. Better add 5000 kills limit for !top // Less of 1000 longer top updating)
