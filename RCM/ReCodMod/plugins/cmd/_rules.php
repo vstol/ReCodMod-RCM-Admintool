@@ -23,6 +23,17 @@ if (!empty($messagenm3)) {
 rcon('say '.$messagenm3.'', ''); 
 }
 
+if (!empty($messagenm4)) {
+	$messagenm4 = iconv("utf-8", "windows-1251//IGNORE", $messagenm4);
+	usleep($sleep_rcon);
+rcon('say '.$messagenm4.'', ''); 
+}
+
+if (!empty($messagenm5)) {
+	$messagenm5 = iconv("utf-8", "windows-1251//IGNORE", $messagenm5);
+	usleep($sleep_rcon);
+rcon('say '.$messagenm5.'', ''); 
+}
 
 ++$x_stop_lp;	
 						
