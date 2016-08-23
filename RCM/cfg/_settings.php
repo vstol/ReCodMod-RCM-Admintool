@@ -4,7 +4,7 @@
 $ixz = "!";   
 
 //Fast geo welcome when player connecting - 1 / When player connected - 0
-$fast_geowelcome = 1;
+$fast_geowelcome = 0;
 
 // KIck who want to try use admin commands!
 $kicknotingrp = 1;
