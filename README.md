@@ -7,46 +7,22 @@ New final version RCM[V.3.x.x] working in all GNU/linux systems and Windows with
 
 This version not compactible for x2.2 version update, compactible only |RCM/ReCodMod/databases/| files(ban database, and another sql bases)
 
-#WHAT'S NEW? 
-+ Support gmail email service for !report and !support
-+ Included rcm admintool auto update. 
-+ New commands: 
-+ !nextmap - showing next map
-+ !map - map list.
-+ !maprotate - load next map.
-+ !refresh |banlist| |top| - update banlist or top for website (banlist and top autoupdate between 10 minutes)
-+ !update - manual RCM - ReCodMod admintool manual update.
-+ !reload - manual RCM ADMINTOOL restart after update if chat commands not work. 
+#What it has!
++ Full administrator server control with chat commands.
++ Report and support commands system, players can sent messages from game chat to Admin @mail.
+ Support gmail email service for !report and !support
 + !rules - server rules list.
 + !date or !time - your date and time , time zone display
 + !kickall - kick all players
 + !logout - out from your group to user group.
 + !banall - ban all players
 + !lastban - dispplay last banned player
-+ !login -password-  or !log -password-
-+ New geo welcome database
-+ Manual ip adreses inserting for admins control. in cfg/_groups.php
-+ Fixed chat gametype, ban, kick and map vote plugins!
-+ New graphic FUN messages
-+ Fixed game log file searching
-+ Easy install, more install help messages.
-+ RSS news from any website in game chat (new for message rotation)
++ !login -password-  or !on -password-
++ Manual ip adreses / guids inserting for admins control. in cfg/_groups.php
++ Easy install, install help messages.
 + Changed message rotation
-+ Fixed stats loading
-+ Fixed bugs for stats reading.
 + Full cod4x 1.7b and 1.8 admincontrol support.
 + !getss - all players screenshots
-+ New log files archive.
-+ Full support with cod1 1.1  codextended(chatcommands) 
-+ Fix !list for cod1 1.1 (numbers in nickname end)
-+ RCM admintool configuration control from game chat.
-+ More auto answers.
-+ and more....
-
-
-#What it has!
-+ Full administrator server control with chat commands.
-+ Report and support commands system, players can sent messages from game chat to Admin @mail.
 + Ip ban tool (Example: 111.111.111.111, or range with 111.111.111.* or 111.111.*.*
 + Ban tool with ban reasons, temp ban and more!
 + Banlist !banlist
