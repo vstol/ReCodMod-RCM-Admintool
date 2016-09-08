@@ -49,14 +49,18 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 + So many another plugins....
 
 
-# In new version!
+# In new version - new commands and updates!
 + Ftp connection + send logs and screenshots to another server or website. !ftp log - sent logs !ftp getss - sent screenshots
-+ !rangelist - banned ip ranges
++ !rangelist or !rlist - banned ip ranges
 + !refresh banlist , !refresh top
 + !lastban
 + !reload
++ !nextmap
 + !elist
-+ Message rotation with another servers information
++ language pack in cfg folder cfg/_settings.php $language = 'en';  
++ !getss - all plagers screenshots, !getss id# - for one player
++ !report !support - working with all email services and with multi email support in cfg/_groups.php
++ Messages rotation with another servers information
 
 #HOW INSTALL!
 
