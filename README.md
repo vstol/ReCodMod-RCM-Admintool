@@ -341,7 +341,7 @@ New fun messages - gj, shit, wp, n1.
 !nextmap - Show next map 
 
 
-# Support CoDaM CodCommands 2.3
+# HIDE MESSAGES Support CoDaM CodCommands 2.3 [cod1 1.1
 
 Open __CoDaM_CodCommands.pk3 and in file callback.gsc 
 
@@ -355,12 +355,26 @@ printconsole("say;" + self.name+";"+chatcmd[ 0 ]+" "+ combineChatCommand( chatcm
 
 logPrint("say; " + self.name + "; "+chatcmd[ 0 ]+" "+ combineChatCommand( chatcmd, " " )+"\n");
 
+# HIDE MESSAGES b3hide FOR Call OF Duty 4 X 1.8 - Modern Warfare
+
+
+
++ download -> https://bitbucket.org/msgaming/cod4x_b3hide/downloads
+
++ b3hide.so place in  ->  call of duty 4/plugins/
+
++ in main server configuration   .cfg
+
+loadplugin "b3hide"
+
+b3Hide "1"
+
+b3Prefix "!"
+
+b3HideLvl "0" 
+
 
 # SPECIAL INFO
 
 In x_logs folder after install and few days work, you can find chat, stats.... logs in html format, you can use it for website.
-
-
-* This is free version (some plugins not stable). Full version v.4.x.x //30.August.2016// (with all plugins, and working vote plugins and special plugins + web control - 10$)
-
-
+ 
