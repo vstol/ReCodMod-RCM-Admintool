@@ -80,6 +80,7 @@ $string = str_replace("Resource id", "Rank", $string);
 return $string;
 }
 
+if($acceptplugin != 100){
 	class COD4ServerStatus{
 		var $server = '127.0.0.1';
 		var $port = '28960';
@@ -169,7 +170,10 @@ return $string;
 				}
 			}
 			
-			$this->serverData['sv_hostname'] = $this->colorCode($this->serverData['sv_hostname']);
+			$this->serverData['sv_hostname'];
+			//$this->serverData['sv_maxclients'];
+			
+			//$this->serverData['sv_hostname'] = $this->colorCode($this->serverData['sv_hostname']);
 			//$this->serverData['_Maps'] = explode('-', $this->serverData['_Maps']);
 
 			foreach($tempplayers as $i => $v){
@@ -246,7 +250,7 @@ return $string;
 			return $this->scores;
 		}
 	}
-
+}
 
 require $cpath.'cfg/_connection.php';
 require $cpath.'cfg/_settings.php';
@@ -627,32 +631,7 @@ $string = str_replace(" is:", "", $string);
 $string = str_replace("map ", "", $string);
 $string = str_replace("sv_mapRotation", "", $string);
 $string = str_replace("sv_Rotation", "", $string);
-$string = str_replace("^5sd ", "", $string);
-$string = str_replace("tdm ", "", $string);
-$string = str_replace("pam ", "", $string);
-$string = str_replace("bel ", "", $string);
-$string = str_replace("^5pam ", "", $string);
-$string = str_replace("^1zom ", "", $string);
-$string = str_replace("all ", "", $string);
-$string = str_replace("zom ", "", $string);
-$string = str_replace("dm ", "", $string);
-$string = str_replace("war ", "", $string);
-$string = str_replace("bas ", "", $string);
-$string = str_replace("gg ", "", $string);
-$string = str_replace("gungame ", "", $string);
-$string = str_replace("gun ", "", $string);
-$string = str_replace("gg ", "", $string);
-$string = str_replace("koth ", "", $string);
-$string = str_replace("surv ", "", $string);
-$string = str_replace("dth ", "", $string);
-$string = str_replace("ctf ", "", $string);
-$string = str_replace("actf ", "", $string);
-$string = str_replace("htf ", "", $string);
-$string = str_replace("rsd ", "", $string);
 $string = str_replace("sv_mapRotation", "", $string);
-//$string = str_replace("mp_", "", $string);
-$string = str_replace("^2_tdm ", "", $string);
-$string = str_replace("^2tdm ", "", $string);
 $string = str_replace("gametype ", "", $string);
 $string = str_replace("default:", "", $string);
 $string = str_replace('^7""^7"', '', $string);
@@ -679,10 +658,12 @@ function onefxx($onxf)
         " 100"
     ), "", $onxf);
 }	
-
+/*
 function __autoload($class_name) {
 global $cpath;
-    require_once $cpath."ReCodMod/classes/" . $class_name . '.class.php';
+    require_once $cpath."ReCodMod/classes/" . $class_name . '.class.php';	
 }
+*/
 
+require_once $cpath."ReCodMod/functions/log.class.php";
 ?>

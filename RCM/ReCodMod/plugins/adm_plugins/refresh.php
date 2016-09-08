@@ -48,9 +48,9 @@ else
 	 usleep($sleep_rcon);	 
 		 
 if ($game_patch == 'cod1_1.1')
-rcon('say ^6 ^7Refresh top.', '');	
+rcon('say ^6 ^7'.$rfshh, '');	
    else
-rcon('tell '.$i_id.' ^6 ^7Refresh top.', '');	
+rcon('tell '.$i_id.' ^6 ^7'.$rfshh, '');	
 
 //                   TOP UPDATE	
 
@@ -59,8 +59,8 @@ rcon('tell '.$i_id.' ^6 ^7Refresh top.', '');
 
 //AddToLogTOPreset("----------------TOP 100 K/D ratio - kills limit .$limm. -----------------"."\n"."Place  Player  Kills   Deaths   Skill    K/D(ratio) ");
 $serveripp = '-';
-	AddToLogTOPreset("-<b>TOP 500 K/D ratio</b> - kills limit $limm - "."\n"."
-<b>Server:</b>  $serveripp . $server_port - $game_patch
+		AddToLogTOPreset("-<b>TOP 500 $etopx</b> - kills limit $limm - "."\n"."
+<b>Server:</b> $servername /  $serveripp . $server_port / $game_patch
 <br/> <b>Ratio</b> = Kills/Deaths    <b>Skill</b> = ((Kills-Deaths) x (Kills/Deaths) x 10)
 <br/> <b>Use server commands:</b> ".$ixz."skill ".$ixz."stats ".$ixz."top ".$ixz."rank ".$ixz."toprank and main ".$ixz."cmd  - system <b> ".meessagee($z_ver)."
  </b>"."\n"."
@@ -68,17 +68,17 @@ $serveripp = '-';
 <table><td> 
 <table><tr style=\"background:#333; border:4px solid #CCC;\"></font></td> 
  <td><font color='silver'><center>#</center></font></td>  
-<td><font color='silver'><center>City</center></font></td>     
- <td><font color='#cce5e5'><center>nickname</center></font></td>
- <td><font color='silver'><center>k/d ratio</center></font></td> 
-<td><font color='silver'><center>skill</center></font></td>
-<td><font color='teal'><center>kills</center></font></td>
-<td><font color='teal'><center>deaths</center></font></td>
-<td><font color='teal'><center>heads</center></font></td>
-<td><font color='teal'><center>nades</center></font></td>    
-<td><font color='teal'><center>suicide</center></font></td>
-<td><font color='teal'><center>mellee</center></font></td>
-<td class='ccccc'><font color='green'><center>Playing</center></font></td>
+<td><font color='silver'><center>$infoocountry</center></font></td>     
+ <td><font color='#cce5e5'><center>$infoonick</center></font></td>
+ <td><font color='silver'><center>$infoortio</center></font></td> 
+<td><font color='silver'><center>$infoosklll</center></font></td>
+<td><font color='teal'><center>$infoofrag</center></font></td>
+<td><font color='teal'><center>$infoodth</center></font></td>
+<td><font color='teal'><center>$infoohddd</center></font></td>
+<td><font color='teal'><center>$infoogrnkll</center></font></td>    
+<td><font color='teal'><center>$infoosuic</center></font></td>
+<td><font color='teal'><center>$infoobash</center></font></td>
+<td class='ccccc'><font color='green'><center>$infooplydx</center></font></td>
 </tr>");
  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,7 +87,7 @@ $serveripp = '-';
 
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
 
-   $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_kills>=$limm ORDER BY (s_ratio+0) DESC LIMIT 500");
+   $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_kills>=$limm ORDER BY ($etopx+0) DESC LIMIT 500");
     foreach($result as $row)
     {		
 
@@ -132,6 +132,10 @@ $ratio_n = substr($ratio_x, 0,19);
 $db3->exec("UPDATE x_db_play_stats SET s_place='$num', s_skill='$skil_x', s_ratio='$ratio_n' WHERE s_player='$pjhv'");
 //AddToLogTOP("[".$num."] [" . $y . "] [" . $kl . "] [" . $dth . "] [" . $slll . "] [" . $ratio_n . "] ");
 $i++;
+
+if (preg_match('/(.*?) ,/', $geoo, $matches)) 
+$geoo = $matches{1};
+
 AddToLogTOP("
 
 
@@ -224,9 +228,9 @@ else
 		  usleep($sleep_rcon);
 		  
 		 if ($game_patch == 'cod1_1.1')
-rcon('say ^6 ^7Refresh banlist.', '');	
+rcon('say ^6 ^7'.$rfshb, '');	
    else
-rcon('tell '.$i_id.' ^6 ^7Refresh banlist.', '');
+rcon('tell '.$i_id.' ^6 ^7'.$rfshb, '');
 
 
 	
@@ -289,7 +293,8 @@ if (is_file($cpath . 'ReCodMod/geoip_bases/SxGeoCity_cp1251/flags/'.$country_nam
 $gi = geoip_open($cpath."ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat",GEOIP_STANDARD);
 $record = geoip_record_by_addr($gi,$ipm);
 $kjgvjhk = ($record->country_name);
-
+if (preg_match('/(.*?) ,/', $kjgvjhk, $matches)) 
+$kjgvjhk = $matches{1};
 $ik++;
 $colorvb=$ik%2>0? '#ccccc':'#ddd';
 
@@ -333,13 +338,13 @@ $serveripp = '-';
 <table><td> 
 <table><tr style=\"background:#333; border:4px solid #CCC;\"></font></td> 
  <td width='30px'><font color='silver'><center>#ID</center></font></td>     
- <td width='45px'><font color='silver'><center>City</center></font></td>    
- <td width='90px'><font color='silver'><center>IP</center></font></td>    
- <td><font color='silver'><center>Player</center></font></td>
- <td class='ccccc'><font color='purple'><center>Date</center></font></td>
- <td><font color='maroon'><center>Reason</center></font></td> 
- <td><font color='teal'><center>Game</center></font></td>
- <td><font color='silver'><center>By</center></font></td>
+ <td width='45px'><font color='silver'><center>$infoocountry</center></font></td>    
+ <td width='90px'><font color='silver'><center>$infooip</center></font></td>    
+ <td><font color='silver'><center>$infoonick</center></font></td>
+ <td class='ccccc'><font color='purple'><center>$infoodate</center></font></td>
+ <td><font color='maroon'><center>$infooreas</center></font></td> 
+ <td><font color='teal'><center>$infoonggame</center></font></td>
+ <td><font color='silver'><center>$infooby</center></font></td>
  </tr>");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -347,7 +352,7 @@ $serveripp = '-';
  $numberx = 0;
 
 usleep(5000);
-  $result = $db2->query("SELECT * FROM `bans` ORDER BY (id+0) DESC LIMIT 100");
+  $result = $db2->query("SELECT * FROM `bans` ORDER BY (id+0) DESC LIMIT 500");
 $ik = 0;
    foreach($result as $row)
     {

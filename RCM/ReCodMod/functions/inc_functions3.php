@@ -3,7 +3,7 @@
 
 if ($game_patch == 'cod1_1.1')
 			$i_name1c = 22;
-else if ($game_patch == 'cod4')
+else if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
                         $i_name1c = 47;
 else
 		        $i_name1c = 22;
@@ -41,8 +41,10 @@ $erroor = 'ERROR001';
 
 if ($game_patch == 'cod1_1.1')
 		$i_rcon_string = explode(' ', $i_rcon_string, 15);
-else
-                $i_rcon_string = explode(' ', $i_rcon_string, 5); 
+else if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5')) 
+                 $i_rcon_xstring = $i_rcon_string; 
+			else
+				$i_rcon_string = explode(' ', $i_rcon_string, 5);
         
 $i_id = $i_rcon_string[0];
 if (!empty($i_rcon_string[2]))
@@ -126,7 +128,7 @@ $chistx = $i_namea;
 $chistx = preg_replace("/[[:space:]][0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/", "%%", $chistx);
 if (strpos($chistx,'%%') !== false){
 list($thatlinev, $nonexv) = explode('%%', $chistx);
-$chistx = preg_replace("/\s[0-9]{1,3}/", "", $thatline);
+$chistx = preg_replace("/\s[0-9]{1,3}/", "", $thatlinev);
 }
 
 $i_name = preg_replace("/[[:space:]][0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/", "%%", $i_name);
@@ -137,6 +139,74 @@ $i_name = preg_replace("/\s[0-9]{1,3}/", "", $thatline);
 
 
 }
+
+
+
+///NEED GET GUID  $knwguid
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5')) {
+
+$ixxx = preg_replace("/[[:space:]][0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/", "%%", $i_rcon_xstring);
+
+if (strpos($ixxx,'%%') !== false){
+list($thatline, $nonex) = explode('%%', $ixxx);
+	$thatline = substr($thatline, 0, -4);
+	$cccount = substr_count($thatline, ' ');
+	
+	if($cccount == 4){
+	list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name) = explode( ' ', $thatline);
+    }
+	else if ($cccount == 5){
+    list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name ,$xc_name1) = explode( ' ', $thatline);
+    $xc_name = $xc_name. ' '.$xc_name1;
+	}
+	else if($cccount == 6){
+    list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name ,$xc_name1,$xc_name2) = explode( ' ', $thatline);	
+     $xc_name = $xc_name. ' '. $xc_name1. ' '. $xc_name2;
+	 }
+	else if($cccount == 7){
+    list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name ,$xc_name1,$xc_name2,$xc_name3) = explode( ' ', $thatline);
+    $xc_name = $xc_name. ' '. $xc_name1. ' '. $xc_name2. ' '. $xc_name3;
+	}
+	else if($cccount == 8){
+    list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name ,$xc_name1,$xc_name2,$xc_name3,$xc_name4) = explode( ' ', $thatline);
+    $xc_name = $xc_name. ' '. $xc_name1. ' '. $xc_name2. ' '. $xc_name3. ' '. $xc_name4;
+	}
+	else if($cccount == 9){
+    list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name ,$xc_name1,$xc_name2,$xc_name3,$xc_name4,$xc_name5) = explode( ' ', $thatline);
+    $xc_name = $xc_name. ' '. $xc_name1. ' '. $xc_name2. ' '. $xc_name3. ' '. $xc_name4. ' '. $xc_name5;
+	}
+	else if($cccount == 10){
+    list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name ,$xc_name1,$xc_name2,$xc_name3,$xc_name4,$xc_name5,$xc_name6) = explode( ' ', $thatline);
+	$xc_name = $xc_name. ' '. $xc_name1. ' '. $xc_name2. ' '. $xc_name3. ' '. $xc_name4. ' '. $xc_name5. ' '. $xc_name6;
+	}
+	else if($cccount == 11){
+    list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name ,$xc_name1,$xc_name2,$xc_name3,$xc_name4,$xc_name5,$xc_name6,$xc_name7) = explode( ' ', $thatline);
+	$xc_name = $xc_name. ' '. $xc_name1. ' '. $xc_name2. ' '. $xc_name3. ' '. $xc_name4. ' '. $xc_name5. ' '. $xc_name6. ' '. $xc_name7;
+	}
+	else if($cccount == 12){
+    list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name ,$xc_name1,$xc_name2,$xc_name3,$xc_name4,$xc_name5,$xc_name6,$xc_name7,$xc_name8) = explode( ' ', $thatline);
+	$xc_name = $xc_name. ' '. $xc_name1. ' '. $xc_name2. ' '. $xc_name3. ' '. $xc_name4. ' '. $xc_name5. ' '. $xc_name6. ' '. $xc_name7. ' '. $xc_name8;
+	}
+	else if($cccount == 13){
+    list($xc_id, $xc_score, $xc_ping, $xc_guid, $xc_name ,$xc_name1,$xc_name2,$xc_name3,$xc_name4,$xc_name5,$xc_name6,$xc_name7,$xc_name8,$xc_name9) = explode( ' ', $thatline);
+	$xc_name = $xc_name. ' '. $xc_name1. ' '. $xc_name2. ' '. $xc_name3. ' '. $xc_name4. ' '. $xc_name5. ' '. $xc_name6. ' '. $xc_name7. ' '. $xc_name8. ' '. $xc_name9;
+	}
+	 
+        $xc_guid = str_replace('!', '', $xc_guid);
+
+        echo "ID: ". $i_id = $xc_id;  
+	//echo ' Score: '.$i_score = $xc_score; 
+	//echo ' Ping: '.$i_ping = $xc_ping;  
+	echo ' Guid: '.$i_guid = $xc_guid; 
+        echo ' IP: '.$i_ip; 
+	//echo ' Nickname - '.$xc_name;
+	echo ' Nick: '.$i_name;
+       /* */
+}
+
+}
+
+
 
 $valid_id = is_numeric($i_id);
 	

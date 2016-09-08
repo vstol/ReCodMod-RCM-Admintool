@@ -144,17 +144,17 @@ if (!preg_match("/^bot\d+$/",  $chistx, $tmp2n))
 {	
 	usleep($sleep_rcon);	
 if (($game_patch == 'cod1_1.1') || ($game_mod == 'codam')){	
-rcon('say ^6 '.$colorb.'#Id:'.$colorb.'  '.$colora.$i_id.' '.$colorb.' Nick: '.$colorb. $colora .$i_namex.' '.$colorb.'Status: ^4('.$statuszl.'^4) '.$colorb.' Ip: '. $colora .substr($i_ip, 0, 7).'** "'.$colorb.' From: ^4(^2'.$xxxnw.'^4)"', '');	
+rcon('say ^6 '.$colorb.'#Id:'.$colorb.'  '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex.' '.$colorb.$infoostat.': ^4('.$statuszl.'^4) '.$colorb.' '.$infooip.': '. $colora .substr($i_ip, 0, 7).'** "'.$colorb.' '.$infoofrom.': ^4(^2'.$xxxnw.'^4)"', '');	
    //echo $i_namex. ' "^2from:^3 '.ciity($country_name['country']['iso']." , ".$country_name['city']['name_en']);	
 }	
 
 else if ($adminguidctl == 1){
-rcon('tell '. $idnum .' ^6 '.$colorb.'#Id:'.$colorb.'  '.$colora.$i_id.' '.$colorb.' Nick: '.$colorb. $colora .$i_namex.' '.$colorb.'Status: ^9('.$statuszl.'^9) '.$colorb.' Ip: '. $colora .$i_ip.' "'.$colorb.' From: ^9(^2'.$xxxnw.'^9)"', '');	
+rcon('tell '. $idnum .' ^6 '.$colorb.'#Id:'.$colorb.'  '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex.' '.$colorb.$infoostat.': ^9('.$statuszl.'^9) '.$colorb.' '.$infooip.': '. $colora .$i_ip.' "'.$colorb.' '.$infoofrom.': ^9(^2'.$xxxnw.'^9)"', '');	
 	
 	}else{
 		
 		
-rcon('tell '. $newid .' ^6 '.$colorb.'#Id:'.$colorb.'  '.$colora.$i_id.' '.$colorb.' Nick: '.$colorb. $colora .$i_namex.' '.$colorb.'Status: ^9('.$statuszl.'^9) '.$colorb.' Ip: '. $colora .$i_ip.' "'.$colorb.' From: ^9(^2'.$xxxnw.'^9)"', '');	
+rcon('tell '. $newid .' ^6 '.$colorb.'#Id:'.$colorb.'  '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex.' '.$colorb.$infoostat.': ^9('.$statuszl.'^9) '.$colorb.' '.$infooip.': '. $colora .$i_ip.' "'.$colorb.' '.$infoofrom.': ^9(^2'.$xxxnw.'^9)"', '');	
    //echo $i_namex. ' "^2from:^3 '.ciity($country_name['country']['iso']." , ".$country_name['city']['name_en']);		
 }	
 }
@@ -174,24 +174,6 @@ $db = NULL;
 echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
    ++$x_stop_lp;    //return;	
 }
-
-/*
-//$vipt = (array_search($chistx, $r_adm, true) !== false);
-if($knownplayr == 0){	
-usleep($sleep_rcon);
-rcon('say ^6[^1RCM^3bot^6] ^1WARNING YOU! ^7' . $nickr . '  ^3its not your group commands!', '');
-if ($kicknotingrp == 1){
-usleep($sleep_rcon*5);
-if ($game_patch == 'cod1_1.1')
-rcon('clientkick '. $unkwnplyersx, '');
-else
-rcon('clientkick '. $idnum, '');
-AddToLog("[".$datetime."] SELF KICK: (" . $nickr . ") (" . $idnum . ") "); 
-++$x_number;
-++$x_return;
-++$x_stop_lp;
-}}
-*/
 
 } 
 	
@@ -254,7 +236,7 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 fclose($connect);
 		 exit;
 }
@@ -285,7 +267,7 @@ $x_nickx = clearnamex($nickr);
   $mmm = trim($x_nickx);
   $nnn = trim($x_namex);
 	
- if(strpos($mmm, $nnn) !== false)
+ if((trim($i_id) == trim($idnum)) || (strpos($mmm, $nnn) !== false))
 	     {
 $gi     = geoip_open($cpath . "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);			 
 			 ++$x_number;

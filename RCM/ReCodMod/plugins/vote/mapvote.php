@@ -1,6 +1,6 @@
 <?php	
 if ($x_stop_lp == 0 ) {
-if ((strpos($msgr, $mapvote) !== false) || ($msgr == $cmdyes) || ($msgr == $cmdyes.$cmdyes))
+if ((strpos($msgr, $ixz.'mpx ') !== false) || ($msgr == $cmdyes) || ($msgr == $cmdyes.$cmdyes))
 {
   echo "\n[cmk-x] : [",$datetime, "] : ".$nickr." : ".$msgr;   
 //*//	

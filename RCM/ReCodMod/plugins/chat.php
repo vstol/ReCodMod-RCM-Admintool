@@ -168,7 +168,7 @@ $msgr = 'FLUD';
 //  || $flm[0]==$x_n3 && $flm[0]==$x_n4 && substr($flmz[2], 0, 8)==substr($msgr, 0, 8) and $res2<=$flood_time_cmd) && ($x_number != 1))
 { echo " FLUD "; 
 usleep($sleep_rcon);
-rcon('say  ^6  '. $chistx . ' "^6[^7Stop chat flooding or BAN!^6] ^1RCM '.$z_ver.' Autokicker"', '');
+rcon('say  ^6  '. $chistx . ' ^6[^7'.$flldd.'!^6] ^1RCM '.$z_ver.' Autokicker', '');
 AddToLog("[".$datetime."] CHAT FLOODER WARN : " . $x_n3 . " (" . $i_ip . ") ");
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[^7Warning by RCM '.$z_ver.' = Chat Flood]</font> ");
 
@@ -192,7 +192,7 @@ fclose($fh);
  
 if ($game_ac == '0'){
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' CHAT FLOOD!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -211,12 +211,12 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . 
 		{	
 if ($game_ac == '0'){
 usleep($sleep_rcon); 
-rcon('say  ^6  '. $chistx . ' "^1Flooding ^6[^7Banned by RCM '.$z_ver.' Autokicker = Chat Flood^6]"', ''); 
+rcon('say  ^6  '. $chistx . ' ^1'.$fllddf.' ^6[^7Banned by RCM '.$z_ver.' Autokicker = Chat Flood^6]', ''); 
  
 $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip}'");
  
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' CHAT FLOOD!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -255,12 +255,12 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . 
 		{	
 if ($game_ac == '0'){
 usleep($sleep_rcon); 
-rcon('say  ^6  '. $chistx . ' "^1Flooding ^6[^7Banned by RCM '.$z_ver.' Autokicker = Chat Flood^6]"', ''); 
+rcon('say  ^6  '. $chistx . ' ^1'.$fllddf.'^6[^7Banned by RCM '.$z_ver.' Autokicker = Chat Flood^6]', ''); 
   
 $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip}'");
 
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' CHAT FLOOD!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -400,7 +400,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");
 	 if ($x_number != 1)
 		{
 		usleep($sleep_rcon);
-		rcon('say  ^6  ^7' . $playername. ' ^5TEMPBAN 2 Hours^7 '.$c_unban.'  " ^7Reason^1:'.$reason.'"', '');
+		rcon('say  ^6  ^7' . $playername. ' ^5'.$tmpbnd.' 2 Hours^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
 		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN 2 Hours</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
 		
@@ -436,7 +436,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");
 	 if ($x_number != 1)
 		{
 		usleep($sleep_rcon);
-		rcon('say  ^6 ^7' . $playername. ' ^5TEMPBAN 3 Hours^7 '.$c_unban.'  " ^7Reason^1:'.$reason.'"', '');
+		rcon('say  ^6 ^7' . $playername. ' ^5'.$tmpbnd.' 3 Hours^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
 		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN 3 Hours</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
 		
@@ -480,7 +480,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");
 	 if ($x_number != 1)
 		{
 		usleep($sleep_rcon);
-		rcon('say  ^6 ^7' . $playername. ' ^5TEMPBAN 5 Hours^7 '.$c_unban.'  " ^7Reason^1:'.$reason.'"', '');
+		rcon('say  ^6 ^7' . $playername. ' ^5'.$tmpbnd.' 5 Hours^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
 		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN 5 Hours</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
 		++$x_number;
@@ -522,7 +522,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");
 	 if ($x_number != 1)
 		{
 		usleep($sleep_rcon);
-		rcon('say  ^6 ^7' . $playername. ' ^5TEMPBAN^7 '.$c_unban.'  " ^7Reason^1:'.$reason.'"', '');
+		rcon('say  ^6 ^7' . $playername. ' ^5'.$tmpbnd.'^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
 		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
 		++$x_number;

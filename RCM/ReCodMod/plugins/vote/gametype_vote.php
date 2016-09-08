@@ -1,6 +1,6 @@
 <?php	
 if ($x_stop_lp == 0 ) {
-if ((strpos($msgr, $gtvote) !== false) || ($msgr == $cmdyes_gt) || ($msgr == $cmdyes_gt.$cmdyes_gt))
+if ((strpos($msgr, $ixz.'gtx ') !== false) || ($msgr == $cmdyes_gt) || ($msgr == $cmdyes_gt.$cmdyes_gt))
 {
   echo "\n[cmk-x] : [",$datetime, "] : ".$nickr." : ".$msgr;   	
 	$xtee = date("dmYHis");

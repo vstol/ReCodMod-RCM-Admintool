@@ -51,14 +51,14 @@ $db = new PDO('sqlite:'.$adminlists);
                     if ($statt > 0) {  
 usleep($sleep_rcon*2);
 if ($game_patch != 'cod1_1.1')
-rcon('tell '.$i_id.' ^6 ^3You already registered in RCM system!', '');
+rcon('tell '.$i_id.' ^6 ^3'.$loggistopk, '');
 else
-	rcon('say ^6 ^3You already registered in RCM system!', '');
+	rcon('say ^6 ^3'.$loggistopk, '');
 ++$x_stop_lp;	
 }else{
 usleep($sleep_rcon*2);
 if ($game_patch != 'cod1_1.1')
-rcon('say ^6 ^3Crangulations ^7'.$chistx.' ^3you in ^1GUID ADMIN ^3group, ^3thanks for registering!', '');	
+rcon('say ^6 ^3'.$loggran.' ^7'.$chistx.' ^3'.$loggistopkk, '');	
 				
 	$date = date('Y.m.d H.i.s');					
 if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '0', 'no')") > 0) {
@@ -99,11 +99,11 @@ $db = new PDO('sqlite:'.$adminlists);
 
                     if ($statt > 0) {  
 usleep($sleep_rcon*2);
-rcon('tell '.$i_id.' ^6 ^3You already registered in RCM system!', '');
+rcon('tell '.$i_id.' ^6 ^3'.$loggistopk, '');
 ++$x_stop_lp;	
 }else{
 usleep($sleep_rcon*2);
-rcon('say ^6 ^3Crangulations ^7'.$chistx.' ^3you in ^2Member group, ^3thanks for registering!', '');	
+rcon('say ^6 ^3'.$loggran.' ^7'.$chistx.' ^3'.$loggmemb, '');	
 				
 	$date = date('Y.m.d H.i.s');					
 if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '3', 'no')") > 0) {
@@ -135,8 +135,8 @@ if (strpos($msgr, $ixz.'logout') !== false)
     { 	
   if ($x_stop_lp == 0 ) {
 $i_namex = afdasfawf($i_name);	
-$na1 = trim($i_namex);
- $na2 = trim($nickr);
+$mmm = trim($i_namex);
+ $nnn = trim($nickr);
 
   if(empty($foridnum))
 		  $foridnum = $i_id;
@@ -157,9 +157,9 @@ $db = new PDO('sqlite:'.$adminlists);
    $db->exec("DELETE FROM x_db_admins WHERE s_adm='$i_ip'");
   
 if ($game_patch == 'cod1_1.1')
-rcon('say ^6 ^3Crangulations ^7'.$chistx.' ^3you in ^2Player group, ^3thanks for quit!', '');
+rcon('say ^6 ^3'.$loggran.' ^7'.$chistx.' ^3'.$loggplayer, '');
 else
-rcon('tell '.$i_id.' ^6 ^3Crangulations ^7'.$chistx.' ^3you in ^2Player group, ^3thanks for quit!', '');				
+rcon('tell '.$i_id.' ^6 ^3'.$loggran.' ^7'.$chistx.' ^3'.$loggplayer, '');				
 
 					
 $sql = null;
@@ -177,5 +177,4 @@ $db = NULL;
 
 ?>
  
-
 

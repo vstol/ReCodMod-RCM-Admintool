@@ -18,44 +18,75 @@ function hx($sc)
  }
 $x_ff  = 0;
 $cpath = hx(__FILE__);
+
 require $cpath . 'ReCodMod/functions/_c.php';
 require $cpath . 'ReCodMod/functions/inc_functions.php';
 include($cpath . "ReCodMod/functions/functions.php");
 include($cpath . "ReCodMod/geoip_bases/MaxMD/geoipcity.inc");
 include($cpath . "ReCodMod/geoip_bases/MaxMD/timezone/timezone.php");
-if (file_exists($log_folder . '/g_log.log'))
- {
-  $fy = file($log_folder . '/g_log.log');
-  foreach ($fy as $parseglog)
-   {
-    $mplogfiler = $parseglog;
-   }
- }
-if (strpos($mplogfiler, $mplogfile) !== false){
-	echo '/+/';	
+
+    ini_set("log_errors", "1");
+    ini_set("error_log", $cpath . "ReCodMod/x_errors/$filename");
+    $logging = new log($cpath . "ReCodMod/x_errors/$filename");
+    set_error_handler("error_handler");
+ 
+         if (empty($adminlists))
+          $db1x = $cpath . 'ReCodMod/databases/db1.sqlite';
+        else
+          $db1x = $adminlists;
+        ////////////////////////////
+        if (empty($bannlist))
+          $db2x = $cpath . 'ReCodMod/databases/db2.sqlite';
+        else
+          $db2x = $bannlist;
+ 
+              if (!file_exists($db1x)){echo "\n DO NOT FIND $db1x"; sleep (200); exit;}		
+	    else  if (!file_exists($db2x)){echo "\n DO NOT FIND $db2x"; sleep (200); exit;}	
+        else  if (!file_exists($cpath . 'ReCodMod/databases/db3.sqlite')){echo "\n DO NOT FIND ReCodMod/databases/db3.sqlite"; sleep (200); exit;}	
+        else  if (!file_exists($cpath . 'ReCodMod/databases/db4.sqlite')){echo "\n DO NOT FIND ReCodMod/databases/db4.sqlite"; sleep (200); exit;}	
+	    else  if (!file_exists($cpath . 'ReCodMod/databases/db5.sqlite')){echo "\n DO NOT FIND ReCodMod/databases/db5.sqlite"; sleep (200); exit;}
+  $plyr_cnt = 0;
+               $status = new COD4xServerStatus($server_ip, $server_port);
+                if ($status->getServerStatus())
+                 {
+                  $status->parseServerData();
+                  $serverStatus = $status->returnServerData();
+                  $players      = $status->returnPlayers();
+                  foreach ($players as $i => $v)
+                   {
+                    $plyr_cnt++;
+                   }
+                 }	  
+ 
+ 	  if(empty($plyr_cnt)){
+$spps = 721000;
 }
-else
- {
-  echo "\n YOU USE WRONG LOGFILE IN cfg/_connection.php \n LINE WITH mplogfile - \n\n CHANGE \n" . $mplogfiler . " \n TO \n" . $mplogfile . " \n FOR RCM WORKING!!! \n \n \n";
-  sleep(130);
-  if (!empty($db))
-    $db = NULL;
-  if (!empty($db1))
-    $db1 = NULL;
-  if (!empty($db2))
-    $db2 = null;
-  if (!empty($db3))
-    $db3 = NULL;
-  if (!empty($db4))
-    $db4 = NULL;
-  if (!empty($db5))
-    $db5 = NULL;
-if(!empty($connect))
-fclose($connect);
-  exit;
- }
+ 
+        if ($plyr_cnt <= 1)
+          $spps = 721000;
+        else if ($plyr_cnt <= 4)
+          $spps = 195000;
+        else if ($plyr_cnt <= 6)
+          $spps = 160000;
+        else if ($plyr_cnt <= 14)
+          $spps = 100000;
+        else if ($plyr_cnt <= 20)
+          $spps = 90000;
+        else if ($plyr_cnt <= 30)
+          $spps = 80000;
+        else if ($plyr_cnt <= 40)
+          $spps = 60000;
+        else if ($plyr_cnt <= 50)
+          $spps = 50000;
+        else if ($plyr_cnt <= 64)
+          $spps = 40000;
+        else if ($plyr_cnt <= 128)
+          $spps = 20000;
+	  
+      
+ 
 echo "\n      /-/ " . $z_set . " /-/ ready to work /-/ \n";
-echo "   Game Server:   " . $servername = trim(meessagee($servername)) . " / " . $game_patch . "\n";
+echo "   Game Server:   " . $servernamex = trim(meessagee($servername)) . " / " . $game_patch . "\n";
 while (true)
  {
   usleep(1000);
@@ -68,17 +99,17 @@ while (true)
   $x_votg3      = 0;
   $x_number     = 0;
   $x_numberz    = 0;
-  $x_pl_log     = 0;
+  $xereg     = 0;
   $x_numb1      = 0;
   $x_return     = 0;
   $x_admin      = 0;
   $x_admin1     = 0;
   $x_admin2     = 0;
-  $x_admin3     = 0;
+  $acceptplugin = 0;
   $x_kik        = 0;
   $x_loops      = 0;
   $x_loopsv     = 0;
-  $x_adminxxx   = 0;
+  $x_dmn   = 0;
   $x_looops     = 0;
   $x_nmbr       = 0;
   $x_nmbrf      = 0;
@@ -90,50 +121,28 @@ while (true)
   $x_stop_lpst  = 0;
   $fakerz       = 0;
   $xz_flud      = false;
-  if ($bck != 1)
-   {
-    $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time_kicker");
-    if ($stime - $cron_time >= 10)
-     {
-      usleep($sleep_rcon);
-      $bck = 1;
-      @file_put_contents($cpath . "ReCodMod/x_cron/cron_time_kicker", "");
-      require $cpath . 'ReCodMod/functions/inc_functions2X.php';
-      for ($i = 0; $i < $player_cnt; $i++)
-       {
-        require $cpath . 'ReCodMod/functions/inc_functions3x.php';
-        $i_id   = 0;
-        $i_ping = 0;
-        if ($player_cnt <= 1)
+
+        if ($plyr_cnt <= 1)
           $spps = 721000;
-        else if ($player_cnt <= 4)
+        else if ($plyr_cnt <= 4)
           $spps = 195000;
-        else if ($player_cnt <= 6)
+        else if ($plyr_cnt <= 6)
           $spps = 160000;
-        else if ($player_cnt <= 14)
+        else if ($plyr_cnt <= 14)
           $spps = 100000;
-        else if ($player_cnt <= 20)
+        else if ($plyr_cnt <= 20)
           $spps = 90000;
-        else if ($player_cnt <= 30)
+        else if ($plyr_cnt <= 30)
           $spps = 80000;
-        else if ($player_cnt <= 40)
+        else if ($plyr_cnt <= 40)
           $spps = 60000;
-        else if ($player_cnt <= 50)
+        else if ($plyr_cnt <= 50)
           $spps = 50000;
-        else if ($player_cnt <= 64)
+        else if ($plyr_cnt <= 64)
           $spps = 40000;
-        else if ($player_cnt <= 128)
-          $spps = 20000;
-        $bck = 1;
-        if (($spps != 721000) && ($x_numberz == 0))
-         {
-          require $cpath . 'ReCodMod/plugins/ban_fast_kick.php';
-          ++$x_numberz;
-          $bck = 1;
-         }
-       }
-     }
-   }
+        else if ($plyr_cnt <= 128)
+          $spps = 20000;  
+  
   usleep($spps);
   if ($bck2 == 0)
    {
@@ -141,30 +150,24 @@ while (true)
      {
       if ($spps != 221000)
        {
-        if (empty($player_cnt))
+		   
+		 if (empty($player_cnt))
          {
           $player_cnt = 2;
-         }
-        if ($player_cnt < 2)
-          $msgt = 120;
-        else if ($player_cnt < 5)
-          $msgt = 30;
-        else if ($player_cnt < 10)
-          $msgt = 40;
-        else if ($player_cnt < 14)
-          $msgt = 45;
-        else if ($player_cnt < 16)
-          $msgt = 50;
-        else
-          $msgt = 60;
+		  $xmoretime = 3;
+         }  
+		 else{ $xmoretime = 1; }
+        
         $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time_message");
-        if ($stime - $cron_time >= $msgt)
+        if ($stime - $cron_time >= $msg_pause*$xmoretime)
          {
           file_put_contents($cpath . "ReCodMod/x_cron/cron_time_message", "");
           require $cpath . 'ReCodMod/functions/inc_functions2.php';
           for ($i = 0; $i < 1; $i++)
            {
             echo ' - ' . $spps . ' - ';
+			$acceptplugin = 1;
+                    require $cpath . 'cfg/messages.cfg.php';
             require $cpath . 'ReCodMod/plugins/messages.php';
             if ($code == 1)
              {
@@ -227,15 +230,17 @@ while (true)
                  }
                }
              }
-            else
+    /*        else
              {
-              if ($guids == 0)
+            
+			if ($guids == 0)
                {
+				   
                 $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time_resttt2");
                 if ($stime - $cron_time >= 5)
                  {
                   file_put_contents($cpath . "ReCodMod/x_cron/cron_time_resttt2", "");
-                  $fh = file("/media/DataBase/Game_Servers/RCM/CONNECT/LOG_logged_from_forum.txt");
+                  $fh = file("/media/Windows/Game_Servers/RCM/CONNECT/LOG_logged_from_forum.txt");
                   foreach ($fh as $fline)
                    {
                     $flm = explode(" - ", $fline);
@@ -282,7 +287,9 @@ while (true)
               else
                {
                }
-             }
+			   
+			   
+             }*/
            }
          }
         $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time_top");
@@ -296,10 +303,6 @@ while (true)
    }
   if ($spps != 5321000)
    {
-    ini_set("log_errors", "1");
-    ini_set("error_log", $cpath . "ReCodMod/x_errors/$filename");
-    $logging = new log($cpath . "ReCodMod/x_errors/$filename");
-    set_error_handler("error_handler");
     $datetime  = date('Y.m.d H:i:s');
     $dtx2      = date('Y-m-d H:i:s');
     $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time_exec1");
@@ -334,8 +337,6 @@ while (true)
               for ($i = 0; $i < 1; $i++)
                {
                 require $cpath . 'ReCodMod/functions/inc_functions3.php';
-                if ((!$valid_id) || (!$valid_ping))
-                  Continue;
                 usleep($sleep_rcon);
                 rcon($c);
                 AddToLog("[" . $datetime . "] MAP ROTATION AUTO CHANGE (configs.php)");
@@ -353,8 +354,6 @@ while (true)
             for ($i = 0; $i < 1; $i++)
              {
               require $cpath . 'ReCodMod/functions/inc_functions3.php';
-              if ((!$valid_id) || (!$valid_ping))
-                Continue;
               usleep($sleep_rcon);
               rcon($rules_schedule[$sh][$sm]);
               AddToLog("[" . $datetime . "] MAP ROTATION AUTO CHANGE (configs.php)");
@@ -370,7 +369,17 @@ while (true)
         $parseline = trim(readloglines($mplogfile));
 		
         clearstatcache();
-        require($cpath . "ReCodMod/functions/log_reader_functions.php");
+
+$xnone  = 'QUICKMESSAGE';
+if ($game_patch == 'cod1_1.1') $kill   = 'K;'; else $kill   = 'K;0;';
+if ($game_patch == 'cod1_1.1') $death   = 'D;'; else $death   = 'D;0;';
+if ($game_patch == 'cod1_1.1') $quit   = 'Q;'; else $quit   = 'Q;0;';
+if ($game_patch == 'cod1_1.1') $findme1   = 'J;'; else $findme1   = 'J;0;'; 
+$xnonev = strpos($parseline, $xnone); $deathv = strpos($parseline, $death);
+$killv = strpos($parseline, $kill); $pos1 = strpos($parseline, $findme1);
+$ff1 = strpos($parseline, '100000;MOD_CRUSH;none'); $ff2 = strpos($parseline, 'MOD_FALLING;none');
+$pos = strpos($parseline, '');
+		
         if ((preg_match('/say;/', $parseline, $xnon)) || (preg_match('/sayteam;/', $parseline, $xm)) || (preg_match('/say; /', $parseline, $xnon)) || (preg_match('/sayteam; /', $parseline, $xm)) || (preg_match('/tell;/', $parseline, $xm)))
          {
           $parselinetxt = delxxxc($parseline);
@@ -387,9 +396,13 @@ while (true)
              {
               list($rrr, $nickr, $msgr) = explode('; ', $parseline);
               $guidn = '0';
+			  //$idnum = '0';
              }
-            else
+            else{
               list($nickr, $msgr) = explode(' % ', $parselinetxt);
+			$guidn = '0';
+			  //$idnum = '0';  
+			}
            }
           $msgO      = $msgr;
           $msgr      = mb_strtolower($msgr, 'cp1251');
@@ -417,8 +430,8 @@ while (true)
                 for ($i = 0; $i < $player_cnt; $i++)
                  {
                   require $cpath . 'ReCodMod/functions/inc_functions3.php';
-                  if ((!$valid_id) || (!$valid_ping))
-                    Continue;
+                  //if ((!$valid_id) || (!$valid_ping))
+                   // Continue;
                   if ($x_stop_lp == 0)
                    {
                     require $cpath . 'ReCodMod/plugins/adm_plugins/cmds_other.php';
@@ -434,6 +447,8 @@ while (true)
                     require $cpath . 'ReCodMod/plugins/adm_plugins/delete.php';
                     require $cpath . 'ReCodMod/plugins/adm_plugins/update.php';
                     require $cpath . 'ReCodMod/plugins/adm_plugins/refresh.php';
+					require $cpath . 'ReCodMod/plugins/cmd/serverinfo.php';
+					require $cpath . 'ReCodMod/plugins/adm_plugins/ftp.php';
                     if ($game_patch != 'cod1_1.1')
                       require $cpath . 'ReCodMod/plugins/adm_plugins/screenshot.php';
                     if ($x_stop_lp == 100)
@@ -450,7 +465,7 @@ while (true)
                         $db4 = NULL;
                       if (!empty($db5))
                         $db5 = NULL;
-					if(!empty($connect))
+					if(is_resource($connect))
                         fclose($connect);
                       exit;
                      }
@@ -459,7 +474,7 @@ while (true)
                       if ($knownplayr > 0)
                        {
                         if ($connect){
-							if(!empty($connect))
+							if(is_resource($connect))
                           fclose($connect);
 						  }
                        }
@@ -473,28 +488,31 @@ while (true)
                       ++$x_stop_lp;
                    }
                  }
-                if (($knownplayr > 0) && (!empty($connect)))
-                  fclose($connect);
+                if (($knownplayr > 0) && (is_resource($connect))){
+				fclose($connect);	
+				}
+                  
                 echo '  ..  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
                 ++$x_stop_lp;
                 foreach ($admin_commands as $commandprt)
                  {
                   if (preg_match('/' . $ixz . $commandprt . '/si', $msgr, $xnon))
                    {
-                    ECHO 'sssss';
+                    ECHO '-1-';
                     if ($knownplayr == 0)
                      {
-                      ECHO 'vvvvv';
-                      require $cpath . 'ReCodMod/functions/inc_functions2.php';
+                      ECHO '-2-';
+                      
                      if ($x_stop_lp == 0)
  { 
+                         require $cpath . 'ReCodMod/functions/inc_functions2.php';
 					  for ($i = 0; $i < $player_cnt; $i++)
                        {
                         require $cpath . 'ReCodMod/functions/inc_functions3.php';
-                        if ((!$valid_id) || (!$valid_ping))
-                          Continue;
+                        //if ((!$valid_id) || (!$valid_ping))
+                        //  Continue;
                         usleep($sleep_rcon);
-                        rcon('say ^6[^1RCM^3bot^6] ^1WARNING YOU! ^7' . $nickr . '  ^3its only for admins!', '');
+                        rcon('say ^6[^1RCM^3bot^6] ^1'.$infoowrnn.'! ^7' . $nickr . '  ^3'.$infoowrnw.'', '');
                         if ($kicknotingrp == 1)
                          {
 							 if ($x_stop_lp == 0)
@@ -527,8 +545,8 @@ while (true)
               for ($i = 0; $i < $player_cnt; $i++)
                {
                 require $cpath . 'ReCodMod/functions/inc_functions3.php';
-                if ((!$valid_id) || (!$valid_ping))
-                  Continue;
+                //if ((!$valid_id) || (!$valid_ping))
+                 // Continue;
                 $x_namex = clearnamex($i_name);
                 $x_nickx = clearnamex($nickr);
                 if ($x_stop_lp == 0)
@@ -549,8 +567,8 @@ while (true)
               for ($i = 0; $i < $player_cnt; $i++)
                {
                 require $cpath . 'ReCodMod/functions/inc_functions3.php';
-                if ((!$valid_id) || (!$valid_ping))
-                  Continue;
+               // if ((!$valid_id) || (!$valid_ping))
+               //   Continue;
                 if ($x_stop_lp == 0)
                  {
                   require $cpath . 'ReCodMod/plugins/cmd/status.php';
@@ -578,7 +596,7 @@ while (true)
  {
                     ECHO 'zzzzz';
                     usleep($sleep_rcon);
-                    rcon('say ^6[^1RCM^3bot^6] ^1WARNING YOU! ^7' . $nickr . '  ^3its not your group commands!', '');
+                    rcon('say ^6[^1RCM^3bot^6] ^1'.$infoowrnn.'! ^7' . $nickr . '  ^3'.$infoowrnx.'', '');
                     if ($kicknotingrp == 1)
                      {
 						 if ($x_stop_lp == 0)
@@ -601,7 +619,7 @@ while (true)
                }
               if ($x_stop_lp == 0)
                {
-                $status = new COD4ServerStatus($server_ip, $server_port);
+                $status = new COD4xServerStatus($server_ip, $server_port);
                 if ($status->getServerStatus())
                  {
                   $status->parseServerData();
@@ -617,7 +635,6 @@ while (true)
                     $i_ip   = $scores[$i];
                     $i_ping = $pings[$i];
                     require $cpath . 'ReCodMod/plugins/cmd/skill_test.php';
-                    require $cpath . 'ReCodMod/plugins/cmd/skill_and_rank.php';
                     $rank++;
                    }
                  }
@@ -635,7 +652,7 @@ while (true)
            }
           if ($stop_lp == 0)
            {
-            if ($chat_protect == 0)
+            if (($chat_protect == 0) || ($chat_protect == 2))
              {
               $dhgsj = addslashes(hjgdtr($nickr));
               $msgO  = $msgr;
@@ -656,13 +673,17 @@ while (true)
               for ($i = 0; $i < $player_cnt; $i++)
                {
                 require $cpath . 'ReCodMod/functions/inc_functions3.php';
-                if ((!$valid_id) || (!$valid_ping))
-                  Continue;
+                //if ((!$valid_id) || (!$valid_ping))
+                //  Continue;
                 require $cpath . 'ReCodMod/plugins/chat_pre.php';
                 require $cpath . 'ReCodMod/plugins/chat.php';
                }
-              if ($chat_protect == 1)
+			   
+              if (($chat_protect == 1) || ($chat_protect == 3))
                 require $cpath . 'ReCodMod/plugins/log_reader_chat_flood.php';
+			  if (($chat_protect == 2) || ($chat_protect == 3))
+			  require 'ReCodMod/plugins/chat_2.php';
+			
               $msgr = mb_strtolower($msgr, 'cp1251');
              }
            }
@@ -670,6 +691,7 @@ while (true)
          }
         else if (preg_match('/J;/', $parseline, $xnon))
          {
+
           require $cpath . 'ReCodMod/plugins/log_reader_geo_welcome.php';
          }
         else if (preg_match('/Q;/', $parseline, $xnon))
@@ -686,13 +708,37 @@ while (true)
          }
         else if (preg_match('/InitGame:/', $parseline, $xnon))
          {
-          if ((strpos($parseline, 'g_gametype\^5sd') !== false) || (strpos($parseline, 'g_gametype\^9old^5sd') !== false) || (strpos($parseline, 'g_gametype\^5sd') !== false) || (strpos($parseline, 'g_gametype\pam') !== false) || (strpos($parseline, 'g_gametype\promod') !== false) || (strpos($parseline, 'g_gametype\^1bash') !== false) || (strpos($parseline, 'g_gametype\^5promod') !== false) || (strpos($parseline, 'g_gametype\rsd') !== false) || (strpos($parseline, 'g_gametype\sd') !== false) || (strpos($parseline, 'g_gametype\bel') !== false))
+	 ///  0:00 InitGame: \fs_game\mods/g13ftags\g_compassShowEnemies\0\g_gametype\war\gamename\Call of Duty 4\mapname\mp_arbor_day\protocol\6\shortversion\1.7\sv_allowAnonymous\0\sv_disableClientConsole\0\sv_floodprotect\4\sv_hostname\CoD4Host\sv_maxclients\24\sv_maxPing\0\sv_maxRate\5000\sv_minPing\0\sv_privateClients\0\sv_punkbuster\0\sv_pure\1\sv_voice\1\ui_maxclients\32			 
+
+	 /////NEXT MAP   !nextmap fix
+if (preg_match('/\bg_gametype\b\W*\b(.+)/iu', $parseline, $match)) {
+    $wfnd = $match[1];
+    $gamettt = explode('\gamename', $wfnd);	
+	//echo "\n\n".$egtxrun = $gametypek[0];
+        //echo "\n".$egtxrun = $gametypek[1]; 
+$lll = preg_replace("/\W*\b/iu", "%%", $gamettt[0]);
+if (strpos($lll, '%') !== false) { 
+	$gametypek = explode('%%', $lll);	
+	echo "\n".$egtxrun = $gametypek[1];}}
+
+
+if (preg_match('/\bmapname\b\W*\b(.+)/iu', $parseline, $match)) {
+    $wfndh = $match[1];
+	$mapttt = explode('\protocol', $wfndh);	
+	//echo "\n\n".$emaprun = $mapnamek[0];}	
+$lllc = preg_replace("/\W*\b/iu", "%%", $mapttt[0]);
+if (strpos($lllc, '%') !== false) {	 
+	$hhjkc = explode('%%', $lllc);	
+	echo "\n".$emaprun = $hhjkc[1];
+}
+}
+          if ((strpos($parseline, '\g_gametype\^5sd') !== false) || (strpos($parseline, '\g_gametype\^9old^5sd') !== false) || (strpos($parseline, '\g_gametype\^5sd') !== false) || (strpos($parseline, '\g_gametype\pam') !== false) || (strpos($parseline, '\g_gametype\promod') !== false) || (strpos($parseline, '\g_gametype\^1bash') !== false) || (strpos($parseline, '\g_gametype\^5promod') !== false) || (strpos($parseline, '\g_gametype\rsd') !== false) || (strpos($parseline, '\g_gametype\sd') !== false) || (strpos($parseline, '\g_gametype\bel') !== false))
            {
             echo ' - Objective gametype - ';
             $geosp = 'sd';
             if ($game_patch == 'cod1_1.1')
              {
-              if (strpos($parseline, 'g_gametype\sd') !== false)
+              if (strpos($parseline, '\g_gametype\sd') !== false)
                {
                 usleep($sleep_rcon);
                 require $cpath . 'ReCodMod/functions/getinfo/sd_fix/sdfix.php';
@@ -730,7 +776,7 @@ while (true)
                       $db4 = NULL;
                     if (!empty($db5))
                       $db5 = NULL; 
-				  if(!empty($connect))
+				  if(is_resource($connect))
                     fclose($connect);
                     exit;
                    }

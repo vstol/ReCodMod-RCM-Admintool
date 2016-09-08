@@ -1,5 +1,6 @@
 <?php
 
+///SUPPORT MULTI EMAIL ADRESS - EXAMPLE -> $admin_email = 'my_email_accaunt@yandex.ru;ADMIN2@yahoo.com;adminname@mail.com';
 $admin_email = 'my_email_accaunt@yandex.ru';   //for report sending commands! [tested with yandex.com , gmail.com and yahoo.com mail services - but you can make redirect messages to your email service]
 
 $gmailpass = '';  //Only FOR GMAIL.COM email service need Password [without pass don't work]

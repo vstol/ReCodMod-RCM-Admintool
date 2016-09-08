@@ -26,11 +26,11 @@ echo " \n SYSTEM".$syys;
 echo " \n CPU".$ccgc; 
   
 usleep($sleep_rcon);
-rcon('say ^6 ^3System uptime: ^7'.$suptime.'', '');		
+rcon('say ^6 ^3'.$sysupttm.': ^7'.$suptime.'', '');		
 usleep($sleep_rcon);
-rcon('say ^6 ^3System: ^7'.$syys.'', '');	
+rcon('say ^6 ^3'.$sysrkgd.': ^7'.$syys.'', '');	
 usleep($sleep_rcon);
-rcon('say ^6 ^3CPU: ^7'.$ccgc.'', '');
+rcon('say ^6 ^3'.$sysrkcpuu.': ^7'.$ccgc.'', '');
 	
  ++$x_stop_lp;
 }

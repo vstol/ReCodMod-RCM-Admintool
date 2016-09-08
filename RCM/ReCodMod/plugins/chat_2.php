@@ -1,11 +1,8 @@
 <?php
 if ($stop_lp == 0 ) {
-
+if(!$x_mat || !$x_spam|| !$x_cry )
+{
 $x_admin1 = 0;
-
-
-
-
 try
   {
 	   if (empty($adminlists))	  
@@ -113,10 +110,10 @@ $x_n4 = trim(clearnamex($nivv));
 	     {					 
 if ($game_ac == '0'){ 
   usleep($sleep_rcon);
-  rcon('say  ^6  '. $chistx . ' "^6[^7Censored!^6] ^1RCM '.$z_ver.' Autokicker"', '');
+  rcon('say  ^6  '. $chistx . ' "^6[^7'.$cnsorrd.'^6] ^1RCM '.$z_ver.' Autokicker"', '');
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
-	rcon('clientkick '. $i_id.' ^6[^7Censored!^6]^7', '');
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
+	rcon('clientkick '. $i_id.' ^6[^7'.$cnsorrd.'^6]^7', '');
 else
         rcon('clientkick '. $i_id, '');
  
@@ -133,8 +130,8 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
 		{	
 if ($game_ac == '0'){
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
-	rcon('clientkick '. $i_id.' ^6[^7Censored!^6]^7', '');
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
+	rcon('clientkick '. $i_id.' ^6[^7'.$cnsorrd.'^6]^7', '');
 else
         rcon('clientkick '. $i_id, '');
 }
@@ -154,7 +151,7 @@ AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
 }
 else {  
     usleep($sleep_rcon);
-  rcon('say  ^6  '. $chistx . ' "^6[^7Censored!^6] ^1RCM '.$z_ver.' Autokicker"', '');
+  rcon('say  ^6  '. $chistx . ' ^6[^7'.$cnsorrd.'^6] ^1RCM '.$z_ver.' Autokicker', '');
 rcon('akick '. $i_id.' " ^6[^7Kicked by RCM '.$z_ver.' Autokicker = Use of bad words^6]"', '');
  
 $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip}'");
@@ -169,8 +166,8 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
      if (($ip1 == $i_ip) && ($wrn > $wswear))
 		{	
 if ($game_ac == '0'){usleep($sleep_rcon);
-if ($game_patch == 'cod4')
-	rcon('clientkick '. $i_id.' ^6[^7Censored!^6]^7', '');
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
+	rcon('clientkick '. $i_id.' ^6[^7'.$cnsorrd.'^6]^7', '');
 else
         rcon('clientkick '. $i_id, '');}
 else { usleep($sleep_rcon); rcon('akick '. $i_id.' " ^6[^7BAN - CENSORED!^6]"', ''); }
@@ -218,7 +215,7 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . 
 	     {			
 if ($game_ac == '0'){ 
   usleep($sleep_rcon);
-  rcon('say  ^6  '. $chistx . ' "^6[^7 NO Spam!^6] ^1RCM '.$z_ver.'"', '');
+  rcon('say  ^6  '. $chistx . ' ^6[^7 '.$noospmm.'!^6] ^1RCM '.$z_ver.'', '');
 /////////$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$/////////WARNED SPAM			
  
 $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip}'");
@@ -234,7 +231,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
 if ($game_ac == '0'){
 usleep($sleep_rcon); 
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' ^6[^7SPAM!^6]^7!', '');
 else
         rcon('clientkick '. $i_id, '');}
@@ -256,7 +253,7 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . 
 /////////$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$/////////WARNED SPAM	
                     }
 else {usleep($sleep_rcon);  
-  rcon('say  ^6  '. $chistx . ' "^6[^7NO Spam!^6] ^1RCM '.$z_ver.'"', '');
+  rcon('say  ^6  '. $chistx . ' ^6[^7'.$noospmm.'!^6] ^1RCM '.$z_ver.'', '');
 /////////$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$/////////WARNED SPAM			
  
 $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip}'"); 
@@ -271,7 +268,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
 		{	
 if ($game_ac == '0'){
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' ^6[^7SPAM!^6]', '');
 else
         rcon('clientkick '. $i_id, '');}
@@ -324,10 +321,10 @@ if(($x_n4 == $x_n3) && !$x_cry)
 	     {			
 if ($game_ac == '0'){ 
   usleep($sleep_rcon);
-  rcon('say  ^6  '. $chistx . ' "^6[^7You are no one holds here!^6] ^1RCM '.$z_ver.' Autokicker "', '');
+  rcon('say  ^6  '. $chistx . ' ^6[^7'.$noohldd.'^6] ^1RCM '.$z_ver.' Autokicker ', '');
  AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[^7Kicked by RCM '.$z_ver.' = Cry]</font> "); 
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' ^6[^7CRYING!^6]', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -345,7 +342,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
      if (($ip1 == $i_ip) && ($wrn > $wdislk))
 		{	
 if ($game_ac == '0'){usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' ^6[^7CRYING!^6]', '');
 else
         rcon('clientkick '. $i_id, '');}
@@ -364,7 +361,7 @@ AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
 
 }
 else {usleep($sleep_rcon);  
-  rcon('say  ^6  '. $chistx . ' "^6[^7You are no one holds here!^6] ^1RCM '.$z_ver.' Autokicker"', '');
+  rcon('say  ^6  '. $chistx . ' ^6[^7'.$noohldd.'^6] ^1RCM '.$z_ver.' Autokicker', '');
   usleep($sleep_rcon);
 rcon('akick '. $i_id.' " ^6[^7Kicked by RCM '.$z_ver.' Autokicker = Dont Cry!^6]"', '');
     
@@ -382,7 +379,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
      if (($ip1 == $i_ip) && ($wrn > $wdislk))
 		{	
 if ($game_ac == '0'){usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' ^6[^7CRYING!^6]', '');
 else
         rcon('clientkick '. $i_id, '');}
@@ -428,6 +425,7 @@ $db4 = NULL;
  
  
  $x_admin1 = 0;
+}
 }
 }
 ?>

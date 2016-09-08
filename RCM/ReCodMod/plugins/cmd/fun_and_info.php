@@ -4,7 +4,7 @@ if ($x_stop_lp == 0 ) {
 	
 if (('ty' == mb_strtolower(trim(clearnamex($msgr)))) && ($x_number != 1)){	
 	  usleep($sleep_rcon);
-		rcon('say ^6 ^3Thank you too!', '');
+		rcon('say ^6 ^3'.$thxq.'!', '');
 	++$x_number;
 	
 	}
@@ -23,11 +23,11 @@ if (('ty' == mb_strtolower(trim(clearnamex($msgr)))) && ($x_number != 1)){
 
 	  usleep($sleep_rcon);
 $words=array(
-'^3Good Game! ',
-'^3Good Game ;) ',
+'^3'.$gggq.'! ',
+'^3'.$gggq.' ;) ',
 '^3Good Game All :D ',
 '^3Good game today! ',
-'^3Good game ^^ ',
+'^3'.$gggq.' ^^ ',
 '^3GG Players :D ');
 $text=array();
 $slovam=1;
@@ -444,9 +444,9 @@ rcon('say ^6^2/^7*^7*^7*^2\"');
     { 	
 
 	  usleep($sleep_rcon);	  	  
-rcon('say ^6 ^7night 1 ^3(_._), ^7night 2 ^3(_o_), ^7night 3 ^3(_0_), ^7night 4 ^3(_((0))_)');
+rcon('say ^6 '.$fckqq1.'');
 usleep($sleep_rcon);	
-rcon('say ^6 ^7u dirty boy!');
+rcon('say ^6 '.$fckqq2.'');
 ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
 	++$x_number;
  }	
@@ -455,7 +455,7 @@ rcon('say ^6 ^7u dirty boy!');
     { 
 
 	  usleep($sleep_rcon);	  	  
-rcon('say ^6 ^7\_/ \_/ \_/ ^4VODKA CONNECTING PEOPLE        ');
+rcon('say ^6 '.$vodqqq.'');
 ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
 	++$x_number;
 }
@@ -464,7 +464,7 @@ rcon('say ^6 ^7\_/ \_/ \_/ ^4VODKA CONNECTING PEOPLE        ');
     { 	
 
 	  usleep($sleep_rcon);	  	  
-rcon('say ^6 ^3Merry Christmas ^1*^7<(^5:^7{^1D');
+rcon('say ^6 ^3'.$merrycrr.'');
 ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
 	++$x_number;		 
 	}
@@ -472,7 +472,7 @@ rcon('say ^6 ^3Merry Christmas ^1*^7<(^5:^7{^1D');
     { 	
 
 	  usleep($sleep_rcon);	  	  
-rcon('say ^6 ^3Happy New Year ^1*^7<(^5:^7{^1O');
+rcon('say ^6 ^3'.$nyyycrr.'');
 ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
 	++$x_number;
  		 
@@ -512,7 +512,7 @@ rcon('say ^6  ^3Shut ta f..k up!');
     { 
 
 	  usleep($sleep_rcon);	  	  
-rcon('say ^6  ^3Away from keyboard!');
+rcon('say ^6  ^3'.$afffk.'');
 
 ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
 	++$x_number;
@@ -822,7 +822,7 @@ $xxxnw = ($record->country_name);
     //echo 'Timezone GMT offset: ' . $user_timezone_offset . '<br/>';
 	$serverdate = date('M-d H:i:s');
 	usleep($sleep_rcon*2);
-	rcon('say ^6 ^7'.$chistx.' ^3Geo: ^7'.$xxxnw.' ^3Time:^7 '.$user_localtime->format('H:i:s').' ^3Sunset: ^7' . date_sunset(time(), SUNFUNCS_RET_STRING, $record->latitude, $record->longitude, ini_get("date.sunset_zenith"), ($user_timezone_offset/3600)) . ' ^3Sunrise: ^7' . date_sunrise(time(), SUNFUNCS_RET_STRING, $record->latitude, $record->longitude, ini_get("date.sunrise_zenith"), ($user_timezone_offset/3600)) . ' ^3Server: ^7'.$serverdate, '');
+	rcon('say ^6 ^7'.$chistx.' ^3Geo: ^7'.$xxxnw.' ^3'.$infootime.':^7 '.$user_localtime->format('H:i:s').' ^3'.$sunnsett.': ^7' . date_sunset(time(), SUNFUNCS_RET_STRING, $record->latitude, $record->longitude, ini_get("date.sunset_zenith"), ($user_timezone_offset/3600)) . ' ^3'.$inforsun.': ^7' . date_sunrise(time(), SUNFUNCS_RET_STRING, $record->latitude, $record->longitude, ini_get("date.sunrise_zenith"), ($user_timezone_offset/3600)) . ' ^3'.$infoservv.': ^7'.$serverdate, '');
 
 
 	AddToLogInfo("[".$datetime."] Time: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ")");    
@@ -886,7 +886,7 @@ echo '    '.substr($tfinishh = (microtime(true) - $start),0,7);
     {
 
 usleep($sleep_rcon);
-rcon('say ^6 ^1Do not panic, sent ^7'.$ixz.'report ^1with your problem message! ', '');
+rcon('say ^6 ^1'.$pppanix.'', '');
 	
  AddToLogInfo("[".$datetime."] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");    
 	
@@ -902,7 +902,7 @@ else if ((strpos($msgr, 'admin') !== false) && ($x_number != 1))
     {
 
 usleep($sleep_rcon);
-rcon('say ^6 ^1Sent ^7'.$ixz.'support ^1with your question & in message add your e-mail! ', '');
+rcon('say ^6 ^1'.$adminppp, '');
 	
  AddToLogInfo("[".$datetime."] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");    
 	

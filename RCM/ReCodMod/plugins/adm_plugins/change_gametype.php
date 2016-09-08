@@ -59,7 +59,7 @@ if($x_gt == 'actf'
 
 if ($x_number == 0){	
 	usleep($sleep_rcon);
-	rcon('say ^6 ^3Admin changed gametype to '.$x_gt, '');
+	rcon('say ^6 ^3'.$infoogtxx.' '.$x_gt, '');
 	sleep(1);	 	
 	rcon('set g_gametype '.$x_gt.'', '');
 	AddToLog("[".$datetime."] Gametype CHANGE: (" . $i_ipn . ") (" . $i_id . ") BY: (" . $x_nickx . ") ");    
@@ -75,7 +75,7 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> Admin change
 }else{
 echo "  False gametype";
 usleep($sleep_rcon);	
-rcon('say ^6 ^1False gametype!', '');	
+rcon('say ^6 ^1'.$infoflsg.'', '');	
 ++$x_number;
 ++$x_return;
      }	

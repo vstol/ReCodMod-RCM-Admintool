@@ -15,6 +15,7 @@ if ($x_stop_lp == 0)
       $counttdot = substr_count($parseline, ';');
       if ($counttdot > 2)
         $x_stop_lp = 2;
+$plyr_cnt--;
       ///////////////error fix
      }
     else
@@ -24,7 +25,8 @@ if ($x_stop_lp == 0)
       $counttdot = substr_count($parseline, ';');
       if ($counttdot > 3)
         $x_stop_lp = 3;
-      ///////////////error fix		
+      ///////////////error fix	
+$plyr_cnt--;	
       list($x1e, $x2e, $x3e, $x4e) = explode(';', $parseline);
      }
     if ($x_stop_lp == 0)
@@ -128,7 +130,10 @@ if ($x_stop_lp == 0)
                 // INSERT NEW TABLE WITHOUT IP ADRESS,        BE GOOD ADD THEIR CITY *(
                 $db3->exec("INSERT INTO x_db_play_stats (s_player,s_place,s_kills,s_deaths,s_grenade,s_skill,s_ratio,s_heads,s_time,s_lasttime,s_city,s_clear,s_guid,s_geo, s_suicids,s_fall,s_melle)  
  VALUES ('$x4vvv','$place','$kilsss','$deathsss','$nadesss','$iskill','$iratio','$headsss','$timee','$lasttime','','$clc','$mdguid','$cgeo','$suicides','','$melles')");
-               }
+               
+			 AddToLog1("<br/>[" . $datetime . "] ". $welcome_e . " " . $x4e . " ".$infoofrom." [" . $cgeo . "] guid# ".$mdguid."");
+			 AddToLog1clear("[" . $datetime . "] ". $welcome_e . " " . $x4e . " ".$infoofrom." [" . $cgeo . "] guid# ".$mdguid."");  
+			   }
              }
            }
          }
@@ -195,7 +200,7 @@ echo ' db5 null ';}
           list($vv1, $iddeath, $vv3, $death, $idkill, $vv6, $kill, $vv8, $vv9c, $vv12n, $xxk) = explode(';', $parselinetxt);
           list($vv12, $vv22, $vv32, $death, $vv42, $vv62, $kill, $vv82, $vv92c) = explode(';', $parselinetxt);
          }
-        else if (($game_patch == 'cod2') || ($game_patch == 'cod4'))
+        else if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
          {
           //207:29 K;0000000066b3268b76693bba8501807b;2;;Darth_Abaddon;000000003fa9b346d09079aa1b1ef56c;0;;LA|Rocca;m16_mp;135;MOD_MELEE;neck
           ///////////////error fix
@@ -215,6 +220,15 @@ echo ' db5 null ';}
           echo "\n[kill] : [", $datetime, "] : [" . $kill . " -> " . $death . "]  [" . $vv13 . "]";
         if ($game_patch == 'cod1_1.1')
           $vv13 = $xxk;
+	  
+	  if (($guids == 1) && ($vv6 == '0') || ($guids == 1) && ($vv6 == 'allies') || ($guids == 1) && ($vv6 == 'axis'))
+	  { echo "\n ALL PLAYERS OR SOME PLAYERS HAVE ZERO (0) GUID! \n"; 
+        echo 'WARNING YOU USE IN cfg/_settings.php $guids = 1; but need $guids = 0;';
+		echo "\n\n\n";
+		sleep (30);
+		exit;
+	  }
+	        
         /*
         $x_kill = quotemeta(htmlspecialchars($kill, ENT_QUOTES));
         $x_death = quotemeta(htmlspecialchars($death, ENT_QUOTES));
@@ -267,6 +281,13 @@ echo ' db5 null ';}
             $mdxxx  = $vv6;
            }
  
+ 
+ 
+              
+            if ($guids == 0)
+             {
+ 
+ 
             $sql  = "select * FROM x_db_play_stats where s_player='$x_kill' and s_guid='' limit 1";
             $stat = $db3->query($sql)->fetchColumn();
             if ($stat > 0)
@@ -274,6 +295,7 @@ echo ' db5 null ';}
               require $cpath . 'ReCodMod/functions/inc_functions2.php';
               for ($i = 0; $i < $player_cnt; $i++)
                {
+				   if($xereg == 0){
                 require $cpath . 'ReCodMod/functions/inc_functions3.php';
                 if ((!$valid_id) || (!$valid_ping))
                   Continue;
@@ -289,7 +311,9 @@ echo ' db5 null ';}
                   usleep(1000);
                   $db3->exec("update x_db_play_stats set s_city='$forumip', s_guid='$mdxxx', s_geo='$geoz', s_fall='$idkill' where s_player='$x_kill'");
                   AddToLogGUID("[" . $datetime . "] " . $x_kill . " - " . $kill . " - " . $mdxxx . " UPDATE GUID");
-                 }
+				  ++$xereg;
+				}
+				}
                }
              }
 
@@ -297,10 +321,12 @@ echo ' db5 null ';}
             $stat = $db3->query($sql)->fetchColumn();
             if (empty($stat))
              {
+				if($xereg == 0){ 
               usleep(1000);
               $db3->exec("INSERT INTO x_db_play_stats (s_player,s_place,s_kills,s_deaths,s_grenade,s_skill,s_ratio,s_heads,s_time,s_lasttime,s_city,s_clear,s_guid,s_geo, s_suicids,s_fall,s_melle)  
  VALUES ('$x_kill','','','','','','','','','','$date','','$kill','','','','$idkill','')");
               AddToLogGUID("[" . $datetime . "] " . $x_kill . " - " . $kill . " - " . $mdxxx . " ADD GUID");
+			  ++$xereg;
               require $cpath . 'ReCodMod/functions/inc_functions2.php';
               for ($i = 0; $i < $player_cnt; $i++)
                {
@@ -316,10 +342,14 @@ echo ' db5 null ';}
                   $geoz    = ($record->country_name);
                   usleep(1000);
                   $db3->exec("update x_db_play_stats set s_city='$forumip', s_guid='$mdxxx', s_geo='$geoz', s_fall='$idkill' where s_player='$x_kill'");
+				  ++$xereg;
                   AddToLogGUID("[" . $datetime . "] " . $x_kill . " - " . $kill . " - " . $mdxxx . " UPDATE GUID");
                  }
                }
              }
+				}
+				
+				
             $sql  = "select * FROM x_db_play_stats where s_player='$x_kill' and (s_city is null OR s_city = '') limit 1";
             $stat = $db3->query($sql)->fetchColumn();
             if ($stat > 0)
@@ -501,6 +531,10 @@ echo ' db5 null ';}
               echo 'okfrag';
               //echo $vv12n;
              }
+			 
+			 
+			 }		 
+			 
 
           if ($x_stop_lpst == 0)
            {
@@ -542,9 +576,9 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 {
-	if($connect)
+	if(is_resource($connect))
 fclose($connect); 
 
 }
@@ -610,9 +644,9 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 {
-	if($connect)
+	if(is_resource($connect))
 fclose($connect); 
 
 }
@@ -680,9 +714,9 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 {
-	if($connect)
+	if(is_resource($connect))
 fclose($connect); 
 
 }
@@ -712,9 +746,9 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 {
-	if($connect)
+	if(is_resource($connect))
 fclose($connect); 
 
 }
@@ -761,9 +795,9 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 {
-	if($connect)
+	if(is_resource($connect))
 fclose($connect); 
 
 }
@@ -793,9 +827,9 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 {
-	if($connect)
+	if(is_resource($connect))
 fclose($connect); 
 
 }
@@ -839,12 +873,7 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
-{
-	if($connect)
-fclose($connect); 
-
-} 
+ 
 	  }
 	  
 if(empty($tfinishh))	  
@@ -862,9 +891,9 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 {
-	if($connect)
+	if(is_resource($connect))
 fclose($connect); 
 
 }
@@ -887,3 +916,4 @@ fclose($connect);
    }
  }
  ?>
+

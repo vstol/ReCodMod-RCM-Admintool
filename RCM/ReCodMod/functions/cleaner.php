@@ -46,7 +46,7 @@ fputs($fp, "0");
 fclose($fp);
 
 
-if(!file_exists($log_folder.'/g_log.log')){											
+if(file_exists($log_folder.'/g_log.log')){											
 $fy = file($log_folder.'/g_log.log');
 foreach ($fy as $parseglog) { $mplogfiler = $parseglog; }}
 

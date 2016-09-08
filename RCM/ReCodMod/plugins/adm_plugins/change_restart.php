@@ -26,7 +26,7 @@ else
 require $linuxxx.'ReCodMod/w_functions/inc_functions3.php';
 if ((! $valid_id) || (! $valid_ping)) Continue; 
 usleep($sleep_rcon);
-    rcon('say ^6 ^3Admin reloaded map ', '');
+    rcon('say ^6 ^3'.$infoorell.'', '');
 	sleep(1);
 rcon('map_restart');
 ++$x_number;	

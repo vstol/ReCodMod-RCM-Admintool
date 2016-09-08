@@ -18,7 +18,7 @@ $x_nickx = clearnamex($nickr);
   $mmm = trim($x_nickx);
   $nnn = trim($x_namex);
    	  
-	  if(strpos($mmm, $nnn) !== false)
+	  if((trim($i_id) == trim($idnum)) || (strpos($mmm, $nnn) !== false))
 	     {	
 		 
 		 
@@ -38,12 +38,12 @@ $xxxnw = ($record->country_name . ", ".$record->city."");
 	usleep($sleep_rcon);
 	
 	if (($game_patch == 'cod1_1.1') || ($game_mod == 'codam')){	
-	rcon('say ^6 "^2Iam from: ^6[^3'.$xxxnw.'^6]"', '');
+	rcon('say ^6 "^2'.$infolx.': ^6[^3'.$xxxnw.'^6]"', '');
 }else{
-	rcon('tell '. $i_id . ' ^6 "^2Iam from: ^6[^3'.$xxxnw.' ^7IP:^3'.$i_ip.'^6]"', ''); 
+	rcon('tell '. $i_id . ' ^6 "^2'.$infolx.': ^6[^3'.$xxxnw.' ^7'.$infooip.':^3'.$i_ip.'^6]"', ''); 
 geoip_close($gi);	
 }
-	AddToLogInfo("[".$datetime."] GEO: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G");    
+	AddToLogInfo("[".$datetime."] GEO: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ")");    
 	++$x_number;
 	
 echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
@@ -90,8 +90,7 @@ echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
 if ((strpos($msgr, $ixz.'guid') !== false) && ($x_number != 1))
     { 
 
-
-if ($guids == 0){
+if ($x_stop_lp == 0 ) {
 
 if (strpos($msgr, $ixz.'guid ') !== false)
  list($x_cmd, $x_idn) = explode(' ', $msgr); // !s 5 ( 5 = id)
@@ -107,15 +106,15 @@ $x_nickx = clearnamex($nickr);
   $mmm = trim($x_nickx);
   $nnn = trim($x_namex);
    	  
-	  if(strpos($mmm, $nnn) !== false)
+	  if((trim($i_id) == trim($idnum)) || (strpos($mmm, $nnn) !== false))
 	     {	
 		 
 	usleep($sleep_rcon);
 	
 	if ($guidn == '0')	
-		rcon('say ^6  ^7'.$i_name.' ^2guid: ^3'.md5(md5(md5($chistx))).'', ''); 
+		rcon('say ^6  ^7'.$i_name.' ^2'.$infooguid.': ^3'.md5(md5(md5($chistx))).'', ''); 
     else
-		rcon('tell '.$idnum.' ^6  ^7'.$i_name.' ^2guid: ^3'.$guidn.'', ''); 	
+		rcon('tell '.$idnum.' ^6  ^7'.$i_name.' ^2'.$infooguid.': ^3'.$guidn.'', ''); 	
 
 	AddToLogInfo("[".$datetime."] GEO: " . $i_ip . " (" . $x_namex . ") (" . $guidn . ") reason: G");    
 	++$x_number;
@@ -141,7 +140,7 @@ if($kski[0] == $x_idn)
     else
 		rcon('tell '.$idnum.' ^6  ^7'.$i_name.' ^2guid: ^3'.$guidn.'', '');
 	
-	AddToLogInfo("[".$datetime."] GUID: " . $i_ip . " (" . $x_namex . ") (" . $guidn . ") reason: G+id");    
+	AddToLogInfo("[".$datetime."] GUID: " . $i_ip . " (" . $x_namex . ") (" . $guidn . ")");    
 	++$x_number;
 	
 echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);

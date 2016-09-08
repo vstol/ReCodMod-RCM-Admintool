@@ -6,7 +6,7 @@ if ((strpos($msgr, $ixz.'sk') !== false) || (strpos($msgr, $ixz."stats") !== fal
 $vote_cgu = 0;		
 $x_number = 0;	
 
-$status = new COD4ServerStatus($server_ip, $server_port); 
+$status = new COD4xServerStatus($server_ip, $server_port); 
 	
 	if ($status->getServerStatus()){
 		$status->parseServerData();
@@ -89,7 +89,7 @@ for ($i=0; $i<1; $i++)
 require $cpath.'ReCodMod/functions/inc_functions3.php';
 if ((! $valid_id) || (! $valid_ping)) Continue; 
   usleep($sleep_rcon);
-  rcon("say ^6  ^7".$ply." ^1Top: ^2".$pla." ^1Skill:^2 ".$skil_x." ^1 Kills:^2 ".$kl." ^1 K/D Ratio:^2 ".substr($ratio_x, 0,4).".. ^1Bash:^2 ".$bsdvc." ^1Suicides:^2 ".$suee." ^1Played:^2 ".$played."", "");	
+  rcon("say ^6  ^7".$ply." ^1".$infootop.": ^2".$pla." ^1".$infoosklll.":^2 ".$skil_x." ^1 ".$infoofrag.":^2 ".$kl." ^1".$infoortio.":^2 ".substr($ratio_x, 0,4).".. ^1".$infoobash.":^2 ".$bsdvc." ^1".$infoosuic.":^2 ".$suee." ^1".$infooplydx.":^2 ".$played."", "");	
 	++$x_number;
 	}	
 	AddToLogInfo("[".$datetime."] SKILL: " . $i_ip . " (" . $x_nickx . ") (" . $msgr . ") reason: S"); 
@@ -107,9 +107,9 @@ if ((! $valid_id) || (! $valid_ping)) Continue;
 usleep($sleep_rcon);
 
 if ($game_patch == 'cod1_1.1')
-rcon("say ->  ^3No Skill Rank. Nope experience...", "");
+rcon("say ->  ^3".$stsnoskl, "");
 else
-rcon("tell ".$i_id."  ^3No Skill Rank. Nope experience...", "");
+rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 	}
 echo '    '.$tfinishh = (microtime(true) - $start);	  
 ++$x_stop_lp;    //return;
@@ -197,9 +197,9 @@ if ((! $valid_id) || (! $valid_ping)) Continue;
 usleep($sleep_rcon);
 
 if ($game_patch == 'cod1_1.1')
-rcon("say ->  ^3No Skill Rank. Nope experience...", "");
+rcon("say ->  ^3".$stsnoskl, "");
 else
-rcon("tell ".$i_id."  ^3No Skill Rank. Nope experience...", "");
+rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 	}	
 }else{		  
 $skil_x = round((($kl-$dth)*($kl/$dth)*10));
@@ -308,9 +308,9 @@ if ((! $valid_id) || (! $valid_ping)) Continue;
 usleep($sleep_rcon);
 
 if ($game_patch == 'cod1_1.1')
- rcon("say -> ^6 ^1Top:^2".$pla." ^1Rank:^2 ".$skil_x." ^1 Frags:^2".$kl." ^1 Deaths:^2".$dth." ^1Ratio:^2 ".substr($ratio_x, 0,10)."... ^1 Last Hunted:^2 ".$xlst." ^1Bash:^2 ".$bsdvc." ^1Suicides:^2  ".$suee." ^6".$website."/top ", "");
+ rcon("say -> ^6 ^1".$infootop.": ^2".$pla." ^1".$infoorank.": ^2".$skil_x." ^1".$infoofrag.": ^2".$kl." ^1".$infoodth.": ^2".$dth." ^1".$infoortio.": ^2".substr($ratio_x, 0,10)."... ^1".$infoohnt.": ^2".$xlst." ^1".$infoobash.": ^2".$bsdvc." ^1".$infoosuic.": ^2".$suee." ^6".$website."/top ", "");
 else
- rcon("tell ".$cfall. " ^6 ^1Top:^2".$pla." ^1Rank:^2 ".$skil_x." ^1 Frag:^2".$kl." ^1 Death:^2".$dth." ^1Ratio:^2 ".substr($ratio_x, 0,4).".. ^1Bash:^2 ".$bsdvc." ^1Suicide:^2  ".$suee." ^1 Last Hunt:^2 ".$xlst."", "");
+ rcon("tell ".$cfall. " ^6 ^1".$infootop.":^2".$pla." ^1".$infoorank.": ^2".$skil_x." ^1".$infoofrag.": ^2".$kl." ^1".$infoodth.": ^2".$dth." ^1".$infoortio.": ^2".substr($ratio_x, 0,4).".. ^1".$infoobash.": ^2".$bsdvc." ^1".$infoosuic.": ^2".$suee." ^1".$infoohnt.": ^2".$xlst."", "");
 
 	++$x_number;
 	}	
@@ -330,9 +330,9 @@ if ((! $valid_id) || (! $valid_ping)) Continue;
 usleep($sleep_rcon);
 
 if ($game_patch == 'cod1_1.1')
-rcon("say -> ^3No Skill Rank. Nope experience...", "");
+rcon("say -> ^3".$stsnoskl, "");
 else
-rcon("tell ".$i_id."  ^3No Skill Rank. Nope experience...", "");
+rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 	}
 echo '    '.$tfinishh = (microtime(true) - $start);	  
 ++$x_stop_lp;    //return;
@@ -355,7 +355,7 @@ for ($i=0; $i<1; $i++)
 require $cpath.'ReCodMod/functions/inc_functions3.php';
 if ((! $valid_id) || (! $valid_ping)) Continue;
   usleep($sleep_rcon);
-  rcon("say ^6  ^5Dosn't exist! ", "");	
+  rcon("say ^6  ^5".$stsnoextt, "");	
 	++$x_number;
 	}	
 	AddToLogInfo("[".$datetime."] SKILL: " . $i_ip . " (" . $x_nickx . ") (" . $msgr . ") reason: S"); 
@@ -390,9 +390,9 @@ require $cpath.'ReCodMod/functions/inc_functions3.php';
 if ((! $valid_id) || (! $valid_ping)) Continue; 
 usleep($sleep_rcon);
 if ($game_patch == 'cod1_1.1')
-rcon("say -> ^3No Skill Rank. Nope experience...", "");
+rcon("say -> ^3".$stsnoskl, "");
 else
-rcon("tell ".$i_id."  ^3No Skill Rank. Nope experience...", "");
+rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 
 	
 	}
@@ -405,10 +405,11 @@ for ($i=0; $i<1; $i++)
 require $cpath.'ReCodMod/functions/inc_functions3.php';
 if ((! $valid_id) || (! $valid_ping)) Continue; 
   usleep($sleep_rcon);
+
 if ($game_patch == 'cod1_1.1')
-rcon("say ^6 ^1Top:^2".$yhu." ^1Rank:^2 ".$skil_x." ^1 Frags:^2".$kl." ^1 Deaths:^2".$dth." ^1Ratio:^2 ".substr($ratio_x, 0,19)." ^1 Last Hunted:^2 ".$xlst." ^6".$website."/top ", "");
+rcon("say ^6 ^1".$infootop.":^2".$yhu." ^1".$infoorank.":^2 ".$skil_x." ^1".$infoofrag.":^2".$kl." ^1".$infoodth.":^2".$dth." ^1".$infoortio.":^2 ".substr($ratio_x, 0,19)." ^1".$infoohnt.":^2 ".$xlst." ^6".$website."/top ", "");
 else
-rcon("tell ".$i_id. " ^6 ^1Top:^2".$yhu." ^1Rank:^2 ".$skil_x." ^1 Frags:^2".$kl." ^1 Deaths:^2".$dth." ^1Ratio:^2 ".substr($ratio_x, 0,19)." ^1 Last Hunted:^2 ".$xlst." ^6".$website."/top ", "");		
+rcon("tell ".$i_id. " ^6 ^1".$infootop.":^2".$yhu." ^1".$infoorank.":^2 ".$skil_x." ^1".$infoofrag.":^2".$kl." ^1".$infoodth.":^2".$dth." ^1".$infoortio.":^2 ".substr($ratio_x, 0,19)." ^1".$infoohnt.":^2 ".$xlst." ^6".$website."/top ", "");		
 	++$x_number;
 	}	
 	AddToLogInfo("[".$datetime."] SKILL: " . $i_ip . " (" . $x_nickx . ") (" . $msgr . ") reason: S"); 

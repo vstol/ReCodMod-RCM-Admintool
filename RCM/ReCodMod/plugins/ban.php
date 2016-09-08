@@ -49,7 +49,7 @@ fclose($handlePos);
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='silver'> LogFile game_mp.log 30MB auto reset! </font> "); 
 echo "OK ...";
  
-
+ if(file_exists($cpath . 'ReCodMod/x_logs/chat.log')){
 $file = $cpath . "ReCodMod/x_logs/chat.log";
 $newfile = $cpath . "ReCodMod/x_logs/archive/chat/chat";
 $datetime = date('Y.m.d H:i:s');
@@ -57,9 +57,9 @@ if (!copy($file, $newfile."_".$datetime.".log")) {
     echo "Error copy $file...\n";}else{
 $handlePos=fopen($cpath."ReCodMod/x_logs/chat.log" ,"w+");
 fwrite($handlePos, "1");
-fclose($handlePos);}
+  fclose($handlePos);}}
 
-
+ if(file_exists($cpath . 'ReCodMod/x_logs/chat.html'){
 $file = $cpath . "ReCodMod/x_logs/chat.html";
 $newfile = $cpath . "ReCodMod/x_logs/archive/chat/chat";
 $datetime = date('Y.m.d H:i:s');
@@ -67,7 +67,7 @@ if (!copy($file, $newfile."_".$datetime.".html")) {
     echo "Error copy $file...\n";}else{
 $handlePos=fopen($cpath."ReCodMod/x_logs/chat.html" ,"w+");
 fwrite($handlePos, "1");
-fclose($handlePos);}
+ fclose($handlePos);}}
 
 
 }}
@@ -126,7 +126,7 @@ $result = $db2->query($sql);
 if ($game_ac == '0'){ 
 	
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' BAN!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -141,7 +141,7 @@ $cron_time=filemtime($cpath."ReCodMod/x_cron/cron_time1");        //получа
 if (time()-$cron_time>=120) {             //сравниваем с текущим временем - 10 минут
     file_put_contents($cpath."ReCodMod/x_cron/cron_time1","");    //перезаписываем файл cron_time
 	
-		rcon('say  ^7' . $playername1 . ' '.$ban_ip_all.' "^7Reason:^1" "'.$reason.'"', '');
+		rcon('say  ^7' . $playername1 . ' '.$ban_ip_all.' ^7'.$infooreas.':^1 '.$reason.'', '');
 		                     }
 		  
 		  usleep($sleep_rcon);   

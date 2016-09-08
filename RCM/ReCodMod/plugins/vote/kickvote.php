@@ -1,7 +1,7 @@
 <?php	
 if ($x_stop_lp == 0 ) {
 
-if (strpos($msgr, $vk) !== false)
+if (strpos($msgr, $ixz.'k ') !== false)
 {
   echo "\n[cmk] : [",$datetime, "] : ".$nickr." : ".$msgr;   
 //*//	

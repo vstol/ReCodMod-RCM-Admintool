@@ -1,5 +1,5 @@
 <?php
-if ($x_stop_lp == 0 ) {
+if ($x_loopsv == 0 ) {
 
 
 $x_admin = 0;
@@ -79,7 +79,7 @@ if ($game_ac == '0'){
 
 if ($game_ac == '0'){
  //usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' BAN!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -88,7 +88,7 @@ else {
 		///rcon('say  ^7' . $i_name . ' '.$ban_name_all.' "^7Reason:^1" "'.$reason.'"', '');
 		  usleep($sleep_rcon);
 rcon('akick '. $i_id.' " ^6[^7BANNED^6]"', ''); rcon('clientkick '. $i_id, '');}
-AddToLog("[".$datetime."] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");		++$x_stop_lp;	++$x_stop_lp;
+AddToLog("[".$datetime."] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");		++$x_loopsv;
 		++$x_number;
 		}
 	} 
@@ -113,7 +113,7 @@ AddToLog("[".$datetime."] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");
 if ($game_ac == '0'){ 
 
 //usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' BAN!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -124,10 +124,10 @@ else {
 $cron_time=filemtime($cpath."ReCodMod/x_cron/cron_time1");        //получаем время последнего изменения файла
 if (time()-$cron_time>=120) {             //сравниваем с текущим временем - 10 минут
     file_put_contents($cpath."ReCodMod/x_cron/cron_time1","");    //перезаписываем файл cron_time
-		rcon('say  ^7' . $playername1 . ' '.$ban_ip_all.' "^7Reason:^1" "'.$reason.'"', '');
+		rcon('say  ^7' . $playername1 . ' '.$ban_ip_all.' ^7'.$infooreas.':^1 '.$reason.'', '');
 
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' '.$reason.'!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -140,7 +140,7 @@ AddToLog("[".$datetime."] BANNED IP KICK: (" . $i_ip . ") (" . $i_name . ")");
 
 
 
-           ++$x_stop_lp;			
+           ++$x_loopsv;			
 		++$x_number;
 		echo ' bans   '.$tfinishh = (microtime(true) - $start); 
 //exit;
@@ -163,7 +163,7 @@ if ($game_ac == '0'){
 
 
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' Bad name!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -175,7 +175,7 @@ else {
 	    usleep($sleep_rcon);
 rcon('akick '. $i_id.' " ^6[^7BAD NAME^6]"', ''); rcon('clientkick '. $i_id, '');}
 AddToLog("[".$datetime."] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");	
-++$x_stop_lp;		  //echo $namez[0];       
+++$x_loopsv;		  //echo $namez[0];       
 	//echo ' proxod3   '.$tfinishh = (microtime(true) - $start);	
 		}
       else
@@ -193,7 +193,7 @@ AddToLog("[".$datetime."] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");
 if ($game_ac == '0'){ 
 
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' Bad named!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -204,7 +204,7 @@ else {
 		  usleep($sleep_rcon);
 rcon('akick '. $i_id.' " ^6[^7BAD NAME^6]"', ''); rcon('clientkick '. $i_id, '');}
 AddToLog("[".$datetime."] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");
-++$x_stop_lp;
+++$x_loopsv;
 		if ($rules_msgtoall_kicked_enable)
 		    {
 			  usleep($sleep_rcon);
@@ -226,14 +226,14 @@ if ($i_ip == '')
 	  usleep($sleep_rcon);
 if ($game_ac == '0'){ 
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' BAN!', '');
 else
         rcon('clientkick '. $i_id, '');
 }
 else { rcon('akick '. $i_id.' " ^6[^7BANNED^6]"', ''); rcon('clientkick '. $i_id, '');}
 		AddToLog("[".$datetime."] SUPER I.R. KICK: (" . $i_ip . ") (" . $i_name . ")");	
-++$x_stop_lp;		//continue;
+++$x_loopsv;		//continue;
 }else{ }		
 	//	echo $x_addr2[0].$dati.$x_addr2[1];
 }
@@ -256,7 +256,7 @@ if ($i_ip == '')
 if ($game_ac == '0'){ rcon('clientkick '. $i_id, '');}
 else { rcon('akick '. $i_id.' " ^6[^7BANNED^6]"', ''); rcon('clientkick '. $i_id, '');}	
         AddToLog("[".$datetime."] I.R. KICK: (" . $i_ip . ") (" . $i_name . ")");		
-++$x_stop_lp;		echo ' x-rangeee   '.$tfinishh = (microtime(true) - $start);	
+++$x_loopsv;		echo ' x-rangeee   '.$tfinishh = (microtime(true) - $start);	
 	}
 	
 	
@@ -288,11 +288,11 @@ if (preg_match($pattern, $response)) {
 /* IP is listed, so we inform the user, than exit. */
 echo 'Spammer detected '.$i_ip.' ';
 usleep($sleep_rcon*4);
-rcon('say ^7'.$chistx.' ^3Proxy\VPN Blacklisted IP adress ^1Detected! by ^6[^1RCM^3bot^6]', ''); 
+rcon('say ^7'.$chistx.' ^3'.$proxyxn.' ^6[^1RCM^3bot^6]', ''); 
 usleep($sleep_rcon);
  rcon('clientkick '. $i_id, '');
 AddToLog("[".$datetime."] STOP SPAM FORUM KICK: (" . $i_ip . ") (" . $i_name . ")");	
-++$x_stop_lp;}
+++$x_loopsv;}
 curl_close($ch);
 //////////////////////////////============================	
 }

@@ -38,9 +38,9 @@ $db = new PDO('sqlite:'.$adminlists);
 										
 usleep($sleep_rcon*3);
 if ($game_patch == 'cod1_1.1')
-	rcon('say ^6 ^3You already in RCM system, dont need do that again!', ''); 
+	rcon('say ^6 ^3'.$loginnx, ''); 
 else
-rcon('tell '.$idnum.' ^6 ^3You already in RCM system, dont need do that again!', ''); 
+rcon('tell '.$idnum.' ^6 ^3'.$loginnx, ''); 
 ++$x_stop_lp;	
 						
 					}
@@ -85,9 +85,9 @@ $groupxx = '^5Member';
 						
 usleep($sleep_rcon*3);
 if ($game_patch == 'cod1_1.1'){
-rcon('say ^6 ^3Crangulations ^3you in '.$groupxx.' ^7group, ^3thanks for login!', '');	
+rcon('say ^6 '.$loggran.' '.$logginn.' '.$groupxx.' ^7'.$loggithx, '');	
 }else
-rcon('tell '.$idnum.' ^6 ^3Crangulations ^7'.$chistx.' ^3you in '.$groupxx.' ^7group, ^3thanks for login!', '');	
+rcon('tell '.$idnum.' ^6 ^3'.$loggran.' ^7'.$chistx.' ^3'.$logginn.' '.$groupxx.' ^7'.$loggithx, '');	
 	
 	$date = date('Y.m.d H.i.s');
 
@@ -141,12 +141,13 @@ $db = new PDO('sqlite:'.$adminlists);
     $statt = $db->query($sql)->fetchColumn();
 
                     if ($statt > 0) {  
-										
+						
+						
 usleep($sleep_rcon*3);
 if ($game_patch == 'cod1_1.1')
-	rcon('say ^6 ^3You already in RCM system, dont need do that again!', ''); 
+	rcon('say ^6 ^3'.$loggistop, ''); 
 else
-rcon('tell '.$idnum.' ^6 ^3You already in RCM system, dont need do that again!', ''); 
+rcon('tell '.$idnum.' ^6 ^3'.$loggistop, ''); 
 ++$x_stop_lp;	
 						
 					}
@@ -159,13 +160,11 @@ $groupxx = '^5Member';
 						
 usleep($sleep_rcon*3);
 if ($game_patch == 'cod1_1.1'){
-rcon('say ^6 ^3Crangulations ^3you in '.$groupxx.' ^7group, ^3thanks for login!', '');	
+rcon('say ^6 '.$loggran.' '.$logginn.' '.$groupxx.' ^7'.$loggithx, '');	
 }else
-rcon('tell '.$idnum.' ^6 ^3Crangulations ^7'.$chistx.' ^3you in '.$groupxx.' ^7group, ^3thanks for login!', '');	
+rcon('tell '.$idnum.' ^6 ^3'.$loggran.' ^7'.$chistx.' ^3'.$logginn.' '.$groupxx.' ^7'.$loggithx, '');		
 	
 	$date = date('Y.m.d H.i.s');
-
-
 
 if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '$igroup', '$guidn')") > 0) {
 echo "Created IN DATABASE.". "\n"; 
@@ -219,14 +218,14 @@ try
                     if ($statt > 0) {  
 usleep($sleep_rcon*2);
 if ($game_patch != 'cod1_1.1')
-rcon('tell '.$i_id.' ^6 ^3You already registered in RCM system!', '');
+rcon('tell '.$i_id.' ^6 ^3'.$loggistopk, '');
 else
-	rcon('say ^6 ^3You already registered in RCM system!', '');
+	rcon('say ^6 ^3'.$loggistopk, '');
 ++$x_stop_lp;	
 }else{
 usleep($sleep_rcon*2);
 if ($game_patch != 'cod1_1.1')
-rcon('tell '.$idnum.' ^6 ^3Crangulations ^7'.$chistx.' ^3you in ^1GUID ADMIN ^3group, ^3thanks for login!', '');	
+rcon('tell '.$idnum.' ^6 ^3'.$loggran.' ^7'.$chistx.' ^3'.$loggistopkk, '');	
 				
 	$date = date('Y.m.d H.i.s');					
 if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '0', 'no')") > 0) {

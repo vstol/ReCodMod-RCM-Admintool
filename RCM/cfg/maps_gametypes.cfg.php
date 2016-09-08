@@ -6,9 +6,6 @@ $maplist = array("mp_harbor", "mp_carentan", "mp_pavlov", "mp_logging_mill", "mp
 "mp_railyard", "xp_standoff", "mp_rocket", "mp_stalingrad", "mp_depot", "mp_powcamp", "mp_dawnville", "mp_brecourt", "mp_chateau", "mp_ship");
 
 
-
-
-
 ///////////////////////////////////////////////////////MAPS
 function mpt($string) {
 $string = str_replace("harbor", "mp_harbor", $string);

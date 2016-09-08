@@ -3,7 +3,7 @@ if ($skilll < '-20000'){
 
 
   usleep($sleep_rcon);
-  rcon("say  ^6 ^3".$ply." ^7- Negative stats! ", "");	
+  rcon("say  ^6 ^3".$ply." ^7- ".$infoosttta."", "");	
 	++$x_number;
 
  }else{	 	  

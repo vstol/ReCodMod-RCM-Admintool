@@ -3,21 +3,31 @@
 //Pause between CHAT ROTATION MESSAGES showing.
 $msg_pause = '30';
  
- 
+//SERVERINFO MESSAGES ROTATION
+/*
+{SERVER_IP} 
+{SERVER_NAME}  
+{SERVER_CURRENT_PLAYERS} 
+{SERVER_MAX_PLAYERS} 
+{SERVER_MAPNAME} 
+{SERVER_GAMETYPE} 
+*/
+$servers_info_messages = '^3{SERVER_IP} ^7{SERVER_NAME} ^7=> ^2{SERVER_CURRENT_PLAYERS} ^7/ ^2{SERVER_MAX_PLAYERS}';
+
+
 ///IN GAME CHAT ROTATION MESSAGES///
 $messages=array(
 "^3Use ^7".$ixz."report ^3for cheater report & ^7".$ixz."support ^3contact to admin!",
 
-"^33аметили читера напишите ^7!report ^3и его ник - администрация забанит его...",
-
-"^7Watching us ^3".$z_ver." ^6[^1Use ^7".$ixz."info ^3& ^7".$ixz."cmd ^6]",
+"^7Watching us ^3$z_ver ^6[^1Use ^7".$ixz."info ^3& ^7".$ixz."cmd ^6]",
 
 "^3Play ^7Fair, ^1Don't use cheats and bugs! ^2[^1".$ixz."rules^2]",
 
-"^3The best player: ^7".$playernamemm."^3, Total visited: ^1".$db_players."^3,  ^3Banned: ^1".
-$membans."^3 ^3player(s)!",
+"$servers_info_messages",
 
-"^6[^7top today^6] ^61 ^7".$playername[0]." ^62 ^7".$playername[1]." ^63 ^7".$playername[2]." ^64 ^7".$playername[3]." ^65 ^7".$playername[4].""
+"^3$playersbeest: ^7$etop_player_name^3, $playersbased: ^1$db_players^3,  ^3$bannedtotally: ^1$xtotal_bans ^3$playersinfo!",
+
+"^6[^7$infotodaytop^6] ^61. ^7$playernamee[0] ^62. ^7$playernamee[1] ^63. ^7$playernamee[2] ^64. ^7$playernamee[3] ^65. ^7$playernamee[4]"
 );
 
 
@@ -31,24 +41,10 @@ $cmdzv2 = "^3".$ixz."n ".$ixz."stats ".$ixz."worst ".$ixz."rank ".$ixz."grenades
 
 $cmdfun = "^3[^7hi gg gl ty thx sps mc ny afk fps stfu bl vdk ch dr xxx xl tits rabbit ^3] ^6[^7 ping admin ^6] ";
 
-
-$grdl = '  ^1H^7appy ^1N^7ew ^1Y^7ear ^12016    ^3*<(:{D';
 $fps3  = '^6 ^5 /cg_drawFPS 1 ^7& ^5/com_maxfps 333  ^7& ^5/rate 25000 ^7& ^5/cg_lagometer 1 ^7& ^5/seta cl_maxpackets 30 (min 20 max 100)';
 $cmdz = " ^3[^6You find cheater? ^1Report cheater nickname ^3(Sample ^7".$ixz."report Kashtanka^3 , or ^2http:^2/^2/".$website." ^3]";
 $cmdzx = " ^3[^6Admin needed? ^1Report here ^3(Sample ^7".$ixz."report admin i have big dick^3 , or ^2http:^2/^2/".$website." ^3]";
 
 
-
-
-
-
-
-
-
-
-
-$cmdadmin = "^3[^2!".$admcmdlist."^3]";
-$cmdmoderators = "^3[^2!".$modrcmdlist."^3]";
-$vipcmdlist = "^3[^2!".$admcmdlist."^3]";
-
 ?>
+

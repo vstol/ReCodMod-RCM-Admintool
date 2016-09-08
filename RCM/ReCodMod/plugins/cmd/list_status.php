@@ -90,7 +90,7 @@ rcon('say ^6 '.$colorb.'#Id:'.$colorb.' '.$colora.$i_id.' '.$colorb.' Nick: '.$
    //echo $i_namex. ' "^2from:^3 '.ciity($country_name['country']['iso']." , ".$country_name['city']['name_en']);	
 }}
 }
-	AddToLogInfo("[".$datetime."] ID: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");    	
+	AddToLogInfo("[".$datetime."] ID: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ")");    	
 echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
    ++$x_stop_lp;    //return;	
 //}
@@ -239,13 +239,13 @@ if (!preg_match("/^bot\d+$/",  $chistx, $tmp2n))
 {
 	usleep($sleep_rcon);	
 if ($game_patch == 'cod1_1.1')
-rcon('^6 '.$colorb.'#Id:'.$colorb.' '.$colora.$i_id.' '.$colorb.' Nick: '.$colorb. $colora .$i_namex. ''.$colorb.' STATUS: ^6('.$statuszl.'^6)"', '');	
+rcon('^6 '.$colorb.'#Id:'.$colorb.' '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex. ''.$colorb.' '.$infoostat.': ^6('.$statuszl.'^6)"', '');	
 else
-rcon('tell '. $newid .' ^6 '.$colorb.'#Id:'.$colorb.' '.$colora.$i_id.' '.$colorb.' Nick: '.$colorb. $colora .$i_namex. ''.$colorb.' STATUS: ^9('.$statuszl.'^9)"', '');	
+rcon('tell '. $newid .' ^6 '.$colorb.'#Id:'.$colorb.' '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex. ''.$colorb.' '.$infoostat.': ^9('.$statuszl.'^9)"', '');	
 }}
 
 	}
-	AddToLogInfo("[".$datetime."] GEO: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");    	
+	AddToLogInfo("[".$datetime."] GEO: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ")");    	
 echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
    ++$x_stop_lp;    //return;	
 }

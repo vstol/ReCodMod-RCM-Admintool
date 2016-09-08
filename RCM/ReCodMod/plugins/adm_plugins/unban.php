@@ -8,8 +8,7 @@ if (strpos($msgr, $ixz.'unban ') !== false){
 $x_nickx = clearnamex($nickr);
  echo  $mmm = substr(trim($x_nickx), 0, 2);
  echo  $nnn = substr(trim($x_namex), 0, 2);
-  
-  //$rest = substr("abcdef", 0, 4); // возвращает "abcd"
+   
   
  if(strpos($nnn,$mmm) !== false){
  //if (preg_match("/$nnn/i", $mmm)) 
@@ -77,6 +76,8 @@ foreach($result as $row)
 		$ip = 			$row['ip'];
 		$reason  = 		$row['reason'];
 		$time = 		$row['time'];
+		if ($guidn != '0')
+		$tguidd = 		$row['guid'];
 		$whooo = 		$row['whooo'];
 		
 
@@ -84,10 +85,13 @@ if (is_numeric ($x_nickid))
 $db2->query("DELETE FROM bans WHERE id='$x_nickid' and patch = '$game_patch'");
 else 
 $db2->query("DELETE FROM bans WHERE playername='$x_nickid' and patch = '$game_patch'");
-$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','','$reason','$time','$whooo','$game_patch','$nickr')");
-	 
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','$tguidd','$reason','$time','$whooo','$game_patch','$nickr')");
+	    if ($guidn != '0'){
 		usleep($sleep_rcon);
-		rcon('say  ^6 ^7' . $playername. ' '.$c_unban.'  " ^7Reason: ^1'.$reason.'"', '');
+		rcon('unban '.$tguidd.'', '');
+		                  }
+		usleep($sleep_rcon);
+		rcon('say  ^6 ^7' . $playername. ' '.$c_unban.' ^7'.$infooreas.': ^1'.$reason.'', '');
 		AddToLog("[".$datetime."] UNBAN: " . $i_ip . " (" . $i_name . ")  reason: UnBan");	
 AddToLog1("[".$datetime."]<font color='green'> Server :</font> ". $playername."  ".$c_unban."  Reason: ".$reason. " ");	
 		++$x_number;
@@ -115,6 +119,174 @@ $db2 = NULL;
   }	
 	
 }}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (strpos($msgr, $ixz.'rlist ') !== false){
+ if ($x_number != 1){
+ 
+ // list($nickr, $msgr) = explode(' % ', $parselinetxt);  
+  $x_namex = clearnamex($i_name);
+$x_nickx = clearnamex($nickr);
+ echo  $mmm = substr(trim($x_nickx), 0, 2);
+ echo  $nnn = substr(trim($x_namex), 0, 2);
+   
+  
+ if(strpos($nnn,$mmm) !== false){
+ //if (preg_match("/$nnn/i", $mmm)) 
+	   //  {
+ list($x_cmd, $x_nickid) = explode(' ', $msgr); // !unban nick
+ echo $x_cmd.'  '.$x_nickid;
+$i_namex = chatrr($i_name);	
+  $tk = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
+	$kski = explode(" / ", $tk); 	
+	
+	
+try
+  {
+    	   if (empty($adminlists))	  
+$db = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db1.sqlite');
+else
+$db = new PDO('sqlite:'.$adminlists);
+////////////////////////////
+ if (empty($bannlist))	  
+$db2 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db2.sqlite');
+else
+$db2 = new PDO('sqlite:'.$bannlist);
+////////////////////////////
+    $result = $db->query("SELECT * FROM x_db_admins WHERE s_adm='$i_ip' LIMIT 1");
+ 		
+    foreach($result as $row)
+    { 	
+ echo ' '.  $adm_ip  = $row['s_adm'];
+ echo ' '.  $a_grp  = $row['s_group'];
+	
+   $adm_ip = trim($adm_ip);
+  $i_ipo = trim($i_ip);
+  $kski[1] = trim($kski[1]);
+  $nickr = trim($nickr);   
+   
+   if(($adm_ip == $i_ip) && (($a_grp == 0) || ($a_grp == 111) || ($a_grp == 555)) || ($adminguidctl == 1) && (array_search(strtolower($guidn), $adminguids, true) !== false)|| (array_search(strtolower($i_ip), $adminIP, true) !== false))
+	      { 
+	  
+	  
+	  
+echo 'e';
+++$knownplayr;
+if (is_numeric ($x_nickid))		  
+$result = $db2->query("SELECT * FROM x_ranges WHERE id = '$x_nickid'");
+else  
+$result = $db2->query("SELECT * FROM x_ranges WHERE ip_info='$x_nickid'");
+$stat = $result->fetchColumn();
+    
+
+	if ($stat > 0) {
+		  
+$result = $db2->query("SELECT * FROM x_ranges WHERE id = '$x_nickid'");
+
+foreach($result as $row)
+    {		   
+		   
+		   $id       = $row['id'];
+           $ip     = $row['ip_ranges'];
+           $reason       = $row['ip_info'];		
+		
+
+if (is_numeric ($x_nickid))			
+$db2->query("DELETE FROM x_ranges WHERE id='$x_nickid'");
+else 
+$db2->query("DELETE FROM x_ranges WHERE ip_info='$x_nickid'");
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('','$ip','','$reason','','','$game_patch','$nickr')");
+	    if ($guidn != '0'){
+		usleep($sleep_rcon);
+		rcon('unban '.$tguidd.'', '');
+		                  }
+		usleep($sleep_rcon);
+		rcon('say  ^6 ^7' . $playername. ' '.$c_unban.' ^7'.$infooreas.': ^1'.$reason.'', '');
+		AddToLog("[".$datetime."] UNBAN: " . $i_ip . " (" . $i_name . ")  reason: UnBan");	
+AddToLog1("[".$datetime."]<font color='green'> Server :</font> ". $playername."  ".$c_unban."  Reason: ".$reason. " ");	
+		++$x_number;
+		echo ' unban   '.$tfinishh = (microtime(true) - $start);
+	}
+
+
+
+	
+	}
+	
+	
+	 ++$x_number;
+++$x_return;	
+  }	
+}
+$result = null;
+$stat = null;
+$db = NULL;
+$db2 = NULL;
+  }
+  catch(PDOException $e)
+  {
+    print ' FILE:  '.__FILE__.'  Exception : '.$e->getMessage();
+  }	
+	
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 ?>
  

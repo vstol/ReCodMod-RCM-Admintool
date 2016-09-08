@@ -6,12 +6,12 @@ if ( ($msgr == ''.$ixz.'top')&& ($x_number == 0) || ($msgr == ''.$ixz.'TOP')&& (
 try
   {
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
-    $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_kills>=$limm ORDER BY (s_ratio+0) DESC LIMIT 5");
+    $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_kills>=$limm ORDER BY ($etopx+0) DESC LIMIT 5");
  		$number = 0;
     foreach($result as $row)
     {
         $playername = 	$row['s_clear'];
-	$ipm = 			$row['s_ratio'];
+	$ipm = 			$row[$etopx];
                 $k  = 	$row['s_lasttime'];	
                 $r  = 	$row['s_time'];
 
@@ -30,7 +30,7 @@ list($vv9g1, $vv8g1, $vv7g1) = explode('.',$vv8);
 
 	usleep($sleep_rcon);
 	//rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 Skill Rank: ^2 ".$ipm." ^3[^5TOP100  ^7http:^7/^7/recod.ru/top^7^3]", "");
-	  rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 Ratio: ^2".substr($ipm, 0,6).".. ^7Played - ".$played." ", "");
+	  rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 ".$etop.": ^2".substr($ipm, 0,8).".. ^7".$infooplydx." - ".$played." ", "");
 	
 	}
 
@@ -74,7 +74,7 @@ if(!$rows)
 {
 if($x_number == 0){
   usleep($sleep_rcon);
-  rcon("say ^6  ^5Dosn't exist! ", "");	
+  rcon("say ^6  ^5".$stsnoextt."", "");	
   }
 	++$x_number;	
 	AddToLogInfo("[".$datetime."] TOP: " . $i_ip . " (" . $nickr . ") (" . $msgr . ") reason: S"); 
@@ -106,16 +106,16 @@ echo '    '.$tfinishh = (microtime(true) - $start);
 if ($kl <= 0 || $dth <= 0){  
 usleep($sleep_rcon);
 if (($game_patch == 'cod1_1.1') || ($game_mod == 'codam')){	
-rcon(" - ^3No Skill Rank. Nope experience...", ""); 
+rcon(" - ^3".$stsnoskl, ""); 
 }else{
-rcon("tell ".$i_id."  ^3No Skill Rank. Nope experience...", "");
+rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 }	
 }else{		  
 $skil_x = round((($kl-$dth)*($kl/$dth)*10));
 $ratio_x = ($kl/$dth);   
   if($x_number == 0){
   usleep($sleep_rcon);
-rcon("say ^6 ^7".$ply." ^1Top:^2".$pla." ^1Rank:^2 ".$skil_x." ^1 Kills:^2".$kl." ^1 Deaths:^2".$dth." ^1Ratio:^2 ".substr($ratio_x, 0,19)." ^1 Last Hunted:^2 ".$xlst."", "");	
+rcon("say ^6 ^7".$ply." ^1".$infootop.":^2".$pla." ^1".$infoorank.":^2 ".$skil_x." ^1 ".$infoofrag.":^2".$kl." ^1 ".$infoodth.":^2".$dth." ^1".$infoortio.":^2 ".substr($ratio_x, 0,19)." ^1".$infoohnt.":^2 ".$xlst."", "");	
 	}
 	
 	++$x_number;	
@@ -137,34 +137,11 @@ $db3 = NULL;
     print ' FILE:  '.__FILE__.'  Exception : '.$e->getMessage();
   }
 
-
-
-
-
-
-
-
-
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if ((strpos($msgr, $ixz.'grenade') !== false) || (strpos($msgr, ''.$ixz.'nade ') !== false) && ($x_nmbrf == 0))
+if ((strpos($msgr, $ixz.'grenade') !== false) || (strpos($msgr, $ixz.'nade') !== false) && ($x_nmbrf == 0))
 {
 try
   {
@@ -192,7 +169,7 @@ list($vv9g1, $vv8g1, $vv7g1) = explode('.',$vv8);
 
 	usleep($sleep_rcon);
 	//rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 Skill Rank: ^2 ".$ipm." ^3[^5TOP100  ^7http:^7/^7/recod.ru/top^7^3]", "");
-	  rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername." ^1Grenade Kills: ^2".$ipm." ^1Played: ^2".$played." ^3[^5TOP5^3]", "");
+	  rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername." ^1".$infoogrnkll.": ^2".$ipm." ^1".$infooplydx.": ^2".$played." ^3[^5TOP5^3]", "");
 	
 	}
 
@@ -253,7 +230,7 @@ list($vv9g1, $vv8g1, $vv7g1) = explode('.',$vv8);
 	usleep($sleep_rcon);
 	//rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 Skill Rank: ^2 ".$ipm." ^3[^5TOP100  ^7http:^7/^7/recod.ru/top^7^3]", "");
 	//rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."  ^3[ ^6HEADSHOTS: ^2".$ipm."^3] ^6Played ^2".$played." ^3[^5TOP5^3]", "");
-	  rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 HeadShots: ^2 ".$ipm." ^3[^5TOP5^3]", "");
+	  rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 ".$infoohddd.": ^2 ".$ipm." ^3[^5TOP5^3]", "");
 	}
 
 
@@ -307,7 +284,7 @@ if ((strpos($msgr, $ixz.'kills') !== false) || (strpos($msgr, ''.$ixz.'kills ') 
 	
 	
 	usleep($sleep_rcon);
-	rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 Kills: ^2 ".$ipm." ^3[^5TOP5^3]", "");
+	rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 ".$infoofrag.": ^2 ".$ipm." ^3[^5TOP5^3]", "");
 	++$x_number;
 	++$x_nmbrf;
 	//}	
@@ -334,7 +311,7 @@ echo '    '.$tfinishh = (microtime(true) - $start);
 
 
 
-if ( ($msgr == ''.$ixz.'suicid')&& ($x_number == 0) || ($msgr == ''.$ixz.'suicides')&& ($x_number == 0))
+if ( ($msgr == ''.$ixz.'suicid')&& ($x_number == 0) || ($msgr == $ixz.'suicides')&& ($x_number == 0))
 
 {
  
@@ -352,7 +329,7 @@ if ( ($msgr == ''.$ixz.'suicid')&& ($x_number == 0) || ($msgr == ''.$ixz.'suicid
 	
 	
 	usleep($sleep_rcon);
-	rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 Suicides: ^2 ".$ipm." ^3[^5TOP5^3]", "");
+	rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 ".$infoosuic.": ^2 ".$ipm." ^3[^5TOP5^3]", "");
 	++$x_number;
 	++$x_nmbrf;
 	//}	
@@ -394,7 +371,7 @@ if (($msgr == ''.$ixz.'bash')&& ($x_number == 0) || ($msgr == ''.$ixz.'mellee')&
 	
 	
 	usleep($sleep_rcon);
-	rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 Mellee/Bash: ^2 ".$ipm." ^3[^5TOP5^3]", "");
+	rcon("say  ^6 ^3    [^6 " . ++$number . " ^3] ^7 ".$playername."^1 ".$infoobash.": ^2 ".$ipm." ^3[^5TOP5^3]", "");
 	++$x_number;
 	++$x_nmbrf;
 	//}	
@@ -867,7 +844,7 @@ $xhcv = $skilll;
 
 	
   usleep($sleep_rcon);
-  rcon("say  ^6  [^6 ". ++$num ." ^6]  ^7".$ply." ^1Skill Rank:^2  ".$xhcv." ^1 Rank:^2 ".$skill2."  ^1 Level:^2 ".$lvll." / 66 ", "");	
+  rcon("say  ^6  [^6 ". ++$num ." ^6]  ^7".$ply." ^1".$infoorrnk.":^2  ".$xhcv." ^1 ".$infoorank.":^2 ".$skill2."  ^1 ".$infoolvvl.":^2 ".$lvll." / 66 ", "");	
 	++$x_number;	
 	}
 
@@ -902,7 +879,7 @@ if ((strpos($msgr, $ixz.'worst') !== false) && ($x_number != 1))
 	    $playername = 	$row['s_player'];
 		$ipm = 			$row['s_skill'];
 	usleep($sleep_rcon);
-	rcon("say  ^6 ^3    [^6 " . ++$number1 . " ^3] ^7 ".$playername."^1 Skill Rank: ^2 ".$ipm."", "");
+	rcon("say  ^6 ^3    [^6 " . ++$number1 . " ^3] ^7 ".$playername."^1 ".$infoorrnk.": ^2 ".$ipm."", "");
 	}
 	++$x_number;
 	AddToLogInfo("[".$datetime."] TOP: (" . $x_namex . ") (" . $i_id . ") reason: TOP"); 

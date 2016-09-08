@@ -57,27 +57,27 @@ if (is_numeric ($numm))
 {
 	$db3  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db3.sqlite');
 	$db3->query("DELETE FROM x_db_play_stats WHERE s_place='$numm' LIMIT 1");
-	rcon('say ^6[^1RCM^3bot^6] ^7Player Nr - '.$numm.' was delete from Top!', '');
+	rcon('say ^6[^1RCM^3bot^6] ^7'.$ttdbdeleted.' - '.$numm.' '.$tttdbdltd.'', '');
 }
 else if (trim($numm) == 'alladmins')
 {
 	$db->query("DELETE FROM x_db_admins");
-	rcon('tell '.$i_id.' ^6[^1RCM^3bot^6] ^7Admin database was deleted!', '');
+	rcon('tell '.$i_id.' ^6[^1RCM^3bot^6] ^7'.$admdbdeleted, '');
 }	
 else if (trim($numm) == 'allstats')
 {
 	$db3  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db3.sqlite');
 	$db3->query("DELETE FROM x_db_play_stats");
-	rcon('tell '.$i_id.' ^6[^1RCM^3bot^6] ^7Player stats database deleted!', '');
+	rcon('tell '.$i_id.' ^6[^1RCM^3bot^6] ^7'.$topdbdeleted, '');
 }
 else if (trim($numm) == 'allbans')
 {
 	$db2  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db2.sqlite');
 	$db2->query("DELETE FROM bans");
-	rcon('tell '.$i_id.' ^6[^1RCM^3bot^6] ^7Player ban database deleted!', '');
+	rcon('tell '.$i_id.' ^6[^1RCM^3bot^6] ^7'.$bandbdeleted, '');
 }
 else
-	rcon('tell '.$i_id.' ^6[^1RCM^3bot^6] ^7Admin you are noob? Use number of player place from !top', '');
+	rcon('tell '.$i_id.' ^6[^1RCM^3bot^6] ^7'.$bandbnoob, '');
  	
 	++$x_number;	
 	AddToLogInfo("[".$datetime."] DELETE database: (" . $x_nickx . ") (" . $i_ip . ") (" . $msgr . ")"); 
@@ -97,22 +97,6 @@ $db = NULL;
   }		
 	
 }	
-/*
-//$vipt = (array_search($chistx, $r_adm, true) !== false);
-if($knownplayr == 0){	
-usleep($sleep_rcon);
-rcon('say ^6[^1RCM^3bot^6] ^1WARNING YOU! ^7' . $nickr . '  ^3its not your group commands!', '');
-if ($kicknotingrp == 1){
-usleep($sleep_rcon*5);
-if ($game_patch == 'cod1_1.1')
-rcon('clientkick '. $unkwnplyersx, '');
-else
-rcon('clientkick '. $idnum, '');
-AddToLog("[".$datetime."] SELF KICK: (" . $nickr . ") (" . $idnum . ") "); 
-++$x_number;
-++$x_return;
-++$x_stop_lp;
-}}
-*/	
+
 	}
 ?>

@@ -3,7 +3,7 @@
 
 if ($game_patch == 'cod1_1.1')
 			$i_name1c = 22;
-else if ($game_patch == 'cod4')
+else if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
                         $i_name1c = 47;
 else
 		        $i_name1c = 22;

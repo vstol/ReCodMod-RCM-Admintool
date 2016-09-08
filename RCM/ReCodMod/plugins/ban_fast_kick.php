@@ -68,7 +68,7 @@ if($stat > 0)
 		{
 				
 usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' BAN!', '');
 else
         rcon('clientkick '. $i_id, '');
@@ -76,7 +76,7 @@ else
  usleep($sleep_rcon);
  rcon('kick '. $playername1, '');
 usleep($sleep_rcon*3);
-rcon('say  ' . $playername1 . ' '.$ban_ip_all.' "^7Reason:^1" "'.$reason.'"', '');
+rcon('say ' . $playername1 . ' '.$ban_ip_all.' ^7'.$infooreas.':^1 '.$reason.'', '');
 		  
 AddToLog("[".$datetime."] BANNED IP KICK: (" . $i_ip . ") (" . $i_name . ")");					
 		++$x_number; 
@@ -126,7 +126,7 @@ else { rcon('akick '. $i_id.' " ^6[^7BANNED^6]"', ''); }
 if ($game_ac == '0'){ 
 
 //usleep($sleep_rcon);
-if ($game_patch == 'cod4')
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' BAN!', '');
 else
         rcon('clientkick '. $i_id, '');

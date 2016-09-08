@@ -72,7 +72,7 @@ if($x_mpt == 'mp_harbor'
 
 if ($x_number == 0){
     usleep($sleep_rcon);
-    rcon('say ^6 ^3Admin changed map to '.$x_mapname, '');
+    rcon('say ^6 ^3'.$infoomapz.' '.$x_mapname, '');
 	
 if ($x_mpt == 'wawa_3dAim')
 {
@@ -96,7 +96,7 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 fclose($connect);	
 exit;
 	}else{
@@ -112,7 +112,7 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 fclose($connect);
 exit;	
 	}	 	
@@ -123,7 +123,7 @@ exit;
 echo "  False map";
  
 usleep($sleep_rcon);
-rcon('say ^1False Map! ^2Only: ^7'.$maps.'', '');
+rcon('say '.$infoflss.' ^7'.$maps.'', '');
 ++$x_number;	
 ++$x_return;
 if(!empty($db))
@@ -138,7 +138,7 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 fclose($connect);
 exit;
      }
@@ -167,7 +167,9 @@ echo 'Unknown map plugin error!';
 else if (strpos($msgr, $ixz.'map') !== false){
  
 ////////////////////////////////////Change list
-
+ 
+$i_namex = chatrr($i_name);	
+  
 $tk = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
 	$kski = explode(" / ", $tk); 	
 	
@@ -218,7 +220,7 @@ fclose($connx);
 echo "  mp list";
  
 usleep($sleep_rcon);
-rcon('say ^1Maplist: ^7'.$maps.'', '');
+rcon('say '.$infoompls.' ^7'.$maps.'', '');
 ++$x_number;	
 ++$x_return;
 if(!empty($db))
@@ -233,7 +235,7 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 fclose($connect);
 exit;
  
@@ -264,7 +266,7 @@ echo 'Unknown map plugin error!';
 if (strpos($msgr, $ixz.'nextmap') !== false){
  
 ////////////////////////////////////Change list
-
+$i_namex = chatrr($i_name);
 $tk = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
 	$kski = explode(" / ", $tk); 	
 	
@@ -306,19 +308,37 @@ usleep($sleep_rcon);
  for ($i=0; $i<1; $i++) 
 	{
 require $cpath.'ReCodMod/functions/inc_functions3.php';
-if ((! $valid_id) || (! $valid_ping)) Continue; 
 
 	
-
 usleep($sleep_rcon);
 require $cpath.'ReCodMod/functions/getinfo/sv_mapRotation.php';
 fclose($connx);	
-		
 
+ //$emaprun - current map
+ //$mapsxc - current game type and map rotation.
+ if(empty($emaprun)) {
+$status = new COD4xServerStatus($server_ip, $server_port);
+                if ($status->getServerStatus())
+                 {
+                  $status->parseServerData();
+   if(empty($emaprun))               
+$emaprun = $serverStatus['mapname'];
+                 }
+}
+ 
+if (preg_match('/\b'.$emaprun.'\b\s\b(.+)/iu', $mapsxc, $match)) {
+	$mapnamekl = explode(trim($emaprun), $mapsxc);
+        $mapnamekl[1] = preg_replace("/\b[a-z]{1,4}\b/iu", "", $mapnamekl[1]);
+	$lll = preg_replace("/\W*\b/iu", "%%", $mapnamekl[1]);
+        $emaprunln = explode('%%%%', $lll);
 echo "  next map";
+echo '---> '.$emaprunl = $emaprunln[1];}
+
+if(empty($emaprunl))
+	$emaprunl = 'Unknown';
  
 usleep($sleep_rcon);
-rcon('say ^1Nextmap: ^7'.$mapsxc.'', '');
+rcon('say '.$infoomnxtt.' ^7'.$emaprunl.'', '');
 ++$x_number;	
 ++$x_return;
 if(!empty($db))
@@ -333,7 +353,7 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(!empty($connect))
+if(is_resource($connect))
 fclose($connect);
 exit;
  

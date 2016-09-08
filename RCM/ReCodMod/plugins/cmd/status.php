@@ -58,11 +58,11 @@ if(!empty($chistx)){
 if (!preg_match("/^bot\d+$/",  $chistx, $tmp2n))
 {
 	usleep($sleep_rcon);	
-  ++$x_loops;++$x_loopsv;
+  ++$x_loops;
 	  usleep($sleep_rcon);
-      rcon('say ^6  "^7Status: ^7'.$chistx.' - '.$statuszl.'"', '');
+      rcon('say ^6  ^7'.$infoostat.': ^7'.$chistx.' - '.$statuszl.'', '');
 	++$x_stop_lp; 
-	AddToLogInfo("[".$datetime."] GEO: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");    	
+	AddToLogInfo("[".$datetime."] GEO: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ")");    	
 echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
 
 }}

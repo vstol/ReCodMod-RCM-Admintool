@@ -1,17 +1,50 @@
 <?php
 
-// Prefix for chat commands, you can use ! @ # $ % ^ * ~ ,  or letter - q w r t o r y .
-$ixz = "!";   
+//LANGUAGES  en - english, ru - russian, de - germany, fr - france, it - italy, pl - polish, br - brazil, nl -...
+$language = 'en';  
+
+
+//TOP - BY !top => kills, ratio, head shots, bash, knife, grenades, rank, deaths, suicides.
+$etop = 'kills';
+
+//SERVERINFO
+/*	
+FOR messages.cfg.php  use:  $servers_info_messages
+FOR Disable => $serverinfo_adress = 0;
+*/
+$serverinfo_adress = "192.168.1.102:27770;192.168.1.102:28961;192.168.1.102:27774;192.168.1.102:28830;192.168.1.102:28965";
+
+
+
+//FTP SENT FILES TO ANOTHER WEB HOSTING or localhost!
+$ftp_server    = '72.43.26.70';
+$ftp_login     = 'ruoikketkhgkii';
+$ftp_password  = '7BpKkjnjaPSk8';
+//Local path to logs
+$local_dir = '/media/Windows/Game_Servers/RCM/COD4-original/ReCodMod/x_logs/';
+//Local path to screenshots
+$local_dir_getss = '/home/larocca/.callofduty4/screenshots/';
+///SERVER ROOT FOLDERS, FOR LOGS $ftp_root, FOR IMAGES $ftp_root_getss. 
+///NOTE - ALL THIS FOLDERS NEED MAKE IN YOUR FTP SERVER, WHICH YOU ADD HERE
+$ftp_root      = '/domains/recod.ru/public_html/rcm_logfiles/LOGS/';
+$ftp_root_getss   = '/domains/recod.ru/public_html/rcm_logfiles/GETSS/';
+
 
 //Fast geo welcome when player connecting - 1 / When player connected - 0
 $fast_geowelcome = 0;
+
+
+
+
+// Prefix for chat commands, you can use ! @ # $ % ^ * ~ ,  or letter - q w r t o r y .
+$ixz = "!";   
 
 // KIck who want to try use admin commands!
 $kicknotingrp = 1;
 
 // ONE BANLIST database (db2.sqlite) FOR ALL SERVERS - if use one banlist database for one server set to $bannlist = "";
 // If one database for all servers  (COPY FROM THAT FOLDER ..\ReCodMod\databases\db2.sqlite  FILE) ->  $bannlist = "/way to database folder/db2.sqlite"; 
-$bannlist = ""; 
+$bannlist = "/media/Windows/Game_Servers/RCM/BAN_DATABASE/db2.sqlite"; 
 
 // ONE ADMINS database (db1.sqlite) FOR ALL SERVERS - if use one ADMINS database for one server set to $adminlists = "";
 // If one database for all servers  (COPY FROM THAT FOLDER ..\ReCodMod\databases\db1.sqlite  FILE) ->  $adminlists = "/way to database folder/db1.sqlite"; 
@@ -45,8 +78,10 @@ date_default_timezone_set( 'Europe/Kaliningrad' );
 $rules_schedule[6][0] = 'say RCM local time is 6:00';
 $rules_schedule[9][0] = 'exec a__config_day.cfg';
 
-
-// 1 - CHAT FLOOD, SWEARING, AND CHAT SPAM PROTECTING , 0 - OFF protection
+// $chat_protect = 0 - OFF protection
+// $chat_protect = 1 - CHAT FLOOD PROTECTING,  , 
+// $chat_protect = 2 - SWEARING, CRY, AND CHAT SPAM PROTECTING
+// $chat_protect = 3 - Activate all
 $chat_protect = 0;  
 $flood_time = false; //1 second between messages
 $flood_time_cmd = 2;    /// time between messages for flood protect
@@ -61,7 +96,7 @@ $wdislk = '3';    //\\ Server dislike warns limit, after this number limit - ban
 $deadchat = 0; 
 
 // Player can be added in top list when player has 1000 frags. Better add 5000 kills limit for !top // Less of 1000 longer top updating)
-$limm = "50";   
+$limm = "30";   
 
 $v_time_gtx = 100;  //gametype vote time
 $v_time_map = 100;  //map vote time
