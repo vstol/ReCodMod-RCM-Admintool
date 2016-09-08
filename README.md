@@ -49,10 +49,14 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 + So many another plugins....
 
 
-#Soon in new version!
-+ Ftp connection + send logs and screenshots to another server or website. !ftp log - sent logs !ftp img - sent screenshots
+# In new version!
++ Ftp connection + send logs and screenshots to another server or website. !ftp log - sent logs !ftp getss - sent screenshots
 + !rangelist - banned ip ranges
-+ Parsing for codservers cod1x cod2x cod4x cod5x guid banlist with synchronization in database. !refresh banlist or  auto refresh every 4700 seconds.
++ !refresh banlist , !refresh top
++ !lastban
++ !reload
++ !elist
++ Message rotation with another servers information
 
 #HOW INSTALL!
 
