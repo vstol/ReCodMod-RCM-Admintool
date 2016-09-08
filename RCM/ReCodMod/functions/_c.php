@@ -1,6 +1,6 @@
 <?php
-$z_rcm = "RCM[v.3.1.7]";
-$dtx   = "^7[30_08_2016]^5";
+$z_rcm = "RCM[v.3.4.8]";
+$dtx   = "^7[8_09_2016]^5";
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
