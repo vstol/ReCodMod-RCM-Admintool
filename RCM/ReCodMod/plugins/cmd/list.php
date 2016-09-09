@@ -71,7 +71,7 @@ for ($i=0; $i<$player_cnt; $i++)
 $colorb=$i%2>0? '^6':'^3';
 $colora=$i%2>0? '^7':'^7';
 require $cpath.'ReCodMod/functions/inc_functions3.php';
-if ((! $valid_id) || (! $valid_ping)) Continue; 
+//if ((! $valid_id) || (! $valid_ping)) Continue; 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -154,7 +154,7 @@ rcon('tell '. $idnum .' ^6 '.$colorb.'#Id:'.$colorb.'  '.$colora.$i_id.' '.$col
 	}else{
 		
 		
-rcon('tell '. $newid .' ^6 '.$colorb.'#Id:'.$colorb.'  '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex.' '.$colorb.$infoostat.': ^9('.$statuszl.'^9) '.$colorb.' '.$infooip.': '. $colora .$i_ip.' "'.$colorb.' '.$infoofrom.': ^9(^2'.$xxxnw.'^9)"', '');	
+rcon('tell '. $idnum .' ^6 '.$colorb.'#Id:'.$colorb.'  '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex.' '.$colorb.$infoostat.': ^9('.$statuszl.'^9) '.$colorb.' '.$infooip.': '. $colora .$i_ip.' "'.$colorb.' '.$infoofrom.': ^9(^2'.$xxxnw.'^9)"', '');	
    //echo $i_namex. ' "^2from:^3 '.ciity($country_name['country']['iso']." , ".$country_name['city']['name_en']);		
 }	
 }
@@ -295,7 +295,7 @@ $colorb=$i%2>0? '^6':'^3';
 $colora=$i%2>0? '^7':'^7';
 
 require $cpath.'ReCodMod/functions/inc_functions3.php';
-if ((! $valid_id) || (! $valid_ping)) Continue; 
+//if ((! $valid_id) || (! $valid_ping)) Continue; 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
