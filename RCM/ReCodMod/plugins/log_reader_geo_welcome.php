@@ -137,7 +137,7 @@ if ($x_stop_lp == 0)
                     //60 * 60 * 24 * 14  - two weeks
                     //60 * 60 * 2        - two hours
                     if (empty($geosp))
-                      $geosp = 'x';
+                      $geosp = 'sd';
                     if ($geosp == 'sd')
                       $newwtimer = (60 * 60 * 2);
                     else
