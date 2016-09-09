@@ -280,11 +280,11 @@ echo ' db5 null ';}
             $mdguid = $vv6;
             $mdxxx  = $vv6;
            }
- 
- 
- 
-              
-            if ($guids == 0)
+			 
+			 if(empty($protect_stats))
+				 $protect_stats = 0;
+			 
+            if ($protect_stats == 0)
              {
  
  
@@ -916,4 +916,3 @@ fclose($connect);
    }
  }
  ?>
-
