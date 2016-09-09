@@ -59,6 +59,9 @@ $geox = 1;
 // Without autorized cd keys with guid = 0 need web server or website connection / with guid system add ($guids = 1;) // // Support only [cod1 p1.4, p1.5, cod uo all p, cod2 all p, cod4 all p] versions  - if use $guids = 1; change to  $code = 0;
 $guids = 0;    
 
+///1 protect players stats from name and guid fakers / 0 - OFF
+$protect_stats = 0; //UP 20 PLAYERS IN SMALL MAP dm gametype SLOW RCM ADMINMOD LOGS READING 
+
 /////////ANTIFAKE NAMES PROTECTING
 //Using another players name - warning messages for players \\\\\ 1 - ON  , 0 - OFF
 $fakealert = 0;
