@@ -16,7 +16,8 @@ $na2 = trim($x_nickx);
 
 	$i_namex = afdasfawf($i_name);		 
 		 
- 
+   if($guids==1)
+	 $i_namex = $guidn; 
 
 try
   {
