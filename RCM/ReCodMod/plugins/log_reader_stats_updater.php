@@ -284,7 +284,7 @@ echo ' db5 null ';}
 			 if(empty($protect_stats))
 				 $protect_stats = 0;
 			 
-            if ($protect_stats == 0)
+            if ($protect_stats == 1)
              {
  
  
