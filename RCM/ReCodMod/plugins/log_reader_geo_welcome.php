@@ -72,27 +72,14 @@ if ($x_stop_lp == 0)
     $limitj = substr_count($parseline, ';'); // 3
     if (($limitj == 3) || ($limitj == 2))
      {
-		 
-	$plyr_cnt++;
-	 
-	  if ($counttdot == 2)
-    list($noon, $idk, $nickname) = explode(';', $parseline);
-  else
-    list($noon, $guid, $idk, $nickname) = explode(';', $parseline);
-  if (empty($guid))
-    $guid = 'non';
-  //echo '-' . $guid . '-' . $idk . '-' . $nickname;	 
-		 
-	require $cpath . 'ReCodMod/plugins/con_manual_finder.php';		 
-		 
       //echo "\n[CNT] : [",$datetime, "] : ".$nickr." : ".$msgr;	
       $vote_cgu = 0;
       require $cpath . 'ReCodMod/functions/inc_functions2.php';
       for ($i = 0; $i < $player_cnt; $i++)
        {
         require $cpath . 'ReCodMod/functions/inc_functions3.php';
-        //if ((!$valid_id) || (!$valid_ping))
-        //  Continue;
+        if ((!$valid_id) || (!$valid_ping))
+          Continue;
         require $cpath . 'ReCodMod/plugins/ban_fast_kick.php';
         $dropip = explode(".", $i_ip);
         $xdot   = '.';
@@ -108,16 +95,7 @@ if ($x_stop_lp == 0)
             $x_namex = clearnamex($i_name);
             //$vip     = (array_search($i_name, $r_adm, true) !== false);
             require $cpath . 'ReCodMod/plugins/ban1.php';
-
-		   if(empty($fast_geowelcome))
-			   $fast_geowelcome = 0;
-		   
-           if ($fast_geowelcome == 1)
-		   $nothingg = ($i_namex == '%%$%%$&^&');
-           else
-		   $nothingg = (($i_ping != 111) && ($i_ping != '999'));
-
-		   if ($nothingg)
+            if (($i_ping != 111) && ($i_ping != '999'))
              {
               $i_namex = afdasfawf($i_name);
               $x_date  = date('Y-m-d H:i:s');
@@ -137,7 +115,7 @@ if ($x_stop_lp == 0)
                     //60 * 60 * 24 * 14  - two weeks
                     //60 * 60 * 2        - two hours
                     if (empty($geosp))
-                      $geosp = 'sd';
+                      $geosp = 'x';
                     if ($geosp == 'sd')
                       $newwtimer = (60 * 60 * 2);
                     else
@@ -187,9 +165,7 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
                              }
                            }
                           usleep($sleep_rcon);
-                          rcon('say ^6 ^3' . $welcome_x2 . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1num#'.$idk.' ^1id#' . $idcc . ' ^7' . $website . '', '');
-						  AddToLog1("<br/>[" . $datetime . "] ". $welcome_x2 . " " . $nickname . " ".$infoofrom." [" . $xxxnw . "] num#".$idk." guid#".$guid." ip#".$i_ip."");
-						  AddToLog1clear("[" . $datetime . "] ". $welcome_x2 . " " . $nickname . " ".$infoofrom." [" . $xxxnw . "]  num#".$idk." guid#".$guid." id#" . $idcc);
+                          rcon('say ' . $welcome_x2 . ' ' . $nickname . ' ^3from ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^7' . $website . '', '');
                           ++$x_stop_lp;
                          }
                        }
@@ -249,9 +225,7 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
                     if ($x_stop_lp == 0)
                      {
                       usleep($sleep_rcon);
-                      rcon('say ^6 ^3' . $welcome_x . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1num#'.$idk.'', '');
-					  AddToLog1("<br/>[" . $datetime . "] ". $welcome_x . " " . $nickname . " ".$infoofrom." [" . $xxxnw . "] num#".$idk." guid#".$guid." ip#".$i_ip."");
-					  AddToLog1clear("[" . $datetime . "] ". $welcome_x . " " . $nickname . " ".$infoofrom." [" . $xxxnw . "] num#".$idk." guid#".$guid."");
+                      rcon('say ' . $welcome_x . ' ' . $nickname . ' ^3from ^6[^2' . $xxxnw . '^6]', '');
                       ++$x_stop_lp;
                      }
                    }
@@ -263,88 +237,6 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
                 print ' FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
                }
              }
-else{
-		
-	                  if ($x_stop_lp == 0)
-                         {
-							 	 
-                       $gi     = geoip_open($cpath . "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);
-                        $record = geoip_record_by_addr($gi, $i_ip);
-                        $xxxnnn = ($record->country_name);
-                        if ($geox == 1)
-                          $xxxnw = ($record->country_name . ", " . $record->city . "");
-                        else
-                          $xxxnw = ($record->country_name);
-                        $date = date('Y.m.d H.i.s');							 
-		 
-              try
-               {							 
-				 $db3    = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db3.sqlite');		
-                 $db4  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db4.sqlite');
-                  $sql  = "SELECT * FROM x_db_players WHERE x_db_ip='$i_ip' LIMIT 1";  
-
-
-                $stat = $db4->query($sql)->fetchColumn();
-                if (empty($stat))
-                 {
-				
-                 $x_date  = date('Y-m-d H:i:s');
-                    $t    = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
-                    $x_ai = explode(" / ", $t);
-                    if ($guids == 0)
-                      $mdguid = md5(md5(md5($nickname)));
-				   else
-                       $mdguid = $guid;
-                    $db4->exec("INSERT INTO x_db_players (x_db_name, x_db_ip, x_db_ping, x_db_date, x_db_warn)
-    VALUES ('$i_namex', '$i_ip', '$mdguid', '$x_date', '0')");					
-                 }
-					
-      if ((empty($i_ip)) || (strpos($i_ip, '192.168') !== false) || (strpos($i_ip, '255.255') !== false) || (strpos($i_ip, 'localhost') !== false) || (strpos($i_ip, '127.0.0.1') !== false))
-                          $i_ip = '37.120.56.200';
-					  
-                if ($guids == 0)
-                     {
-                      $mdguid = md5(md5(md5($nickname)));
-                      $sql    = "select * FROM x_db_play_stats where s_player='$x4vvv' and s_guid = '$mdguid' limit 1";
-                      $stat   = $db3->query($sql)->fetchColumn();
-                      if (empty($stat))
-                       {
-                        $db3->exec("INSERT INTO x_db_play_stats (s_player,s_place,s_kills,s_deaths,s_grenade,s_skill,s_ratio,s_heads,s_time,s_lasttime,s_city,s_clear,s_guid,s_geo, s_suicids,s_fall,s_melle) 
-VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$mdguid','$xxxnnn','0','$idk','0')");
-                       }
-                      else
-                        $db3->exec("update x_db_play_stats set s_fall='$idk' where s_player='$x4vvv'");
-                     }
-                    else
-                     {
-                      $db3  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db3.sqlite');
-                      $sql  = "select * FROM x_db_play_stats where s_player='$x4vvv' and s_guid = '$guid' limit 1";
-                      $stat = $db3->query($sql)->fetchColumn();
-                      if (empty($stat))
-                       {
-                        $db3->exec("INSERT INTO x_db_play_stats 
-(s_player,s_place,s_kills,s_deaths,s_grenade,s_skill,s_ratio,s_heads,s_time,s_lasttime,s_city,s_clear,s_guid,s_geo, s_suicids,s_fall,s_melle) 
-VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid','$xxxnnn','0','$idk','0')");
-                       }
-                     }					  
-                       
-                          usleep($sleep_rcon*2);
-                          rcon('say ^6 ^3' . $welcome_x . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1num#'.$idk.'', '');
-						  AddToLog1("<br/>[" . $datetime . "] ". $welcome_x . " " . $nickname . " ".$infoofrom." [" . $xxxnw . "] num#".$idk." guid#".$guid." ip#".$i_ip."");
-						  AddToLog1clear("[" . $datetime . "] ". $welcome_x . " " . $nickname . " ".$infoofrom." [" . $xxxnw . "] num#".$idk." guid#".$guid."");
-                          ++$x_stop_lp;
-                        
-						
-               }
-              catch (PDOException $e)
-               {
-                print ' FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
-               }						
-						
-						
-						} 
-}  			 
- 
            }
          }
        } ///end loop
@@ -367,7 +259,7 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(is_resource($connect))
+if(!empty($connect))
 fclose($connect);  
 	  exit;}
       //return;
@@ -389,7 +281,7 @@ if(!empty($db4))
 $db4 = NULL;
 if(!empty($db5))
 $db5 = NULL;
-if(is_resource($connect))
+if(!empty($connect))
 fclose($connect);  
 	  }
 	  
@@ -399,4 +291,3 @@ if($tfinishh > 30)
 	exit;
  }
 ?>
-
