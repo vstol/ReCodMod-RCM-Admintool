@@ -59,7 +59,7 @@ $handlePos=fopen($cpath."ReCodMod/x_logs/chat.log" ,"w+");
 fwrite($handlePos, "1");
   fclose($handlePos);}}
 
- if(file_exists($cpath . 'ReCodMod/x_logs/chat.html'){
+ if(file_exists($cpath . 'ReCodMod/x_logs/chat.html')){
 $file = $cpath . "ReCodMod/x_logs/chat.html";
 $newfile = $cpath . "ReCodMod/x_logs/archive/chat/chat";
 $datetime = date('Y.m.d H:i:s');
