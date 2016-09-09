@@ -193,7 +193,7 @@ list($thatline, $nonex) = explode('%%', $ixxx);
 	}
 	 
         $xc_guid = str_replace('!', '', $xc_guid);
-
+/*
         echo "ID: ". $i_id = $xc_id;  
 	//echo ' Score: '.$i_score = $xc_score; 
 	//echo ' Ping: '.$i_ping = $xc_ping;  
@@ -201,7 +201,7 @@ list($thatline, $nonex) = explode('%%', $ixxx);
         echo ' IP: '.$i_ip; 
 	//echo ' Nickname - '.$xc_name;
 	echo ' Nick: '.$i_name;
-       /* */
+        */
 }
 
 }
