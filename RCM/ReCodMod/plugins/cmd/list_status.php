@@ -241,7 +241,7 @@ if (!preg_match("/^bot\d+$/",  $chistx, $tmp2n))
 if ($game_patch == 'cod1_1.1')
 rcon('^6 '.$colorb.'#Id:'.$colorb.' '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex. ''.$colorb.' '.$infoostat.': ^6('.$statuszl.'^6)"', '');	
 else
-rcon('tell '. $newid .' ^6 '.$colorb.'#Id:'.$colorb.' '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex. ''.$colorb.' '.$infoostat.': ^9('.$statuszl.'^9)"', '');	
+rcon('tell '. $idnum .' ^6 '.$colorb.'#Id:'.$colorb.' '.$colora.$i_id.' '.$colorb.' '.$infoonick.': '.$colorb. $colora .$i_namex. ''.$colorb.' '.$infoostat.': ^9('.$statuszl.'^9)"', '');	
 }}
 
 	}
