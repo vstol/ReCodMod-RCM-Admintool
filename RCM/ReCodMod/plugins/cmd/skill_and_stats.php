@@ -41,6 +41,9 @@ $i_namex = afdasfawf($i_name);
 	 if($na1 == $na2) 
 	     {
  
+   if($guids==1)
+	 $x_namex = $guidn; 
+
  try
   {
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
@@ -137,7 +140,8 @@ $db3 = NULL;
 list($x_cmd, $x_nameee) = explode(' ', $msgr); // 
 $x_namjj= clearnamex2($x_nameee);	
   
-  
+  if($guids==1)
+	 $x_namex = $guidn; 
   
   try
   {
@@ -256,6 +260,9 @@ $symbs = mb_strlen(trim($msgr), 'utf-8');
 //list($nickr, $msgr) = explode(' % ', $parselinetxt);
 //list($x_cmd, $x_idn) = explode(' ', $msgr); // 	
 //if ($x_idn=='')
+	  if($guids==1)
+	 $x_namex = $guidn; 
+
  try
   {
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
