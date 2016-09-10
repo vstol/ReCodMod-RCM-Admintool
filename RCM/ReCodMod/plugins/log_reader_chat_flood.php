@@ -10,6 +10,7 @@ echo "\n--Teamsay : [",$datetime, "] : ".$nickr." : ".$msgO;
 
 $msgO = 'TEAMCHAT';	
 $msgr = 'TEAMCHAT';
+if (($chat_protect == 2) || ($chat_protect == 3))
 require 'chat_pre_team.php';
 
 require $cpath.'ReCodMod/functions/inc_functions2.php';
@@ -72,7 +73,7 @@ echo "\n--say : [",$datetime, "] : ".$nickr." : ".$msgO;
 						  }	
 
  $confirm_user=0;
-
+if (($chat_protect == 2) || ($chat_protect == 3))
 require 'chat_pre.php';
 
 require $cpath.'ReCodMod/functions/inc_functions2.php';
@@ -133,7 +134,7 @@ require 'chat.php';
 /* 
 require 'chat/chat_full.php';
 */ 
- if ($chat_protect != 3){
+ if (($chat_protect == 2) || ($chat_protect == 3)){
  if ($web_con == '0'){ 
 list($i1p, $i2p, $i3p, $i4p) = explode('.', $i_ip); 
 $ipt = (array_search($i1p.'.'.$i2p.'.'.$i3p, $r_admi, true) !== false);
