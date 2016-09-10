@@ -122,9 +122,7 @@ while (true)
   $fakerz       = 0;
   $xz_flud      = false;
 
-        if ($plyr_cnt <= 1)
-          $spps = 721000;
-        else if ($plyr_cnt <= 4)
+         if ($plyr_cnt <= 4)
           $spps = 195000;
         else if ($plyr_cnt <= 6)
           $spps = 160000;
@@ -652,7 +650,7 @@ $pos = strpos($parseline, '');
            }
           if ($stop_lp == 0)
            {
-            if (($chat_protect == 0) || ($chat_protect == 2))
+            if ($chat_protect == 0)
              {
               $dhgsj = addslashes(hjgdtr($nickr));
               $msgO  = $msgr;
@@ -679,10 +677,9 @@ $pos = strpos($parseline, '');
                 require $cpath . 'ReCodMod/plugins/chat.php';
                }
 			   
-              if (($chat_protect == 1) || ($chat_protect == 3))
+              if ($chat_protect != 0)
                 require $cpath . 'ReCodMod/plugins/log_reader_chat_flood.php';
-			  if (($chat_protect == 2) || ($chat_protect == 3))
-			  require 'ReCodMod/plugins/chat_2.php';
+			  
 			
               $msgr = mb_strtolower($msgr, 'cp1251');
              }
