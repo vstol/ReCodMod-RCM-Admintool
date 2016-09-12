@@ -1,11 +1,16 @@
 <?php 
 ////////////Manual ban simple ip ranges///////////////////
 
-// Manual ip ban / Sample: IP: 111.222.333.444   add to ban 111.222 
+// Manual ip ban
 // *Until 1000
+/*
+RANGE SUPPORT  $rules_super_range[] = '230.168.1.0-230.168.1.100';
+RANGE SUPPORT  $rules_super_range[] = '230.168.*.*';
+CIDR SUPPORT $rules_super_range[] = '230.168.0.0/16'; 
+*/
  $rules_kick_ip_super_range = true;  // true - on , false - off
- $rules_super_range[] = '95.28';
- 
+ $rules_super_range[] = '230.168.0.0/16'; 
+ $rules_super_range[] = '230.168.0.0/24'; 
 
 // Manual Guids BAN  
 // *Until 1000
