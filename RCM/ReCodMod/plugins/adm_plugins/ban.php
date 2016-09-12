@@ -275,29 +275,26 @@ if ($x_stop_lp == 0)
             //$x_bann = explode(" / ", $tk); 
             //$dat = '.';
             //		$x_addr = explode(".", $i_ip); 	
-            $yesrnge = substr_count($x_idn, '.'); // 1
-            if ($yesrnge == 1)
-             {
+	$ldotss = substr_count($x_idn, '.'); // 3 //6	
+	$ldotssx = substr_count($x_idn, '*'); // 2
+	$ldotssxl = substr_count($x_idn, '/'); // 1
+	if(($ldotss == 6) || ($ldotss == 3)&&($ldotssx == 2) || ($ldotss == 3)&&($ldotssxl == 1))
+	{
               $db2->exec("INSERT INTO x_ranges (ip_ranges,ip_info) VALUES ('$x_idn','$x_reason')");
               usleep($sleep_rcon);
-              if (($game_ac == '0') && ($x_stop_lp == 0))
-               {
+              
+			   
                 rcon('say  ^6 ^1IP Range ' . $ban_ip_all . ' ^7'.$infooreas.':^1 ' . $x_reason . '', '');
                 usleep($sleep_rcon);
-                usleep($sleep_rcon);
-                rcon('clientkick ' . $i_id, '');
+                //usleep($sleep_rcon);
+                //rcon('clientkick ' . $i_id, '');
                 AddToLog("[" . $datetime . "] BANNED: " . $i_ip . " (" . $x_reason . ") (" . $i_id . ") BY: (" . $x_nickx . ")  R ");
                 ++$x_number;
                 ++$x_stop_lp;
                 echo '  ban  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
                 //return;
-               }
-              else
-               {
-                rcon('say  ^6 ^1IP Range ' . $ban_ip_all . ' ^7'.$infooreas.':^1 ' . $x_reason . '', '');
-                usleep($sleep_rcon);
-                rcon('akick ' . $i_id . ' " ^6[^7BAN By Admin^6]"', '');
-               }
+               
+			   
               AddToLog("[" . $datetime . "] BANNED: " . $i_ip . " (" . $x_reason . ") (" . $i_id . ") BY: (" . $x_nickx . ")  R ");
               ++$x_number;
               echo '  ban  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
