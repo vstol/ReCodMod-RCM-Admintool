@@ -23,7 +23,7 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 + Changed message rotation
 + Full cod4x 1.7b and 1.8 admincontrol support.
 + !getss - all players screenshots
-+ Ip ban tool (Example: 111.111.111.111, or range with 111.111.111.* or 111.111.*.*
++ Ip ban tool (Example: 111.111.111.111, or range EXAMPLE cfg/bans.cfg.php
 + Ban tool with ban reasons, temp ban and more!
 + Banlist !banlist
 + UNban list!
