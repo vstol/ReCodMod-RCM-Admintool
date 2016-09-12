@@ -66,10 +66,23 @@ if ($x_stop_lp == 0)
   echo '-' . $guid . '-' . $idk . '-' . $nickname;
   $x4vvv = clearnamex2($nickname);
   $date  = date('Y.m.d H.i.s');
+  
+  
+  
+  
   if (strpos($parseline, 'J;') !== false)
    {
+	   
+	   
     $geoxx  = 0;
     $limitj = substr_count($parseline, ';'); // 3
+	
+            if ($limitj == 2)
+    list($noon, $idk, $nickname) = explode(';', $parseline);
+  else
+    list($noon, $guid, $idk, $nickname) = explode(';', $parseline);	   
+	   	
+	
     if (($limitj == 3) || ($limitj == 2))
      {
       //echo "\n[CNT] : [",$datetime, "] : ".$nickr." : ".$msgr;	
@@ -78,9 +91,11 @@ if ($x_stop_lp == 0)
       for ($i = 0; $i < $player_cnt; $i++)
        {
         require $cpath . 'ReCodMod/functions/inc_functions3.php';
-        if ((!$valid_id) || (!$valid_ping))
-          Continue;
-        require $cpath . 'ReCodMod/plugins/ban_fast_kick.php';
+        //if ((!$valid_id) || (!$valid_ping))
+        //  Continue;
+       
+		require $cpath . 'ReCodMod/plugins/ban1.php';
+		
         $dropip = explode(".", $i_ip);
         $xdot   = '.';
         if ((strpos($nickname, $chistx) !== false) || (strpos($i_id, $idk) !== false))
@@ -94,7 +109,7 @@ if ($x_stop_lp == 0)
             $x_date  = date('Y-m-d H:i:s');
             $x_namex = clearnamex($i_name);
             //$vip     = (array_search($i_name, $r_adm, true) !== false);
-            require $cpath . 'ReCodMod/plugins/ban1.php';
+            
             if (($i_ping != 111) && ($i_ping != '999'))
              {
               $i_namex = afdasfawf($i_name);
