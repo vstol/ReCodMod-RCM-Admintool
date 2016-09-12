@@ -303,19 +303,6 @@ while (true)
    {
     $datetime  = date('Y.m.d H:i:s');
     $dtx2      = date('Y-m-d H:i:s');
-    $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time_exec1");
-    if ($stime - $cron_time >= 60)
-     {
-      file_put_contents($cpath . "ReCodMod/x_cron/cron_time_exec1", "");
-      require $cpath . 'ReCodMod/functions/inc_functions2.php';
-      for ($i = 0; $i < $player_cnt; $i++)
-       {
-        require $cpath . 'ReCodMod/functions/inc_functions3.php';
-        if ((!$valid_id) || (!$valid_ping))
-          Continue;
-        require $cpath . 'ReCodMod/plugins/ban_fast_kick.php';
-       }
-     }
     if (isset($rules_schedule))
      {
       list($sh, $sm) = explode(' ', date('H i'));
@@ -690,6 +677,8 @@ $pos = strpos($parseline, '');
          {
 
           require $cpath . 'ReCodMod/plugins/log_reader_geo_welcome.php';
+		  
+		  
          }
         else if (preg_match('/Q;/', $parseline, $xnon))
          {
