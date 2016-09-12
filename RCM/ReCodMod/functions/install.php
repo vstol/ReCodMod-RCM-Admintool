@@ -105,15 +105,8 @@ touch($cpath.'ReCodMod/x_cache/z-vote-gametype.log');
 touch($cpath.'ReCodMod/x_cache/z-vote-map.log');
 touch($cpath.'ReCodMod/x_update/update.log');
 
-        if(!file_exists($cpath . 'ReCodMod/databases/db0.sqlite')
-        && !file_exists($cpath . 'ReCodMod/databases/db1.sqlite')			
-	    && !file_exists($cpath . 'ReCodMod/databases/db2.sqlite')
-        && !file_exists($cpath . 'ReCodMod/databases/db3.sqlite')
-        && !file_exists($cpath . 'ReCodMod/databases/db4.sqlite')
-	    && !file_exists($cpath . 'ReCodMod/databases/db5.sqlite')){
-echo " Install - SQL3 Database.\n";
-sleep (2);			
-	
+        if(!file_exists($cpath . 'ReCodMod/databases/db0.sqlite')){
+			
   try
   {
     $db0 = new PDO('sqlite:'. $cpath . 'ReCodMod/databases/db0.sqlite');
@@ -129,9 +122,10 @@ sleep (2);
   catch(PDOException $e)
   {
     print 'Exception : '.$e->getMessage();
-  }  
-
-	
+  }  			
+		}
+  if(!file_exists($cpath . 'ReCodMod/databases/db1.sqlite')){
+	  
  try
   {
     $db = new PDO('sqlite:'. $cpath . 'ReCodMod/databases/db1.sqlite');
@@ -161,10 +155,9 @@ sleep (2);
   catch(PDOException $e)
   {
     print 'Exception : '.$e->getMessage();
-  }
-
-
-  
+  }	  
+  }	  
+   if(!file_exists($cpath . 'ReCodMod/databases/db2.sqlite')){
   try
   {
  
@@ -192,10 +185,11 @@ sleep (2);
   catch(PDOException $e)
   {
     print 'Exception : '.$e->getMessage();
-  }  
-  
-  
-  try
+  }   
+  }	
+  if(!file_exists($cpath . 'ReCodMod/databases/db3.sqlite')){
+	  
+ try
   {
     $db3 = new PDO('sqlite:'. $cpath . 'ReCodMod/databases/db3.sqlite');
 
@@ -206,23 +200,32 @@ sleep (2);
   catch(PDOException $e)
   {
     print 'Exception : '.$e->getMessage();
-  }    
-  
-  
+  }  	
+	
+  }		
+  else if(!file_exists($cpath . 'ReCodMod/databases/db4.sqlite')){
+	  
+	  
   try
   {
 
-    $db3 = new PDO('sqlite:'. $cpath . 'ReCodMod/databases/db4.sqlite');
+    $db4 = new PDO('sqlite:'. $cpath . 'ReCodMod/databases/db4.sqlite');
 
-    $db3->exec("CREATE TABLE x_db_players (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, x_db_name varchar(250), x_db_ip int(40), x_db_ping varchar(100), x_db_date varchar(100), x_db_warn varchar(10), x_date_reg varchar(100))"); 
+    $db4->exec("CREATE TABLE x_db_players (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, x_db_name varchar(250), x_db_ip int(40), x_db_ping varchar(100), x_db_date varchar(100), x_db_warn varchar(10), x_date_reg varchar(100))"); 
 
-    $db3 = NULL;
+    $db4 = NULL;
   }
   catch(PDOException $e)
   {
     print 'Exception : '.$e->getMessage();
-  }    
-  
+  }	  
+	  
+  }	
+    if(!file_exists($cpath . 'ReCodMod/databases/db5.sqlite')){
+	  
+echo " Install - SQL3 Database.\n";
+sleep (2);			
+	
   try
   {
  
@@ -251,12 +254,35 @@ $i_ping = '139';
   catch(PDOException $e)
   {
     print 'Exception : '.$e->getMessage();
-  }     
+  }
+     
 		}
 
+		
+		
+if(!file_exists($cpath . 'ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat')){		
+		
+$zip = new ZipArchive;
+$res = $zip->open($cpath . 'ReCodMod/geoip_bases/MaxMD/GeoLiteCity.zip');
+if ($res === TRUE) {
+  $zip->extractTo($cpath . 'ReCodMod/geoip_bases/MaxMD/');
+  $zip->close();
+  echo " Unzip GeoLiteCity.zip - Ok.\n";
+} else {
+  echo " Impossible unzip GeoLiteCity.zip.\n";
+}		
+			
+}		
+		
+		
+		
+		
+		
 echo " Install - Ok.\n";
 sleep (2);
-}}
+}
+
+}
 
 
 ?>
