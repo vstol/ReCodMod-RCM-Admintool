@@ -129,15 +129,24 @@ if ($x_stop_lp == 0)
                     $datecc = $row['x_db_date'];
                     //60 * 60 * 24 * 14  - two weeks
                     //60 * 60 * 2        - two hours
+                  
+                  if (empty($fast_geowelcome))
+                  $fast_geowelcome = 1;
+                  if ($fast_geowelcome == 1) {
                     if (empty($geosp))
                       $geosp = 'x';
                     if ($geosp == 'sd')
                       $newwtimer = (60 * 60 * 1);
                     else
                       $newwtimer = (60 * 30);
-				  
 				    $ttplus = rand(0, 100);
 					$newwtimer = $ttplus + $newwtimer;
+                  }else{
+                  	
+                  $newwtimer = (60 * 2);
+                  
+                  }
+					
                     if (abs(strtotime($datecc) - $ts1) > $newwtimer)
                      {
                       if ($x_stop_lp == 0)
