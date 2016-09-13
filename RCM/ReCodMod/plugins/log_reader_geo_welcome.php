@@ -132,9 +132,12 @@ if ($x_stop_lp == 0)
                     if (empty($geosp))
                       $geosp = 'x';
                     if ($geosp == 'sd')
-                      $newwtimer = (60 * 60 * 2);
+                      $newwtimer = (60 * 60 * 1);
                     else
-                      $newwtimer = (60);
+                      $newwtimer = (60 * 30);
+				  
+				    $ttplus = rand(0, 100);
+					$newwtimer = $ttplus + $newwtimer;
                     if (abs(strtotime($datecc) - $ts1) > $newwtimer)
                      {
                       if ($x_stop_lp == 0)
