@@ -256,26 +256,7 @@ $i_ping = '139';
     print 'Exception : '.$e->getMessage();
   }
      
-		}
-
-		
-		
-if(!file_exists($cpath . 'ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat')){		
-		
-$zip = new ZipArchive;
-$res = $zip->open($cpath . 'ReCodMod/geoip_bases/MaxMD/GeoLiteCity.zip');
-if ($res === TRUE) {
-  $zip->extractTo($cpath . 'ReCodMod/geoip_bases/MaxMD/');
-  $zip->close();
-  echo " Unzip GeoLiteCity.zip - Ok.\n";
-} else {
-  echo " Impossible unzip GeoLiteCity.zip.\n";
-}		
-			
-}		
-		
-		
-		
+		}		
 		
 		
 echo " Install - Ok.\n";
@@ -284,5 +265,17 @@ sleep (2);
 
 }
 
-
+if(!file_exists($cpath . 'ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat')){		
+		
+$zip = new ZipArchive;
+$res = $zip->open($cpath . 'ReCodMod/geoip_bases/MaxMD/MaxMD.zip');
+if ($res === TRUE) {
+  $zip->extractTo($cpath . 'ReCodMod/geoip_bases/MaxMD/');
+  $zip->close();
+  echo " Unzip MaxMD.zip - Ok.\n";
+} else {
+  echo " Impossible unzip MaxMD.zip.\n";
+}		
+			
+}
 ?>
