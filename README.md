@@ -280,11 +280,11 @@ ALL CHAT COMMANDS!
 
 EXAMPLES:  
 
-!range 230.168.1.0-230.168.1.100 reasonMESSAGEorNICKNAME
+- !range 230.168.1.0-230.168.1.100 reasonMESSAGEorNICKNAME
 
-!range 230.168.*.* reasonMESSAGEorNICKNAME
+- !range 230.168.*.* reasonMESSAGEorNICKNAME
 
-!range 230.168.0.0/16 reasonMESSAGEorNICKNAME 
+- !range 230.168.0.0/16 reasonMESSAGEorNICKNAME 
 
 
 !ban id reason (SAMPLE: !ban 3 WallHack - where 3 is player id and WallHack is a reason for ban) 
