@@ -381,12 +381,12 @@ $pos = strpos($parseline, '');
              {
               list($rrr, $nickr, $msgr) = explode('; ', $parseline);
               $guidn = '0';
-			  //$idnum = '0';
+			  $idnum = 'false';
              }
             else{
               list($nickr, $msgr) = explode(' % ', $parselinetxt);
 			$guidn = '0';
-			  //$idnum = '0';  
+			  $idnum = 'false';  
 			}
            }
           $msgO      = $msgr;
