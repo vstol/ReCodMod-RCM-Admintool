@@ -276,7 +276,16 @@ ALL CHAT COMMANDS!
 
 !rc - control server with rcon commands (Sample: !rc g_speed 800 ,or !rc g_allowvote...and anothers)
 
-!range ip_adress reason(SAMPLE: !range 111.222 wallhack - where player ip_adress is a 111.222.333.444 - but add 111.222) - range banned list dosn't showing in !banlist, it's hide in database only.
+!range ip_adress reason
+
+EXAMPLES:  
+
+!range 230.168.1.0-230.168.1.100 reasonMESSAGEorNICKNAME
+
+!range 230.168.*.* reasonMESSAGEorNICKNAME
+
+!range 230.168.0.0/16 reasonMESSAGEorNICKNAME 
+
 
 !ban id reason (SAMPLE: !ban 3 WallHack - where 3 is player id and WallHack is a reason for ban) 
 
