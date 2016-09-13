@@ -129,11 +129,16 @@ if ($x_loopsv == 0) {
             if (!empty($i_ip)) {
                 $ldotss = substr_count($i_ip, '.'); // 3 //6	
                 if ($ldotss == 3) {
-                    $rules_super_range[] = '000.000';
+                    $rules_super_range[] = '10.18.11.0-10.18.11.10';
                     $x_addr2             = explode(".", $i_ip);
                     $dati                = '.';
                     foreach ($rules_super_range as $rules_super_rang) {
                         echo '1';
+						$iippl   = substr_count($i_ip, '.'); // 3	
+                        $ldotss   = substr_count($rules_super_rang, '.'); // 3 //6	
+                        $ldotssx  = substr_count($rules_super_rang, '*'); // 2
+                        $ldotssxl = substr_count($rules_super_rang, '/'); // 1
+                     if (($ldotss == 6) || ($ldotss == 3) && ($ldotssx == 2) && ($iippl == 3) || ($ldotss == 3) && ($ldotssxl == 1) && ($iippl == 3)) {
                         if ($x_loopsv == 0) {
                             if (ech(netMatch($rules_super_rang, $i_ip)) == !$fuckmatch) {
                                 echo '2';
@@ -141,7 +146,7 @@ if ($x_loopsv == 0) {
                                     if ($rules_kick_ip_super_range) {
                                         echo '3kicked';
                                         usleep($sleep_rcon);
-                                        rcon('clientkick ' . $idk . ' BAN!', '');
+                                        rcon('clientkick ' . $idk . ' IP RANGE BAN!', '');
                                         usleep($sleep_rcon);
                                         rcon('clientkick ' . $idk, '');
                                         AddToLog("[" . $datetime . "] SUPER I.R. KICK: (" . $i_ip . ") (" . $i_name . ")");
@@ -150,16 +155,14 @@ if ($x_loopsv == 0) {
                                 }
                             }
                         }
-                    }
+                    }}
                 }
                 //	echo $x_addr2[0].$dati.$x_addr2[1];
             }
             ///////////////////////////////////////////Simple Range
             $dat    = '.';
             $x_addr = explode(".", $i_ip);
-            if (empty($i_ip)) {
-                echo ' ban1 error';
-            } else {
+            if (!empty($i_ip)) { 
                 $result = $db2->query("SELECT * FROM x_ranges WHERE ip_ranges like '%" . $x_addr[0] . $dat . $x_addr[1] . "%'");
                 $sql    = "SELECT * FROM x_ranges WHERE ip_ranges like '%" . $x_addr[0] . $dat . $x_addr[1] . "%'";
                 $stat   = $db2->query($sql)->fetchColumn();
@@ -169,17 +172,21 @@ if ($x_loopsv == 0) {
                         $ldotss   = substr_count($ip_r, '.'); // 3 //6	
                         $ldotssx  = substr_count($ip_r, '*'); // 2
                         $ldotssxl = substr_count($ip_r, '/'); // 1
-                        if (($ldotss == 6) || ($ldotss == 3) && ($ldotssx == 2) || ($ldotss == 3) && ($ldotssxl == 1)) {
+
+						$iippl   = substr_count($i_ip, '.'); // 3	
+						
+                        if (($ldotss == 6) || ($ldotss == 3) && ($ldotssx == 2) && ($iippl == 3) || ($ldotss == 3) && ($ldotssxl == 1) && ($iippl == 3)) {
+						if ($x_loopsv == 0) {	
                             if (ech(netMatch($ip_r, $i_ip)) == !$fuckmatch) {
                                 usleep($sleep_rcon);
-                                rcon('clientkick ' . $idk . ' BAN!', '');
+                                rcon('clientkick ' . $idk . ' IP RANGE BAN!', '');
                                 usleep($sleep_rcon);
                                 rcon('clientkick ' . $idk, '');
                                 AddToLog("[" . $datetime . "] I.R. KICK: (" . $i_ip . ") (" . $ip_r . ") (" . $i_name . ")");
                                 ++$x_loopsv;
                                 echo ' x-rangeee   ' . $tfinishh = (microtime(true) - $start);
                             }
-                        }
+                        }}
                     }
                 }
             }
@@ -254,3 +261,4 @@ if ($x_loopsv == 0) {
     }
 }
 ?>
+ 
