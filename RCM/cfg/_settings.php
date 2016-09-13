@@ -31,7 +31,7 @@ $ftp_root_getss   = '/domains/recod.ru/public_html/rcm_logfiles/GETSS/';
 
 
 //Fast geo welcome when player connecting - 1 / When player connected - 0
-$fast_geowelcome = 0;
+$fast_geowelcome = 1;
 
 
 
