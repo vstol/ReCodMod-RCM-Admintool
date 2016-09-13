@@ -295,7 +295,9 @@ EXAMPLES:
 
 !unban nick (nick - unban player)
 
-!unban id* - (id* - special player indificator number from !banlist sample: !unban 2
+!unban id* - FOR UNBAN PLAYER (id* - special player indificator number from !banlist sample: !unban 2)
+
+!rlist id* - FOR UNBAN RANGE IP (id* - special player indificator number from !banlist sample: !rlist 2) 
 
 !banlist - Banned last 10 players list - (if unban - sample: !unban 12, when 12 is number from banlist)
 
