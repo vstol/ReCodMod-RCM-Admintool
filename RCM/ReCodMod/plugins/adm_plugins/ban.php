@@ -506,10 +506,14 @@ $result = $db2->query("SELECT * FROM x_ranges WHERE id = '$x_nickid'");
 foreach($result as $row)
     {		   
 		   
-		   $id       = $row['id'];
-           $ip     = $row['ip_ranges'];
-           $reason       = $row['ip_info'];		
-		
+		$id = 	$row['id'];
+		$playername = 	$row['playername'];
+		$ip = 			$row['ip'];
+		$reason  = 		$row['reason'];
+		$time = 		$row['time'];
+		if ($guidn != '0')
+		$tguidd = 		$row['guid'];
+		$whooo = 		$row['whooo'];	
 
 if (is_numeric ($x_nickid))			
 $db2->query("DELETE FROM x_ranges WHERE id='$x_nickid'");
