@@ -268,13 +268,15 @@ sleep (2);
 if(!file_exists($cpath . 'ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat')){		
 		
 $zip = new ZipArchive;
-$res = $zip->open($cpath . 'ReCodMod/geoip_bases/MaxMD/MaxMD.zip');
+$res = $zip->open($cpath . 'ReCodMod/geoip_bases/MaxMD/GeoLiteCity.zip');
 if ($res === TRUE) {
   $zip->extractTo($cpath . 'ReCodMod/geoip_bases/MaxMD/');
   $zip->close();
-  echo " Unzip MaxMD.zip - Ok.\n";
+  echo " Unzip GeoLiteCity.zip - Ok.\n";
 } else {
-  echo " Impossible unzip MaxMD.zip.\n";
+  echo " ERROR! => Impossible unzip GeoLiteCity.zip.\n";
+  sleep (100);
+  exit;
 }		
 			
 }
