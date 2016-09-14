@@ -202,6 +202,12 @@ list($thatline, $nonex) = explode('%%', $ixxx);
 	//echo ' Nickname - '.$xc_name;
 	echo ' Nick: '.$i_name;
         */
+         $i_id = $xc_id;  
+	 $i_score = $xc_score; 
+	 $i_ping = $xc_ping;  
+	 $i_guid = $xc_guid; 
+ 
+
 }
 
 }
