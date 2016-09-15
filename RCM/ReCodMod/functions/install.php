@@ -264,7 +264,7 @@ sleep (2);
 }
 
 }
-
+/*
 if(!file_exists($cpath . 'ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat')){		
 		
 $zip = new ZipArchive;
@@ -279,5 +279,5 @@ if ($res === TRUE) {
   exit;
 }		
 			
-}
+}*/
 ?>
