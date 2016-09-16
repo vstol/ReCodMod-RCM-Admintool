@@ -44,8 +44,9 @@ if ($x_loopsv == 0) {
                     $playername = $row['playername'];
                     $reason     = $row['reason'];
                     $plnm       = trim($playername);
-                    $i_nn       = trim($i_name);
-                    if (strpos($plnm, $i_nn) !== false) {
+                    $i_nn       = trim(clearnamex($i_name));
+					$nickname = clearnamex($nickname);
+                    if ((strpos($plnm, $nickname) !== false) || (strpos($plnm, $i_nn) !== false)) {
                         if ($x_number != 1) {
                             usleep($sleep_rcon);
                             rcon('clientkick ' . $idk . ' BAN!', '');
