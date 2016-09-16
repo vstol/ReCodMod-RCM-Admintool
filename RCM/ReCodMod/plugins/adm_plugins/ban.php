@@ -61,10 +61,14 @@ if ($x_stop_lp == 0)
               $i_namex = aaxa($i_name);
               $tk      = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
               $x_bann  = explode(" / ", $tk);
+			  
+			  if((empty($i_guid)) || $i_guid = '0' )
+				  $i_guid = $chistx;
+			  
               if ($x_bann[0] == $x_idn)
                {
 				   
-                $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','$knwguid','$x_reason','$datetime','$x_nickx','$game_patch')");
+                $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','$i_guid','$x_reason','$datetime','$x_nickx','$game_patch')");
                 
                 if (($game_ac == '0') && ($x_stop_lp == 0))
                  {
