@@ -82,6 +82,8 @@ if ($x_stop_lp == 0)
   else
     list($noon, $guid, $idk, $nickname) = explode(';', $parseline);	   
 	   	
+	if(empty($guid))
+		$guid = $chistx;
 	
     if (($limitj == 3) || ($limitj == 2))
      {
@@ -192,7 +194,7 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
                              }
                            }
                           usleep($sleep_rcon);
-                          rcon('say ' . $welcome_x2 . ' ' . $nickname . ' ^3from ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^7' . $website . '', '');
+                          rcon('say ^3' . $welcome_x2 . ' ^7' . $nickname . ' ^3from ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^7' . $website . '', '');
                           ++$x_stop_lp;
                          }
                        }
@@ -252,7 +254,7 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
                     if ($x_stop_lp == 0)
                      {
                       usleep($sleep_rcon);
-                      rcon('say ' . $welcome_x . ' ' . $nickname . ' ^3from ^6[^2' . $xxxnw . '^6]', '');
+                      rcon('say ^3' . $welcome_x . ' ^7' . $nickname . ' ^3from ^6[^2' . $xxxnw . '^6]', '');
                       ++$x_stop_lp;
                      }
                    }
