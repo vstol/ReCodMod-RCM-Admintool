@@ -37,6 +37,26 @@ if ($x_loopsv == 0) {
             }
         }
         if ($x_admin == 0) {
+            ///GUID KICKER
+            if (!empty($i_name)) {
+                $result = $db2->query("SELECT * FROM bans");
+                foreach ($result as $row) {
+                    $pssiblegguid = $row['guid'];
+                    $reason     = $row['reason'];
+                
+                    if (strpos($guid, $pssiblegguid) !== false) {
+                        if ($x_number != 1) {
+                            usleep($sleep_rcon);
+                            rcon('clientkick ' . $idk . ' BAN!', '');
+                            usleep($sleep_rcon);
+                            rcon('clientkick ' . $idk, '');
+                            AddToLog("[" . $datetime . "] GUID KICK: (" . $pssiblegguid . ") (" . $reason  . ")");
+                            ++$x_loopsv;
+                            ++$x_number;
+                        }
+                    }
+                }
+            }			
             ///nICKNAME KICKER
             if (!empty($i_name)) {
                 $result = $db2->query("SELECT * FROM bans");
