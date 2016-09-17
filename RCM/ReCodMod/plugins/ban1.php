@@ -37,6 +37,25 @@ if ($x_loopsv == 0) {
             }
         }
         if ($x_admin == 0) {
+			
+//////kick guids	
+if (empty($guid))
+$guid = 'zzzzzzzzzz';
+if ($guid != 'zzzzzzzzzz'){	
+	$rules_guids[] = 'if_empty_all_lines_xD';
+	if (($rules_kick_guids) && (array_search(strtolower($guid), $rules_guids, true) !== false))
+	    {	
+usleep($sleep_rcon);
+	rcon('clientkick '. $idk.' BAN!', '');
+usleep($sleep_rcon);
+        rcon('clientkick '. $idk, '');
+		AddToLog("[".$datetime."] MANUAL GUIDS KICK: (" . $i_ip . ") (" . $i_name . ")");	
+++$x_loopsv;		//continue;
+}		
+	//	echo $x_addr2[0].$dati.$x_addr2[1];
+}	
+
+			
             ///GUID KICKER
             if (!empty($i_name)) {
                 $result = $db2->query("SELECT * FROM bans");
