@@ -27,7 +27,7 @@ if ($stop_lp == 0) {
             }
             ////////////////////////////////////chat
         }
-        if ($chat_protect == 1) {
+        if if (($chat_protect == 1) || ($chat_protect == 3)){
             echo '+';
             //fclose($fpX); 
             $x_n4  = trim(clearnamex($nivv));
@@ -125,7 +125,7 @@ if ($stop_lp == 0) {
             ////////////////////////////////////BAN
         }
         ////fclose($fpX);
-        if ($chat_protect == 1) {
+        if if (($chat_protect == 1) || ($chat_protect == 3)) {
             $msgr  = 'FLUD';
             $x_n4  = trim(clearnamex($nivv));
             $today = date('YmdHis');
