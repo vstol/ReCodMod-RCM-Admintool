@@ -62,7 +62,11 @@ $servernamex = str_replace(array("\r\n", "\n", "\r"), "_", $servernamex);
                                             }
                                             //TEST LINE   http://recod.ru/cod_report_master/codsender.php?emailz=yaeriks@yandex.ru&mpass=p&sended=pLAYER999%i have probleeem&userip=111.222.333.444&serverip=192.40.23.21:29000
                                             
-                                            rcon('say ^1' . $reppport . '', '');
+                                            if((!empty($idnum)) || ($idnum != 'false'))
+											rcon('tell '.$idnum.' ^1' . $reppport, '');
+										    else	
+                                            rcon('say ^1' . $reppport, '');
+										
                                             $message = AddCheatHelp("[" . $datetime . "] CHEATER ALARM: " . $i_ip . " (" . $nickr . ") (" . $msgr . ")");
                                             ++$x_number;
                                             echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
@@ -70,7 +74,9 @@ $servernamex = str_replace(array("\r\n", "\n", "\r"), "_", $servernamex);
                                             ++$rotxv;
                                         }
                                     } else {
-                                        echo '--' . $server_ip;
+
+                                    if ($x_stop_lp == 0) {
+									   echo '--' . $server_ip;
                                         echo '--' . $server_port;
                                         echo '--' . $nickr;
                                         echo '--' . $i_ip;
@@ -100,11 +106,15 @@ $servernamex = str_replace(array("\r\n", "\n", "\r"), "_", $servernamex);
                                         }
                                         //TEST LINE   http://recod.ru/cod_report_master/codsender.php?emailz=yaeriks@yandex.ru&mpass=&sended=pLAYER999%i have probleeem&userip=111.222.333.444&serverip=192.40.23.21:29000
                                         usleep($sleep_rcon);
-                                        rcon('say ^1' . $reppport . '', '');
+                                        if((!empty($idnum)) || ($idnum != 'false'))
+											rcon('tell '.$idnum.' ^1' . $reppport, '');
+										    else	
+                                            rcon('say ^1' . $reppport, '');
                                         $message = AddCheatHelp("[" . $datetime . "] CHEATER ALARM: " . $i_ip . " (" . $nickr . ") (" . $msgr . ")");
                                         ++$x_number;
                                         echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
                                         ++$x_stop_lp; //return;
+									}
                                     }
                                 }
                             }
@@ -166,9 +176,13 @@ $servernamex = str_replace(array("\r\n", "\n", "\r"), "_", $servernamex);
                                                 echo $out;
                                                 curl_close($curl);
                                             }
-                                            
+											
+                                            if((!empty($idnum)) || ($idnum != 'false'))
+											rcon('tell '.$idnum.' ^1' . $reppport . '', '');
+										    else	
                                             rcon('say ^1' . $reppport . '', '');
-                                            AddToLogInfo("[" . $datetime . "] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");
+										   
+											AddToLogInfo("[" . $datetime . "] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");
                                             ++$x_number;
                                             echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
                                             ++$x_stop_lp; //return;
@@ -205,7 +219,10 @@ $servernamex = str_replace(array("\r\n", "\n", "\r"), "_", $servernamex);
                                             curl_close($curl);
                                         }
                                         usleep($sleep_rcon);
-                                        rcon('say ^1' . $reppport . '', '');
+                                            if((!empty($idnum)) || ($idnum != 'false'))
+											rcon('tell '.$idnum.' ^1' . $reppport . '', '');
+										    else	
+                                            rcon('say ^1' . $reppport . '', '');
                                         AddToLogInfo("[" . $datetime . "] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");
                                         ++$x_number;
                                         echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
