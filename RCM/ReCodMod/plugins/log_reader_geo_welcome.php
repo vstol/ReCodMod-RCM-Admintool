@@ -91,9 +91,6 @@ if ($x_loopsv == 0)
      {
       //echo "\n[CNT] : [",$datetime, "] : ".$nickr." : ".$msgr;	
       $vote_cgu = 0;
-      
-	  
-	  
 	  
 	  
     try {
@@ -119,7 +116,15 @@ if ($x_loopsv == 0)
        
 	   
 	    $x_admin = 0;
-			
+		
+		
+	 list($noon, $guid, $idk, $nickname) = explode(';', $parseline);	  	
+		
+		if(trim($idk) == trim($i_id)){
+     AddToLogGUID("[" . $datetime . "] WELLCOME -" . $nickname . " : " . $guid . " : " . $i_ip . "");
+	// AddToLog1clear("[" . $datetime . "] WELLCOME - " . $nickname . " : " . $guid . " : " . $i_ip . "");
+    // AddToLog1("<br/>[" . $datetime . "] WELLCOME - " . $nickname . " : " . $guid . " : " . $i_ip . ""); 
+			}
 		
  $result = $db->query("SELECT * FROM x_db_admins WHERE s_adm='$i_ip' LIMIT 1");
         foreach ($result as $row) {
