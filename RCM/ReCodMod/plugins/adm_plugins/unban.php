@@ -88,8 +88,8 @@ $db2->query("DELETE FROM bans WHERE playername='$x_nickid' and patch = '$game_pa
 $db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','$tguidd','$reason','$time','$whooo','$game_patch','$nickr')");
 	    if ($guidn != '0'){
 		usleep($sleep_rcon);
-		rcon('unban '.$tguidd.'', '');
-		                  }
+		rcon('unban '.substr($tguidd, -8).'', '');
+		                  }				  
 		usleep($sleep_rcon);
 		rcon('say  ^6 ^7' . $playername. ' '.$c_unban.' ^7'.$infooreas.': ^1'.$reason.'', '');
 		AddToLog("[".$datetime."] UNBAN: " . $i_ip . " (" . $i_name . ")  reason: UnBan");	
