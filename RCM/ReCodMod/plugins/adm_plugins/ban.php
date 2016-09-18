@@ -60,15 +60,15 @@ if ($x_stop_lp == 0) {
                                     usleep($sleep_rcon);
                                     rcon('say  ^6 ' . $chistx . ' ' . $ban_ip_all . ' ^7' . $infooreas . ': ^1' . $x_reason . '', '');
                                     if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5')) {
-                                        usleep($sleep_rcon);
-                                        rcon('getss ' . $i_id, '');
-                                        //usleep($sleep_rcon);
-                                        //rcon('permban ' . $i_id . ' Reason: [' . $x_reason . ']!', '');
-                                        //usleep($sleep_rcon);
-                                        //rcon('clientkick ' . $i_id, '');
+                                         usleep($sleep_rcon);
+                                         rcon('getss ' . $i_id, '');
+                                         usleep($sleep_rcon);
+                                         rcon('permban ' . $i_id . ' Reason: [' . $x_reason . ']!', '');
+                                         usleep($sleep_rcon);
+                                         rcon('clientkick ' . $i_id, '');
                                     } else {
-                                        //usleep($sleep_rcon * 2);
-                                        //rcon('clientkick ' . $i_id, '');
+                                         usleep($sleep_rcon * 2);
+                                         rcon('clientkick ' . $i_id, '');
                                     }
                                     AddToLog("[" . $datetime . "] BANNED: " . $i_ip . " (" . $i_namex . ") (" . $i_guid . ") BY: (" . $x_nickx . ")  R ");
                                     ++$x_number;
