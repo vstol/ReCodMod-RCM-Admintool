@@ -46,6 +46,10 @@ $kicknotingrp = 1;
 // If one database for all servers  (COPY FROM THAT FOLDER ..\ReCodMod\databases\db2.sqlite  FILE) ->  $bannlist = "/way to database folder/db2.sqlite"; 
 $bannlist = "/media/Windows/Game_Servers/RCM/BAN_DATABASE/db2.sqlite"; 
 
+// ONE BANLIST cfg (cfg/bans.cfg.php) FOR ALL SERVERS - if use one banlist database for one server set to $cfg_bannlist = "";
+// If one database for all servers  (COPY FROM THAT FOLDER ..\cfg/bans.cfg.php  FILE) ->  $cfg_bannlist = "/way to database folder/bans.cfg.php"; 
+$cfg_bannlist = "";
+
 // ONE ADMINS database (db1.sqlite) FOR ALL SERVERS - if use one ADMINS database for one server set to $adminlists = "";
 // If one database for all servers  (COPY FROM THAT FOLDER ..\ReCodMod\databases\db1.sqlite  FILE) ->  $adminlists = "/way to database folder/db1.sqlite"; 
 $adminlists = ""; 
