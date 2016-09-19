@@ -1,6 +1,6 @@
 <?php
 $z_rcm = "RCM[v.3.4.8]";
-$dtx   = "^7[8_09_2016]^5";
+$dtx   = "^7[19_09_2016]^5";
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -436,7 +436,11 @@ if (file_exists($cpath . 'ReCodMod/x_logs/g_servername.log'))
   $servername = fgets($f, 1024);
   $servername = trim($servername);
  }
-require $cpath . 'cfg/bans.cfg.php';
+                if (empty($cfg_bannlist))
+                    require $cpath . 'cfg/bans.cfg.php';
+                else
+                    require $cfg_bannlist;
+
 require $cpath . 'cfg/commands.cfg.php';
 require $cpath . 'cfg/rules.cfg.php';
 require $cpath . 'cfg/badwords.cfg.php';
