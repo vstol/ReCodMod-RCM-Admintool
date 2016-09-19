@@ -902,7 +902,9 @@ fclose($connect);
                  }
                 catch (PDOException $e)
                  {
-                  print ' FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
+                  echo "\n";
+                  print 'FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
+                  sleep (60); exit;
                  }
 
 
