@@ -41,10 +41,10 @@ include($cpath . "ReCodMod/geoip_bases/MaxMD/timezone/timezone.php");
           $db2x = $bannlist;
  
               if (!file_exists($db1x)){echo "\n DO NOT FIND $db1x"; sleep (200); exit;}		
-	    else  if (!file_exists($db2x)){echo "\n DO NOT FIND $db2x"; sleep (200); exit;}	
-        else  if (!file_exists($cpath . 'ReCodMod/databases/db3.sqlite')){echo "\n DO NOT FIND ReCodMod/databases/db3.sqlite"; sleep (200); exit;}	
-        else  if (!file_exists($cpath . 'ReCodMod/databases/db4.sqlite')){echo "\n DO NOT FIND ReCodMod/databases/db4.sqlite"; sleep (200); exit;}	
-	    else  if (!file_exists($cpath . 'ReCodMod/databases/db5.sqlite')){echo "\n DO NOT FIND ReCodMod/databases/db5.sqlite"; sleep (200); exit;}
+	      if (!file_exists($db2x)){echo "\n DO NOT FIND $db2x"; sleep (200); exit;}	
+              if (!file_exists($cpath . 'ReCodMod/databases/db3.sqlite')){echo "\n DO NOT FIND ReCodMod/databases/db3.sqlite"; sleep (200); exit;}	
+              if (!file_exists($cpath . 'ReCodMod/databases/db4.sqlite')){echo "\n DO NOT FIND ReCodMod/databases/db4.sqlite"; sleep (200); exit;}	
+	      if (!file_exists($cpath . 'ReCodMod/databases/db5.sqlite')){echo "\n DO NOT FIND ReCodMod/databases/db5.sqlite"; sleep (200); exit;}
   $plyr_cnt = 0;
                $status = new COD4xServerStatus($server_ip, $server_port);
                 if ($status->getServerStatus())
