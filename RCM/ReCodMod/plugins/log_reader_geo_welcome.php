@@ -85,7 +85,7 @@ if ($x_loopsv == 0)
     list($noon, $guid, $idk, $nickname) = explode(';', $parseline);	   
 	   	
 	if(empty($guid))
-		$guid = $chistx;
+		$guid = $nickname;
 	
     if (($limitj == 3) || ($limitj == 2))
      {
