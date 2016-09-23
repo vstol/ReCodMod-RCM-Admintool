@@ -163,7 +163,7 @@ usleep($sleep_rcon);
 	rcon('clientkick '. $idk.' BAN!', '');
 usleep($sleep_rcon);
         rcon('clientkick '. $idk, '');
-		AddToLog("[".$datetime."] MANUAL GUIDS KICK: (" . $i_ip . ") (" . $i_name . ")");	
+		AddToLog("[".$datetime."] MANUAL GUIDS KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");	
 ++$x_loopsv;		//continue;
 }		
 	//	echo $x_addr2[0].$dati.$x_addr2[1];
@@ -181,14 +181,15 @@ usleep($sleep_rcon);
 					if ((!empty($pssiblegguid)) || $pssiblegguid != '0'){
                     if (strpos($guid, $pssiblegguid) !== false) {
                         if ($x_number != 1) {
+							if ($x_loopsv == 0) {
                             usleep($sleep_rcon);
                             rcon('clientkick ' . $idk . ' BAN!', '');
                             usleep($sleep_rcon);
                             rcon('clientkick ' . $idk, '');
-                            AddToLog("[" . $datetime . "] GUID KICK: (" . $pssiblegguid . ") (" . $reason  . ")");
+                            AddToLog("[" . $datetime . "] GUID KICK: (" . $idk . ") (" . $pssiblegguid . ") (" . $reason  . ")");
                             ++$x_loopsv;
                             ++$x_number;
-					}}
+					}}}
                     }
                 }
             }
@@ -210,7 +211,7 @@ usleep($sleep_rcon);
                             rcon('clientkick ' . $idk . ' BAN!', '');
                             usleep($sleep_rcon);
                             rcon('clientkick ' . $idk, '');
-                            AddToLog("[" . $datetime . "] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");
+                            AddToLog("[" . $datetime . "] BANNED NICK KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");
                             ++$x_loopsv;
                             ++$x_number;
                         }
@@ -229,7 +230,7 @@ usleep($sleep_rcon);
                     rcon('clientkick ' . $idk . ' BAN! ' . $reason, '');
                     usleep($sleep_rcon);
                     rcon('clientkick ' . $idk, '');
-                    AddToLog("[" . $datetime . "] BANNED IP KICK: (" . $i_ip . ") (" . $i_name . ")");
+                    AddToLog("[" . $datetime . "] BANNED IP KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");
                     ++$x_loopsv;
                     ++$x_number;
                     echo ' bans   ' . $tfinishh = (microtime(true) - $start);
@@ -275,7 +276,7 @@ usleep($sleep_rcon);
                     rcon('akick ' . $idk . ' " ^6[^7BAD NAME^6]"', '');
                     rcon('clientkick ' . $idk, '');
                 }
-                AddToLog("[" . $datetime . "] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");
+                AddToLog("[" . $datetime . "] BANNED NICK KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");
                 ++$x_loopsv;
                 if ($rules_msgtoall_kicked_enable) {
                     usleep($sleep_rcon);
@@ -285,19 +286,20 @@ usleep($sleep_rcon);
             }
             //////////////////////////////============================	 IP RANGES
             ///////////////////////////////////////////Super Range
+			 $fuckmatch = 0;
             if (!empty($i_ip)) {
-                $ldotss = substr_count($i_ip, '.'); // 3 //6	
-                if ($ldotss == 3) {
+                $l_dotss = substr_count($i_ip, '.'); // 3 //6	
+                if ($l_dotss == 3) {
                     $rules_super_range[] = '10.18.11.0-10.18.11.10';
                     $x_addr2             = explode(".", $i_ip);
                     $dati                = '.';
                     foreach ($rules_super_range as $rules_super_rang) {
                         echo '1';
 						$iippl   = substr_count($i_ip, '.'); // 3	
-                        $ldotss   = substr_count($rules_super_rang, '.'); // 3 //6	
-                        $ldotssx  = substr_count($rules_super_rang, '*'); // 2
-                        $ldotssxl = substr_count($rules_super_rang, '/'); // 1
-                     if (($ldotss == 6) || ($ldotss == 3) && ($ldotssx == 2) && ($iippl == 3) || ($ldotss == 3) && ($ldotssxl == 1) && ($iippl == 3)) {
+                        $l_dotss   = substr_count($rules_super_rang, '.'); // 3 //6	
+                        $l_stars  = substr_count($rules_super_rang, '*'); // 2
+                        $l_slashh = substr_count($rules_super_rang, '/'); // 1
+                     if (($l_dotss == 6) || ($l_dotss == 3) && ($l_stars == 2) && ($iippl == 3) || ($l_dotss == 3) && ($l_slashh == 1) && ($iippl == 3)) {
                         if ($x_loopsv == 0) {
                             if (ech(netMatch($rules_super_rang, $i_ip)) == !$fuckmatch) {
                                 echo '2';
@@ -308,7 +310,7 @@ usleep($sleep_rcon);
                                         rcon('clientkick ' . $idk . ' IP RANGE BAN!', '');
                                         usleep($sleep_rcon);
                                         rcon('clientkick ' . $idk, '');
-                                        AddToLog("[" . $datetime . "] SUPER I.R. KICK: (" . $i_ip . ") (" . $i_name . ")");
+                                        AddToLog("[" . $datetime . "] SUPER I.R. KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");
                                         ++$x_loopsv; //continue;
                                     }
                                 }
@@ -328,23 +330,23 @@ usleep($sleep_rcon);
                 if ($stat > 0) {
                     foreach ($result as $row) {
                         $ip_r     = $row['ip_ranges'];
-                        $ldotss   = substr_count($ip_r, '.'); // 3 //6	
-                        $ldotssx  = substr_count($ip_r, '*'); // 2
-                        $ldotssxl = substr_count($ip_r, '/'); // 1
-
+                        $l_dotss   = substr_count($ip_r, '.'); // 3 //6	
+                        $l_stars  = substr_count($ip_r, '*'); // 2
+                        $l_slashh = substr_count($ip_r, '/'); // 1
 						$iippl   = substr_count($i_ip, '.'); // 3	
 						
-                        if (($ldotss == 6) || ($ldotss == 3) && ($ldotssx == 2) && ($iippl == 3) || ($ldotss == 3) && ($ldotssxl == 1) && ($iippl == 3)) {
+                        if (($l_dotss == 6) || ($l_dotss == 3) && ($l_stars == 2) && ($iippl == 3) || ($l_dotss == 3) && ($l_slashh == 1) && ($iippl == 3)) {
 						if ($x_loopsv == 0) {	
                             if (ech(netMatch($ip_r, $i_ip)) == !$fuckmatch) {
+								if ($x_loopsv == 0) {
                                 usleep($sleep_rcon);
                                 rcon('clientkick ' . $idk . ' IP RANGE BAN!', '');
                                 usleep($sleep_rcon);
                                 rcon('clientkick ' . $idk, '');
-                                AddToLog("[" . $datetime . "] I.R. KICK: (" . $i_ip . ") (" . $ip_r . ") (" . $i_name . ")");
+                                AddToLog("[" . $datetime . "] I.R. KICK: (" . $idk . ") (" . $i_ip . ") (" . $ip_r . ") (" . $i_name . ")");
                                 ++$x_loopsv;
                                 echo ' x-rangeee   ' . $tfinishh = (microtime(true) - $start);
-                            }
+                            }}
                         }}
                     }
                 }
@@ -363,6 +365,7 @@ usleep($sleep_rcon);
                     $response = curl_exec($ch);
                     $pattern  = '/<appears>yes<\/appears>/';
                     if (preg_match($pattern, $response)) {
+						if ($x_loopsv == 0) {
                         /* IP is listed, so we inform the user, than exit. */
                         echo 'Spammer detected ' . $i_ip . ' ';
                         usleep($sleep_rcon * 4);
@@ -373,7 +376,7 @@ usleep($sleep_rcon);
                         rcon('clientkick ' . $idk, '');
                         AddToLog("[" . $datetime . "] STOP SPAM FORUM KICK: (" . $i_ip . ") (" . $i_name . ")");
                         ++$x_loopsv;
-                    }
+                    }}
                     curl_close($ch);
                     //////////////////////////////============================	
                 }
