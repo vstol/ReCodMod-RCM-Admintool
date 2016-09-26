@@ -117,9 +117,6 @@ if ($x_loopsv == 0)
 	   
 	    $x_admin = 0;
 		
-		
-	 list($noon, $guid, $idk, $nickname) = explode(';', $parseline);	  	
-		
 		if(trim($idk) == trim($i_id)){
      AddToLogGUID("[" . $datetime . "] WELLCOME -" . $nickname . " : " . $guid . " : " . $i_ip . "");
 	// AddToLog1clear("[" . $datetime . "] WELLCOME - " . $nickname . " : " . $guid . " : " . $i_ip . "");
