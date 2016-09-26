@@ -203,7 +203,8 @@ touch($cpath.'ReCodMod/x_update/update.log');
   }  	
 	
   }		
-  else if(!file_exists($cpath . 'ReCodMod/databases/db4.sqlite')){
+  
+	if(!file_exists($cpath . 'ReCodMod/databases/db4.sqlite')){
 	  
 	  
   try
@@ -213,6 +214,10 @@ touch($cpath.'ReCodMod/x_update/update.log');
 
     $db4->exec("CREATE TABLE x_db_players (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, x_db_name varchar(250), x_db_ip int(40), x_db_ping varchar(100), x_db_date varchar(100), x_db_warn varchar(10), x_date_reg varchar(100))"); 
 
+	$db3->exec("CREATE TABLE x_db_play_stats (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, s_player varchar(100), s_place int(10), s_kills int(10), s_deaths int(10), s_grenade int(10), s_skill int(10), s_ratio int(10), s_heads int(10), s_time int(10), s_lasttime varchar(50), s_city varchar(40), s_clear varchar(60), s_guid varchar(60), s_geo varchar(10), s_suicids varchar(10), s_fall varchar(10), s_melle varchar(10))"); 
+ 	  
+	  
+	  
     $db4 = NULL;
   }
   catch(PDOException $e)
