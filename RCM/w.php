@@ -654,7 +654,8 @@ $pos = strpos($parseline, '');
             else
              {
               $msgr = mb_strtolower($msgr, 'cp1251');
-              require $cpath . 'ReCodMod/functions/inc_functions2.php';
+             /*
+		     require $cpath . 'ReCodMod/functions/inc_functions2.php';
               for ($i = 0; $i < $player_cnt; $i++)
                {
                 require $cpath . 'ReCodMod/functions/inc_functions3.php';
@@ -663,7 +664,7 @@ $pos = strpos($parseline, '');
                 require $cpath . 'ReCodMod/plugins/chat_pre.php';
                 require $cpath . 'ReCodMod/plugins/chat.php';
                }
-			   
+		*/	   
               if ($chat_protect != 0)
                 require $cpath . 'ReCodMod/plugins/log_reader_chat_flood.php';
 			  
