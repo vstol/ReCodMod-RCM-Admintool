@@ -116,7 +116,30 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
 
 		echo $ip1.' = = '.$i_ip;
 	 usleep($sleep_rcon);
-  rcon('say  ^6^7  '. $chistx . ' "^6[^7'.$cnsorrd.'^6] [^7'.$wrn.'^1/^7'.$wswear.']', '');		
+  rcon('say  ^6^7  '. $chistx . ' "^6[^7'.$cnsorrd.'^6] [^7'.$wrn.'^1/^7'.$wswear.']', '');	
+
+
+
+
+ if (($ip1 == $i_ip) && ($wrn == 3))
+		{
+usleep($sleep_rcon);
+if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
+	rcon('clientkick '. $i_id.' ^6[^7'.$cnsorrd.'^6]^7', '');
+else
+        rcon('clientkick '. $i_id, '');
+ 
+$i_namex = aaxa($i_name);
+$x_namex = clearnamex($i_name);
+$x_nickx = clearnamex($nickr);
+$x_reason = 'Swearing';
+ 
+AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");			
+++$stop_lp; 	    } 
+
+
+
+  
      if (($ip1 == $i_ip) && ($wrn >= $wswear))
 		{
 usleep($sleep_rcon);
@@ -135,6 +158,12 @@ $x_reason = 'Swearing';
 $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','','$x_reason','$datetime','$x_nickx','$game_patch')");
 AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");			
 ++$stop_lp; 	    } 
+
+
+
+
+
+
     }		
 /////////$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$/////////WARNED CENSOR	
  
