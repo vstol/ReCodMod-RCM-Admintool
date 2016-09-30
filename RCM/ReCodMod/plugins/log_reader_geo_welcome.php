@@ -92,6 +92,202 @@ if ($x_loopsv == 0)
       //echo "\n[CNT] : [",$datetime, "] : ".$nickr." : ".$msgr;	
       $vote_cgu = 0;
 	  
+
+$yedate = date('Y');
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ ++$x_numb1;
+if ($x_numb1 == 1){ 
+
+
+try
+  {
+
+////////////////////////////
+ if (empty($bannlist))	  
+$db2 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db2.sqlite');
+else
+$db2 = new PDO('sqlite:'.$bannlist);
+////////////////////////////
+
+ 
+$datetime = date('Y.m.d H:i:s');
+
+
+  $result = $db2->query("SELECT * FROM bans WHERE reason like 'Flood'");
+    foreach($result as $row)
+    {
+		$id = 	$row['id'];
+		$playername = 	$row['playername'];
+		$ip = 			$row['ip'];
+		$reason  = 		$row['reason'];
+		$time = 		$row['time'];
+		$whooo = 		$row['whooo'];
+		$ppatch = 		$row['patch'];
+				
+		
+$minuteo = (deltimedot($datetime) - deltimedot($time));	
+echo ' ooo '.$minuteo;
+
+if ($minuteo > '7200')
+	{
+$db2->exec("DELETE FROM bans WHERE reason like 'Flood'");	
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','','$reason','$time','$whooo','$ppatch','RCM 2 Hours')");
+$db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");
+	 
+	 
+	 if ($x_number != 1)
+		{
+		usleep($sleep_rcon);
+		rcon('say  ^6  ^7' . $playername. ' ^5'.$tmpbnd.' 2 Hours^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
+		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN 2 Hours</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
+		
+		++$x_number;
+		echo ' bans   '.$tfinishh = (microtime(true) - $start);
+		}	
+	}	
+ }
+
+ 
+   $result = $db2->query("SELECT * FROM bans WHERE reason like 'Swearing'");
+    foreach($result as $row)
+    {
+		$id = 	$row['id'];
+		$playername = 	$row['playername'];
+		$ip = 			$row['ip'];
+		$reason  = 		$row['reason'];
+		$time = 		$row['time'];
+		$whooo = 		$row['whooo'];
+		$ppatch = 		$row['patch'];
+	
+		
+$minutez = (deltimedot($datetime) - deltimedot($time));	
+
+		
+if ($minutez > '10800')
+	{
+echo '============================'.$minutez;	
+$db2->exec("DELETE FROM bans WHERE reason like 'Swearing'");	
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','','$reason','$time','$whooo','$ppatch','RCM 3 Hours')");
+$db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");	 
+	 
+	 if ($x_number != 1)
+		{
+		usleep($sleep_rcon);
+		rcon('say  ^6 ^7' . $playername. ' ^5'.$tmpbnd.' 3 Hours^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
+		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN 3 Hours</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
+		
+		++$x_number;
+		echo ' bans   '.$tfinishh = (microtime(true) - $start);
+		}	
+	}
+	
+	}
+
+	
+	
+   $result = $db2->query("SELECT * FROM bans WHERE reason like 'Disliker'");
+    foreach($result as $row)
+    {	
+	
+		$id = 	$row['id'];
+		$playername = 	$row['playername'];
+		$ip = 			$row['ip'];
+		$reason  = 		$row['reason'];
+		$time = 		$row['time'];
+		$whooo = 		$row['whooo'];
+		$ppatch = 		$row['patch'];
+	
+		
+$minutez = (deltimedot($datetime) - deltimedot($time));	
+
+		
+if ($minutez > '18000')
+	{
+echo '============================'.$minutez;	
+
+
+$db2->exec("DELETE FROM bans WHERE reason like 'Disliker'");	
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','','$reason','$time','$whooo','$ppatch','RCM 5 Hours')");
+$db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");
+
+
+ 
+	 
+	 if ($x_number != 1)
+		{
+		usleep($sleep_rcon);
+		rcon('say  ^6 ^7' . $playername. ' ^5'.$tmpbnd.' 5 Hours^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
+		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN 5 Hours</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
+		++$x_number;
+		echo ' bans   '.$tfinishh = (microtime(true) - $start);
+		}	
+	}
+	
+	}
+	
+	
+   $result = $db2->query("SELECT * FROM bans WHERE reason like '%".$yedate."%'");
+    foreach($result as $row)
+    {		
+
+		$id = 	$row['id'];
+		$playername = 	$row['playername'];
+		$ip = 			$row['ip'];
+		$reason  = 		$row['reason'];
+		$time = 		$row['time'];
+		$whooo = 		$row['whooo'];
+		$ppatch = 		$row['patch'];
+
+
+$datetimex = date('YmdHis');		
+$minutez =  deltimedot($reason) - $datetimex;
+
+	
+
+///echo '=========TEMPBAN IS OVER========'.$minutez;	
+		
+if ($minutez < '0')
+	{
+echo '========= TEMPBAN IS OVER ========'.$minutez;	
+
+$db2->exec("DELETE FROM bans WHERE reason like '%".$yedate."%'");	
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','','$reason','$time','$whooo','$ppatch','$whooo')");
+$db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");	 
+	  
+	 if ($x_number != 1)
+		{
+		usleep($sleep_rcon);
+		rcon('say  ^6 ^7' . $playername. ' ^5'.$tmpbnd.'^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
+		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
+		++$x_number;
+		echo ' bans   '.$tfinishh = (microtime(true) - $start);
+		}	
+	}
+	
+	}	
+	
+ }
+  catch(PDOException $e)
+  {
+    print ' FILE:  '.__FILE__.'  Exception : '.$e->getMessage();
+  } 
+ 	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+} 
 	  
     try {
         ////////////////////////////
@@ -583,9 +779,6 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
        } ///end loop
 	   
 	   
-	   
-	   
-	   
         $result = null;
         $db     = NULL;
         $db2    = NULL;
@@ -595,9 +788,6 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
     catch (PDOException $e) {
         print ' FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
     }	   
-	   
-	   
-	   
 	   
 	   
       //ob_end_flush(); 

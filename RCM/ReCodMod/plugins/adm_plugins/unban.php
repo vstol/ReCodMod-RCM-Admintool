@@ -32,6 +32,9 @@ $db2 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db2.sqlite');
 else
 $db2 = new PDO('sqlite:'.$bannlist);
 ////////////////////////////
+
+$db4 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db4.sqlite');
+
     $result = $db->query("SELECT * FROM x_db_admins WHERE s_adm='$i_ip' LIMIT 1");
  		
     foreach($result as $row)
@@ -80,6 +83,7 @@ foreach($result as $row)
 		$tguidd = 		$row['guid'];
 		$whooo = 		$row['whooo'];
 		
+$db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");
 
 if (is_numeric ($x_nickid))			
 $db2->query("DELETE FROM bans WHERE id='$x_nickid' and patch = '$game_patch'");
