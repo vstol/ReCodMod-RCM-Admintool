@@ -22,10 +22,10 @@ $getsssc = 'ppp';
 /// cmd  - for each group admin commands with server control separately!	 
 $admin_commands = array(';admingroup;',
  'rc', 'ban', 'kick', 'tban', 'unban', 'rlist', 'ftp', 'kick', 'kickall', 'restart', 'map', 'nextmap', 'gt', 'range', 'banlist', 'ulist', 'list', 
- 'getss', $getsssc, 'delete', 'reload', 'refresh', 'update');
+ 'getss', $getsssc, 'delete', 'reload', 'refresh', 'update, 'bw');
  
 $moderator_commands = array(';moderatorgroup;', 
-  'kick', 'ban', 'banlist', 'ulist', 'list', 'getss');
+  'kick', 'ban', 'banlist', 'ulist', 'list', 'getss', 'bw');
   
 $vip_commands = array( ';vipgroup;', 
   'banlist', 'ulist', 'kick', 'getss');
