@@ -707,4 +707,196 @@ if ($x_stop_lp == 0) {
         //return;	
     }
 }
+
+
+if ($x_stop_lp == 0)
+  {
+    if (strpos($msgr, $ixz . 'bw ') !== false)
+      {
+        echo "\n[ADB] : [", $datetime, "] : " . $nickr . " : " . $msgr;
+        $r_ch = trim($chistx);
+        if ($web_con == '0')
+          {
+            list($i1p, $i2p, $i3p, $i4p) = explode('.', $i_ip);
+            $ipt = (array_search($i1p . '.' . $i2p . '.' . $i3p, $r_admi, true) !== false);
+          }
+        else if (($web_con == '1') && ($x_stop_lp == 0))
+          {
+            try
+              {
+                if (empty($adminlists))
+                    $db = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db1.sqlite');
+                else
+                    $db = new PDO('sqlite:' . $adminlists);
+                if (empty($bannlist))
+                    $db2 = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db2.sqlite');
+                else
+                    $db2 = new PDO('sqlite:' . $bannlist);
+                $result = $db->query("SELECT * FROM x_db_admins WHERE s_adm='$i_ip' LIMIT 1");
+                list($x_cmd, $x_idn) = explode(' ', $msgr);
+                $i_namex = chatrr($i_name);
+                $tk      = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
+                $kski    = explode(" / ", $tk);
+                if (strpos(chatrr($nickr), $kski[1]) !== false)
+                    $unkwnplyersx = $i_id;
+                foreach ($result as $row)
+                  {
+                    $adm_ip  = $row['s_adm'];
+                    $a_grp   = $row['s_group'];
+                    $adm_ip  = trim($adm_ip);
+                    $i_ip    = trim($i_ip);
+                    $kski[1] = trim($kski[1]);
+                    $nickr   = trim($nickr);
+                    if (($game_patch == 'cod1_1.1') || ($game_mod == 'codam'))
+                        $jjj = ((strpos(chatrr($nickr), $kski[1]) !== false) && ($adm_ip == $i_ip) && (($a_grp == 0) || ($a_grp == 111) || ($a_grp == 555)) || (array_search(strtolower($i_ip), $adminIP, true) !== false));
+                    else
+                        $jjj = (($adminguidctl == 1) && (array_search(strtolower($guidn), $adminguids, true) !== false) || (array_search(strtolower($i_ip), $adminIP, true) !== false) || ($adm_ip == $i_ip) && ($kski[0] == $idnum) && (($a_grp == 0) || ($a_grp == 111) || ($a_grp == 555)));
+                    if ($jjj)
+                      {
+                        ++$knownplayr;
+                        list($x_cmd, $x_wooord, $x_reason) = explode(' ', $msgr);
+                        if ($x_reason == '')
+                            $x_reason = 'None';
+                        if ($x_stop_lp == 0)
+                          {
+                            $sql  = "SELECT * FROM x_words WHERE z_words='$x_wooord' LIMIT 1";
+                            $stat = $db2->query($sql)->fetchColumn();
+                            if ($stat > 0)
+                              {
+                                usleep($sleep_rcon * 2);
+                                if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
+                                    rcon('tell  ' . $idnum . ' ^6 ' . $x_wooord . '  ^1Error! Located in the database already!', '');
+                                else
+                                    rcon('say  ^6 ' . $x_wooord . ' ^1Error! Located in the database already!', '');
+                              }
+                            else
+                              {
+                                $db2->exec("INSERT INTO x_words (z_names,z_words, z_cmdlist) VALUES ('$x_wooord','$x_wooord','$x_reason')");
+                                usleep($sleep_rcon * 2);
+                                if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
+                                    rcon('tell  ' . $idnum . ' ^6 ' . $x_wooord . ' ' . $ban_ip_all . ' ^7' . $infooreas . ': ^1' . $x_reason . '', '');
+                                else
+                                    rcon('say  ^6 ' . $x_wooord . ' ' . $ban_ip_all . ' ^7' . $infooreas . ': ^1' . $x_reason . '', '');
+                                AddToLog("[" . $datetime . "] BAD WORD: " . $x_wooord . " BY: (" . $x_nickx . ")");
+                                ++$x_number;
+                                ++$x_stop_lp;
+                                echo '  ban  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
+                              }
+                          }
+                      }
+                  }
+                $result = null;
+                $db     = NULL;
+                $db2    = NULL;
+              }
+            catch (PDOException $e)
+              {
+                print ' FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
+              }
+          }
+      }
+    else if (strpos($msgr, $ixz . 'bw') !== false)
+      {
+        $x_namex = clearnamex($i_name);
+        $x_nickx = clearnamex($nickr);
+        $mmm     = trim($x_nickx);
+        $nnn     = trim($x_namex);
+        if ((trim($i_id) == trim($idnum)) || (strpos($mmm, $nnn) !== false))
+          {
+            $i_namex = afdasfawf($i_name);
+            $tk      = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
+            $kski    = explode(" / ", $tk);
+            $newid   = $i_id;
+            $newip2  = $i_ip;
+            if (strpos(chatrr($nickr), $kski[1]) !== false)
+                $unkwnplyersx = $i_id;
+            try
+              {
+                if (empty($adminlists))
+                    $db = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db1.sqlite');
+                else
+                    $db = new PDO('sqlite:' . $adminlists);
+                $result = $db->query("SELECT * FROM x_db_admins WHERE s_adm='$i_ip' LIMIT 1");
+                foreach ($result as $row)
+                  {
+                    $adm_ip = $row['s_adm'];
+                    $a_grph = $row['s_group'];
+                    $adm_ip = trim($adm_ip);
+                    $i_ipn  = trim($newip2);
+                    if (($adm_ip == $i_ipn) && ($a_grph == 0) || ($adm_ip == $i_ipn) && ($a_grph == 111) || ($adm_ip == $i_ipn) && ($a_grph == 555) || ($adm_ip == $i_ipn) && ($a_grph == 1) || ($adm_ip == $i_ipn) && ($a_grph == 2) || ($adm_ip == $i_ipn) && ($a_grph == 3) || ($adm_ip == $i_ipn) && ($a_grph == 4) || ($adm_ip == $i_ipn) && ($a_grph == 5) || ($adm_ip == $i_ipn) && ($a_grph == 6) || ($adm_ip == $i_ipn) && ($a_grph == 7) || ($adm_ip == $i_ipn) && ($a_grph == 8) || ($adminguidctl == 1) && (array_search(strtolower($guidn), $adminguids, true) !== false) || (array_search(strtolower($i_ip), $adminIP, true) !== false))
+                      {
+                        echo '---' . $i_namex . '---';
+                        ++$x_number;
+                        ++$knownplayr;
+                      }
+                  }
+                $result = null;
+                $db     = NULL;
+              }
+            catch (PDOException $e)
+              {
+                print ' FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
+              }
+          }
+        if ($x_number > 0)
+          {
+            usleep($sleep_rcon);
+            require $cpath . 'ReCodMod/functions/inc_functions2.php';
+            for ($i = 0; $i < $player_cnt; $i++)
+              {
+                $colorb = $i % 2 > 0 ? '^6' : '^3';
+                $colora = $i % 2 > 0 ? '^7' : '^7';
+                require $cpath . 'ReCodMod/functions/inc_functions3.php';
+                if ((!$valid_id) || (!$valid_ping))
+                    Continue;
+                try
+                  {
+                    if (empty($bannlist))
+                        $db2 = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db2.sqlite');
+                    else
+                        $db2 = new PDO('sqlite:' . $bannlist);
+                    $result = $db2->query("SELECT * FROM x_words WHERE z_words id>=0 ORDER BY (id+0) DESC LIMIT 10");
+                    $number = 0;
+                    foreach ($result as $row)
+                      {
+                        $playername = $row['z_words'];
+                        $ipm        = $row['id'];
+                        usleep($sleep_rcon);
+                        if ($game_patch == 'cod1_1.1')
+                            rcon('say ^6 ' . $colorb . '#Id:' . $colorb . ' ' . $colora . $ipm . ' ' . $colorb . ' ' . $infoonick . ': ' . $colorb . $colora . substr($playername, 0, 38) . '', '');
+                        else if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
+                            rcon('tell ' . $newid . ' ^6 ' . $colorb . '#Id:' . $colorb . ' ' . $colora . $ipm . ' ' . $colorb . ' ' . $infoonick . ': ' . $colorb . $colora . $playername . '', '');
+                        else if ($game_patch == 'cod5')
+                            rcon('tell ' . $newid . ' ^6 ' . $colorb . '#Id:' . $colorb . ' ' . $colora . $ipm . ' ' . $colorb . ' ' . $infoonick . ': ' . $colorb . $colora . $playername . '', '');
+                        else
+                            rcon('tell ' . $newid . ' ^6 ' . $colorb . '#Id:' . $colorb . ' ' . $colora . $ipm . ' ' . $colorb . ' ' . $infoonick . ': ' . $colorb . $colora . $playername . '', '');
+                      }
+                    ++$x_number;
+                    AddToLogInfo("[" . $datetime . "] BANLIST-10: (" . $x_nickx . ") (" . $msgr . ") reason: LIST");
+                    ++$x_stop_lp;
+                    echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
+                    if (!empty($db))
+                        $db = NULL;
+                    if (!empty($db1))
+                        $db1 = NULL;
+                    if (!empty($db2))
+                        $db2 = null;
+                    if (!empty($db3))
+                        $db3 = NULL;
+                    if (!empty($db4))
+                        $db4 = NULL;
+                    if (!empty($db5))
+                        $db5 = NULL;
+                    if (is_resource($connect))
+                        fclose($connect);
+                    return;
+                  }
+                catch (PDOException $e)
+                  {
+                    print ' FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
+                  }
+              }
+          }
+      }
+  }
 ?>
