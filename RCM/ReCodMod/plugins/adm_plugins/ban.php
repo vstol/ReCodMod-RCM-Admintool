@@ -855,7 +855,7 @@ if ($x_stop_lp == 0)
                         $db2 = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db2.sqlite');
                     else
                         $db2 = new PDO('sqlite:' . $bannlist);
-                    $result = $db2->query("SELECT * FROM x_words WHERE z_words id>=0 ORDER BY (id+0) DESC LIMIT 10");
+                    $result = $db2->query("SELECT * FROM x_words WHERE id>=0 ORDER BY (id+0) DESC LIMIT 10");
                     $number = 0;
                     foreach ($result as $row)
                       {
