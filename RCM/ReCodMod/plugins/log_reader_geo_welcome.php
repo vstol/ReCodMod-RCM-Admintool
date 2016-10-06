@@ -347,8 +347,8 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color=
 			
 //////kick guids	
 if (empty($guid))
-$guid = 'zzzzzzzzzz';
-if ($guid != 'zzzzzzzzzz'){	
+$guid = 'EMPTYguid';
+if ($guid != 'EMPTYguid'){	
 	$rules_guids[] = 'if_empty_all_lines_xD';
 	if (($rules_kick_guids) && (array_search(strtolower($guid), $rules_guids, true) !== false))
 	    {	
@@ -367,6 +367,7 @@ usleep($sleep_rcon);
             if (!empty($i_name)) {
 				if (!empty($guid)){
 					if ($guid != '0'){
+						if ($guid != 'EMPTYguid'){
                 $result = $db2->query("SELECT * FROM bans WHERE guid='$guid'");
                 foreach ($result as $row) {
                     $pssiblegguid = $row['guid'];
@@ -383,7 +384,7 @@ usleep($sleep_rcon);
                             AddToLog("[" . $datetime . "] GUID KICK: (" . $idk . ") (" . $pssiblegguid . ") (" . $reason  . ")");
                             ++$x_loopsv;
                             ++$x_number;
-					}}}
+					}}}}
                     }
                 }
             }
@@ -408,6 +409,7 @@ usleep($sleep_rcon);
                             AddToLog("[" . $datetime . "] BANNED NICK KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");
                             ++$x_loopsv;
                             ++$x_number;
+							exit;
                         }
                     }
                 }
@@ -419,6 +421,7 @@ usleep($sleep_rcon);
                 $playername1 = $row['playername'];
                 $reason      = $row['reason'];
                 if ($x_number != 1) {
+					usleep($sleep_rcon);
                     rcon('say  ^7' . $playername1 . ' ' . $ban_ip_all . ' ^7' . $infooreas . ':^1 ' . $reason . '', '');
                     usleep($sleep_rcon);
                     rcon('clientkick ' . $idk . ' BAN! ' . $reason, '');
@@ -428,7 +431,7 @@ usleep($sleep_rcon);
                     ++$x_loopsv;
                     ++$x_number;
                     echo ' bans   ' . $tfinishh = (microtime(true) - $start);
-                    //exit;
+                    exit;
                 }
             }
             $result = $db2->query("SELECT * FROM x_words");
@@ -449,7 +452,8 @@ usleep($sleep_rcon);
                         rcon('clientkick ' . $idk, '');
                     }
                     AddToLog("[" . $datetime . "] BANNED NICK KICK: (" . $i_ip . ") (" . $i_name . ")");
-                    ++$x_loopsv; //echo $namez[0];       
+                    ++$x_loopsv; //echo $namez[0]; 
+					exit;
                     //echo ' proxod3   '.$tfinishh = (microtime(true) - $start);	
                 } else {
                     // echo 'No match found';
@@ -472,6 +476,7 @@ usleep($sleep_rcon);
                 }
                 AddToLog("[" . $datetime . "] BANNED NICK KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");
                 ++$x_loopsv;
+				exit;
                 if ($rules_msgtoall_kicked_enable) {
                     usleep($sleep_rcon);
                     rcon('say  ^7"' . $rules_msgtoall_kicked_bad_name . '"', $i_name);
@@ -506,6 +511,7 @@ usleep($sleep_rcon);
                                         rcon('clientkick ' . $idk, '');
                                         AddToLog("[" . $datetime . "] SUPER I.R. KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");
                                         ++$x_loopsv; //continue;
+										exit;
                                     }
                                 }
                             }
@@ -539,7 +545,9 @@ usleep($sleep_rcon);
                                 rcon('clientkick ' . $idk, '');
                                 AddToLog("[" . $datetime . "] I.R. KICK: (" . $idk . ") (" . $i_ip . ") (" . $ip_r . ") (" . $i_name . ")");
                                 ++$x_loopsv;
+								
                                 echo ' x-rangeee   ' . $tfinishh = (microtime(true) - $start);
+								exit;
                             }}
                         }}
                     }
