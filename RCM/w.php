@@ -83,7 +83,62 @@ $spps = 721000;
         else if ($plyr_cnt <= 128)
           $spps = 20000;
 	  
-      
+ $cron_time=filemtime($cpath."ReCodMod/x_cron/cron_time");        //получаем время последнего изменения файла
+if (time()-$cron_time>=600) {             //сравниваем с текущим временем - 10 минут
+    file_put_contents($cpath."ReCodMod/x_cron/cron_time","");    //перезаписываем файл cron_time
+ 
+//////////////////////////////////////////////////////////////////////////////////////////+ LOG CLEANER
+//////////////////////////////////////////////////////////////////////////////////////////+ LOG CLEANER	
+//////////////////////////////////////////////////////////////////////////////////////////+ LOG CLEANER		
+
+if (filesize($mplogfile) > 29457280)
+  {
+$ha0 = fopen($mplogfile, "w");
+fclose($ha0);
+
+$handlePos=fopen($cpath."ReCodMod/x_cache/pos.txt" ,"w+");
+fwrite($handlePos, "1");
+fclose($handlePos);
+
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='silver'> LogFile game_mp.log 30MB auto reset! </font> "); 
+echo "OK ...";
+
+
+}
+
+
+
+
+
+if (filesize($cpath . 'ReCodMod/x_logs/chat.html') > 3048576)
+  {
+if(file_exists($cpath . 'ReCodMod/x_logs/chat.log')){
+$file = $cpath . "ReCodMod/x_logs/chat.log";
+$newfile = $cpath . "ReCodMod/x_logs/archive/chat/chat";
+$datetime = date('Y.m.d H:i:s');
+
+if (!copy($file, $newfile."_".$datetime.".log")) {
+    echo "Error copy $file...\n";}else{
+$handlePos=fopen($cpath."ReCodMod/x_logs/chat.log" ,"w+");
+fwrite($handlePos, "1");
+  fclose($handlePos);}}
+
+ if(file_exists($cpath . 'ReCodMod/x_logs/chat.html')){
+$file = $cpath . "ReCodMod/x_logs/chat.html";
+$newfile = $cpath . "ReCodMod/x_logs/archive/chat/chat";
+$datetime = date('Y.m.d H:i:s');
+if (!copy($file, $newfile."_".$datetime.".html")) {
+    echo "Error copy $file...\n";}else{
+$handlePos=fopen($cpath."ReCodMod/x_logs/chat.html" ,"w+");
+fwrite($handlePos, "1");
+ fclose($handlePos);}}	  
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='silver'> x_logs chat.html 3MB auto reset! </font> "); 
+echo "OK ...";	  
+  }
+
+
+
+}     
  
 echo "\n      /-/ " . $z_set . " /-/ ready to work /-/ \n";
 echo "   Game Server:   " . $servernamex = trim(meessagee($servername)) . " / " . $game_patch . "\n";
@@ -643,7 +698,7 @@ $pos = strpos($parseline, '');
               $msgO  = $msgr;
               echo "\n--say : [", $datetime, "] : " . $nickr . " : " . $msgO;
               if ((strpos($msgr, $admin_code) !== false) || (strpos($msgr, $moderator_code) !== false) || (strpos($msgr, $vip_code) !== false))
-                AddToLog1("<br/>[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
+                AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
               else
                {
                 AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
