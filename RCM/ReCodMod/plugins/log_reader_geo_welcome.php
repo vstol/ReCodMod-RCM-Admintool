@@ -365,7 +365,8 @@ usleep($sleep_rcon);
 			
             ///GUID KICKER
             if (!empty($i_name)) {
-				if ((!empty($guid)) || $guid != '0'){
+				if (!empty($guid)){
+					if ($guid != '0'){
                 $result = $db2->query("SELECT * FROM bans WHERE guid='$guid'");
                 foreach ($result as $row) {
                     $pssiblegguid = $row['guid'];
@@ -386,7 +387,7 @@ usleep($sleep_rcon);
                     }
                 }
             }
-			}}			
+		}}}			
             ///nICKNAME KICKER
             if (!empty($i_name)) {
 			
