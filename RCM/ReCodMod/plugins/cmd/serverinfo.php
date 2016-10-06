@@ -1,4 +1,7 @@
  <?php
+if($servers_info_messages != '0'){
+ if($servers_info_messages != 0){
+  if(!empty($servers_info_messages)){
 if ((strpos($msgr, $ixz . 'elist') !== false) || ($acceptplugin > 0))
   {
 	   if (strpos($msgr, $ixz . 'elist') !== false){
@@ -360,8 +363,8 @@ exit;
           ++$xmde;}
       }
 	  
-	  
-	  
+	  }	  
+  }  
 }
-  
+ }
 ?>	 
