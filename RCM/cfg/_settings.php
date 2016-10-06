@@ -12,7 +12,7 @@ $etop = 'kills';
 FOR messages.cfg.php  use:  $servers_info_messages
 FOR Disable => $serverinfo_adress = 0;
 */
-$serverinfo_adress = "192.168.1.102:27770;192.168.1.102:28961;192.168.1.102:27774;192.168.1.102:28830;192.168.1.102:28965";
+$serverinfo_adress = "192.168.1.102:28960;192.168.1.102:28961";
 
 
 
@@ -44,7 +44,7 @@ $kicknotingrp = 1;
 
 // ONE BANLIST database (db2.sqlite) FOR ALL SERVERS - if use one banlist database for one server set to $bannlist = "";
 // If one database for all servers  (COPY FROM THAT FOLDER ..\ReCodMod\databases\db2.sqlite  FILE) ->  $bannlist = "/way to database folder/db2.sqlite"; 
-$bannlist = "/media/Windows/Game_Servers/RCM/BAN_DATABASE/db2.sqlite"; 
+$bannlist = ""; 
 
 // ONE BANLIST cfg (cfg/bans.cfg.php) FOR ALL SERVERS - if use one banlist database for one server set to $cfg_bannlist = "";
 // If one database for all servers  (COPY FROM THAT FOLDER ..\cfg/bans.cfg.php  FILE) ->  $cfg_bannlist = "/way to database folder/bans.cfg.php"; 
