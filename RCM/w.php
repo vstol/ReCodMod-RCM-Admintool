@@ -458,8 +458,8 @@ $pos = strpos($parseline, '');
                {
                 echo "\n[cMd] : [", $datetime, "] : " . $nickr . " : " . $msgr;
                 $dhgsj = addslashes(hjgdtr($nickr));
-                if ((strpos($msgr, $admin_code) !== false) || (strpos($msgr, $moderator_code) !== false) || (strpos($msgr, $vip_code) !== false))
-                  AddToLog1("<br/>[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
+                if ((strpos($msgr, $ixz.'login ') !== false) || (strpos($msgr, $ixz.'on ') !== false) || (strpos($msgr, $ixz.'logout') !== false) || (strpos($msgr, $ixz.'register') !== false))
+                  AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
                 else
                  {
                   AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
@@ -697,7 +697,7 @@ $pos = strpos($parseline, '');
               $dhgsj = addslashes(hjgdtr($nickr));
               $msgO  = $msgr;
               echo "\n--say : [", $datetime, "] : " . $nickr . " : " . $msgO;
-              if ((strpos($msgr, $admin_code) !== false) || (strpos($msgr, $moderator_code) !== false) || (strpos($msgr, $vip_code) !== false))
+              if ((strpos($msgr, $ixz.'login ') !== false) || (strpos($msgr, $ixz.'on ') !== false) || (strpos($msgr, $ixz.'logout') !== false) || (strpos($msgr, $ixz.'logout') !== false))
                 AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
               else
                {
