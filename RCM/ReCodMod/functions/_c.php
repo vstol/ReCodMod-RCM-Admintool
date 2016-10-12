@@ -242,7 +242,12 @@ $rules_msgtoall_kicked_enable = true;   // notify others, that someone has been 
  
 require $cpath . 'cfg/_connection.php';
 require $cpath . 'cfg/_settings.php';
+
+  if(empty($groups_cfg))
 require $cpath . 'cfg/_groups.php';
+  else
+	 require $groups_cfg;
+
 
 if(empty($etop))
 $etopx = 's_ratio';
