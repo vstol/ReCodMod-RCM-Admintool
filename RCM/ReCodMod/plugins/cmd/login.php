@@ -11,9 +11,10 @@ if ($x_stop_lp == 0) {
             $foridnum = $i_id;
         $cntddt = substr_count($msgr, ' ');
         if ($cntddt == 2)
-            list($comdfa, $msg_user, $msg_pass) = explode(' ', $msgr);
+
+            list($comdfa, $msg_user, $msg_pass) = explode(' ', $msgrx);
         else
-            list($comdfa, $msg_pass) = explode(' ', $msgr);
+            list($comdfa, $msg_pass) = explode(' ', $msgrx);
         if (preg_match('/tell;/', $parseline, $xm))
             $jjj = (((trim($foridnum) == trim($idnum)) && (trim($foridnum) == trim($i_id))));
         //else if ($game_patch == 'cod1_1.1')
