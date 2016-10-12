@@ -1,7 +1,4 @@
  <?php
-if($servers_info_messages != '0'){
- if($servers_info_messages != 0){
-  if(!empty($servers_info_messages)){
 if ((strpos($msgr, $ixz . 'elist') !== false) || ($acceptplugin > 0))
   {
 	   if (strpos($msgr, $ixz . 'elist') !== false){
@@ -96,7 +93,7 @@ else
                       {
                        
 
-
+$serverinfo_adress = trim($serverinfo_adress);
  $cntnbm     = substr_count($serverinfo_adress, ';');
         $countnumbs = $cntnbm + 1;	
 			
@@ -236,6 +233,7 @@ exit;
   
     if (strpos($serverinfo_adress, ';') !== false)
       {
+		   $serverinfo_adress = trim($serverinfo_adress);
         $cntnbm     = substr_count($serverinfo_adress, ';');
         $countnumbs = $cntnbm + 1;
         $xmde       = 0;
@@ -363,8 +361,8 @@ exit;
           ++$xmde;}
       }
 	  
-	  }	  
-  }  
+	  
+	  
 }
- }
+  
 ?>	 
