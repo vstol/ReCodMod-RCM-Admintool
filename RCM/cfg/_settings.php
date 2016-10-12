@@ -98,6 +98,13 @@ $wflood = '4';    //\\ Flood warns limit, after this number limit - ban!
 $wswear = '10';   //\\ Swearing warns limit, after this number limit - ban!
 $wspams = '2';    //\\ Spam warns limit, after this number limit - ban!
 $wdislk = '3';    //\\ Server dislike warns limit, after this number limit - ban!
+
+$timewflood = '7200';    //\\ Flood time auto unban for players! - seconds
+$timewswear = '10800';   //\\ Swearing  time auto unban for players! - seconds
+$timewdisliker = '10800';   //\\ Disliker - cry  time auto unban for players! - seconds
+
+$timewspams = '2';    //\\ Spam warns limit, after this number limit - ban!
+$timewdislk = '3';    //\\ Server dislike warns limit, after this number limit - ban!
 //\\************************************************************************************//\\
 // Deadchat beta xD  Dead chat 1 - on, 0 - off/ Death chat / beta for cod 1.1
 $deadchat = 0; 

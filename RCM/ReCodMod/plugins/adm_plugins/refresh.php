@@ -59,7 +59,7 @@ rcon('tell '.$i_id.' ^6 ^7'.$rfshh, '');
 
 //AddToLogTOPreset("----------------TOP 100 K/D ratio - kills limit .$limm. -----------------"."\n"."Place  Player  Kills   Deaths   Skill    K/D(ratio) ");
 $serveripp = '-';
-		AddToLogTOPreset("-<b>TOP 500 $etopx</b> - kills limit $limm - "."\n"."
+		AddToLogTOPreset("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>-<b>TOP 500 $etopx</b> - kills limit $limm - "."\n"."
 <b>Server:</b> $servername /  $serveripp . $server_port / $game_patch
 <br/> <b>Ratio</b> = Kills/Deaths    <b>Skill</b> = ((Kills-Deaths) x (Kills/Deaths) x 10)
 <br/> <b>Use server commands:</b> ".$ixz."skill ".$ixz."stats ".$ixz."top ".$ixz."rank ".$ixz."toprank and main ".$ixz."cmd  - system <b> ".meessagee($z_ver)."
@@ -88,6 +88,10 @@ $serveripp = '-';
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
 
    $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_kills>=$limm ORDER BY ($etopx+0) DESC LIMIT 500");
+   
+   
+  $db3->exec("DELETE FROM x_db_play_stats WHERE id NOT IN (SELECT id FROM x_db_play_stats GROUP BY s_player||s_ratio||s_lasttime||s_kills )"); 
+   
     foreach($result as $row)
     {		
 
@@ -157,12 +161,13 @@ AddToLogTOP("
 
 	 
 echo ' '.$num.' ';	
-	}}
+	}}	
+	
 	
 	echo ' top-up   '.$tfinishh = (microtime(true) - $start);
 	
 AddToLogTOP("</table> 
- </td></table>"); 		
+ </td></table></body></html>"); 		
 	   
 }	
 
@@ -239,7 +244,7 @@ rcon('tell '.$i_id.' ^6 ^7'.$rfshb, '');
 	$num = 0;	
 
 $serveripp = '-';
-	AddToLogbanlistreset("<b>LAST BANNED PLAYERS</b> "."\n"."
+	AddToLogbanlistreset("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body><b>LAST BANNED PLAYERS</b> "."\n"."
 
 <table><td> 
 <table><tr style=\"background:#333; border:4px solid #CCC;\"></font></td> 
@@ -413,7 +418,7 @@ $kjgvjhk
 	echo ' banlist   '.$tfinishh = (microtime(true) - $start);
 	
 AddToLogbanlist("</table> 
- </td></table>"); 	
+ </td></table></body></html>"); 	
 	
  
   }

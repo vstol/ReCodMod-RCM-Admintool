@@ -18,7 +18,11 @@ $db2 = new PDO('sqlite:'.$bannlist);
 
 //AddToLogTOPreset("----------------TOP 100 K/D ratio - kills limit .$limm. -----------------"."\n"."Place  Player  Kills   Deaths   Skill    K/D(ratio) ");
 $serveripp = '-';
-	AddToLogTOPreset("-<b>TOP 500 $etopx</b> - kills limit $limm - "."\n"."
+	AddToLogTOPreset("
+	
+	<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>
+	
+	-<b>TOP 500 $etopx</b> - kills limit $limm - "."\n"."
 <b>Server:</b> $servername /  $serveripp . $server_port / $game_patch
 <br/> <b>Ratio</b> = Kills/Deaths    <b>Skill</b> = ((Kills-Deaths) x (Kills/Deaths) x 10)
 <br/> <b>Use server commands:</b> ".$ixz."skill ".$ixz."stats ".$ixz."top ".$ixz."rank ".$ixz."toprank and main ".$ixz."cmd  - system <b> ".meessagee($z_ver)."
@@ -118,12 +122,12 @@ echo ' '.$num.' ';
 	echo ' top-up   '.$tfinishh = (microtime(true) - $start);
 	
 AddToLogTOP("</table> 
- </td></table>"); 
+ </td></table></body></html>"); 
 
 	$num = 0;	
 
 $serveripp = '-';
-	AddToLogbanlistreset("<b>LAST BANNED PLAYERS</b> "."\n"."
+	AddToLogbanlistreset("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body><b>LAST BANNED PLAYERS</b> "."\n"."
 
 <table><td> 
 <table><tr style=\"background:#333; border:4px solid #CCC;\"></font></td> 
@@ -208,7 +212,7 @@ $kjgvjhk
 	echo ' banlist   '.$tfinishh = (microtime(true) - $start);
 	
 AddToLogbanlist("</table> 
- </td></table>"); 	
+ </td></table></body></html>"); 	
 
 $db3 = null;
 $db2 = null; 

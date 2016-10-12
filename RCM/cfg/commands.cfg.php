@@ -2,7 +2,7 @@
 
 /// ALL COMMANDS!
 $commands = array($mistake, 
-'report', 'support', 'reg', 'on', 'logout', 'num', 'rules',
+'report', 'support', 'reg', 'on', 'login', 'logout', 'num', 'rules',
 'cmd', 'list', 'all', 'lastban', 
  'ip', 'time', 'info', 'sys', 'geo', 'guid', 'status',  
 'top', 'worst', 'n', 'status',  'kills', 'sk', 'stats', 
@@ -13,7 +13,7 @@ $commands = array($mistake,
 $funcommands = array('cmd', 'fun', 
 'chea', 'sps', 'haker', 'wallhack', 'tits', 'hello', 'fps', 'ping',
 'hack', 'aimbot', 'ty', 'thx', 'gg', 'hi', 'hi server', 'bb', 'xxx', 'xl',
-'ch', 'vdk', 'dr', 'govn', 'gavn', 'bl', 'gl', 'stfu', 'afk', 'i', 'ny', 'mc', '#fp', 'admin',
+'ch', 'vdk', 'dr', 'govn', 'gavn', 'bl', 'gl', 'stfu', 'afk', 'ny', 'mc', '#fp', 'admin',
 'gj', 'shit', 'wp', 'n1');
 
 /// Secret for all players screenshot making in cod1 1.2 and up / cod2 / cod4 / cod4x / cod5
