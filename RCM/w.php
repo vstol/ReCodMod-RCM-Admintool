@@ -445,6 +445,7 @@ $pos = strpos($parseline, '');
 			}
            }
           $msgO      = $msgr;
+		  $msgrx   = dddzz($msgr);
           $msgr      = mb_strtolower($msgr, 'cp1251');
           $originalz = $nickr;
           $nivv      = $nickr;
