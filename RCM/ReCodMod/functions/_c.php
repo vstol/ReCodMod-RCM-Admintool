@@ -1,6 +1,6 @@
 <?php
 $z_rcm = "RCM[v.3.4.8]";
-$dtx   = "^7[19_09_2016]^5";
+$dtx   = "^7[14_10_2016]^5";
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -443,7 +443,10 @@ if (file_exists($cpath . 'ReCodMod/x_logs/g_servername.log'))
 
 require $cpath . 'cfg/commands.cfg.php';
 require $cpath . 'cfg/rules.cfg.php';
+  if(empty($cfg_badwords))
 require $cpath . 'cfg/badwords.cfg.php';
+  else
+	 require $cfg_badwords;
 require $cpath . 'cfg/spam.cfg.php';
 require $cpath . 'cfg/cryingkids.cfg.php';
 require $cpath . 'cfg/messages.cfg.php';

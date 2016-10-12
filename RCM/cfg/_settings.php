@@ -50,6 +50,10 @@ $bannlist = "";
 // If one database for all servers  (COPY FROM THAT FOLDER ..\cfg/bans.cfg.php  FILE) ->  $cfg_bannlist = "/way to database folder/bans.cfg.php"; 
 $cfg_bannlist = "";
 
+// ONE BANLIST cfg (cfg/badwords.cfg.php) FOR ALL SERVERS - if use one badwordsd database for one server set to $cfg_badwords = "";
+// If one database for all servers  (COPY FROM THAT FOLDER ..\cfg/badwords.cfg.php  FILE) ->  $cfg_badwords = "/way to database folder/badwords.cfg.php"; 
+$cfg_badwords = "";
+
 // ONE ADMINS database (db1.sqlite) FOR ALL SERVERS - if use one ADMINS database for one server set to $adminlists = "";
 // If one database for all servers  (COPY FROM THAT FOLDER ..\ReCodMod\databases\db1.sqlite  FILE) ->  $adminlists = "/way to database folder/db1.sqlite"; 
 $adminlists = ""; 
