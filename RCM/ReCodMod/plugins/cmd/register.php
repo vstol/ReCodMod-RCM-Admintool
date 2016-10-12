@@ -5,8 +5,8 @@ if (strpos($msgr, $ixz.'register') !== false)
   if ($x_stop_lp == 0 ) {
 $i_namex = afdasfawf($i_name);	
    	 
- $na1 = trim($i_namex);
- $na2 = trim($nickr);
+$na1    = trim(clearnamex($i_name));
+        $na2     = trim(clearnamex($nickr));
 
   if(empty($foridnum))
 		  $foridnum = $i_id;
@@ -83,7 +83,7 @@ $stat = null;
 	  
 	  
 	  
-	 if(($na1 == $na2) || ((trim($foridnum) == trim($idnum)) && (trim($foridnum) == trim($i_id))))
+	 if((strpos($na1,$na2) !== false) || ((trim($foridnum) == trim($idnum)) && (trim($foridnum) == trim($i_id))))
 	     {
 	
 try
@@ -135,8 +135,8 @@ if (strpos($msgr, $ixz.'logout') !== false)
     { 	
   if ($x_stop_lp == 0 ) {
 $i_namex = afdasfawf($i_name);	
-$mmm = trim($i_namex);
- $nnn = trim($nickr);
+$mmm     = trim(clearnamex($i_name));
+        $nnn     = trim(clearnamex($nickr));
 
   if(empty($foridnum))
 		  $foridnum = $i_id;

@@ -5,6 +5,8 @@ if ($x_stop_lp == 0) {
             $foridnum = $i_id;
         $mmm     = trim(clearnamex($i_name));
         $nnn     = trim(clearnamex($nickr));
+		$na1 = $mmm;
+		$na2 = $nnn;
         if (empty($foridnum))
             $foridnum = $i_id;
         $cntddt = substr_count($msgr, ' ');
