@@ -82,7 +82,13 @@ $vvv = preg_replace($patterns, $replacements, $servers_info_messages);
 	
 usleep($sleep_rcon);
 	rcon('say ^6^7 '.$vvv, '');
+	
+	         $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time_exec1");
+              if ($stime - $cron_time >= $msg_pause*50)
+               {
+                file_put_contents($cpath . "ReCodMod/x_cron/cron_time_exec1", "");
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='red'>" .meessagee($vvv)."</font>");
+               }
 echo " \n\n [".$datetime."] Message -> ".meessagee($vvv)." \n Paused -> ".$tfinishh = (microtime(true) - $start)." seconds \n";
 ++$x_stop_lp; 	
 
@@ -93,13 +99,20 @@ else
 
 usleep($sleep_rcon);
 	rcon('say ^6 ^7'.$message, '');
+	
+              $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time_msg");
+              if ($stime - $cron_time >= $msg_pause*50)
+               {
+                file_put_contents($cpath . "ReCodMod/x_cron/cron_time_msg", "");	
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='red'>" .meessagee($message)."</font>");
+			   }
+
 echo " \n\n [".$datetime."] Message -> ".meessagee($message)." \n Paused -> ".$tfinishh = (microtime(true) - $start)." seconds \n";
-++$x_stop_lp; 
+++$x_stop_lp;
+
+ 
 }
 
 
 }
 ?>
- 
-
