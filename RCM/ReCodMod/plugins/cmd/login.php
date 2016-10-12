@@ -177,6 +177,9 @@ if ($x_stop_lp == 0) {
                        
                     //}
                 } else {
+					
+					$jjj = (strpos($na1,$na2) !== false);
+                      if ($jjj) {
                      
                         if (trim($msg_pass) == trim($admin_code)) {
                             $igroup  = '0';
@@ -215,6 +218,7 @@ if ($x_stop_lp == 0) {
                             ++$x_stop_lp;
                         }
                     }
+			}
                 }
                 $sql   = null;
                 $db    = NULL;
