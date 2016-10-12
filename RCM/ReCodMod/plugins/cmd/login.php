@@ -209,7 +209,7 @@ if ($x_stop_lp == 0) {
                             $groupxx = '^5Member';
                         usleep($sleep_rcon * 3);
                         if ($game_patch == 'cod1_1.1') {
-                            rcon('say ^6 ' . $loggran . ' ' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
+                            rcon('say ^6 ^7' . $loggran . ' ' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
                         } else
                             rcon('tell ' . $idnum . ' ^6 ^3' . $loggran . ' ^7' . $chistx . ' ^3' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
                         $date = date('Y.m.d H.i.s');
