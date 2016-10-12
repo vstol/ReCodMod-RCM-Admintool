@@ -58,6 +58,10 @@ $cfg_badwords = "";
 // If one database for all servers  (COPY FROM THAT FOLDER ..\ReCodMod\databases\db1.sqlite  FILE) ->  $adminlists = "/way to database folder/db1.sqlite"; 
 $adminlists = ""; 
 
+// ONE GROUPS cfg (_groups.php) FOR ALL SERVERS - if use one GROUPS cfg for one server set to $groups_cfg = "";
+// If one database for all servers  (COPY FROM THAT FOLDER ../cfg/_groups.php  FILE) ->  $groups_cfg = "/way to database folder/_groups.php"; 
+$groups_cfg = ""; 
+
 // game server DOMAIN NAME //clan website
 $website = "recod.ru"; 
  
