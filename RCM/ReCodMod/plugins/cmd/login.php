@@ -3,9 +3,8 @@ if ($x_stop_lp == 0) {
     if ((strpos($msgr, $ixz . 'on ') !== false) || (strpos($msgr, $ixz . 'login ') !== false)) {
         if (empty($foridnum))
             $foridnum = $i_id;
-        $i_namex = afdasfawf($i_name);
-        $na1     = trim($i_namex);
-        $na2     = trim($nickr);
+        $mmm     = trim(clearnamex($i_name));
+        $nnn     = trim(clearnamex($nickr));
         if (empty($foridnum))
             $foridnum = $i_id;
         $cntddt = substr_count($msgr, ' ');
@@ -231,15 +230,14 @@ if ($x_stop_lp == 0) {
     }
     if ((strpos($msgr, $ixz . 'on') !== false) || (strpos($msgr, $ixz . 'login') !== false)) {
         if ($x_stop_lp == 0) {
-            $i_namex = afdasfawf($i_name);
-            $na1     = trim($i_namex);
-            $na2     = trim($nickr);
+         $na1     = trim(clearnamex($i_name));
+        $na2     = trim(clearnamex($nickr));
             if (empty($foridnum))
                 $foridnum = $i_id;
             $xdot      = '.';
             $dropip    = explode(".", $i_ip);
             $server_ip = trim($server_ip);
-            if ((strpos($server_ip, $dropip[0] . $xdot . $dropip[1] . $xdot) !== false) && ($na1 == $na2)) {
+            if ((strpos($server_ip, $dropip[0] . $xdot . $dropip[1] . $xdot) !== false) && (strpos($na1,$na2) !== false)) {
                 $igroup  = '0';
                 $groupxx = '^1Local Admin';
                 try {
