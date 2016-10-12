@@ -129,7 +129,15 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . 
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Censored]</font> ");	
 
-}else if (($ip1 == $i_ip) && ($wrn >= $wswear)){
+}
+else if (($ip1 == $i_ip) && ($wrn == round($wswear/2))){
+	usleep($sleep_rcon*2);
+ rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 stop swearing or you get a ban^1!', '');	
+AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Censored]</font> ");	
+
+}
+else if (($ip1 == $i_ip) && ($wrn >= $wswear)){
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: " . $i_ip . " (" . $i_name . ")  r: BANNED");	 
