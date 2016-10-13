@@ -160,6 +160,11 @@ require 'ban.php';
 	}
   ////fclose($fpX);
 if (($chat_protect == 1) || ($chat_protect == 3))  {
+	
+$errorchck = substr($tfinishh = (microtime(true) - $start), 0, 7);
+if($errorchck <= 1)
+{
+	
 $msgr = 'FLUD';  
   
 $x_n4 = trim(clearnamex($nivv)); 	
@@ -170,6 +175,7 @@ fclose($fh);
 $fh=fopen($log_cash."/temp3.txt" ,"w+");
 fwrite($fh, $x_n4.'%'.$today.'%'.$msgr);
 fclose($fh);
+}
 }
 //clearstatcache(); 
 //	
