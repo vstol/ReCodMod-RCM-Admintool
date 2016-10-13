@@ -161,7 +161,7 @@ require 'ban.php';
   ////fclose($fpX);
 if (($chat_protect == 1) || ($chat_protect == 3))  {
 	
-$errorchck = substr($tfinishh = (microtime(true) - $start), 0, 7);
+$errorchck = substr((microtime(true) - $start), 0, 7);
 if($errorchck <= 1)
 {
 	
