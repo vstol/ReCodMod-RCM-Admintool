@@ -32,6 +32,7 @@ if ($x_stop_lp == 0) {
                 foreach ($result as $row) {
                     $adm_ip  = $row['s_adm'];
                     $a_grp   = $row['s_group'];
+					$a_guidcc   = $row['s_guid'];
                     $adm_ip  = trim($adm_ip);
                     $i_ip    = trim($i_ip);
                     $kski[1] = trim($kski[1]);
@@ -55,7 +56,11 @@ if ($x_stop_lp == 0) {
                             if ((empty($i_guid)) || $i_guid == '0')
                                 $i_guid = $chistx;
                             if ($x_bann[0] == $x_idn) {
-                                $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','$i_guid','$x_reason','$datetime','$x_nickx','$game_patch')");
+								
+								if(empty($a_guidcc))
+									$a_guidcc = $x_nickx;
+								
+                                $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','$i_guid','$x_reason','$datetime','$a_guidcc','$game_patch')");
                                 if ($x_stop_lp == 0) {
                                     usleep($sleep_rcon);
                                     rcon('say  ^6 ' . $chistx . ' ' . $ban_ip_all . ' ^7' . $infooreas . ': ^1' . $x_reason . '', '');
@@ -70,7 +75,7 @@ if ($x_stop_lp == 0) {
                                          usleep($sleep_rcon * 2);
                                          rcon('clientkick ' . $i_id, '');
                                     }
-                                    AddToLog("[" . $datetime . "] BANNED: " . $i_ip . " (" . $i_namex . ") (" . $i_guid . ") BY: (" . $x_nickx . ")  R ");
+                                    AddToLog("[" . $datetime . "] BANNED: " . $i_ip . " (" . $i_namex . ") (" . $i_guid . ") BY: (" . $a_guidcc . ")  R ");
                                     ++$x_number;
                                     ++$x_stop_lp;
                                     echo '  ban  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
@@ -189,6 +194,7 @@ if ($x_stop_lp == 0) {
                 foreach ($result as $row) {
                     $adm_ip  = $row['s_adm'];
                     $a_grp   = $row['s_group'];
+					$a_guidcc   = $row['s_guid'];
                     $adm_ip  = trim($adm_ip);
                     $i_ip    = trim($i_ip);
                     $kski[1] = trim($kski[1]);
@@ -215,6 +221,10 @@ if ($x_stop_lp == 0) {
                         $ldotssx  = substr_count($x_idn, '*'); // 2
                         $ldotssxl = substr_count($x_idn, '/'); // 1
                         if (($ldotss == 6) || ($ldotss == 3) && ($ldotssx == 2) || ($ldotss == 3) && ($ldotssxl == 1)) {
+							
+							if(empty($a_guidcc))
+									$a_guidcc = $x_nickx;
+								
                             $db2->exec("INSERT INTO x_ranges (ip_ranges,ip_info) VALUES ('$x_idn','$x_reason')");
                             usleep($sleep_rcon);
                             rcon('say  ^6 ^1IP Range ' . $ban_ip_all . ' ^7' . $infooreas . ':^1 ' . $x_reason . '', '');
