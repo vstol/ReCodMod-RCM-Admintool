@@ -30,7 +30,18 @@ for ($i=0; $i< count($out[0]); $i++) {
 	echo " -mat- badword ".$out[0][$i]." detected ";
   }		
 	
-	
+	if($x_mat != false)
+{ 
+if(strlen($out[0][$i]) > 4)
+{
+preg_match("/".$badword."/si", $out[0][$i], $maxbw);
+  if(count($maxbw) > 0)
+  {  
+	$x_mat = false;
+	echo" -sqlite3 bad word ".$out[0][$i]." detected- ";
+  }	
+}
+}
 }
 } 		
 
@@ -92,6 +103,19 @@ for ($i=0; $i< count($out[0]); $i++) {
   {  
 	$x_mat = false;
 	echo " -sqlite3- badword ".$out[0][$i]." detected ";
+	
+if($x_mat != false)
+{ 
+if(strlen($out[0][$i]) > 4)
+{
+preg_match("/".$wordxx."/si", $out[0][$i], $maxbw);
+  if(count($maxbw) > 0)
+  {  
+	$x_mat = false;
+	echo" -sqlite3 bad word ".$out[0][$i]." detected- ";
+  }	
+}
+}	
   }		    	    
 	    
     }
@@ -101,3 +125,5 @@ for ($i=0; $i< count($out[0]); $i++) {
     }
 }
 ?>
+ 
+	
