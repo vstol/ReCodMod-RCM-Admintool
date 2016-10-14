@@ -50,6 +50,7 @@ if ($x_stop_lp == 0) {
                     $etopplayer[]          = 'name101 toplsecurepassword';
                     $eguest[]              = 'name101 guestsecurepassword';
                     
+					
                         foreach ($admin_codee as $admin_codexx) {
                             if ($x_loopsv == 0) {
 								
@@ -72,6 +73,10 @@ if ($x_stop_lp == 0) {
                         } else
                             rcon('tell ' . $idnum . ' ^6 ^3' . $loggran . ' ^7' . $chistx . ' ^3' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
                         $date = date('Y.m.d H.i.s');
+						
+						if(($guidn == '0')||(empty($guidn)))
+							$guidn = $msg_user;
+
                         if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '$igroup', '$guidn')") > 0) {
                             echo "Created IN DATABASE." . "\n";
                             ++$x_stop_lp;
@@ -98,6 +103,8 @@ if ($x_stop_lp == 0) {
                         } else
                             rcon('tell ' . $idnum . ' ^6 ^3' . $loggran . ' ^7' . $chistx . ' ^3' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
                         $date = date('Y.m.d H.i.s');
+							if(($guidn == '0')||(empty($guidn)))
+							$guidn = $msg_user;
                         if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '$igroup', '$guidn')") > 0) {
                             echo "Created IN DATABASE." . "\n";
                             ++$x_stop_lp;
@@ -124,6 +131,8 @@ if ($x_stop_lp == 0) {
                         } else
                             rcon('tell ' . $idnum . ' ^6 ^3' . $loggran . ' ^7' . $chistx . ' ^3' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
                         $date = date('Y.m.d H.i.s');
+							if(($guidn == '0')||(empty($guidn)))
+							$guidn = $msg_user;
                         if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '$igroup', '$guidn')") > 0) {
                             echo "Created IN DATABASE." . "\n";
                             ++$x_stop_lp;
@@ -150,6 +159,8 @@ if ($x_stop_lp == 0) {
                         } else
                             rcon('tell ' . $idnum . ' ^6 ^3' . $loggran . ' ^7' . $chistx . ' ^3' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
                         $date = date('Y.m.d H.i.s');
+							if(($guidn == '0')||(empty($guidn)))
+							$guidn = $msg_user;
                         if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '$igroup', '$guidn')") > 0) {
                             echo "Created IN DATABASE." . "\n";
                             ++$x_stop_lp;
@@ -171,6 +182,8 @@ if ($x_stop_lp == 0) {
                         } else
                             rcon('tell ' . $idnum . ' ^6 ^3' . $loggran . ' ^7' . $chistx . ' ^3' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
                         $date = date('Y.m.d H.i.s');
+							if(($guidn == '0')||(empty($guidn)))
+							$guidn = $msg_user;
                         if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '$igroup', '$guidn')") > 0) {
                             echo "Created IN DATABASE." . "\n";
                             ++$x_stop_lp;
@@ -215,6 +228,8 @@ if ($x_stop_lp == 0) {
                         } else
                             rcon('tell ' . $idnum . ' ^6 ^3' . $loggran . ' ^7' . $chistx . ' ^3' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
                         $date = date('Y.m.d H.i.s');
+							if(($guidn == '0')||(empty($guidn)))
+							$guidn = $msg_user;
                         if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '$igroup', '$guidn')") > 0) {
                             echo "Created IN DATABASE." . "\n";
                             ++$x_stop_lp;
@@ -268,6 +283,8 @@ if ($x_stop_lp == 0) {
                         } else
                             rcon('tell ' . $idnum . ' ^6 ^3' . $loggran . ' ^7' . $chistx . ' ^3' . $logginn . ' ' . $groupxx . ' ^7' . $loggithx, '');
                         $date = date('Y.m.d H.i.s');
+						if(($guidn == '0')||(empty($guidn)))
+							$guidn = $msg_user;
                         if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '$igroup', '$guidn')") > 0) {
                             echo "Created IN DATABASE." . "\n";
                             ++$x_stop_lp;
@@ -299,7 +316,9 @@ if ($x_stop_lp == 0) {
                             if ($game_patch != 'cod1_1.1')
                                 rcon('tell ' . $idnum . ' ^6 ^3' . $loggran . ' ^7' . $chistx . ' ^3' . $loggistopkk, '');
                             $date = date('Y.m.d H.i.s');
-                            if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '0', 'no')") > 0) {
+								if(($guidn == '0')||(empty($guidn)))
+							$guidn = $msg_user;
+                            if ($db->exec("INSERT INTO x_db_admins (s_adm, s_dat, s_group, s_guid) VALUES ('$i_ip', '$date', '0', '$guidn')") > 0) {
                                 echo "Created IN DATABASE." . "\n";
                                 ++$x_stop_lp;
                             }
