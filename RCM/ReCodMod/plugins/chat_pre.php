@@ -32,7 +32,7 @@ for ($i=0; $i< count($out[0]); $i++) {
 	
 	if($x_mat != false)
 { 
-if(strlen($out[0][$i]) > 4)
+if(strlen($out[0][$i]) > 3)
 {
 preg_match("/".$badword."/si", $out[0][$i], $maxbw);
   if(count($maxbw) > 0)
@@ -106,7 +106,7 @@ for ($i=0; $i< count($out[0]); $i++) {
 	
 if($x_mat != false)
 { 
-if(strlen($out[0][$i]) > 4)
+if(strlen($out[0][$i]) > 3)
 {
 preg_match("/".$wordxx."/si", $out[0][$i], $maxbw);
   if(count($maxbw) > 0)
