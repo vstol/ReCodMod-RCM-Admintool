@@ -2,11 +2,15 @@
 $msgr = matmat($msgr);
 $x_n4 = trim(clearnamex($nivv));
 $yug = mb_strtolower($msgr, 'Windows-1251');
+$msgrxc = mb_strtolower($msgrx, 'Windows-1251');
 $yug = matmat($yug);
 $x_mat = true;
 
 foreach($matnie as $badword)
 {
+	
+ 
+/*	 	
    preg_match("/".$badword."/si", $yug, $maxb);
   //$matches = strpos($badword, $yug);
   if(count($maxb) > 0)
@@ -14,6 +18,20 @@ foreach($matnie as $badword)
 	$x_mat = false;
 	echo" -mat- ";
   }
+*/	 
+	
+		
+preg_match_all("#\b(\w+)\b#",$msgrxc,$out);
+for ($i=0; $i< count($out[0]); $i++) {
+	
+  if($out[0][$i] == $badword)
+  {  
+	$x_mat = false;
+	echo " -mat- badword ".$out[0][$i]." detected ";
+  }		
+	
+	
+}
 } 		
 
 
@@ -56,17 +74,30 @@ $db2 = new PDO('sqlite:'.$bannlist);
     foreach($result as $row)
     {
 $wordxx = $row['z_words'];			
-   preg_match("/".$wordxx."/si", $yug, $maxbw);
+  
+/*	    
+preg_match("/".$wordxx."/si", $yug, $maxbw);
   if(count($maxbw) > 0)
   {  
 	$x_mat = false;
 	echo" -sqlite3 bad word detected- ";
   }
+*/	  
+	    
+preg_match_all("#\b(\w+)\b#",$msgrxc,$out);
+
+for ($i=0; $i< count($out[0]); $i++) {
+
+  if($out[0][$i] == $wordxx)
+  {  
+	$x_mat = false;
+	echo " -sqlite3- badword ".$out[0][$i]." detected ";
+  }		    	    
+	    
     }
-  }
+  }}
     catch (PDOException $e) {
         print ' FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
     }
 }
 ?>
- 
