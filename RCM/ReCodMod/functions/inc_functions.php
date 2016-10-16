@@ -282,7 +282,7 @@ return $string;
 }
 
 function matmat($strg) {
-$strg = str_replace(array('_', '-', ',', '.', '—'), ' ', trim($strg));
+$strg = str_replace(array('_', '-', ',', '.', '—','*','/','#','@','%'), ' ', trim($strg));
 $strg = preg_replace('/\s{2,}/', '', $strg);
 $strg = preg_replace('/ {2,}/', '', $strg);
 $strg = preg_replace('/\s+/', '', $strg);
