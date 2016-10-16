@@ -98,6 +98,9 @@ preg_match("/".$wordxx."/si", $yug, $maxbw);
 preg_match_all("#\b(\w+)\b#",$msgrxc,$out);
 
 for ($i=0; $i< count($out[0]); $i++) {
+	
+	$out[0][$i] = meessagee($out[0][$i]);
+	$out[0][$i] = repooort($out[0][$i]);
 
   if($out[0][$i] == $wordxx)
   {  
@@ -108,6 +111,7 @@ for ($i=0; $i< count($out[0]); $i++) {
 
 if(strlen($out[0][$i]) > 3)
 {
+	$out[0][$i] = matmat($out[0][$i]);
 preg_match("/".$wordxx."/si", $out[0][$i], $maxbw);
   if(count($maxbw) > 0)
   {  
