@@ -108,7 +108,8 @@ for ($i=0; $i< count($out[0]); $i++) {
 	echo " -sqlite3- badword ".$out[0][$i]." detected ";	
   }	
 
-
+if(strlen($wordxx) > 2)
+{
 if(strlen($out[0][$i]) > 3)
 {
 	$out[0][$i] = matmat($out[0][$i]);
@@ -119,7 +120,7 @@ preg_match("/".$wordxx."/si", $out[0][$i], $maxbw);
 	echo" -sqlite3 bad word ".$out[0][$i]." detected- ";
   }	
 }
-  
+}
 	    
     }
   }}
