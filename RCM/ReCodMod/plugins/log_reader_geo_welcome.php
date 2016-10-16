@@ -413,6 +413,8 @@ usleep($sleep_rcon);
                     exit;
                 }
             }
+		
+	if ($rules_kick_bad_named){	
             $result = $db2->query("SELECT * FROM x_words");
             foreach ($result as $row) {
                 $namer = $row['z_names'];
@@ -462,6 +464,7 @@ usleep($sleep_rcon);
                 }
                 //continue;
             }
+	}
             //////////////////////////////============================	 IP RANGES
             ///////////////////////////////////////////Super Range
 			 $fuckmatch = 0;
