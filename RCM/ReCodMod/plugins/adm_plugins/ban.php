@@ -764,18 +764,20 @@ if ($x_stop_lp == 0)
                     if ($jjj)
                       {
                         ++$knownplayr;
-                        list($x_cmd, $x_wooord, $x_reason) = explode(' ', $msgr);
+			      
+			      $x_reason = '';
+                        list($x_cmd, $x_wooord) = explode(' ', $msgr);
 			      
 			      
 			$liststop = array("!","@","#","$","%","^","&","*","(",")","_","-","+","=","[","]","{","}", ";",":","~","`","?",".","/","|");
 						foreach($liststop as $symbx)
                               {
 						if ($x_stop_lp == 0){	  
-							if(strpos($symbx, $x_wooord) !== false)	
+							if(strpos($x_wooord,$symbx) !== false)	
 								{
 									usleep($sleep_rcon * 2);
-								rcon('say  ^6 ' . $x_wooord . ' ^1Error! Without symbols please!', '');
-								++$x_stop_lp;
+								rcon('say  ^6 ^7' . $x_wooord . ' ^1Error! Without symbols please!', '');
+								$x_stop_lp = 55;
 								}
 							}  
 							  }      
