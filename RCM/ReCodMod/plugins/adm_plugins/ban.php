@@ -765,6 +765,21 @@ if ($x_stop_lp == 0)
                       {
                         ++$knownplayr;
                         list($x_cmd, $x_wooord, $x_reason) = explode(' ', $msgr);
+			      
+			      
+			$liststop = array("!","@","#","$","%","^","&","*","(",")","_","-","+","=","[","]","{","}", ";",":","~","`","?",".","/","|");
+						foreach($liststop as $symbx)
+                              {
+						if ($x_stop_lp == 0){	  
+							if(strpos($symbx, $x_wooord) !== false)	
+								{
+									usleep($sleep_rcon * 2);
+								rcon('say  ^6 ' . $x_wooord . ' ^1Error! Without symbols please!', '');
+								++$x_stop_lp;
+								}
+							}  
+							  }      
+			      
                         if ($x_reason == '')
                             $x_reason = 'None';
                         if ($x_stop_lp == 0)
