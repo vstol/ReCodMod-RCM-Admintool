@@ -399,5 +399,7 @@ In x_logs folder after install and few days work, you can find chat, stats.... l
 
 # Support and report
 
-Skype: larocca2012
+Skype: larocca2012 
+
+E-mail: la.rocca@yandex.com or la.rocca@ya.ru
  
