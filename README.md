@@ -396,4 +396,8 @@ b3HideLvl "0"
 # SPECIAL INFO
 
 In x_logs folder after install and few days work, you can find chat, stats.... logs in html format, you can use it for website.
+
+# Support and report
+
+Skype: larocca2012
  
