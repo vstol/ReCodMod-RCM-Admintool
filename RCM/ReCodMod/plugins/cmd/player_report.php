@@ -3,7 +3,7 @@ if ($x_stop_lp == 0) {
     if ((strpos($msgr, $ixz . 'ban') !== false) || (strpos($msgr, $ixz . 'kick') !== false) || (strpos($msgr, $ixz . 'tban') !== false)) {
         echo '-';
     } else {
-        if ((strpos($msgr, 'report') !== false) && ($x_number != 1) || (strpos($msgr, 'support') !== false)) {
+        if ((strpos($msgr, 'report ') !== false) && ($x_number != 1) || (strpos($msgr, 'support ') !== false)) {
             if ((strpos($msgr, 'support ') !== false) || (strpos($msgr, 'report ') !== false))
                 list($x_cmd, $x_idn) = explode(' ', $msgr); // !s 5 ( 5 = id)
             else
