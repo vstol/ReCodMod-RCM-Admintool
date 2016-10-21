@@ -21,7 +21,34 @@ $serveripp = '-';
 	AddToLogTOPreset("
 	
 	<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>
-	
+<style type='text/css'>
+        @media all {html {font-size: 24px;}}
+		@media all and (max-width:2200px){html {font-size: 27px;}td {font-size: 18px;}}
+		@media all and (max-width:1800px){html {font-size: 26px;}td {font-size: 17px;}}
+		@media all and (max-width:1400px){html {font-size: 25px;}td {font-size: 16px;}}
+		@media all and (max-width:1000px){html {font-size: 24px;}td {font-size: 15px;}}
+		@media all and (max-width:960px){html {font-size: 23px;}td {font-size: 14px;}}
+		@media all and (max-width:920px){html {font-size: 22px;}td {font-size: 13px;}}
+		@media all and (max-width:880px){html {font-size: 21px;}td {font-size: 12px;}}
+		@media all and (max-width:840px){html {font-size: 20px;}td {font-size: 11px;}}
+		@media all and (max-width:800px){html {font-size: 19px;}td {font-size: 10px;}}
+		@media all and (max-width:760px){html {font-size: 18px;}td {font-size: 10px;}}
+		@media all and (max-width:720px){html {font-size: 17px;}td {font-size: 10px;}}
+		@media all and (max-width:680px){html {font-size: 16px;}td {font-size: 10px;}}
+		@media all and (max-width:640px){html {font-size: 15px;}td {font-size: 10px;}}
+		@media all and (max-width:600px){html {font-size: 14px;}td {font-size: 10px;}}
+		@media all and (max-width:560px){html {font-size: 13px;}td {font-size: 10px;}}
+		@media all and (max-width:520px){html {font-size: 12px;}td {font-size: 10px;}}
+        body {
+          max-width:2400px;
+          min-width:520px;
+          line-height:1.33em;
+          margin:1em;
+          background-color:#f7f7f7;
+          font-family:Source Sans Pro;
+          color:#361800;
+        }
+    </style>	
 	-<b>TOP 500 $etopx</b> - kills limit $limm - "."\n"."
 <b>Server:</b> $servername /  $serveripp . $server_port / $game_patch
 <br/> <b>Ratio</b> = Kills/Deaths    <b>Skill</b> = ((Kills-Deaths) x (Kills/Deaths) x 10)
@@ -101,18 +128,18 @@ AddToLogTOP("
 
 
 <tr style=\"background:" . ($i % 2 ? '#555' : '#777') . ";\">
-<td width='80px'><font color='yellow' size='3'>&emsp;<b>" . $num . "&emsp;</b></font></td>
-<td width='80px'><font color='pink' size='3'>&emsp;<b>" . $geoo . "&emsp;</b></font></td>
-<td width='270px'>&emsp;<b><font color='white' size='3'>" . colorize($xccs) . "</font></b></td>
-<td class='ccccc'><font color='#21d6c9' size='3'>&emsp;<b>" . substr($reason, 0, 6) . "</b>&emsp;</color></td>
-<td class='ccccc'><font color='#21d6c9' size='3'>&emsp;<b> " . $skll . "</b>&emsp;</td>
-<td class='ccccc'><font color='#9ff02b' size='3'>&emsp;<b>" . $kl . "</b>&emsp;</color></td>
-<td class='ccccc'><font color='#9ff02b' size='3'>&emsp;<b>" . $dth . "</b>&emsp;</color></td>
-<td width='110px'><font color='#9ff02b' size='3'>&emsp;<b>" . $ipm . '' . "</b>&emsp;</font></td>
-<td width='110px'><font color='#9ff02b' size='3'>&emsp;<b>" . $sgeer . '' . "</b>&emsp;</font></td>
-<td class='ccccc'><font color='#9ff02b' size='3'>&emsp;<b>" . $csuicids . "</b>&emsp;</color></td>
-<td class='ccccc'><font color='#9ff02b' size='3'>&emsp;<b>" . $cmelle . "</b>&emsp;</color></td>
- <td class='ccccc'><font color='#d8e321' size='3'>&emsp;<b>" . $played . "</b>&emsp;</color></td>
+<td><font color='yellow'>&emsp;<b>" . $num . "&emsp;</b></font></td>
+<td><font color='pink'>&emsp;<b>" . $geoo . "&emsp;</b></font></td>
+<td>&emsp;<b><font color='white'>" . colorize($xccs) . "</font></b></td>
+<td class='ccccc'><font color='#21d6c9'>&emsp;<b>" . substr($reason, 0, 6) . "</b>&emsp;</color></td>
+<td class='ccccc'><font color='#21d6c9'>&emsp;<b> " . $skll . "</b>&emsp;</td>
+<td class='ccccc'><font color='#9ff02b'>&emsp;<b>" . $kl . "</b>&emsp;</color></td>
+<td class='ccccc'><font color='#9ff02b'>&emsp;<b>" . $dth . "</b>&emsp;</color></td>
+<td><font color='#9ff02b'>&emsp;<b>" . $ipm . '' . "</b>&emsp;</font></td>
+<td><font color='#9ff02b'>&emsp;<b>" . $sgeer . '' . "</b>&emsp;</font></td>
+<td class='ccccc'><font color='#9ff02b'>&emsp;<b>" . $csuicids . "</b>&emsp;</color></td>
+<td class='ccccc'><font color='#9ff02b'>&emsp;<b>" . $cmelle . "</b>&emsp;</color></td>
+ <td class='ccccc'><font color='#d8e321'>&emsp;<b>" . $played . "</b>&emsp;</color></td>
 </tr>");
 
 	 
@@ -127,13 +154,42 @@ AddToLogTOP("</table>
 	$num = 0;	
 
 $serveripp = '-';
-	AddToLogbanlistreset("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body><b>LAST BANNED PLAYERS</b> "."\n"."
+	AddToLogbanlistreset("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>
+	<style type='text/css'>
+        @media all {html {font-size: 24px;}}
+		@media all and (max-width:2200px){html {font-size: 27px;}td {font-size: 18px;}}
+		@media all and (max-width:1800px){html {font-size: 26px;}td {font-size: 17px;}}
+		@media all and (max-width:1400px){html {font-size: 25px;}td {font-size: 16px;}}
+		@media all and (max-width:1000px){html {font-size: 24px;}td {font-size: 15px;}}
+		@media all and (max-width:960px){html {font-size: 23px;}td {font-size: 14px;}}
+		@media all and (max-width:920px){html {font-size: 22px;}td {font-size: 13px;}}
+		@media all and (max-width:880px){html {font-size: 21px;}td {font-size: 12px;}}
+		@media all and (max-width:840px){html {font-size: 20px;}td {font-size: 11px;}}
+		@media all and (max-width:800px){html {font-size: 19px;}td {font-size: 10px;}}
+		@media all and (max-width:760px){html {font-size: 18px;}td {font-size: 10px;}}
+		@media all and (max-width:720px){html {font-size: 17px;}td {font-size: 10px;}}
+		@media all and (max-width:680px){html {font-size: 16px;}td {font-size: 10px;}}
+		@media all and (max-width:640px){html {font-size: 15px;}td {font-size: 10px;}}
+		@media all and (max-width:600px){html {font-size: 14px;}td {font-size: 10px;}}
+		@media all and (max-width:560px){html {font-size: 13px;}td {font-size: 10px;}}
+		@media all and (max-width:520px){html {font-size: 12px;}td {font-size: 10px;}}
+        body {
+          max-width:2400px;
+          min-width:520px;
+          line-height:1.33em;
+          margin:1em;
+          background-color:#f7f7f7;
+          font-family:Source Sans Pro;
+          color:#361800;
+        }
+    </style>
+	<b>LAST BANNED PLAYERS</b> "."\n"."
 
 <table><td> 
 <table><tr style=\"background:#333; border:4px solid #CCC;\"></font></td> 
- <td width='30px'><font color='silver'><center>#ID</center></font></td>     
- <td width='45px'><font color='silver'><center>$infoocountry</center></font></td>    
- <td width='90px'><font color='silver'><center>$infooip</center></font></td>    
+ <td><font color='silver'><center>#ID</center></font></td>     
+ <td><font color='silver'><center>$infoocountry</center></font></td>    
+ <td><font color='silver'><center>$infooip</center></font></td>    
  <td><font color='silver'><center>$infoonick</center></font></td>
  <td class='ccccc'><font color='purple'><center>$infoodate</center></font></td>
  <td><font color='maroon'><center>$infooreas</center></font></td> 
@@ -196,12 +252,12 @@ AddToLogbanlist("<tr style=\"background:".$colorvb.";\">
 $kjgvjhk
 
 ."</center></td>
-<td width='90px'><font color='OliveDrab' size='2'>&emsp;<b>".substr($ipm, 0, 8).''."**</b></font></td>
-<td width='190px'><font color='black' size='2'>&emsp;<b>".substr($playername1, 0, 19)."</b></font></td>
-<td class='ccccc'><font color='green' size='2'>&emsp;<b>".$k."</b>&emsp;</color></td>
-<td class='ccccc'><font color='red' size='2'>&emsp;<b>".substr(tempban($reason), 0, 14)."</b>&emsp;</color></td>
-<td class='ccccc'><font color='teal' size='2'>&emsp;<b>".$pcj."</b>&emsp;</color></td>
-<td class='ccccc'><font color='black' size='2'>&emsp;<b>".$kwho."</b>&emsp;</color></td>
+<td><font color='OliveDrab'>&emsp;<b>".substr($ipm, 0, 8).''."**</b></font></td>
+<td><font color='black'>&emsp;<b>".substr($playername1, 0, 19)."</b></font></td>
+<td class='ccccc'><font color='green'>&emsp;<b>".$k."</b>&emsp;</color></td>
+<td class='ccccc'><font color='red'>&emsp;<b>".substr(tempban($reason), 0, 14)."</b>&emsp;</color></td>
+<td class='ccccc'><font color='teal'>&emsp;<b>".$pcj."</b>&emsp;</color></td>
+<td class='ccccc'><font color='black'>&emsp;<b>".$kwho."</b>&emsp;</color></td>
 </tr>");
 	
 	}
