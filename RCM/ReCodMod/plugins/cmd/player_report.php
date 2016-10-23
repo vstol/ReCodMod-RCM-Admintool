@@ -74,7 +74,6 @@ $servernamex = str_replace(array("\r\n", "\n", "\r"), "_", $servernamex);
                                             ++$rotxv;
                                         }
                                     } else {
-
                                     if ($x_stop_lp == 0) {
 									   echo '--' . $server_ip;
                                         echo '--' . $server_port;
@@ -237,7 +236,22 @@ $servernamex = str_replace(array("\r\n", "\n", "\r"), "_", $servernamex);
                     }
                 }
             }
-        } else if ((strpos($msgr, 'chea') !== false) && ($x_number != 1) || (strpos($msgr, 'wallhack') !== false) && ($x_number != 1) || (strpos($msgr, 'haker') !== false) && ($x_number != 1) || (strpos($msgr, 'hack') !== false) && ($x_number != 1) || (strpos($msgr, 'aimbot') !== false) && ($x_number != 1)) {
+        } 
+		else if ((strpos($msgr, 'report') !== false) && ($x_number != 1) || (strpos($msgr, 'support') !== false)) {
+		
+		
+	                                     if($idnum != 'false')
+											rcon('tell '.$idnum.' ^1Error! ^7Message can not be empty!', '');
+										    else	
+                                            rcon('say ^1Error! ^7Message can not be empty!', '');
+										   
+											AddToLogInfo("[" . $datetime . "] NOT REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ")");
+                                            ++$x_number;
+                                            echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
+                                            ++$x_stop_lp; //return;
+                                            ++$rotxv;	
+		
+		}else if ((strpos($msgr, 'chea') !== false) && ($x_number != 1) || (strpos($msgr, 'wallhack') !== false) && ($x_number != 1) || (strpos($msgr, 'haker') !== false) && ($x_number != 1) || (strpos($msgr, 'hack') !== false) && ($x_number != 1) || (strpos($msgr, 'aimbot') !== false) && ($x_number != 1)) {
             usleep($sleep_rcon);
             rcon('say ^6 ^1' . $pppanix, '');
             AddToLogInfo("[" . $datetime . "] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ")");
@@ -255,4 +269,3 @@ $servernamex = str_replace(array("\r\n", "\n", "\r"), "_", $servernamex);
     }
 }
 ?>
- 
