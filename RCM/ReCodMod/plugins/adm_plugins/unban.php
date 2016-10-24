@@ -96,7 +96,7 @@ $db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,pat
 		                  }				  
 		usleep($sleep_rcon);
 		rcon('say  ^6 ^7' . $playername. ' '.$c_unban.' ^7'.$infooreas.': ^1'.$reason.'', '');
-		AddToLog("[".$datetime."] UNBAN: " . $i_ip . " (" . $i_name . ")  reason: UnBan");	
+		AddToLog("[".$datetime."] UNBAN => IP: " . $ip . " GUID: " . $tguidd . " (" . $playername . ")  reason: UnBan by ".$i_name." ");	
 AddToLog1("[".$datetime."]<font color='green'> Server :</font> ". $playername."  ".$c_unban."  Reason: ".$reason. " ");	
 		++$x_number;
 		echo ' unban   '.$tfinishh = (microtime(true) - $start);
