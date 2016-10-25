@@ -405,5 +405,5 @@ E-mail: la.rocca@yandex.com or la.rocca@ya.ru
 
 Website: http://recod.ru/forum/ 
 
-Test help: ~Cop~ (COD1 1.1) , KarTaL (COD1 1.5)
+Test help: #coP (COD1 1.1) , KarTaL (COD1 1.5)
  
