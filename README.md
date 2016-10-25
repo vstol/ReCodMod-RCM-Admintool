@@ -124,6 +124,8 @@ sudo apt-get update
 
 sudo apt-get install php7.0 
 
+sudo apt-get install php7.0-sqlite
+
 sudo apt-get install php7.0-sqlite3
 
 sudo apt-get install php7.0-curl
