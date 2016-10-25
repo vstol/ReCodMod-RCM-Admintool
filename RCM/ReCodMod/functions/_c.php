@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
  $cron_timex=filemtime($cpath."ReCodMod/x_cron/cron_time_kicker");        
-if (time()-$cron_timex>=1600) {              
+if (time()-$cron_timex>=5600) {              
     file_put_contents($cpath."ReCodMod/x_cron/cron_time_kicker","");     
  
 function isDomainAvailible($domain)
