@@ -1,9 +1,15 @@
 <?php
+ $startc        = microtime(true);
+  $stimec       = time();
+
 $z_rcm = "RCM[v.3.4.8]";
 $dtx   = "^7[14_10_2016]^5";
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+ $cron_timex=filemtime($cpath."ReCodMod/x_cron/cron_time_kicker");        
+if (time()-$cron_timex>=1600) {              
+    file_put_contents($cpath."ReCodMod/x_cron/cron_time_kicker","");     
  
 function isDomainAvailible($domain)
  {
@@ -50,6 +56,9 @@ else
  {
   echo "Error 404. RCM Msterserver is offline or you closed tcp and udp ports!";
  }
+echo " \n\n curl time >  " . substr($tfinishh = (microtime(true) - $startc), 0, 7);
+
+}
 
 
 $z_set       = $z_rcm . " Admintool";
@@ -546,4 +555,5 @@ if(!empty($connect)){
 if(is_resource($connect)){
 fclose($connect);
 echo ' rcon null ';}}
+//echo '  ====>>>>>>>  ' . substr($tfinishh = (microtime(true) - $startc), 0, 7);
 ?>
