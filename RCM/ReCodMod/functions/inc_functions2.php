@@ -25,6 +25,9 @@ $output = explode ("\xff\xff\xff\xffprint\n", $output);
 $output = implode ('!', $output);
 $output = explode ("\n",$output);
 
+if(preg_grep ('/CoD4 X 1.8/', $output))
+$output  = preg_grep ('/[0-9]{1,8}[[:space:]][0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}(\b)/', $output);
+
 foreach ($output as $value) {
 $pos  = strripos($value, 'map:');
 if ($pos !== false) { 
