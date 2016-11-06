@@ -118,8 +118,8 @@ echo "\n\n Your use wrong rcon password -> ($server_rconpass = )
           require $cpath . 'ReCodMod/functions/inc_functions2.php';
               for ($i = 0; $i < 1; $i++) {
               require $cpath . 'ReCodMod/functions/inc_functions3.php';
-            usleep($sleep_rcon*2);
-			    rcon('set g_log games_mp.log', '');
+                //usleep($sleep_rcon*2);
+			    //rcon('set g_log games_mp.log', '');
 			    usleep($sleep_rcon*2);
                 rcon('set g_logsync 1', '');}	
 	}
@@ -236,8 +236,8 @@ else{
                             //    Continue;
                            
                         //FOR SERVERS ADMINISTRATOR WHO DON'T UNDERSTAND  HOW NEED USE GAME SERVER CONFIGURATION FILE! 
-                            usleep($sleep_rcon*2);
-			    rcon('set g_log games_mp.log', '');
+                //usleep($sleep_rcon*2);
+			    //rcon('set g_log games_mp.log', '');
 			    usleep($sleep_rcon*2);
                 rcon('set g_logsync 1', '');}	
 }
@@ -263,8 +263,8 @@ echo "\n   TRY ADD THIS in mplogfile line ([cfg/_connection.php]): ".$mplogfiler
                             //    Continue;
                            
                         //FOR SERVERS ADMINISTRATOR WHO DON'T UNDERSTAND  HOW NEED USE GAME SERVER CONFIGURATION FILE! 
-                            usleep($sleep_rcon*2);
-			    rcon('set g_log games_mp.log', '');
+                //usleep($sleep_rcon*2);
+			    //rcon('set g_log games_mp.log', '');
 			    usleep($sleep_rcon*2);
                             rcon('set g_logsync 1', '');}
                             
