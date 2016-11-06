@@ -52,9 +52,9 @@ chmod($cpath."ReCodMod/x_update/", 0777);
 chmod($cpath."ReCodMod/x_cache/", 0777);
 
 echo " Install - Folders and cache files.\n";
-sleep (2);
+sleep (2);touch($cpath.'ReCodMod/x_logs/g_log.log');
 touch($cpath.'ReCodMod/x_logs/archive/chat/none.log');
-touch($cpath.'ReCodMod/x_logs/g_log.log');
+
 touch($cpath.'ReCodMod/x_logs/g_gamename.log');
 touch($cpath.'ReCodMod/x_logs/g_shortversion.log');
 touch($cpath.'ReCodMod/x_logs/g_servername.log');
@@ -285,4 +285,25 @@ if ($res === TRUE) {
 }		
 			
 }*/
+
+if(!file_exists($cpath.'ReCodMod/x_cache/tempx1.txt'))
+touch($cpath.'ReCodMod/x_cache/tempx1.txt');
+
+if(!file_exists($cpath.'ReCodMod/x_cache/tempx2.txt'))
+touch($cpath.'ReCodMod/x_cache/tempx2.txt');
+
+if(!file_exists($cpath.'ReCodMod/x_cache/tempx3.txt'))
+touch($cpath.'ReCodMod/x_cache/tempx3.txt');
+
+if(!file_exists($cpath.'ReCodMod/x_cache/tempx4.txt'))
+touch($cpath.'ReCodMod/x_cache/tempx4.txt');
+
+if(!file_exists($cpath.'ReCodMod/x_cache/tempx5.txt'))
+touch($cpath.'ReCodMod/x_cache/tempx5.txt');
+
+if(!file_exists($cpath.'ReCodMod/x_cache/tempx6.txt'))
+touch($cpath.'ReCodMod/x_cache/tempx6.txt');
+
+if(!file_exists($cpath.'ReCodMod/x_cache/tempx7.txt'))
+touch($cpath.'ReCodMod/x_cache/tempx7.txt');	
 ?>

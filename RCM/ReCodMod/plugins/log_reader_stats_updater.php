@@ -32,15 +32,25 @@ $plyr_cnt--;
     if ($x_stop_lp == 0)
      {
       if ($guids == 1)
-        $x4e = $x2e;
+        $guidzzz = $x2e;
+	
       $x4vvv = clearnamex2($x4e);
       try
        {
         usleep(10300);
 		
         $db3  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db3.sqlite');
-        $sql  = "select * FROM x_db_play_stats where s_player='$x4vvv' limit 1";
+        
+		if ($guids == 0)
+		$sql  = "select * FROM x_db_play_stats where s_player='$x4vvv' limit 1";
+		else
+		$sql  = "select * FROM x_db_play_stats where s_guid='$guidzzz' limit 1";
+		
+		if ($guids == 0)
         $res  = $db3->query("select * FROM x_db_play_stats where s_player='$x4vvv' limit 1");
+		else
+		$res  = $db3->query("select * FROM x_db_play_stats where s_guid='$guidzzz' limit 1");
+		
         $stat = $db3->query($sql)->fetchColumn();
         if ($stat > 0)
          {
@@ -53,12 +63,13 @@ $plyr_cnt--;
               $x4i = '';
             echo ' - ' . $x4i . '=====';
            }
+		   if ($guids == 0)
           $sql  = "select * FROM x_db_play_stats where s_player='$x4vvv' and (s_city is null OR s_city = '') limit 1";
+		  else
+			$sql  = "select * FROM x_db_play_stats where s_guid='$guidzzz' and (s_city is null OR s_city = '') limit 1";
+		    
           $stat = $db3->query($sql)->fetchColumn();
-          if ($stat > 0)
-           {
-           }
-          else
+          if (empty($stat))
            {
             if (!empty($ippppp))
               $x4i = $ippppp;
@@ -73,6 +84,8 @@ $plyr_cnt--;
                 $mdguid = md5(md5(md5($x4e)));
               else
                 $mdguid = $x2e;
+			
+			if ($guids == 0){
               $sqlTotal = $db3->prepare("SELECT SUM(s_kills) s_kills FROM x_db_play_stats WHERE s_city='$x4i'");
               $sqlTotal->execute();
               $totalResult = $sqlTotal->fetch(PDO::FETCH_NUM);
@@ -132,7 +145,8 @@ $plyr_cnt--;
  VALUES ('$x4vvv','$place','$kilsss','$deathsss','$nadesss','$iskill','$iratio','$headsss','$timee','$lasttime','','$clc','$mdguid','$cgeo','$suicides','','$melles')");
                
 			 AddToLog1("<br/>[" . $datetime . "] ". $welcome_e . " " . $x4e . " ".$infoofrom." [" . $cgeo . "] guid# ".$mdguid."");
-			 AddToLog1clear("[" . $datetime . "] ". $welcome_e . " " . $x4e . " ".$infoofrom." [" . $cgeo . "] guid# ".$mdguid."");  
+			 AddToLog1clear("[" . $datetime . "] ". $welcome_e . " " . $x4e . " ".$infoofrom." [" . $cgeo . "] guid# ".$mdguid.""); 
+			   }			 
 			   }
              }
            }

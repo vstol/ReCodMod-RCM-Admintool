@@ -165,16 +165,50 @@ $errorchck = substr((microtime(true) - $start), 0, 7);
 if($errorchck <= 1)
 {
 	
-$msgr = 'FLUD';  
-  
+//$msgr = 'FLUD';  
+  $numxl = 0;
+  if ($x_numberz == 0)
+ {
+	 $fhrf = file($log_cash."/temp3.txt");
+foreach ($fhrf as $nd) { 
+++$numxl;
+}
+if($numxl < 5)
+{
+if ($x_numberz == 0)
+ {
 $x_n4 = trim(clearnamex($nivv)); 	
 $today=date('YmdHis');
-$fh=fopen($log_cash."/temp.txt" ,"w+");
-fwrite($fh, $x_n4.'%'.$today);
+$fh=fopen($log_cash."/temp3.txt" ,"a+");
+fwrite($fh, $x_n4.'%'.$msgr.'%'.$today.'%'.$errorchck."\n");
 fclose($fh);
+$x_numberz = 22;
+ }
+}
+else if($numxl > 4)
+{
+	  if ($x_numberz == 0)
+ {
+$x_n4 = trim(clearnamex($nivv)); 	
+$today=date('YmdHis');
 $fh=fopen($log_cash."/temp3.txt" ,"w+");
-fwrite($fh, $x_n4.'%'.$today.'%'.$msgr);
+fwrite($fh, $x_n4.'%'.$msgr.'%'.$today.'%'.$errorchck."\n");
 fclose($fh);
+$x_numberz = 22;
+ }
+}
+else{
+	  if ($x_numberz == 0)
+ {
+$x_n4 = trim(clearnamex($nivv)); 	
+$today=date('YmdHis');
+$fh=fopen($log_cash."/temp3.txt" ,"w+");
+fwrite($fh, $x_n4.'%'.$msgr.'%'.$today.'%'.$errorchck."\n");
+fclose($fh);
+$x_numberz = 22;	
+ }
+}	
+ } 
 }
 }
 //clearstatcache(); 

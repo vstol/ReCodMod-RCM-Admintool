@@ -67,8 +67,8 @@ if ($x_stop_lp == 0) {
                                     if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5')) {
                                          usleep($sleep_rcon);
                                          rcon('getss ' . $i_id, '');
-                                         usleep($sleep_rcon);
-                                         rcon('permban ' . $i_id . ' Reason: [' . $x_reason . ']!', '');
+                                        // usleep($sleep_rcon);
+                                        // rcon('permban ' . $i_id . ' Reason: [' . $x_reason . ']!', '');
                                          usleep($sleep_rcon);
                                          rcon('clientkick ' . $i_id, '');
                                     } else {

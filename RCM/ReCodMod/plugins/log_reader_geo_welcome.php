@@ -5,6 +5,7 @@ if ($x_stop_lp == 0)
  {
 if ($x_loopsv == 0)
  {
+	 /*
   /////////////////SD GAMETYPE TIMELIMIT FIX/////////////////					
   if ($game_patch == 'cod1_1.1')
    {
@@ -57,7 +58,9 @@ if ($x_loopsv == 0)
        }
      }
    }
-  /////////////////SD GAMETYPE TIMELIMIT FIX/////////////////	
+  /////////////////SD GAMETYPE TIMELIMIT FIX/////////////////
+
+  */
     $counttdot = substr_count($parseline, ';');
             if ($counttdot == 2)
     list($noon, $idk, $nickname) = explode(';', $parseline);
@@ -66,6 +69,7 @@ if ($x_loopsv == 0)
   if (empty($guid))
     $guid = 'non';
   echo '-' . $guid . '-' . $idk . '-' . $nickname;
+  
   $x4vvv = clearnamex2($nickname);
   $date  = date('Y.m.d H.i.s');
   
@@ -75,7 +79,7 @@ if ($x_loopsv == 0)
   if (strpos($parseline, 'J;') !== false)
    {
 	   
-	   
+ 
     $geoxx  = 0;
     $limitj = substr_count($parseline, ';'); // 3
 	
@@ -601,7 +605,7 @@ usleep($sleep_rcon);
 		
 		
 		
-		
+	if ($fast_geowelcome > 0)  { 	
 		
 		
         $dropip = explode(".", $i_ip);
@@ -624,7 +628,11 @@ usleep($sleep_rcon);
               $x_date  = date('Y-m-d H:i:s');
               $ts1     = strtotime($x_date);
     
+	        if($guids == 0)
                 $sql  = "SELECT * FROM x_db_players WHERE x_db_ip='$i_ip' LIMIT 1";
+			else
+				$sql  = "SELECT * FROM x_db_players WHERE x_db_guid='$guid' LIMIT 1";
+				
                 $stat = $db4->query($sql)->fetchColumn();
                 if ($stat > 0)
                  {
@@ -633,6 +641,7 @@ usleep($sleep_rcon);
                    {
                     $ipcc   = $row['x_db_ip'];
                     $datecc = $row['x_db_date'];
+					$x_db_conn = $row['x_db_conn'];
                     //60 * 60 * 24 * 14  - two weeks
                     //60 * 60 * 2        - two hours
                   
@@ -660,7 +669,13 @@ usleep($sleep_rcon);
                         $idcc = $row['id'];
                         if ((empty($i_ip)) || (strpos($i_ip, '192.168') !== false) || (strpos($i_ip, '255.255') !== false) || (strpos($i_ip, 'localhost') !== false) || (strpos($i_ip, '127.0.0.1') !== false))
                           $i_ip = '37.120.56.200';
-                        $db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}' WHERE x_db_ip='{$i_ip}'");
+					  
+			if($guids == 0)
+                $db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}',x_db_conn = 'x_db_conn +1' WHERE x_db_ip='{$i_ip}'");
+			else
+			    $db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}',x_db_conn = 'x_db_conn +1' WHERE x_db_guid='{$guid}'");
+					  
+                        //$db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}' WHERE x_db_ip='{$i_ip}'");
                         $gi     = geoip_open($cpath . "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);
                         $record = geoip_record_by_addr($gi, $i_ip);
                         $xxxnnn = ($record->country_name);
@@ -687,7 +702,7 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$mdgui
                            }
                           else
                            {
-                            $sql  = "select * FROM x_db_play_stats where s_player='$x4vvv' and s_guid = '$guid' limit 1";
+                            $sql  = "select * FROM x_db_play_stats where s_guid = '$guid' limit 1";
                             $stat = $db3->query($sql)->fetchColumn();
                             if (empty($stat))
                              {
@@ -697,7 +712,7 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
                              }
                            }
                           usleep($sleep_rcon);
-                          rcon('say ^3' . $welcome_x2 . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^7' . $website . '', '');
+                          rcon('say ^3' . $welcome_x2 . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^1visit#'.$x_db_conn.' ^7' . $website . '', '');
                           ++$x_stop_lp;
                          }
                        }
@@ -729,20 +744,33 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
                      {
                       $mdguid = md5(md5(md5($nickname)));
                       
-                      $sql    = "select * FROM x_db_play_stats where s_player='$x4vvv' and s_guid = '$mdguid' limit 1";
+					  
+			if($guids == 0)
+               $sql    = "select * FROM x_db_play_stats where s_player='$x4vvv' and s_guid = '$mdguid' limit 1";
+			else
+			   $sql    = "select * FROM x_db_play_stats where s_guid = '$guid' limit 1";
+					  
                       $stat   = $db3->query($sql)->fetchColumn();
                       if (empty($stat))
                        {
+						   if($guids == 0)
                         $db3->exec("INSERT INTO x_db_play_stats (s_player,s_place,s_kills,s_deaths,s_grenade,s_skill,s_ratio,s_heads,s_time,s_lasttime,s_city,s_clear,s_guid,s_geo, s_suicids,s_fall,s_melle) 
 VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$mdguid','$xxxnnn','0','$idk','0')");
+else
+	 $db3->exec("INSERT INTO x_db_play_stats (s_player,s_place,s_kills,s_deaths,s_grenade,s_skill,s_ratio,s_heads,s_time,s_lasttime,s_city,s_clear,s_guid,s_geo, s_suicids,s_fall,s_melle) 
+VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid','$xxxnnn','0','$idk','0')");
+	
                        }
                       else
                         $db3->exec("update x_db_play_stats set s_fall='$idk' where s_player='$x4vvv'");
                      }
                     else
                      {
-                     
+                     if($guids == 0)
                       $sql  = "select * FROM x_db_play_stats where s_player='$x4vvv' and s_guid = '$guid' limit 1";
+				  else
+					  $sql  = "select * FROM x_db_play_stats where s_guid = '$guid' limit 1";
+					  
                       $stat = $db3->query($sql)->fetchColumn();
                       if (empty($stat))
                        {
@@ -751,8 +779,14 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$mdgui
 VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid','$xxxnnn','0','$idk','0')");
                        }
                      }
-                    $db4->exec("INSERT INTO x_db_players (x_db_name, x_db_ip, x_db_ping, x_db_date, x_db_warn)
-    VALUES ('$x_ai[1]', '$x_ai[2]', '$mdxxx', '$x_date', '0')");
+			 
+					 if($guids == 0)
+                    $db4->exec("INSERT INTO x_db_players (x_db_name, x_db_ip, x_db_ping, x_db_guid, x_db_conn, x_db_date, x_db_warn, x_date_reg)
+    VALUES ('$x_ai[1]', '$x_ai[2]', '$mdxxx', '0', '0', '$x_date', '0', '$x_date')");
+	else
+		$db4->exec("INSERT INTO x_db_players (x_db_name, x_db_ip, x_db_ping, x_db_guid, x_db_conn, x_db_date, x_db_warn, x_date_reg)
+    VALUES ('$x_ai[1]', '$x_ai[2]', '$mdxxx', '$guid', '0', '$x_date', '0', '$x_date')");
+		
                     echo 'W...';
                     if ($x_stop_lp == 0)
                      {
@@ -769,7 +803,7 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
          }
 	   }
        } ///end loop
-	   
+	   }  
 	   
         $result = null;
         $db     = NULL;
@@ -806,6 +840,7 @@ fclose($connect);
 	  exit;}
       //return;
      }
+   
    }
   ///////////////////////////
   
