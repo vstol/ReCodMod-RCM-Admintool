@@ -41,18 +41,24 @@ $i_namex = afdasfawf($i_name);
 	 if($na1 == $na2) 
 	     {
  
-   if($guids==1)
-	 $x_namex = $guidn; 
+   //if($guids==1)
+	 //$x_namex = $guidn; 
 
  try
   {
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
+if($guids==1)
+$sql = "SELECT * FROM x_db_play_stats WHERE s_guid='{$guidn}' LIMIT 1";
+else
     $sql = "SELECT * FROM x_db_play_stats WHERE s_player='{$x_namex}' LIMIT 1";
   
 $stat = $db3->query($sql)->fetchColumn();
 
 if($stat > 0)
 { 
+if($guids==1)
+$result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_guid='{$guidn}' LIMIT 1");
+else
  $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_player='{$x_namex}' LIMIT 1");
 	$number = 0;	
     foreach($result as $row)
@@ -146,8 +152,14 @@ $x_namjj= clearnamex2($x_nameee);
   try
   {
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
+if($guids==1)
+$result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_guid='{$guidn}' LIMIT 1");
+else
     $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_player='{$x_namex}' LIMIT 1");
- 	
+ 
+if($guids==1)
+$sql = "SELECT * FROM x_db_play_stats WHERE s_guid='{$guidn}' LIMIT 1";
+else	
 $sql = "SELECT * FROM x_db_play_stats WHERE s_player='{$x_namex}' LIMIT 1";
 
 $stat = $db3->query($sql)->fetchColumn();
@@ -265,8 +277,13 @@ $symbs = mb_strlen(trim($msgr), 'utf-8');
 
  try
   {
+
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
-    $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_player='$x_namex' LIMIT 1");
+ if($guids==1)
+ $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_guid='$guidn' LIMIT 1");
+else  
+ $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_player='$x_namex' LIMIT 1");
+
 	
 if ($symbs == 2 || $msgr == $ixz.'stats' || $msgr == $ixz.'statss' || $msgr == $ixz.'st')
 {//echo 'axaxaxaxax';
@@ -278,8 +295,12 @@ $na2 = trim($x_nickx);
 	 if($na1 == $na2) 
 	     {
  
- 
+ if($guids==1)
+$sqlt = "SELECT * FROM x_db_play_stats WHERE s_guid='{$guidn}' LIMIT 1";
+else
 $sqlt = "SELECT * FROM x_db_play_stats WHERE s_player='{$i_namex}' LIMIT 1";
+
+
 $statsf = $db3->query($sqlt)->fetchColumn();
 echo '--------';
 if($statsf > 0)
@@ -450,4 +471,3 @@ $db3 = NULL;
 $rank++;}}}}
 ?>
  
-
