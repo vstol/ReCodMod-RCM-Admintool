@@ -176,8 +176,8 @@ if(
 ((  (($x_n3 == $x_n4) && ($nick[0] == $x_n4) && ($nick[1] == $x_n4)) 
  || (($x_n3 == $x_n4) && ($nick[1] == $x_n4) && ($nick[2] == $x_n4))
  || (($x_n3 == $x_n4) && ($nick[2] == $x_n4) && ($nick[3] == $x_n4)) )
-	&& ((($whilex[0]+$whilex[1]) <= 0.8) || (($whilex[1]+$whilex[2]) <= 0.8) || (($whilex[2]+$whilex[3]) <= 0.8))
-    && (($now_is - $res3[1]) <= 2.2)
+	&& ((($whilex[0]+$whilex[1]) <= 1.8) || (($whilex[1]+$whilex[2]) <= 1.8) || (($whilex[2]+$whilex[3]) <= 1.8))
+    && (($now_is - $res3[1]) <= 2.9)
     && (($msgrz[0] == $msgr) || ($msgrz[1] == $msgr) || ($msgrz[2] == $msgr)))
 
 	||
