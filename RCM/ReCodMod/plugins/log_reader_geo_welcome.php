@@ -671,9 +671,9 @@ usleep($sleep_rcon);
                           $i_ip = '37.120.56.200';
 					  
 			if($guids == 0)
-                $db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}',x_db_conn = 'x_db_conn +1' WHERE x_db_ip='{$i_ip}'");
+                $db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}',x_db_conn = x_db_conn +1 WHERE x_db_ip='{$i_ip}'");
 			else
-			    $db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}',x_db_conn = 'x_db_conn +1' WHERE x_db_guid='{$guid}'");
+			    $db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}',x_db_conn = x_db_conn +1 WHERE x_db_guid='{$guid}'");
 					  
                         //$db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}' WHERE x_db_ip='{$i_ip}'");
                         $gi     = geoip_open($cpath . "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);
