@@ -51,7 +51,7 @@ if ($x_stop_lp == 0) {
             }
             if (empty($furep))
                 $furep = 0;
-            if ($furep == 0) {
+            if (($furep == 0) && ($x_stop_lp != 100)){
                 if ((strpos($msgr, 'support ') !== false) || (strpos($msgr, 'report ') !== false))
                     list($x_cmd, $x_idn) = explode(' ', $msgr); // !s 5 ( 5 = id)
                 else
