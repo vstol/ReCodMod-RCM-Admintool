@@ -24,17 +24,18 @@ if ($x_stop_lp == 0) {
                             if ($counts > 3) {
                                 //////protect the earth xD
                                 $furep = 3;
+								$x_stop_lp = 100;
                             } else {
                                 if ($guids == 0)
-                                    $db5->exec("UPDATE playerlist SET idnum=idnum +1 where s_player='$nickr'");
+                                    $db5->exec("UPDATE playerlist SET idnum=idnum +1 where name='$nickr'");
                                 else
-                                    $db5->exec("UPDATE playerlist SET idnum=idnum +1 where s_player='$guidn'");
+                                    $db5->exec("UPDATE playerlist SET idnum=idnum +1 where name='$guidn'");
                             }
                         } else {
                             if ($guids == 0)
-                                $db5->exec("UPDATE playerlist SET ip='$date',idnum='0' where s_player='$nickr'");
+                                $db5->exec("UPDATE playerlist SET ip='$date',idnum='0' where name='$nickr'");
                             else
-                                $db5->exec("UPDATE playerlist SET ip='$date',idnum='0' where s_player='$guidn'");
+                                $db5->exec("UPDATE playerlist SET ip='$date',idnum='0' where name='$guidn'");
                         }
                     }
                 } else {
