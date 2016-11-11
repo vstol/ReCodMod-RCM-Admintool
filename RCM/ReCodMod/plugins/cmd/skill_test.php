@@ -13,6 +13,9 @@ $i_namex = afdasfawf($i_name);
  try
   {
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
+	if($guids==1)
+	$result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_guid='{$guidn}' LIMIT 1");	
+	else
     $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_player='{$i_namex}' LIMIT 1");
  $number = 0;
     foreach($result as $row)
@@ -79,7 +82,11 @@ try
   {
     $db3 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db3.sqlite');
  
+ 	if($guids==1)
+	$result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_guid='{$guidn}' LIMIT 1");	
+	else
     $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_player='{$i_namex}' LIMIT 1");
+
  	$number = 0;		
     foreach($result as $row)
     {	
