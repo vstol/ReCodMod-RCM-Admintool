@@ -10,7 +10,7 @@ ini_set("display_errors", 1);
 if(!file_exists($cpath . 'ReCodMod/x_cron/cron_time_kicker')){
 	
 	if (!mkdir($cpath . 'ReCodMod/x_cron/', 0777, true)) {
-    die('installed');
+    die('ERROR - not installed');
 }
 	touch($cpath.'ReCodMod/x_cron/cron_time_kicker');
 }//else
