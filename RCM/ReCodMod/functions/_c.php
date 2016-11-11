@@ -7,9 +7,18 @@ $dtx   = "^7[14_10_2016]^5";
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
- $cron_timex=filemtime($cpath."ReCodMod/x_cron/cron_time_kicker");        
+if(!file_exists($cpath . 'ReCodMod/x_cron/cron_time_kicker')){
+	
+	if (!mkdir($cpath . 'ReCodMod/x_cron/', 0777, true)) {
+    die('installed');
+}
+	touch($cpath.'ReCodMod/x_cron/cron_time_kicker');
+}//else
+	$crnnx = "ReCodMod/x_cron/cron_time_kicker";
+
+ $cron_timex=filemtime($cpath.$crnnx);        
 if (time()-$cron_timex>=5600) {              
-    file_put_contents($cpath."ReCodMod/x_cron/cron_time_kicker","");     
+    file_put_contents($cpath.$crnnx,"");     
  
 function isDomainAvailible($domain)
  {
