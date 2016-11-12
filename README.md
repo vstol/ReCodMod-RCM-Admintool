@@ -58,143 +58,19 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 + !nextmap
 + !elist
 + language pack in cfg folder cfg/_settings.php $language = 'en';  
-+ !getss - all plagers screenshots, !getss id# - for one player
++ !getss - all players screenshots, !getss id# - for one player
 + !report !support - working with all email services and with multi email support in cfg/_groups.php
 + Messages rotation with another servers information
 
-#HOW INSTALL!
-
-# STEP  (only for cod1 1.1)
-
-We need to make changes in cod1 1.1 bugged version game_mp_x86.dll (windows) and game.mp.i386.so (linux). In another versions non changes.
-
-In fact changed : to ;
-
-Find line say: %s: %s change to say; %s; %s
-
-Find line sayteam: %s: %s change to sayteam; %s; %s
-
-or download it (need register) from http://recod.ru/forum/viewtopic.php?f=35&t=90&p=712#p712
-
-and replace in your server
-
+--------------------------------------------------------------
  
-#HOW UPDATE! 
-
-Download last day update, unarchive .zip and replace your old files with new files! (example: RCM Update [June 27, 2016].zip)
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
+============================================================== 
+#HOW INSTALL!
 ==============================================================
-#HOW INSTALL IN WINDOWS!
+https://github.com/EXRecod/ReCodMod-RCM-Admintool/wiki/How-Install
 
-For windows need download https://github.com/EXRecod/ReCodMod-RCM-Admintool/archive/master.zip and unarchive this archive, and than
-unarchive RCM-WIN_php.zip from ReCodMod-RCM-Admintool-master unarchived folder. From RCM-WIN_php.zip archive add RCM files (File go.bat and php folder) in main RCM folder.
-
-#Need edit _connection.php for RCM AdminMod working
-//Edit first this file for working
-
-Edit this file from cfg/_connection.php
-
-Example for windows: $mplogfile = "c:\servers\cod1\cod1.1\main\games_mp.log"
-
-//Another two you can edit later
-
-all_settings.php and all_groups_control.php
-
-# All installed. Lets starting, all messages from your game server you see in RCM terminal.
-Press this file ->  go.bat
-
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
 ==============================================================
-
-HOW INSTALL IN GNU/LINUX (DEBIAN, UBUNTU..) WITH PHP5.4.x or PHP7.x SUPPORT!
-==============================================================
-#Install needed php7.0 or 5 and up and modules for it( if you install php5 replace in command line php7.0 to php5)
-
-sudo apt-add-repository ppa:ondrej/php
-
-sudo apt-get update
-
-sudo apt-get install php7.0 
-
-sudo apt-get install php7.0-sqlite
-
-sudo apt-get install php7.0-sqlite3
-
-sudo apt-get install php7.0-curl
-
-sudo apt-get install php7.0-mbstring
-
-# Open temp folder
-cd /tmp
-
-# Download Admin Mod from GitHub
-sudo wget https://github.com/EXRecod/ReCodMod-RCM-Admintool/archive/master.zip
-
-# Make folders
-sudo mkdir /opt/rcm/myserver
-
-# Install zip archivator
-sudo apt-get install unzip
-
-#Unpack to folder
-sudo unzip ReCodMod-RCM-Admintool-master.zip -d /tmp/
-
-#go to unarchived folder
-cd /tmp/ReCodMod-RCM-Admintool-master/
-
-#rename RCM folder to your (myserver) name without symbols - example: NexonRifles
-sudo mv RCM myserver 
-
-#Check your renamed folder, if all ok, you can see README.md and yOur renamed folder
-ls
-
-# myserver change to your, when you changed it before
-sudo cp -a myserver  /opt/rcm/
-
-# go to myserver, when you changed it before
-cd /opt/rcm/myserver/cfg/
-
-#Need edit all_connection.php for RCM AdminMod working
-//Edit first this file for working
-
-sudo nano _connection.php
-
-//Another two you can edit later
-
-sudo nano _settings.php
-
-sudo nano _groups.php
-
-# go to myserver, when you changed it before
-cd /opt/rcm/myserver/
-
-# All installed. Lets starting, all messages from your game server you see in RCM terminal. In 
-sudo sh go.sh
-
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
-# For RCM starting in next time, use this steps!
-# 1| go to myserver
-cd /opt/rcm/myserver/
-# 2| Start go.sh
-sudo sh go.sh
-
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
-==============================================================
-ALL CHAT COMMANDS!
+# ALL CHAT COMMANDS!
 =================================================================================================================
 https://github.com/EXRecod/ReCodMod-RCM-Admintool/wiki/Commands
 
