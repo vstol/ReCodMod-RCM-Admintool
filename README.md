@@ -66,15 +66,14 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
  
 ============================================================== 
 #HOW INSTALL!
-==============================================================
 https://github.com/EXRecod/ReCodMod-RCM-Admintool/wiki/How-Install
 
 ==============================================================
 # ALL CHAT COMMANDS!
-=================================================================================================================
+
 https://github.com/EXRecod/ReCodMod-RCM-Admintool/wiki/Commands
 
-
+==============================================================
 
 
 # HIDE MESSAGES Support CoDaM CodCommands 2.3 [cod1 1.1
