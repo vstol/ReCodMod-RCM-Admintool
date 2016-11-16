@@ -107,9 +107,21 @@ $fhrf = file($log_cash."/temp3.txt");
 $numxl = 0;
 foreach ($fhrf as $nd) {
 $xbz = explode("%",$nd);
+
+if(empty($xbz[0]))
+	$xbz[0] = 'terminated%%%';
 $nick[$numxl] = $xbz[0];
+
+if(empty($xbz[0]))
+	$xbz[0] = 'terminated%%%';
 $msgrz[$numxl] = trim($xbz[1]);
+
+if(empty($xbz[2]))
+	$xbz[2] = 'terminated%%%';
 $res3[$numxl] = $xbz[2];
+
+if(empty($xbz[3]))
+	$xbz[3] = 'terminated%%%';
 $whilex[$numxl] = $xbz[3];
 ++$numxl;
 
