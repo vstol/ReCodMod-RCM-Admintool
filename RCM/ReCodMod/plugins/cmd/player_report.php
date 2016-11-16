@@ -9,7 +9,7 @@ if ($x_stop_lp == 0) {
                 ////////////////////////////  
                 $db5  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db5.sqlite');
                 ////////////////////////////
-                $date = date('Y.m.d');
+                $date = date('Y.m.d H'); //'Y-m-d H:i:s'   
                 if ($guids == 0)
                     $sql = "SELECT * FROM playerlist WHERE name='$nickr' LIMIT 1";
                 else
@@ -21,7 +21,7 @@ if ($x_stop_lp == 0) {
                         $counts = $row['idnum'];
                         $dateff = $row['ip'];
                         if ($dateff == $date) {
-                            if ($counts > 3) {
+                            if ($counts > 2) {
                                 //////protect the earth xD
                                 $furep = 3;
 								$x_stop_lp = 100;
