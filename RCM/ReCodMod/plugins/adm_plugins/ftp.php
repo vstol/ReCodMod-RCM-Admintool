@@ -50,16 +50,29 @@ $conn_id = ftp_connect($ftp_server);
 $login_result = ftp_login($conn_id, $ftp_login, $ftp_password);
 if (!$conn_id || !$login_result){
    //exit("Не удалось установить соединение с FTP сервером!\nПопытка подключения к серверу $ftp_server!");
-rcon('tell '.$i_id.' ^6 ^3'.$senterror, ''); exit;}
+	if ($game_patch == 'cod1_1.1')
+		rcon('say ^6 ^3'.$senterror, ''); 
+	else
+rcon('tell '.$idnum.' ^6 ^3'.$senterror, ''); 
+	exit;
+}
 else{
    //echo "Установлено соединение с FTP сервером $ftp_server";
-rcon('tell '.$i_id.' ^6 ^3'.$sentft, '');	}
+	if ($game_patch == 'cod1_1.1')
+rcon('say ^6 ^3'.$sentft, '');
+	else
+rcon('tell '.$idnum.' ^6 ^3'.$senterror, ''); 
+
+}
 ftp_pasv($conn_id, true);
 do_upload($local_dir);
 ftp_close($conn_id);	
 	
 usleep($sleep_rcon);
-	rcon('tell '.$i_id.' ^6 ^3'.$sentokkk, '');	
+	if ($game_patch == 'cod1_1.1')
+	rcon('say ^6 ^3'.$sentokkk, '');
+	else
+rcon('tell '.$idnum.' ^6 ^3'.$senterror, ''); 
  
 	AddToLog("[".$datetime."] FTP LOGS: (" . $i_ipn . ") (" . $i_id . ") BY: (" . $x_nickx . ") ");    
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> Admin sent to ftp server log file");
@@ -137,16 +150,25 @@ $conn_id = ftp_connect($ftp_server);
 $login_result = ftp_login($conn_id, $ftp_login, $ftp_password);
 if (!$conn_id || !$login_result){
    //exit("Не удалось установить соединение с FTP сервером!\nПопытка подключения к серверу $ftp_server!");
-rcon('tell '.$i_id.' ^6 ^3'.$senterror, ''); exit;}
+	if ($game_patch == 'cod1_1.1')
+	rcon('say ^6 ^3'.$senterror, '');
+	else
+rcon('tell '.$idnum.' ^6 ^3'.$senterror, ''); exit;}
 else{
    //echo "Установлено соединение с FTP сервером $ftp_server";
-rcon('tell '.$i_id.' ^6 ^3'.$sentft, '');	}
+	if ($game_patch == 'cod1_1.1')
+	rcon('say ^6 ^3'.$sentft, '');
+	else
+rcon('tell '.$idnum.' ^6 ^3'.$sentft, '');	}
 ftp_pasv($conn_id, true);
 do_upload_getss($local_dir_getss);
 ftp_close($conn_id);	
 	
 usleep($sleep_rcon);
-	rcon('tell '.$i_id.' ^6 ^3'.$sentokkk, '');	
+	if ($game_patch == 'cod1_1.1')
+	rcon('say ^6 ^3'.$sentokkk, '');
+	else
+	rcon('tell '.$idnum.' ^6 ^3'.$sentokkk, '');	
  
 	AddToLog("[".$datetime."] FTP LOGS: (" . $i_ipn . ") (" . $i_id . ") BY: (" . $x_nickx . ") ");    
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> Admin sent to ftp server image files");
