@@ -5,6 +5,12 @@ if ($x_stop_lp == 0) {
         echo '-';
     } else {
         if ((strpos($msgr, 'report ') !== false) && ($x_number != 1) || (strpos($msgr, 'support ') !== false)) {
+			
+	$cron_time = filemtime($cpath . "ReCodMod/x_crontime/cron_time_alba");
+        if ($stime - $cron_time >= 60*3)
+         {
+          file_put_contents($cpath . "ReCodMod/x_crontime/cron_time_alba", "");
+			
             try {
                 ////////////////////////////  
                 $db5  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db5.sqlite');
@@ -298,7 +304,7 @@ if ($x_stop_lp == 0) {
                     }
                 }
             }
-        } else if ((strpos($msgr, 'report') !== false) && ($x_number != 1) || (strpos($msgr, 'support') !== false)) {
+		 } } else if ((strpos($msgr, 'report') !== false) && ($x_number != 1) || (strpos($msgr, 'support') !== false)) {
             if (empty($furep))
                 $furep = 0;
             if ($furep == 0) {
