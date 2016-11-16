@@ -103,14 +103,16 @@ fclose($connect);
 echo '    '.$tfinishh = (microtime(true) - $start);	  
 ++$x_stop_lp;    //return;
       }	
-if ($kl <= 0 || $dth <= 0){  
+if ($kl <= 0 || $dth <= 0){ 
+if ($x_stop_lp == 0 ) { 
 usleep($sleep_rcon);
 if (($game_patch == 'cod1_1.1') || ($game_mod == 'codam')){	
 rcon(" - ^3".$stsnoskl, ""); 
 }else{
 rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 }	
-}else{		  
+}}else{
+if ($x_stop_lp == 0 ) {	
 $skil_x = round((($kl-$dth)*($kl/$dth)*10));
 $ratio_x = ($kl/$dth);   
   if($x_number == 0){
@@ -123,7 +125,7 @@ rcon("say ^6 ^7".$ply." ^1".$infootop.":^2".$pla." ^1".$infoorank.":^2 ".$skil_
  
 echo ' ----   '.$tfinishh = (microtime(true) - $start);	  
 ++$x_stop_lp;    //return;
-}}
+}}}
 
 
 
@@ -900,4 +902,3 @@ $db3 = NULL;
   
 	}	
 ?>
- 
