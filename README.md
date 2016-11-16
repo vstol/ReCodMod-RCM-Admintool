@@ -113,11 +113,11 @@ b3HideLvl "0"
 
 In x_logs folder after install and few days work, you can find chat, stats.... logs in html format, you can use it for website.
 
-# Support and report
+# Support and report \\ Русский || English
 
-Skype: larocca2012 
+Skype: larocca2012  
 
-E-mail: la.rocca@yandex.com or la.rocca@ya.ru
+E-mail: la.rocca@yandex.com or la.rocca@ya.ru  
 
 Website: http://recod.ru/forum/ 
 
