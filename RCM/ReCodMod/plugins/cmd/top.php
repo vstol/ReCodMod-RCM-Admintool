@@ -108,8 +108,10 @@ if ($x_stop_lp == 0 ) {
 usleep($sleep_rcon);
 if (($game_patch == 'cod1_1.1') || ($game_mod == 'codam')){	
 rcon(" - ^3".$stsnoskl, ""); 
+	++$x_stop_lp; 
 }else{
 rcon("tell ".$i_id."  ^3".$stsnoskl, "");
+	++$x_stop_lp; 
 }	
 }}else{
 if ($x_stop_lp == 0 ) {	
