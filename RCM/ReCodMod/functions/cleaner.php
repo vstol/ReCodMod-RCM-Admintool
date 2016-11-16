@@ -58,7 +58,9 @@ $exec = exec("hostname");
 $hostname = trim($exec);
 $localIP = gethostbyname($hostname);  
 
-if(empty($localIP))
+$searchh = substr_count($localIP, '.'); // 3 
+	
+if((empty($localIP)) || ($searchh != 3))
 $localIP = $server_ip;
 
 if ($server_ip != $localIP){
@@ -73,7 +75,9 @@ exit; }
 $command="/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'";
 $localIP = exec ($command);
 
-if(empty($localIP))
+$searchh = substr_count($localIP, '.'); // 3 
+	
+if((empty($localIP)) || ($searchh != 3))
 $localIP = $server_ip;	
 
 
@@ -170,7 +174,9 @@ $exec = exec("hostname");
 $hostname = trim($exec);
 $localIP = gethostbyname($hostname);  
 
-if(empty($localIP))
+$searchh = substr_count($localIP, '.'); // 3 
+	
+if((empty($localIP)) || ($searchh != 3))
 $localIP = $server_ip;
 
 if ($server_ip != $localIP){
@@ -199,7 +205,9 @@ $fourr = 'main';
 $command="/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'";
 $localIP = exec ($command);
 
-if(empty($localIP))
+$searchh = substr_count($localIP, '.'); // 3 
+	
+if((empty($localIP)) || ($searchh != 3))
 $localIP = $server_ip;	
 
 
