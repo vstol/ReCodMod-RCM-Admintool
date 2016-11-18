@@ -338,11 +338,11 @@ usleep($sleep_rcon);
 if ($game_patch == 'cod1_1.1')
  rcon("say -> ^6 ^1".$infootop.": ^2".$pla." ^1".$infoorank.": ^2".$skil_x." ^1".$infoofrag.": ^2".$kl." ^1".$infoodth.": ^2".$dth." ^1".$infoortio.": ^2".substr($ratio_x, 0,10)."... ^1".$infoohnt.": ^2".$xlst." ^1".$infoobash.": ^2".$bsdvc." ^1".$infoosuic.": ^2".$suee." ^6".$website."/top ", "");
 else
- rcon("tell ".$cfall. " ^6 ^1".$infootop.":^2".$pla." ^1".$infoorank.": ^2".$skil_x." ^1".$infoofrag.": ^2".$kl." ^1".$infoodth.": ^2".$dth." ^1".$infoortio.": ^2".substr($ratio_x, 0,4).".. ^1".$infoobash.": ^2".$bsdvc." ^1".$infoosuic.": ^2".$suee." ^1".$infoohnt.": ^2".$xlst."", "");
+ rcon("tell ".$idnum. " ^6 ^1".$infootop.":^2".$pla." ^1".$infoorank.": ^2".$skil_x." ^1".$infoofrag.": ^2".$kl." ^1".$infoodth.": ^2".$dth." ^1".$infoortio.": ^2".substr($ratio_x, 0,4).".. ^1".$infoobash.": ^2".$bsdvc." ^1".$infoosuic.": ^2".$suee." ^1".$infoohnt.": ^2".$xlst."", "");
 
 	++$x_number;
 	}	
-	AddToLogInfo("[".$datetime."] SKILL: " . $i_ip . " (" . $x_nickx . ") (" . $msgr . ") reason: S"); 
+	AddToLogInfo("[".$datetime."] STATS: " . $i_ip . " (" . $x_nickx . ") (" . $msgr . ") reason: S"); 
 
  
 echo '    '.$tfinishh = (microtime(true) - $start);	  
