@@ -886,7 +886,7 @@ if ((strpos($msgr, $ixz.'worst') !== false) && ($x_number != 1))
 	rcon("say  ^6 ^3    [^6 " . ++$number1 . " ^3] ^7 ".$playername."^1 ".$infoorrnk.": ^2 ".$ipm."", "");
 	}
 	++$x_number;
-	AddToLogInfo("[".$datetime."] TOP: (" . $x_namex . ") (" . $i_id . ") reason: TOP"); 
+	AddToLogInfo("[".$datetime."] TOP: (" . $playername . ") (" . $i_id . ") reason: TOP"); 
  
 echo '    '.$tfinishh = $tfinishh = (microtime(true) - $start);
 ++$x_stop_lp;
