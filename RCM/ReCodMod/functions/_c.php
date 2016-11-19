@@ -319,6 +319,7 @@ if(empty($msgr))
 
    if (strpos($serverinfo_adress, ';') !== false)
       {
+	$serverinfo_adress = trim($serverinfo_adress);   
         $cntnbm     = substr_count($serverinfo_adress, ';');
         $countnumbs = $cntnbm + 1;
         $xmde       = 0;
