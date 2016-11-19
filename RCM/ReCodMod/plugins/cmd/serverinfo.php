@@ -1,6 +1,7 @@
  <?php
 if ((strpos($msgr, $ixz . 'elist') !== false) || ($acceptplugin > 0))
   {
+	$serverinfo_adress = trim($serverinfo_adress);
 	   if (strpos($msgr, $ixz . 'elist') !== false){
 		   
 		$timeoout = 59910;   
