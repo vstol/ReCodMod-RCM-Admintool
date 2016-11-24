@@ -42,27 +42,27 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 + Log system, automatic logfilepath with chat, voting, player cheat alerts, chat flood logs and help chat logs.
 + Server system info getting !sysinfo
 + web plugin, stats, server info, chat.
-+ Mapvote
-+ Kick vote
-+ Ban vote
 + Fun messages
 + So many another plugins....
 
 
-# In new version - new commands and updates!
-+ Ftp connection + send logs and screenshots to another server or website. !ftp log - sent logs !ftp getss - sent screenshots
-+ !rangelist or !rlist - banned ip ranges
-+ !refresh banlist , !refresh top
-+ !lastban
-+ !reload
-+ !nextmap
-+ !elist
-+ language pack in cfg folder cfg/_settings.php $language = 'en';  
-+ !getss - all players screenshots, !getss id# - for one player
-+ !report !support - working with all email services and with multi email support in cfg/_groups.php
-+ Messages rotation with another servers information
-
+# TO DO [RELEASE 30.NOVEMBER.2016 - 10.DECEMBER.2016] + new version v.4
 --------------------------------------------------------------
+
++ Chat language translate.
++ Geo welcome with language tranlate.
+
+user can change own language translate or off !lang ru for ON !lang 1 (for messages only) for OFF !lang 0 , !lang 2 (for server messages) !lang 3 (for all)
+
++ Autoscreenshots for anticheat servers
++ Screenshot making for all players every 5 minutes (!xget)
++ New databases translate.sql 
++ New x_logs/top.html x_logs/banlist.html rework with new .css
++ COD MW2 support
++ All IN ONE. Old version plugins in one file.
++ Cvar list, dvar list configurations.
++ First blood message.
+
  
 ============================================================== 
 #HOW INSTALL!
