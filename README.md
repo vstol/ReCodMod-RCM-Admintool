@@ -56,9 +56,9 @@ user can change own language translate or off !lang ru for ON !lang 1 (for messa
 
 + Autoscreenshots for anticheat servers
 + Screenshot making for all players every 5 minutes (!xget)
-+ New databases translate.sql 
++ New databases translate.db, sreenshots.db .
 + New x_logs/top.html x_logs/banlist.html rework with new .css
-+ COD MW2 support
++ COD MW2 support, possible another new games support.
 + All IN ONE. Old version plugins in one file.
 + Cvar list, dvar list configurations.
 + First blood message.
