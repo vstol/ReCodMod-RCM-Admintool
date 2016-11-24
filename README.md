@@ -49,8 +49,8 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 # TO DO [RELEASE 30.NOVEMBER.2016 - 10.DECEMBER.2016] + new version v.4
 --------------------------------------------------------------
 
-+ Chat language translate.
-+ Geo welcome with language tranlate.
++ Chat language translate in PM.
++ Geo welcome with language tranlate in PM or public.
 
 user can change own language translate or off !lang ru for ON !lang 1 (for messages only) for OFF !lang 0 , !lang 2 (for server messages) !lang 3 (for all)
 
