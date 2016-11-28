@@ -154,7 +154,7 @@ $premierMessageAafficher = ($page - 1) * $number_msg_at_page;
 </style>
 <style type="text/css">body{
 background-color:#000000;
-background:url(ccc.jpg) no-repeat;
+background:url(ccc.jpg) repeat;
     -moz-background-size: 100%; /* Firefox 3.6+ */
     -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
     -o-background-size: 100%; /* Opera 9.6+ */
@@ -383,12 +383,16 @@ tr {
 	th:hover .tooltipf {
 		display:block;
 	}
+
+a, u {
+    text-decoration: none;
+}
 	</style>						
 	</head>			
 		
         <body><center>	<table>
-		<?php echo "<center><th><b>" . colorize($servername) . "</b>  
-<b>" . colorize($ccc . "TOP $nombre_messages PLAYERS") . "</b></th></center>"; ?></table>		
+		<?php echo "<center><th><b><a href='top.php'>" . colorize($servername) . "</a></b>  
+<b><a href='top.php'>" . colorize($ccc . "TOP $nombre_messages PLAYERS") . "</a></b></th></center>"; ?></table>		
 		<table>
                 <tbody><tr>
 <th><b>#</b><SPAN class="tooltipxo">PLACE </SPAN></th>
@@ -448,8 +452,16 @@ if($page > 1)
 //echo "<tr>";
         $i++;
         $in = $i+$fg;
+	    
+	$ounttdot = substr_count($xccs, '^'); 
+	    
+	    if($ounttdot > 2)
+		    $lmmt = 28;
+	    else
+	            $lmmt = 20;
+	    
         echo "<td> " . $in . "&emsp; </td>
-<td width='170px'>" . colorize(substr($xccs, 0, 22)) . "  <SPAN class='tooltipteal'>$guid</SPAN></td> 
+<td width='170px'>" . colorize(substr($xccs, 0, $lmmt)) . "  <SPAN class='tooltipteal'>$guid</SPAN></td> 
 <td >" . $kll . " <SPAN class='tooltipblue'>$kll</SPAN></td>
 <td >" . $dthh . " <SPAN class='tooltipred'>$dthh</SPAN></td>
 <td>" . substr($reason, 0, 6) . " <SPAN class='tooltipf'>" . substr($reason, 0, 6) . "</SPAN></td>
