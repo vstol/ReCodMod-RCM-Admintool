@@ -782,10 +782,10 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
 			 
 					 if($guids == 0)
                     $db4->exec("INSERT INTO x_db_players (x_db_name, x_db_ip, x_db_ping, x_db_guid, x_db_conn, x_db_date, x_db_warn, x_date_reg)
-    VALUES ('$x_ai[1]', '$x_ai[2]', '$mdxxx', '0', '0', '$x_date', '0', '$x_date')");
+    VALUES ('$nickname', '$x_ai[2]', '$mdxxx', '0', '0', '$x_date', '0', '$x_date')");
 	else
 		$db4->exec("INSERT INTO x_db_players (x_db_name, x_db_ip, x_db_ping, x_db_guid, x_db_conn, x_db_date, x_db_warn, x_date_reg)
-    VALUES ('$x_ai[1]', '$x_ai[2]', '$mdxxx', '$guid', '0', '$x_date', '0', '$x_date')");
+    VALUES ('$nickname', '$x_ai[2]', '$mdxxx', '$guid', '0', '$x_date', '0', '$x_date')");
 		
                     echo 'W...';
                     if ($x_stop_lp == 0)
