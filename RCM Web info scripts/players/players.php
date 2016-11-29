@@ -463,7 +463,7 @@ catch (PDOException $e) {
  
 
 </br><table>	<tr><td><center>			
-  <form method="post" action="find.php">
+  <form method="post" action="find_players.php">
  <p1>&nbsp; Search &nbsp; </br> </b>  
 <b> &nbsp; Name: </b>  <input type="text" style="display:inline" name="name" >
 <b> &nbsp; Ip: </b>  <input type="text" style="display:inline" name="ipadress" >
@@ -485,7 +485,14 @@ for ($z = 1 ; $z <= $nb_pages ; $z++)
 
 if($z == 20)
 echo ' </br>';
-
+if($z == 41)
+echo ' </br>';
+if($z == 62)
+echo ' </br>';
+if($z == 84)
+echo ' </br>';
+if($z == 106)
+echo ' </br>';
 
 echo ' </th>';
 }}else{echo '</br>';}
