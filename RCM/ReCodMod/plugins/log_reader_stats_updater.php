@@ -671,16 +671,18 @@ fclose($connect);
                   $sql  = "SELECT * FROM x_db_play_stats WHERE s_guid='$vv6'";
                   $stat = $db3->query($sql)->fetchColumn();
                   if ($stat > 0)
-                   {
+                   {  
                     if (strpos($vv12n, 'MOD_GRENADE_SPLASH') !== false)
                       $db3->exec("UPDATE x_db_play_stats SET s_grenade=s_grenade +1 WHERE s_guid='{$vv6}'");
                     if (strpos($vv13, 'head') !== false)
                       $db3->exec("UPDATE x_db_play_stats SET s_heads=s_heads +1 WHERE s_guid='{$vv6}'");
+                    if (strpos($vv12n, 'MOD_MELEE') !== false)
+                      $db3->exec("UPDATE x_db_play_stats SET s_melle=s_melle +1 WHERE s_guid='{$vv6}'");
                     if (strpos($vv12n, 'MOD_SUICIDE') !== false)
                       echo 'suicide';
                     else
-                      $db3->exec("UPDATE x_db_play_stats SET s_kills=s_kills +1 WHERE s_guid='{$vv6}'");
-                   }
+                      $db3->exec("UPDATE x_db_play_stats SET s_kills=s_kills +1 WHERE s_guid='{$vv6}'");		  
+		     }
                   else
                    {
                     usleep(3000);
