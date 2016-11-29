@@ -423,6 +423,9 @@ $datee       = $row['x_db_date'];
 $warn       = $row['x_db_warn']; 
 $reeg       = $row['x_date_reg'];     
  echo "<tr style=\"background:" . ($i % 2 ? '#777' : '#999') . ";\">";
+
+if(!empty($guid))
+$ping = $guid;
 //echo "<tr>";
         $i++;
         $in = $i+$fg;   
@@ -460,7 +463,7 @@ catch (PDOException $e) {
  
 
 </br><table>	<tr><td><center>			
-  <form method="post" action="find_players.php">
+  <form method="post" action="find.php">
  <p1>&nbsp; Search &nbsp; </br> </b>  
 <b> &nbsp; Name: </b>  <input type="text" style="display:inline" name="name" >
 <b> &nbsp; Ip: </b>  <input type="text" style="display:inline" name="ipadress" >
