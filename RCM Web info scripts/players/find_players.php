@@ -415,6 +415,8 @@ $warn       = $row['x_db_warn'];
 $reeg       = $row['x_date_reg'];     
  echo "<tr style=\"background:" . ($i % 2 ? '#777' : '#999') . ";\">";
 //echo "<tr>";
+	    if(!empty($guid))
+$ping = $guid;
         $i++;
       
 	$ounttdot = substr_count($namee, '^'); 
