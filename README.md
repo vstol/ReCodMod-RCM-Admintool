@@ -54,6 +54,7 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 
 user can change own language translate or off !lang ru for ON !lang 1 (for messages only) for OFF !lang 0 , !lang 2 (for server messages) !lang 3 (for all)
 
++ Databases auto-backup.
 + Autoscreenshots for anticheat servers
 + Screenshot making for all players every 5 minutes (!xget)
 + New databases translate.db, sreenshots.db .
@@ -63,7 +64,11 @@ user can change own language translate or off !lang ru for ON !lang 1 (for messa
 + Cvar list, dvar list configurations.
 + First blood message.
 
- 
+# Updates
+--------------------------------------------------------------
++ Stats system fix. [1.December.2016]
+
+
 ============================================================== 
 #HOW INSTALL!
 https://github.com/EXRecod/ReCodMod-RCM-Admintool/wiki/How-Install
