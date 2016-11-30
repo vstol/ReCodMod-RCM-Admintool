@@ -219,7 +219,7 @@ echo ' db5 null ';}
          {
           // 2304:11 K;2310346615980522343;25;allies;XXXXXX;2310346617077157795;32;axis;Deep sadness;ak47_mp;84;MOD_RIFLE_BULLET;torso_lower
 		  // 3525:07 K;2310346616976892239;26;allies;kto_to;2310346615766359811;0;axis;bizon;artillery_mp;503;MOD_SUICIDE;none
-          list($vv1, $iddeath, $idnumb, $vv4, $death, $guidcc, $idkill, $vv8, $kill, $vv10, $vv11, $modkll, $hitlock) = explode(';', $parselinetxt); 
+          list($vv1, $iddeath, $idnumb, $vv4, $death, $guidcc, $idkill, $vv8, $kill, $byweapon, $vv11, $modkll, $hitlock) = explode(';', $parselinetxt); 
 		  echo "\n[kill] : [", $datetime, "] : [" . $kill . " -> " . $death . "]  [" . $hitlock . "]";
          }
         
@@ -591,15 +591,19 @@ fclose($connect);
                   $stat = $db3->query($sql)->fetchColumn();
                   if ($stat > 0)
                    {
-                    if (strpos($modkll, 'MOD_GRENADE_SPLASH') !== false)
+					   
+                    if ((strpos($byweapon, 'grenade_') !== false) && ($death != $kill))
                       $db3->exec("UPDATE x_db_play_stats SET s_grenade=s_grenade +1 WHERE s_player='{$x_kill}'");
-                    if (strpos($hitlock, 'head') !== false)
+                    if ((strpos($hitlock, 'head') !== false) && ($death != $kill))
                       $db3->exec("UPDATE x_db_play_stats SET s_heads=s_heads +1 WHERE s_player='{$x_kill}'");
-                    if (strpos($modkll, 'MOD_MELEE') !== false)
+                    if ((strpos($modkll, 'MOD_MELEE') !== false) && ($death != $kill))
                       $db3->exec("UPDATE x_db_play_stats SET s_melle=s_melle +1 WHERE s_player='{$x_kill}'");
-           
-					   if ((strpos($modkll, 'MOD_SUICIDE') !== false) && ($kill != $death))
-                      $db3->exec("UPDATE x_db_play_stats SET s_kills=s_kills +1 WHERE s_player='{$x_kill}'");
+                    if (($modkll == 'MOD_SUICIDE') && ($death == $kill))
+                      echo 'suicide';
+                    if (($modkll != 'MOD_SUICIDE') && ($death != $kill)    
+						|| (($modkll == 'MOD_SUICIDE') && ($death != $kill) && ($byweapon != 'none')))
+                      $db3->exec("UPDATE x_db_play_stats SET s_kills=s_kills +1 WHERE s_player='{$x_kill}'");					  
+				  
                    }
                   else
                    {
@@ -656,7 +660,7 @@ fclose($connect);
                   $stat = $db3->query($sql)->fetchColumn();
                   if ($stat > 0)
                    {  
-                    if ((strpos($modkll, 'MOD_GRENADE_SPLASH') !== false) && ($iddeath != $guidcc))
+                    if ((strpos($byweapon, 'grenade_') !== false) && ($iddeath != $guidcc))	
                       $db3->exec("UPDATE x_db_play_stats SET s_grenade=s_grenade +1 WHERE s_guid='{$guidcc}'");
                     if ((strpos($hitlock, 'head') !== false) && ($iddeath != $guidcc))
                       $db3->exec("UPDATE x_db_play_stats SET s_heads=s_heads +1 WHERE s_guid='{$guidcc}'");
@@ -665,9 +669,9 @@ fclose($connect);
                     if (($modkll == 'MOD_SUICIDE') && ($iddeath == $guidcc))
                       echo 'suicide';
                     if (($modkll != 'MOD_SUICIDE') && ($iddeath != $guidcc)    
-						|| (($modkll == 'MOD_SUICIDE') && ($iddeath != $guidcc) && ($vv10 != 'none')))
+						|| (($modkll == 'MOD_SUICIDE') && ($iddeath != $guidcc) && ($byweapon != 'none'))
+					    || (($modkll == 'MOD_EXPLOSIVE') && ($iddeath != $guidcc) && ($byweapon == 'none')))
                       $db3->exec("UPDATE x_db_play_stats SET s_kills=s_kills +1 WHERE s_guid='{$guidcc}'");	
-	             			  
 		             }
                   else
                    {
@@ -728,14 +732,21 @@ fclose($connect);
                     $stat = $db3->query($sql)->fetchColumn();
                     if ($stat > 0)
                      {					 
-                      if (strpos($modkll, 'MOD_SUICIDE') !== false)
+                      if (($modkll == 'MOD_SUICIDE') && ($kill == $death) && ($hitlock != 'none'))
                         $db3->exec("UPDATE x_db_play_stats SET s_suicids=s_suicids +1 WHERE s_player='{$xc_death}'");
-                      
-					  //if (strpos($modkll, 'MOD_FALLING') !== false)
-                      //  $db3->exec("UPDATE x_db_play_stats SET s_fall=s_fall +1 WHERE s_player='{$xc_kill}'");
-					    
-				  if (($modkll != 'MOD_SUICIDE') && ($kill != $death))
-                      $db3->exec("UPDATE x_db_play_stats SET s_deaths=s_deaths +1 WHERE s_player='{$xc_death}'");
+
+				      if (($modkll != 'MOD_SUICIDE') && ($kill == $death) && ($hitlock != 'none'))
+                      $db3->exec("UPDATE x_db_play_stats SET s_suicids=s_suicids +1 WHERE s_player='{$xc_death}'");
+				  
+				      if (($modkll == 'MOD_TRIGGER_HURT') && ($hitlock == 'none'))
+                      $db3->exec("UPDATE x_db_play_stats SET s_suicids=s_suicids +1 WHERE s_player='{$xc_death}'");
+				      
+				      if ((($kill != $death) && ($hitlock != 'none')) 
+					   || (($kill == $death) && ($hitlock != 'none'))
+				        ||(($modkll == 'MOD_TRIGGER_HURT') && ($hitlock == 'none'))
+						||(($modkll == 'MOD_FALLING') && ($hitlock == 'none')))
+                      $db3->exec("UPDATE x_db_play_stats SET s_deaths=s_deaths +1 WHERE s_player='{$xc_death}'");				  
+				  
                       echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
 if($tfinishh > 20){
 if(!empty($db))
@@ -818,19 +829,19 @@ fclose($connect);
 				  
 				  		 
 			//K;02d45f0829c42b2a4460060012e5bbbe;4;;XO;02d45f0829c42b2a4460060012e5bbbe;-1;;XO;none;100000;MOD_SUICIDE;none			 
-                      if (($modkll == 'MOD_SUICIDE') && ($iddeath == $guidcc) && ($vv10 != 'none'))
-                        $db3->exec("UPDATE x_db_play_stats SET s_suicids=s_suicids +1 WHERE s_guid='{$iddeath}'");
-
-				      if (($modkll != 'MOD_SUICIDE') && ($iddeath == $guidcc) && ($vv10 != 'none'))
-                      $db3->exec("UPDATE x_db_play_stats SET s_suicids=s_suicids +1 WHERE s_guid='{$iddeath}'");
-				  
-				      if (($modkll == 'MOD_TRIGGER_HURT') && ($vv10 == 'none'))
-                      $db3->exec("UPDATE x_db_play_stats SET s_suicids=s_suicids +1 WHERE s_guid='{$iddeath}'");
-				      
-				      if ((($iddeath != $guidcc) && ($vv10 != 'none')) 
-					   || (($iddeath == $guidcc) && ($vv10 != 'none'))
-				        ||(($modkll == 'MOD_TRIGGER_HURT') && ($vv10 == 'none')))
-                      $db3->exec("UPDATE x_db_play_stats SET s_deaths=s_deaths +1 WHERE s_guid='{$iddeath}'");
+                      if ((($modkll == 'MOD_SUICIDE') && ($iddeath == $guidcc) && ($byweapon != 'none'))
+					   ||(($modkll != 'MOD_SUICIDE') && ($iddeath == $guidcc) && ($byweapon != 'none')) 
+				       ||(($modkll == 'MOD_EXPLOSIVE') && ($iddeath == $guidcc) && ($byweapon == 'none'))
+					   ||(($modkll == 'MOD_TRIGGER_HURT') && ($byweapon == 'none')) 
+					   ||(($modkll == 'MOD_FALLING') && ($byweapon == 'none')))
+                   $db3->exec("UPDATE x_db_play_stats SET s_suicids=s_suicids +1 WHERE s_guid='{$iddeath}'");
+ 
+				      if ((($iddeath != $guidcc) && ($byweapon != 'none')) 
+					    ||(($iddeath == $guidcc) && ($byweapon != 'none'))
+				        ||(($modkll == 'MOD_TRIGGER_HURT') && ($byweapon == 'none'))
+						||(($modkll == 'MOD_EXPLOSIVE') && ($byweapon == 'none'))
+						||(($modkll == 'MOD_FALLING') && ($byweapon == 'none')))
+                   $db3->exec("UPDATE x_db_play_stats SET s_deaths=s_deaths +1 WHERE s_guid='{$iddeath}'");
 					  
                       echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
   if($tfinishh > 20){
