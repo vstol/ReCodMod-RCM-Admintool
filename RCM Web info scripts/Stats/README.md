@@ -1,2 +1,2 @@
-- Make folder with name cache 
-- Type for folder cache write and read
+- Make folder with name cache (.../Stats/cache/)
+- Type for folder cache (.../Stats/cache/) write and read
