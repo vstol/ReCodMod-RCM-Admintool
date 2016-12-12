@@ -175,6 +175,66 @@ $db = NULL;
 }
 }	
 
+
+if (strpos($msgr, $ixz.'reset me') !== false)
+    { 
+
+
+ $x_namex = clearnamex($i_name);
+$x_nickx = clearnamex($nickr);
+  $mmm = trim($x_nickx);
+  $nnn = trim($x_namex);
+	
+ if (($game_patch == 'cod1_1.1') || ($game_mod == 'codam'))
+$jjj = (strpos($mmm, $nnn) !== false); 
+else
+ $jjj = ((trim($i_id) == trim($idnum)) || (strpos($mmm, $nnn) !== false));
+    if($jjj){
+		++$knownplayr;
+
+$i_namex = afdasfawf($i_name);	
+  $tk = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
+	$kski = explode(" / ", $tk);
+			  $newid = $i_id;
+			  $newip2 = $i_ip;
+
+	if(strpos(chatrr($nickr), $kski[1]) !== false)
+  $unkwnplyersx = $i_id;
+
+if(!empty($guidn))
+	$nothnkjdk = $guidn;
+else
+	$nothnkjdk = $chistx.'pfffffffff';
+		  
+try
+  {
+ if ($x_number > 0){
+usleep($sleep_rcon);
+  
+	$db3  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db3.sqlite');
+	$db3->query("DELETE FROM x_db_play_stats WHERE s_guid = '$nothnkjdk' limit 1");
+	rcon('tell '.$idnum.' ^6[^1RCM^3bot^6] ^7OK!', '');
+ 
+	++$x_number;	
+	AddToLogInfo("[".$datetime."] DELETE self user: (" . $nothnkjdk . ") (" . $idnum . ") (" . $msgr . ")"); 
+++$x_stop_lp;
+echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
+                    					
+ } 
+ 
+$db3 = NULL;
+ 
+ 
+  }
+  catch(PDOException $e)
+  {
+    print ' FILE:  '.__FILE__.'  Exception : '.$e->getMessage();
+  }		
+	
+}	
+
+	}
+
 ?>
  
 
