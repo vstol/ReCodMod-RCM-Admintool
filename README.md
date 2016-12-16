@@ -64,9 +64,9 @@ user can change own language translate or off !lang ru for ON !lang 1 (for messa
 + Cvar list, dvar list configurations.
 + First blood message.
 
-# Updates
+# Updates (./ReCodMod/plugins)
 --------------------------------------------------------------
-+ Stats system fix. (plugins folder) [1.December.2016]
++ Stats system fix. [1.December.2016]
 + !reset me - delete self from stats [12.December.2016]
 + Исправлена ошибка в поиске (badwords.cfg.php) слов на русском [17.December.2016]
 
