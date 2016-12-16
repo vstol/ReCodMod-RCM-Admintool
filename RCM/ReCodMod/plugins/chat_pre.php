@@ -6,10 +6,17 @@ $msgrxc = mb_strtolower($msgrx, 'Windows-1251');
 $yug = matmat($yug);
 $x_mat = true;
 
+  //$dtct = mb_detect_encoding($msgr);
+ 
+//if($dtct == 'UTF-8' || $dtct == 'utf-8')
+ echo "\n ".$xxyuyu = iconv("windows-1251", "utf-8", $msgr), PHP_EOL;
+//else
+//  $xxyuyu = $msgr;
+ 
+ 
 foreach($matnie as $badword)
 {
-	
- 
+
 /*	 	
    preg_match("/".$badword."/si", $yug, $maxb);
   //$matches = strpos($badword, $yug);
@@ -20,14 +27,16 @@ foreach($matnie as $badword)
   }
 */	 
 	
-		
-preg_match_all("#\b(\w+)\b#",$msgrxc,$out);
+ 
+preg_match_all("#\b(\pL+)\b#",$xxyuyu,$out);
 for ($i=0; $i< count($out[0]); $i++) {
 	
   if($out[0][$i] == $badword)
   {  
 	$x_mat = false;
-	echo " -mat- badword ".$out[0][$i]." detected ";
+	
+        echo " -mat- badword ".$out[0][$i]." detected \n ".$xxyuyu;
+ 
   }		
 	
 	if($x_mat != false)
@@ -38,7 +47,8 @@ preg_match("/".$badword."/si", $out[0][$i], $maxbw);
   if(count($maxbw) > 0)
   {  
 	$x_mat = false;
-	echo" -sqlite3 bad word ".$out[0][$i]." detected- ";
+	//echo" -sqlite3 bad word ".$out[0][$i]." detected- ";
+        echo " -mat- more 3 badword ".$out[0][$i]." detected \n ".$xxyuyu;
   }	
 }
 }
@@ -95,7 +105,7 @@ preg_match("/".$wordxx."/si", $yug, $maxbw);
   }
 */	  
 	    
-preg_match_all("#\b(\w+)\b#",$msgrxc,$out);
+preg_match_all("#\b(\pL+)\b#",$xxyuyu,$out);
 
 for ($i=0; $i< count($out[0]); $i++) {
 	
@@ -128,6 +138,23 @@ preg_match("/".$wordxx."/si", $out[0][$i], $maxbw);
         print ' FILE:  ' . __FILE__ . '  Exception : ' . $e->getMessage();
     }
 }
-?>
- 
-	
+
+
+
+if($x_mat != false){
+foreach($matnie as $badword)
+{
+
+if (($xxyuyu == $badword) || (strpos($xxyuyu, $badword) !== false))
+{
+
+if(strlen($xxyuyu) > 2)
+{
+echo ' DETECTED WORD!!! ';
+echo  $xxyuyu." == ".$badword;
+$x_mat = false;
+}
+}
+}}
+
+?>	
