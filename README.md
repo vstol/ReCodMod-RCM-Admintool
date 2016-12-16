@@ -68,6 +68,7 @@ user can change own language translate or off !lang ru for ON !lang 1 (for messa
 --------------------------------------------------------------
 + Stats system fix. (plugins folder) [1.December.2016]
 + !reset me - delete self from stats [12.December.2016]
++ Исправлена ошибка в поиске (badwords.cfg.php) слов на русском [17.December.2016]
 
 ============================================================== 
 #HOW INSTALL!
