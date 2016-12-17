@@ -343,7 +343,7 @@ touch($cpath.'ReCodMod/x_cache/tempx6.txt');
 if(!file_exists($cpath.'ReCodMod/x_cache/tempx7.txt'))
 touch($cpath.'ReCodMod/x_cache/tempx7.txt');	
 
-if(!file_exists($cpath . 'ReCodMod/x_cron/cron_q'){
+if(!file_exists($cpath . 'ReCodMod/x_cron/cron_q')){
 touch($cpath.'ReCodMod/x_cron/cron_q');
 touch($cpath.'ReCodMod/x_cron/cron_gts');
 touch($cpath.'ReCodMod/x_cron/cron_idk');	
