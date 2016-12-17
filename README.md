@@ -75,7 +75,7 @@ user can change own language translate or off !lang ru for ON !lang 1 (for messa
 + Temp ban kicker warn message update. [17.December.2016]
 + Temp ban multiplier time kicker. [17.December.2016]
 + Visit counts fix. [17.December.2016]
-+ Visit counts fix. [17.December.2016]
++ https://github.com/EXRecod/ReCodMod-RCM-Admintool/blob/master/RCM%20%E2%80%94%20update(17.12.2016).zip
 
 ============================================================== 
 #HOW INSTALL!
