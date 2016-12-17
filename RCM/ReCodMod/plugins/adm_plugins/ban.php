@@ -65,7 +65,7 @@ if ($x_stop_lp == 0) {
 								if(empty($a_guidcc))
 									$a_guidcc = $x_nickx;
 								
-                                $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','$i_guid','$x_reason','$datetime','$nickr','$game_patch')");
+                                $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','$i_guid','$x_reason','$datetime','$a_guidcc','$game_patch')");
                                 if ($x_stop_lp == 0) {
                                     usleep($sleep_rcon);
                                     rcon('say  ^6 ' . $chistx . ' ' . $ban_ip_all . ' ^7' . $infooreas . ': ^1' . $x_reason . '', '');

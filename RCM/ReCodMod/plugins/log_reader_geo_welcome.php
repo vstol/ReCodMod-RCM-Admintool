@@ -114,7 +114,7 @@ $db2 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db2.sqlite');
 else
 $db2 = new PDO('sqlite:'.$bannlist);
 ////////////////////////////
- 
+ $db4 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db4.sqlite');
 $datetime = date('Y.m.d H:i:s');
 
 
@@ -961,7 +961,7 @@ require $cpath . 'cfg/languages/en.lng.php';
 	rcon('say ^3' . $welcome_x2 . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^1visit#'.$x_db_conn.' ^7' . $website . '', '');					
 
 
-require $cpath . 'cfg/_settings.php'
+require $cpath . 'cfg/_settings.php';
 
 if ($language == 'en')
 require $cpath . 'cfg/languages/en.lng.php';
@@ -1055,10 +1055,10 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
 			 
 					 if($guids == 0)
                     $db4->exec("INSERT INTO x_db_players (x_db_name, x_db_ip, x_db_ping, x_db_guid, x_db_conn, x_db_date, x_db_warn, x_date_reg)
-    VALUES ('$nickname', '$x_ai[2]', '$mdxxx', '0', '0', '$x_date', '0', '$x_date')");
+    VALUES ('$nickname', '$x_ai[2]', '$mdxxx', '0', '1', '$x_date', '0', '$x_date')");
 	else
 		$db4->exec("INSERT INTO x_db_players (x_db_name, x_db_ip, x_db_ping, x_db_guid, x_db_conn, x_db_date, x_db_warn, x_date_reg)
-    VALUES ('$nickname', '$x_ai[2]', '$mdxxx', '$guid', '0', '$x_date', '0', '$x_date')");
+    VALUES ('$nickname', '$x_ai[2]', '$mdxxx', '$guid', '1', '$x_date', '0', '$x_date')");
 		
                     echo 'W...';
                     if ($x_stop_lp == 0)
@@ -1095,7 +1095,7 @@ require $cpath . 'cfg/languages/en.lng.php';
 rcon('say ^3' . $welcome_x . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6]', '');
                       
 
-require $cpath . 'cfg/_settings.php'
+require $cpath . 'cfg/_settings.php';
 
 if ($language == 'en')
 require $cpath . 'cfg/languages/en.lng.php';
