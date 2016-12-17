@@ -46,29 +46,36 @@ This version not compactible for x2.2 version update, compactible only |RCM/ReCo
 + So many another plugins....
 
 
-# TO DO [RELEASE 30.NOVEMBER.2016 - 10.DECEMBER.2016] + new version v.4
+# TO DO [RELEASE 30.DECEMBER.2016 - 20.JANUARY.2016] + new version v.4[C820]
 --------------------------------------------------------------
 
 + Chat language translate in PM.
-+ Geo welcome with language tranlate in PM or public.
 
 user can change own language translate or off !lang ru for ON !lang 1 (for messages only) for OFF !lang 0 , !lang 2 (for server messages) !lang 3 (for all)
 
-+ Databases auto-backup.
-+ Autoscreenshots for anticheat servers
-+ Screenshot making for all players every 5 minutes (!xget)
-+ New databases translate.db, sreenshots.db .
 + New x_logs/top.html x_logs/banlist.html rework with new .css
-+ COD MW2 support, possible another new games support.
-+ All IN ONE. Old version plugins in one file.
++ All IN ONE. Old version plugins in one file. (one main cfg)
 + Cvar list, dvar list configurations.
 + First blood message.
 
 # Updates (./ReCodMod/plugins)
 --------------------------------------------------------------
 + Stats system fix. [1.December.2016]
+
 + !reset me - delete self from stats [12.December.2016]
+
 + Исправлена ошибка в поиске (badwords.cfg.php) слов на русском [17.December.2016]
++ Autoscreenshots for anticheat servers [17.December.2016]
++ New databases translate.db, sreenshots.db [17.December.2016]
++ Screenshot making for all players every 5 minutes (!xget) [17.December.2016]
++ Databases auto-backup [17.December.2016]
++ Chat logs auto-backup [17.December.2016]
++ New databases translate.db, sreenshots.db [17.December.2016]
++ Geo welcome with language tranlate in PM or public. [17.December.2016]
++ Temp ban kicker warn message update. [17.December.2016]
++ Temp ban multiplier time kicker. [17.December.2016]
++ Visit counts fix. [17.December.2016]
++ Visit counts fix. [17.December.2016]
 
 ============================================================== 
 #HOW INSTALL!
