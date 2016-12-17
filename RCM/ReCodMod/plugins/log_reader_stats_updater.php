@@ -671,7 +671,33 @@ fclose($connect);
                     if (($modkll != 'MOD_SUICIDE') && ($iddeath != $guidcc)    
 						|| (($modkll == 'MOD_SUICIDE') && ($iddeath != $guidcc) && ($byweapon != 'none'))
 					    || (($modkll == 'MOD_EXPLOSIVE') && ($iddeath != $guidcc) && ($byweapon == 'none')))
-                      $db3->exec("UPDATE x_db_play_stats SET s_kills=s_kills +1 WHERE s_guid='{$guidcc}'");	
+                      $db3->exec("UPDATE x_db_play_stats SET s_kills=s_kills +1 WHERE s_guid='{$guidcc}'");
+
+                ////////////////AUTO SCREENSHOTS
+				$cron_timeq=filemtime($cpath."ReCodMod/x_cron/cron_y");        
+                   if (time()-$cron_timeq>=60*$auto_getss_time) {              
+                      file_put_contents($cpath."ReCodMod/x_cron/cron_y","");    
+	                usleep($sleep_rcon);
+                   if($auto_getss == 1)	{				
+					 $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_guid='{$guidcc}' LIMIT 1");
+                     foreach ($result as $row)
+                     {
+                      $kl   = $row['s_kills'];
+                      $dth  = $row['s_deaths'];  
+					 }
+					 
+					 if(empty($dth))
+						$kl = 0.000002;
+					 if(empty($kl))
+						$dth = 1;
+
+					  if(($kl/$dth) > 0.49)
+					  rcon('getss '. $idkill , '');
+				   }else if($auto_getss == 2)	{
+				  rcon('getss '. $idkill , '');
+				   }
+				    }
+			    ////////////////AUTO SCREENSHOTS		
 		             }
                   else
                    {

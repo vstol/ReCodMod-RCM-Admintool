@@ -134,4 +134,31 @@ $registerx = '0';
 
 
 
+
+///////////////////////////////////////   UPDATE 17,12,2016  ////////////////////////////////////////////////
+
+//*********** BACKUPS ***********
+ // CHAT ARCHIVATOR
+ $cht_archive = '2'; // 2 mb , if chat log can be more 2mb, it's make archive in x_logs/archive/chat, and remove text from chat.html and chat.log
+ 
+ // DATABASES auto Backup
+ $cht_databases = '24'; // After where number 24 is 24 hours (ONLY HOURS SUPPORT - MIN: 1, MAX: 99940) , it's make backup in x_logs/backup/
+ 
+//*******************************
+
+
+//********************** AUTO SCREENSHOTS ***************************
+ $auto_getss = 0;       // 0 - OFF,  1 - for skill K/D players, 2 - for all
+ $auto_getss_time = 5;   // Check players every 5 MINUTES
+ $players_access_xget = 2; // time limit in minutes for players !xget command access - command spam protecting!
+//*******************************************************************
+
+
+
+//*********** GLOBAL GEO welcome TRANSLATE *********** 
+ // 0 - off   
+ // 1 - on  
+ $translater = 1; 
+//********************************************
+
 ?>

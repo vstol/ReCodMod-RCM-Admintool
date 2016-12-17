@@ -334,5 +334,34 @@ if ($x_stop_lp == 0) {
             ++$x_stop_lp; //return;		
         }
     }
+	
+	
+if($x_number == 0){
+	if($game_patch != 'cod1_1.1'){
+$cron_timeq=filemtime($cpath."ReCodMod/x_cron/cron_gts");        
+                   if (time()-$cron_timeq>=60*$players_access_xget) {               
+					  
+if ((strpos($msgr, 'xget ') !== false) && ($x_number != 1) 
+	|| (strpos($msgr, 'xgetss ') !== false)) {	
+	
+ list($cmv, $numm) = explode(' ', $msgr);
+ 
+ usleep($sleep_rcon);
+ 
+ if(!empty($numm))
+ {
+rcon('getss '.$numm, '');	
+usleep($sleep_rcon);	
+rcon('tell '. $idnum .' ^6[^1RCM^3bot^6] ^7'.$getssx, '');
+file_put_contents($cpath."ReCodMod/x_cron/cron_gts","");
+++$x_number;
+ }
+ else{
+rcon('tell '. $idnum .' ^6[^1RCM^3bot^6] ^7ERROR -> NO ID NUMBER!!!!!', '');
+++$x_number;
+ }
+	}
+}
+}}
 }
 ?>

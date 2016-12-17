@@ -39,8 +39,11 @@ $dir = $cpath."ReCodMod/x_update/";
 if(!is_dir($dir)) mkdir($dir, 0777, true) ;
 $dir = $cpath."ReCodMod/x_cache/"; 
 if(!is_dir($dir)) mkdir($dir, 0777, true) ;
- 
+$dir = $cpath."ReCodMod/x_logs/backup"; 
+if(!is_dir($dir)) mkdir($dir, 0777, true) ;
+
 chmod($cpath."ReCodMod/", 0777);
+chmod($cpath."ReCodMod/x_logs/backup", 0777);
 chmod($cpath."ReCodMod/databases/", 0777);
 chmod($cpath."ReCodMod/x_crontime/", 0777);
 chmod($cpath."ReCodMod/x_errors/", 0777);
@@ -66,6 +69,11 @@ touch($cpath.'ReCodMod/x_crontime/cron_time_players');
 touch($cpath.'ReCodMod/x_crontime/cron_time_top');
 touch($cpath.'ReCodMod/x_crontime/cron_time1');
 
+touch($cpath.'ReCodMod/x_cron/cron_q');
+touch($cpath.'ReCodMod/x_cron/cron_dbx');
+touch($cpath.'ReCodMod/x_cron/cron_y');
+touch($cpath.'ReCodMod/x_cron/cron_gts');
+touch($cpath.'ReCodMod/x_cron/cron_idk');
 touch($cpath.'ReCodMod/x_cron/cron_time');
 touch($cpath.'ReCodMod/x_cron/cron_time_code');
 touch($cpath.'ReCodMod/x_cron/cron_time_exec1');
@@ -264,6 +272,34 @@ $i_ping = '139';
 		}		
 		
 		
+if(!file_exists($cpath . 'ReCodMod/databases/translate.sqlite')){
+	  
+echo " Install - SQL3 Database.\n";
+sleep (1);			
+	
+  try
+  {
+ 
+    $dtranslate = new PDO('sqlite:'. $cpath . 'ReCodMod/databases/translate.sqlite');
+
+ 
+	 
+     $dtranslate->exec("CREATE TABLE tranlslate (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, idnum varchar(10), name varchar(250), ip int(40), activate int(40), iso_country int(40), country int(40), guid int(40), google int(40), yandex int(40), word varchar(100))"); 
+	
+	$dtranslate->exec("CREATE TABLE xactivator (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, idnum varchar(10), name varchar(250), ip int(40), chat int(40), geo int(40), actone int(10), acttwo int(10), actthree int(10), screen int(40), cguid int(40), cgoogle int(40), cyandex int(40), cword varchar(100))"); 
+ 
+	 
+	 
+    $dtranslate = NULL;
+  }
+  catch(PDOException $e)
+  {
+    print 'Exception : '.$e->getMessage();
+  }
+     
+		}		
+		
+		
 echo " Install - Ok.\n";
 sleep (2);
 }
@@ -306,4 +342,38 @@ touch($cpath.'ReCodMod/x_cache/tempx6.txt');
 
 if(!file_exists($cpath.'ReCodMod/x_cache/tempx7.txt'))
 touch($cpath.'ReCodMod/x_cache/tempx7.txt');	
+
+if(!file_exists($cpath . 'ReCodMod/x_cron/cron_q'){
+touch($cpath.'ReCodMod/x_cron/cron_q');
+touch($cpath.'ReCodMod/x_cron/cron_gts');
+touch($cpath.'ReCodMod/x_cron/cron_idk');	
+touch($cpath.'ReCodMod/x_cron/cron_y');
+touch($cpath.'ReCodMod/x_cron/cron_dbx');
+$dir = $cpath."ReCodMod/x_logs/backup"; 
+if(!is_dir($dir)) mkdir($dir, 0777, true) ;
+chmod($cpath."ReCodMod/x_logs/backup", 0777);
+if(!file_exists($cpath . 'ReCodMod/databases/translate.sqlite')){
+	  
+echo " Install - SQL3 Database.\n";
+sleep (1);			
+	
+  try
+  {
+ 
+    $dtranslate = new PDO('sqlite:'. $cpath . 'ReCodMod/databases/translate.sqlite');
+
+  $dtranslate->exec("CREATE TABLE tranlslate (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, idnum varchar(10), name varchar(250), ip int(40), activate int(40), iso_country int(40), country int(40), guid int(40), google int(40), yandex int(40), word varchar(100))"); 
+	
+	$dtranslate->exec("CREATE TABLE xactivator (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, idnum varchar(10), name varchar(250), ip int(40), chat int(40), geo int(40), actone int(10), acttwo int(10), actthree int(10), screen int(40), cguid int(40), cgoogle int(40), cyandex int(40), cword varchar(100))"); 
+ 
+	 
+    $dtranslate = NULL;
+  }
+  catch(PDOException $e)
+  {
+    print 'Exception : '.$e->getMessage();
+  }
+     
+		}
+}
 ?>

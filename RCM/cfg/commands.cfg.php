@@ -3,7 +3,7 @@
 /// ALL COMMANDS!
 $commands = array($mistake, 
 'report', 'support', 'reg', 'on', 'login', 'logout', 'num', 'rules',
-'cmd', 'list', 'all', 'lastban', 'reset me',
+'cmd', 'list', 'all', 'lastban', 'reset me', 'xget',
  'ip', 'time', 'info', 'sys', 'geo', 'guid', 'status',  
 'top', 'worst', 'n', 'status',  'kills', 'sk', 'stats', 
 'rank', 'toprank', 'nade', 'grenade', 'heads', 'mellee', 
@@ -30,7 +30,11 @@ $moderator_commands = array(';moderatorgroup;',
 $vip_commands = array( ';vipgroup;', 
   'banlist', 'ulist', 'kick', 'getss');
  
-
+ 
+ 
+ 
+ 
+ 
  
  
  

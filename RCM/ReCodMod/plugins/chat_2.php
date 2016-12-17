@@ -93,8 +93,28 @@ $db4 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db4.sqlite');
 $x_n3 = trim(clearnamex($i_name));
 $x_n4 = trim(clearnamex($nivv));
 
+if($game_patch != 'cod1_1.1'){
+$chck_bad = (((($i_id == $idnum) && !$x_mat) && (strpos($x_n3, $x_n4) !== false)) 
+|| ((($i_id == $idnum) && !$x_mat) && (strpos($x_n4, $x_n3) !== false)));
 
-  if(($x_n4 == $x_n3) && !$x_mat) 
+$chck_spam = (((($i_id == $idnum) && !$x_spam) && (strpos($x_n3, $x_n4) !== false)) 
+|| ((($i_id == $idnum) && !$x_spam) && (strpos($x_n4, $x_n3) !== false)));
+
+$chck_cry = (((($i_id == $idnum) && !$x_cry) && (strpos($x_n3, $x_n4) !== false)) 
+|| ((($i_id == $idnum) && !$x_cry) && (strpos($x_n4, $x_n3) !== false)));
+
+}else{
+$chck_bad = ((($x_n4 == $x_n3) && !$x_mat) 
+|| (strpos($x_n4, $x_n3) !== false));
+
+$chck_spam = ((($x_n4 == $x_n3) && !$x_spam) 
+|| (strpos($x_n4, $x_n3) !== false));
+
+$chck_spam = ((($x_n4 == $x_n3) && !$x_cry) 
+|| (strpos($x_n4, $x_n3) !== false));
+}
+
+  if($chck_bad) 
 	     {					 
 echo '->.'.$chat_protect; 
 /*
@@ -121,34 +141,34 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^73^1]^7 stop swearing or you get a kick^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS Warning: " . $i_ip . " (" . $i_name . ")");	 
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Warning by RCM '.$z_ver.' = Censored]</font> ");			
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Warning by RCM '.$z_ver.' = Censored]</font> ");			
 ++$stop_lp; 	    
 }else if (($ip1 == $i_ip) && ($wrn == 3)){
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 stop swearing or you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Censored]</font> ");	
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Censored]</font> ");	
 
 }
 else if (($ip1 == $i_ip) && ($wrn == round($wswear/2))){
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 stop swearing or you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Censored]</font> ");	
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Censored]</font> ");	
 
 }
 else if (($ip1 == $i_ip) && ($wrn >= $wswear)){
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: " . $i_ip . " (" . $i_name . ")  r: BANNED");	 
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Banned by RCM '.$z_ver.' = Censored]</font> ");
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Banned by RCM '.$z_ver.' = Censored]</font> ");
 	
 }else{
 	
 usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 stop swearing or you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Censored]</font> ");	
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Censored]</font> ");	
 }
   
      if (($ip1 == $i_ip) && ($wrn == 3))
@@ -192,7 +212,7 @@ $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES
 //****************************************************************************************************************
 //****************************************************************************************************************
  
-  if(($x_n4 == $x_n3) && !$x_spam) 
+  if($chck_spam) 
 	     {			
 if ($game_ac == '0'){ 
   usleep($sleep_rcon);
@@ -223,7 +243,7 @@ $x_reason = 'Spam';
 	$x_bann = explode(" / ", $tk);	
 $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','','$x_reason','$datetime','$x_nickx','$game_patch')");
 AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[^7Ban by RCM '.$z_ver.' = Spam</font>] ");			 
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[^7Ban by RCM '.$z_ver.' = Spam</font>] ");			 
 ++$stop_lp;  } 
     		
 /////////$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$/////////WARNED SPAM	
@@ -260,7 +280,7 @@ $x_reason = 'Spam';
 	$x_bann = explode(" / ", $tk);	
 $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','','$x_reason','$datetime','$x_nickx','$game_patch')");
 AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[^7Ban by RCM '.$z_ver.' = Spam</font>] ");			 
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[^7Ban by RCM '.$z_ver.' = Spam</font>] ");			 
  ++$stop_lp; } 
     }		
 /////////$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$/////////WARNED SPAM	
@@ -268,37 +288,16 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . 
 
  }	
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 //****************************************************************************************************************
 //****************************************************************************************************************
 //****************************************************************************************************************
 
-if(($x_n4 == $x_n3) && !$x_cry) 
+if($chck_cry) 
 	     {			
 if ($game_ac == '0'){ 
   usleep($sleep_rcon);
   rcon('say  ^6  '. $chistx . ' ^6[^7'.$noohldd.'^6] ^1RCM '.$z_ver.' Autokicker ', '');
- AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[^7Kicked by RCM '.$z_ver.' = Cry]</font> "); 
+ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[^7Kicked by RCM '.$z_ver.' = Cry]</font> "); 
 usleep($sleep_rcon);
 if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
 	rcon('clientkick '. $i_id.' ^6[^7CRYING!^6]', '');
@@ -375,7 +374,7 @@ AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
 
 	}
 	AddToLog("[".$datetime."] CHAT Cry KICKER: " . $i_ip . " (" . $i_name . ")  r: CHAT");
-	AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[^7Kicked by RCM '.$z_ver.' = Cry]</font> ");
+	AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[^7Kicked by RCM '.$z_ver.' = Cry]</font> ");
 	++$stop_lp;		 
  }
  

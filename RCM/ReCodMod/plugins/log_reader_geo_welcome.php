@@ -3,6 +3,7 @@
 //5:37 J;02d45f0829c42b2a4460060012e5bbbe;0;^1LA^9|^7Rocca    cod4
 if ($x_stop_lp == 0)
  {
+	 $datetimex = date('YmdHis');
 if ($x_loopsv == 0)
  {
 	 /*
@@ -115,6 +116,23 @@ $db2 = new PDO('sqlite:'.$bannlist);
 ////////////////////////////
  
 $datetime = date('Y.m.d H:i:s');
+
+
+
+
+
+
+
+
+
+
+
+
+
+if ($guids == 0){
+
+
+
   $result = $db2->query("SELECT * FROM bans WHERE reason like 'Flood'");
     foreach($result as $row)
     {
@@ -255,8 +273,191 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color=
 		}	
 	}
 	
+	}
+
+
+
+}else {
+
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
+$result = $db4->query("SELECT * FROM x_db_players WHERE x_db_guid='$guid' LIMIT 1");
+    foreach($result as $row)
+    {
+		
+		$wrnx = $row['x_db_warn'];
+		
+	 $result = $db2->query("SELECT * FROM bans WHERE reason like 'Flood'");
+    foreach($result as $row)
+    {
+		$id = 	$row['id'];
+		$playername = 	$row['playername'];
+		$ip = 			$row['ip'];
+		$reason  = 		$row['reason'];
+		$time = 		$row['time'];
+		$whooo = 		$row['whooo'];
+		$ppatch = 		$row['patch'];
+				
+		
+$minuteo = (deltimedot($datetime) - deltimedot($time));	
+echo ' ooo '.$minuteo;
+if ($minuteo*$wrnx > $timewflood)
+	{
+$db2->exec("DELETE FROM bans WHERE reason like 'Flood'");	
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','','$reason','$time','$whooo','$ppatch','RCM 2 Hours')");
+//$db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");
+	 
+	 
+	 if ($x_number != 1)
+		{
+		usleep($sleep_rcon);
+		rcon('say  ^6  ^7' . $playername. ' ^5'.$tmpbnd.' 2 Hours^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
+		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN 2 Hours</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
+		
+		++$x_number;
+		echo ' bans   '.$tfinishh = (microtime(true) - $start);
+		}	
 	}	
+ }
+ 
+   $result = $db2->query("SELECT * FROM bans WHERE reason like 'Swearing'");
+    foreach($result as $row)
+    {
+		$id = 	$row['id'];
+		$playername = 	$row['playername'];
+		$ip = 			$row['ip'];
+		$reason  = 		$row['reason'];
+		$time = 		$row['time'];
+		$whooo = 		$row['whooo'];
+		$ppatch = 		$row['patch'];
 	
+		
+$minutez = (deltimedot($datetime) - deltimedot($time));	
+		
+if ($minutez*$wrnx > $timewswear)
+	{
+echo '============================'.$minutez;	
+$db2->exec("DELETE FROM bans WHERE reason like 'Swearing'");	
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','','$reason','$time','$whooo','$ppatch','RCM 3 Hours')");
+$db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");	 
+	 
+	 if ($x_number != 1)
+		{
+		usleep($sleep_rcon);
+		rcon('say  ^6 ^7' . $playername. ' ^5'.$tmpbnd.' 3 Hours^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
+		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN 3 Hours</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
+		
+		++$x_number;
+		echo ' bans   '.$tfinishh = (microtime(true) - $start);
+		}	
+	}
+	
+	}
+	
+	
+   $result = $db2->query("SELECT * FROM bans WHERE reason like 'Disliker'");
+    foreach($result as $row)
+    {	
+	
+		$id = 	$row['id'];
+		$playername = 	$row['playername'];
+		$ip = 			$row['ip'];
+		$reason  = 		$row['reason'];
+		$time = 		$row['time'];
+		$whooo = 		$row['whooo'];
+		$ppatch = 		$row['patch'];
+	
+		
+$minutez = (deltimedot($datetime) - deltimedot($time));	
+		
+if ($minutez*$wrnx > $timewdisliker)
+	{
+echo '============================'.$minutez;	
+$db2->exec("DELETE FROM bans WHERE reason like 'Disliker'");	
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','','$reason','$time','$whooo','$ppatch','RCM 5 Hours')");
+$db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");
+ 
+	 
+	 if ($x_number != 1)
+		{
+		usleep($sleep_rcon);
+		rcon('say  ^6 ^7' . $playername. ' ^5'.$tmpbnd.' 5 Hours^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
+		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN 5 Hours</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
+		++$x_number;
+		echo ' bans   '.$tfinishh = (microtime(true) - $start);
+		}	
+	}
+	
+	}
+	
+	
+   $result = $db2->query("SELECT * FROM bans WHERE reason like '%".$yedate."%'");
+    foreach($result as $row)
+    {		
+		$id = 	$row['id'];
+		$playername = 	$row['playername'];
+		$ip = 			$row['ip'];
+		$reason  = 		$row['reason'];
+		$time = 		$row['time'];
+		$whooo = 		$row['whooo'];
+		$ppatch = 		$row['patch'];
+$datetimex = date('YmdHis');		
+$minutez =  deltimedot($reason) - $datetimex;
+	
+///echo '=========TEMPBAN IS OVER========'.$minutez;	
+		
+if ($minutez*$wrnx < '0')
+	{
+echo '========= TEMPBAN IS OVER ========'.$minutez;	
+$db2->exec("DELETE FROM bans WHERE reason like '%".$yedate."%'");	
+$db2->exec("INSERT INTO amnistia (playername1,ip1,guid1,reason1,time1,whooo1,patch1,whounban1) VALUES ('$playername','$ip','','$reason','$time','$whooo','$ppatch','$whooo')");
+$db4->exec("UPDATE x_db_players SET x_db_warn='0' WHERE x_db_ip='{$ip}'");	 
+	  
+	 if ($x_number != 1)
+		{
+		usleep($sleep_rcon);
+		rcon('say  ^6 ^7' . $playername. ' ^5'.$tmpbnd.'^7 '.$c_unban.' ^7'.$infooreas.'^1:'.$reason.'', '');
+		AddToLog("[".$datetime."] UNBAN: " . $ip . " (" . $playername . ")  reason: UnBan");					
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$playername. " </font><font color='blue'>TEMPBAN</font><font color='black'> ".$c_unban.  " </font>Reason<font color='red'>:".$reason." </font> ");     		
+		++$x_number;
+		echo ' bans   '.$tfinishh = (microtime(true) - $start);
+		}	
+	}
+	
+	}		
+		
+	}	
+}
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
  }
   catch(PDOException $e)
   {
@@ -360,7 +561,14 @@ usleep($sleep_rcon);
                         if ($x_number != 1) {
 							if ($x_loopsv == 0) {
                             usleep($sleep_rcon);
-                            rcon('clientkick ' . $idk . ' BAN!', '');
+							 		
+                            $minutez =  deltimedot($reason) - $datetimex;						
+							
+							if (is_numeric($reason ))
+                            rcon('clientkick ' . $idk . ' ^1TEMP BAN! ^7Left: '.$minutez.' minutes!', '');
+						else
+							rcon('clientkick ' . $idk . ' BAN!', '');
+						
                             usleep($sleep_rcon);
                             rcon('clientkick ' . $idk, '');
                             AddToLog("[" . $datetime . "] GUID KICK: (" . $idk . ") (" . $pssiblegguid . ") (" . $reason  . ")");
@@ -386,7 +594,12 @@ usleep($sleep_rcon);
                     if ((strpos($plnm, $nickname) !== false) || (strpos($plnm, $i_nn) !== false)) {
                         if ($x_number != 1) {
                             usleep($sleep_rcon);
-                            rcon('clientkick ' . $idk . ' BAN!', '');
+                            $minutez =  deltimedot($reason) - $datetimex;						
+							
+							if (is_numeric($reason ))
+                            rcon('clientkick ' . $idk . ' ^1TEMP BAN! ^7Left: '.$minutez.' minutes!', '');
+						else
+							rcon('clientkick ' . $idk . ' BAN!', '');
                             usleep($sleep_rcon);
                             rcon('clientkick ' . $idk, '');
                             AddToLog("[" . $datetime . "] BANNED NICK KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");
@@ -407,7 +620,12 @@ usleep($sleep_rcon);
 					usleep($sleep_rcon);
                     rcon('say  ^7' . $playername1 . ' ' . $ban_ip_all . ' ^7' . $infooreas . ':^1 ' . $reason . '', '');
                     usleep($sleep_rcon);
-                    rcon('clientkick ' . $idk . ' BAN! ' . $reason, '');
+                    $minutez =  deltimedot($reason) - $datetimex;						
+							
+							if (is_numeric($reason ))
+                            rcon('clientkick ' . $idk . ' ^1TEMP BAN! ^7Left: '.$minutez.' minutes!', '');
+						else
+							rcon('clientkick ' . $idk . ' BAN!', '');
                     usleep($sleep_rcon);
                     rcon('clientkick ' . $idk, '');
                     AddToLog("[" . $datetime . "] BANNED IP KICK: (" . $idk . ") (" . $i_ip . ") (" . $i_name . ")");
@@ -711,8 +929,63 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$mdgui
 VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid','$xxxnnn','0','$idk','0')");
                              }
                            }
+						   
+						   
                           usleep($sleep_rcon);
+				///////////////////////////////TRANSLATER		  
+						  if($translater == 0){
                           rcon('say ^3' . $welcome_x2 . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^1visit#'.$x_db_conn.' ^7' . $website . '', '');
+						  }
+						  else{
+							  
+							  $xxccode = ($record->country_code); 
+        if (($xxccode == 'RU')
+		 || ($xxccode == 'UA')
+	     || ($xxccode == 'BY')
+		 || ($xxccode == 'LV')
+		 || ($xxccode == 'UZ')
+		 || ($xxccode == 'AZ')
+		 || ($xxccode == 'AM')
+		 || ($xxccode == 'KZ')
+		 || ($xxccode == 'KG')
+		 || ($xxccode == 'MD')
+		 || ($xxccode == 'TJ')
+		 || ($xxccode == 'TM')
+		 || ($xxccode == 'AB'))
+require $cpath . 'cfg/languages/ru.lng.php';
+else if ($xxccode == 'DE')
+require $cpath . 'cfg/languages/de.lng.php';
+else
+require $cpath . 'cfg/languages/en.lng.php';					  
+							  
+	rcon('say ^3' . $welcome_x2 . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^1visit#'.$x_db_conn.' ^7' . $website . '', '');					
+
+
+require $cpath . 'cfg/_settings.php'
+
+if ($language == 'en')
+require $cpath . 'cfg/languages/en.lng.php';
+else if ($language == 'ru')
+require $cpath . 'cfg/languages/ru.lng.php';
+else if ($language == 'de')
+require $cpath . 'cfg/languages/de.lng.php';
+else if ($language == 'pl')
+require $cpath . 'cfg/languages/pl.lng.php';
+else if ($language == 'it')
+require $cpath . 'cfg/languages/it.lng.php';
+else if ($language == 'br')
+require $cpath . 'cfg/languages/br.lng.php';
+else if ($language == 'fr')
+require $cpath . 'cfg/languages/fr.lng.php';
+else if ($language == 'nl')
+require $cpath . 'cfg/languages/nl.lng.php';
+else
+require $cpath . 'cfg/languages/en.lng.php';						
+							  
+						  }
+		////////////////////////////////////////////// GEO WELCOME				  
+						  
+						  
                           ++$x_stop_lp;
                          }
                        }
@@ -791,8 +1064,62 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
                     if ($x_stop_lp == 0)
                      {
                       usleep($sleep_rcon);
-                      rcon('say ^3' . $welcome_x . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6]', '');
-                      ++$x_stop_lp;
+                       
+///////////////////////////////TRANSLATER		  
+						  if($translater == 0){
+                          rcon('say ^3' . $welcome_x . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6]', '');
+                      
+						  }
+						  else{
+							  
+							  $xxccode = ($record->country_code); 
+        if (($xxccode == 'RU')
+		 || ($xxccode == 'UA')
+	     || ($xxccode == 'BY')
+		 || ($xxccode == 'LV')
+		 || ($xxccode == 'UZ')
+		 || ($xxccode == 'AZ')
+		 || ($xxccode == 'AM')
+		 || ($xxccode == 'KZ')
+		 || ($xxccode == 'KG')
+		 || ($xxccode == 'MD')
+		 || ($xxccode == 'TJ')
+		 || ($xxccode == 'TM')
+		 || ($xxccode == 'AB'))
+require $cpath . 'cfg/languages/ru.lng.php';
+else if ($xxccode == 'DE')
+require $cpath . 'cfg/languages/de.lng.php';
+else
+require $cpath . 'cfg/languages/en.lng.php';					  
+							  
+rcon('say ^3' . $welcome_x . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6]', '');
+                      
+
+require $cpath . 'cfg/_settings.php'
+
+if ($language == 'en')
+require $cpath . 'cfg/languages/en.lng.php';
+else if ($language == 'ru')
+require $cpath . 'cfg/languages/ru.lng.php';
+else if ($language == 'de')
+require $cpath . 'cfg/languages/de.lng.php';
+else if ($language == 'pl')
+require $cpath . 'cfg/languages/pl.lng.php';
+else if ($language == 'it')
+require $cpath . 'cfg/languages/it.lng.php';
+else if ($language == 'br')
+require $cpath . 'cfg/languages/br.lng.php';
+else if ($language == 'fr')
+require $cpath . 'cfg/languages/fr.lng.php';
+else if ($language == 'nl')
+require $cpath . 'cfg/languages/nl.lng.php';
+else
+require $cpath . 'cfg/languages/en.lng.php';						
+							  
+						  }
+		////////////////////////////////////////////// GEO WELCOME				 					  
+					  
+					  ++$x_stop_lp;
                      }
                    }
                   //return;

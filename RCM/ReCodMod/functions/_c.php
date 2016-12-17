@@ -1,9 +1,11 @@
 <?php
  $startc        = microtime(true);
   $stimec       = time();
+//////////////////////////////////////////////////
+$z_rcm = "RCM[v.4]";
+$xbld   = "[c367]";
+$dtx   = "^7[24_12_2016]^5";
 
-$z_rcm = "RCM[v.3.4.8]";
-$dtx   = "^7[14_10_2016]^5";
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -70,8 +72,8 @@ echo " \n\n curl time >  " . substr($tfinishh = (microtime(true) - $startc), 0, 
 }
 
 
-$z_set       = $z_rcm . " Admintool";
-$z_ver       = " " . $z_rcm . " " . $dtx . "";
+$z_set       = $z_rcm . $xbld. " Admintool";
+$z_ver       = " " . $z_rcm . $xbld. " " . $dtx . "";
 $mapfix      = 'dm'; // zom - IF ZOMBIES MOD , dm - if simple mod
 $v_time_gtx  = 100;
 $v_time_map  = 100;
@@ -319,7 +321,6 @@ if(empty($msgr))
 
    if (strpos($serverinfo_adress, ';') !== false)
       {
-	$serverinfo_adress = trim($serverinfo_adress);   
         $cntnbm     = substr_count($serverinfo_adress, ';');
         $countnumbs = $cntnbm + 1;
         $xmde       = 0;
@@ -411,10 +412,11 @@ catch (PDOException $e)
  
 usleep(9000);
 $daten = date('Y-m-d');
+$datenz = date('Y.m.d');
 try
  {
   $db3    = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db3.sqlite');
-  $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_kills>=10 AND s_lasttime LIKE '%" . $daten . "%' ORDER BY ($etopx+0) DESC LIMIT 5");
+  $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_kills>=10 AND s_time LIKE '%" . $datenz . "%' AND s_lasttime LIKE '%" . $daten . "%' ORDER BY ($etopx+0) DESC LIMIT 5");
   $number = 0;
   $i      = 0;
   foreach ($result as $row)
