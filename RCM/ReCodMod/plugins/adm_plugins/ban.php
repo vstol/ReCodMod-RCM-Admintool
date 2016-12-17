@@ -46,7 +46,7 @@ if ($x_stop_lp == 0) {
                         list($x_cmd, $x_idn, $x_reason) = explode(' ', $msgr); // !ban 5 Wh ( 5 = id  wh = reason)
                         if (empty($x_reason)){
 						usleep($sleep_rcon);
-                                         rcon('tell' "$idnum" '^1ENTER REASON PLEASE!', '');	
+                                         rcon('tell ' .$idnum. ' ^1ENTER REASON PLEASE!', '');	
 							exit;
 						}
                             
