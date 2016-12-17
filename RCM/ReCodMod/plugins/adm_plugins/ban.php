@@ -44,8 +44,13 @@ if ($x_stop_lp == 0) {
                     if ($jjj) {
                         ++$knownplayr;
                         list($x_cmd, $x_idn, $x_reason) = explode(' ', $msgr); // !ban 5 Wh ( 5 = id  wh = reason)
-                        if ($x_reason == '')
-                            $x_reason = 'None';
+                        if (empty($x_reason)){
+						usleep($sleep_rcon);
+                                         rcon('tell' "$idnum" '^1ENTER REASON PLEASE!', '');	
+							exit;
+						}
+                            
+						
                         for ($i = 0; $i < $player_cnt; $i++) {
                             require $cpath . 'ReCodMod/functions/inc_functions3.php';
                             //if ((!$valid_id) || (!$valid_ping))
@@ -54,7 +59,7 @@ if ($x_stop_lp == 0) {
                             $tk      = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
                             $x_bann  = explode(" / ", $tk);
                             if ((empty($i_guid)) || $i_guid == '0')
-                                $i_guid = $chistx;
+                                $i_guid = md5($chistx);
                             if ($x_bann[0] == $x_idn) {
 								
 								if(empty($a_guidcc))
@@ -208,6 +213,13 @@ if ($x_stop_lp == 0) {
                     if ($jjj) {
                         ++$knownplayr;
                         list($x_cmd, $x_idn, $x_reason) = explode(' ', $msgr); // !ban 5 Wh ( 5 = id  wh = reason)
+						
+						
+						if (empty($x_reason)){
+						usleep($sleep_rcon);
+                                         rcon('tell' "$idnum" '^1ENTER REASON PLEASE!', '');	
+							exit;
+						}
                         // for ($i=0; $i<$player_cnt; $i++)
                         //	{
                         //require $cpath.'ReCodMod/functions/inc_functions3.php';
@@ -782,8 +794,11 @@ if ($x_stop_lp == 0)
 							}  
 							  }      
 			      
-                        if ($x_reason == '')
-                            $x_reason = 'None';
+                       if (empty($x_reason)){
+						usleep($sleep_rcon);
+                                         rcon('tell' "$idnum" '^1ENTER REASON PLEASE!', '');	
+							exit;
+						}
                         if ($x_stop_lp == 0)
                           {
                             $sql  = "SELECT * FROM x_words WHERE z_words='$x_wooord' LIMIT 1";
