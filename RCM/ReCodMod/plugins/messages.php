@@ -27,7 +27,7 @@ foreach($text as $message) {
 if(empty($message))
 $message = $messages[1];
 
-if (strpos($message, '{') !== false)
+if ((strpos($message, '{') !== false) && ($serverinfo_adress != 0))
 {
 
 require $cpath . 'ReCodMod/plugins/cmd/serverinfo.php';
@@ -96,6 +96,33 @@ echo " \n\n [".$datetime."] Message -> ".meessagee($vvv)." \n Paused -> ".$tfini
 }
 else
 {
+
+if ($serverinfo_adress == 0)
+{
+$text=array();
+for($i=0;$i<1;$i++)
+    { ++$mmmsg;
+      
+ if((count($messages)-1) < ($mmmsg-1))
+ { $mmmsg = 1;}
+
+ $ran = count($messages)-$mmmsg;
+
+ if($ran < 0)
+ { $ran = 0;
+$mmmsg = 1;}
+
+if(!in_array($messages[$ran],$text))
+{$text[]=$messages[$ran];}else{$i--;}}
+foreach($text as $message) {
+ 
+}
+
+if(empty($message))
+$message = $messages[1];
+		
+}	
+	
 
 usleep($sleep_rcon);
 	rcon('say ^6 ^7'.$message, '');
