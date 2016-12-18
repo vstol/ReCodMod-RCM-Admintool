@@ -260,7 +260,7 @@ $result = $db2->query($sql);
 $minuteo = (deltimedot($datetime) - deltimedot($time));	
 echo ' ooo '.$minuteo;
 
-if ($minutes > '1800')
+if ($minuteo > '1800')
 	{
 	
 
