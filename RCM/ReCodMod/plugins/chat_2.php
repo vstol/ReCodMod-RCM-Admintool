@@ -110,7 +110,7 @@ $chck_bad = ((($x_n4 == $x_n3) && !$x_mat)
 $chck_spam = ((($x_n4 == $x_n3) && !$x_spam) 
 || (strpos($x_n4, $x_n3) !== false));
 
-$chck_spam = ((($x_n4 == $x_n3) && !$x_cry) 
+$chck_cry = ((($x_n4 == $x_n3) && !$x_cry) 
 || (strpos($x_n4, $x_n3) !== false));
 }
 
