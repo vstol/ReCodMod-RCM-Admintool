@@ -15,7 +15,7 @@ if ($x_loopsv == 0)
     if ($geosp == 'sd')
      {
       usleep($sleep_rcon);
-      require $cpath . 'ReCodMod/functions/getinfo/sd_fix/sdfix.php';
+      require $cpath .  'ReCodMod/functions/getinfo/sd_fix/sdfix.php';
       fclose($connx);
       list($vv9cl, $vv12nl, $xxkl, $xxklj, $xxvlf, $xdflt) = explode('"', $sdfix);
       if (!empty($xxklj))
@@ -24,16 +24,16 @@ if ($x_loopsv == 0)
         $sddth = sevenofff($xdflt);
       echo '---' . $sddthf = $stime + ($sddth * 60) + 50;
       AddTopsdpp($sddth);
-      $cron_sd = filemtime($cpath . "ReCodMod/x_cron/cron_time_sd");
+      $cron_sd = filemtime($cpath .  "ReCodMod/x_cron/cron_time_sd");
       echo 'ddddddddd' . $cron_sd;
       if ($sddthf - $cron_sd < 10) //50 if server has mapvote+endmap stats
        {
-        file_put_contents($cpath . "ReCodMod/x_cron/cron_time_sd", "");
+        file_put_contents($cpath .  "ReCodMod/x_cron/cron_time_sd", "");
         usleep($sleep_rcon);
-        require $cpath . 'ReCodMod/functions/inc_functions2.php';
+        require $cpath .  'ReCodMod/functions/inc_functions2.php';
         for ($i = 0; $i < 1; $i++)
          {
-          require $cpath . 'ReCodMod/functions/inc_functions3.php';
+          require $cpath .  'ReCodMod/functions/inc_functions3.php';
           usleep($sleep_rcon);
           rcon('say ^1RCM bot ^7find problem with SD timelimit, and ^1RCM ^7solve it!', '');
           usleep($sleep_rcon * 3);
@@ -55,7 +55,7 @@ if ($x_loopsv == 0)
        }
       else
        {
-        file_put_contents($cpath . "ReCodMod/x_cron/cron_time_sd", "");
+        file_put_contents($cpath .  "ReCodMod/x_cron/cron_time_sd", "");
        }
      }
    }
@@ -110,11 +110,11 @@ try
   {
 ////////////////////////////
  if (empty($bannlist))	  
-$db2 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db2.sqlite');
+$db2 = new PDO('sqlite:'.$cpath .  'ReCodMod/databases/db2.sqlite');
 else
 $db2 = new PDO('sqlite:'.$bannlist);
 ////////////////////////////
- $db4 = new PDO('sqlite:'.$cpath . 'ReCodMod/databases/db4.sqlite');
+ $db4 = new PDO('sqlite:'.$cpath .  'ReCodMod/databases/db4.sqlite');
 $datetime = date('Y.m.d H:i:s');
 
 
@@ -474,21 +474,21 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color=
     try {
         ////////////////////////////
         if (empty($bannlist))
-            $db2 = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db2.sqlite');
+            $db2 = new PDO('sqlite:' . $cpath .  'ReCodMod/databases/db2.sqlite');
         else
             $db2 = new PDO('sqlite:' . $bannlist);
         ////////////////////////////
         if (empty($adminlists))
-            $db = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db1.sqlite');
+            $db = new PDO('sqlite:' . $cpath .  'ReCodMod/databases/db1.sqlite');
         else
             $db = new PDO('sqlite:' . $adminlists);
-		$db3  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db3.sqlite');
-		$db4  = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db4.sqlite');
+		$db3  = new PDO('sqlite:' . $cpath .  'ReCodMod/databases/db3.sqlite');
+		$db4  = new PDO('sqlite:' . $cpath .  'ReCodMod/databases/db4.sqlite');
 	
-	  require $cpath . 'ReCodMod/functions/inc_functions2.php';
+	  require $cpath .  'ReCodMod/functions/inc_functions2.php';
       for ($i = 0; $i < $player_cnt; $i++)
        {
-        require $cpath . 'ReCodMod/functions/inc_functions3.php';
+        require $cpath .  'ReCodMod/functions/inc_functions3.php';
         //if ((!$valid_id) || (!$valid_ping))
         //  Continue;
        
@@ -512,9 +512,9 @@ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color=
             if (empty($guidn))
                 $guidn = 0;
             if (($adminguidctl == 1) && (array_search(strtolower($guidn), $adminguids, true) !== false) || (array_search(strtolower($i_ip), $adminIP, true) !== false) || ($adm_ip == $i_ipo) && (($a_grp == 0) || ($a_grp == 111))) {
-                $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time");
+                $cron_time = filemtime($cpath .  "ReCodMod/x_cron/cron_time");
                 if (time() - $cron_time >= 60) {
-                    file_put_contents($cpath . "ReCodMod/x_cron/cron_time", "");
+                    file_put_contents($cpath .  "ReCodMod/x_cron/cron_time", "");
                     ///admin is online
                     $vv = $adm_ip;
                     echo '      admin online=' . $vv;
@@ -894,7 +894,7 @@ usleep($sleep_rcon);
 			    $db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}',x_db_conn = x_db_conn +1 WHERE x_db_guid='{$guid}'");
 					  
                         //$db4->exec("UPDATE x_db_players SET x_db_date='{$x_date}' WHERE x_db_ip='{$i_ip}'");
-                        $gi     = geoip_open($cpath . "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);
+                        $gi     = geoip_open($cpath .  "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);
                         $record = geoip_record_by_addr($gi, $i_ip);
                         $xxxnnn = ($record->country_name);
                         if ($geox == 1)
@@ -952,40 +952,40 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
 		 || ($xxccode == 'TJ')
 		 || ($xxccode == 'TM')
 		 || ($xxccode == 'AB'))
-require $cpath . 'cfg/languages/ru.lng.php';
+require $cpath .  'cfg/languages/ru.lng.php';
 else if ($xxccode == 'DE')
-require $cpath . 'cfg/languages/de.lng.php';
+require $cpath .  'cfg/languages/de.lng.php';
 else
-require $cpath . 'cfg/languages/en.lng.php';					  
+require $cpath .  'cfg/languages/en.lng.php';					  
 							  
-	rcon('say ^3' . $welcome_x2 . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^1visit#'.$x_db_conn.' ^7' . $website . '', '');					
-
-
-require $cpath . 'cfg/_settings.php';
+	rcon('say ^3' . $welcome_x2 . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6] ^1id#' . $idcc . ' ^1visit#'.$x_db_conn.' ^7' . $website . '', '');	
+	
+require $cpath .  'cfg/_settings.php';
 
 if ($language == 'en')
-require $cpath . 'cfg/languages/en.lng.php';
+require $cpath .  'cfg/languages/en.lng.php';
 else if ($language == 'ru')
-require $cpath . 'cfg/languages/ru.lng.php';
+require $cpath .  'cfg/languages/ru.lng.php';
 else if ($language == 'de')
-require $cpath . 'cfg/languages/de.lng.php';
+require $cpath .  'cfg/languages/de.lng.php';
 else if ($language == 'pl')
-require $cpath . 'cfg/languages/pl.lng.php';
+require $cpath .  'cfg/languages/pl.lng.php';
 else if ($language == 'it')
-require $cpath . 'cfg/languages/it.lng.php';
+require $cpath .  'cfg/languages/it.lng.php';
 else if ($language == 'br')
-require $cpath . 'cfg/languages/br.lng.php';
+require $cpath .  'cfg/languages/br.lng.php';
 else if ($language == 'fr')
-require $cpath . 'cfg/languages/fr.lng.php';
+require $cpath .  'cfg/languages/fr.lng.php';
 else if ($language == 'nl')
-require $cpath . 'cfg/languages/nl.lng.php';
+require $cpath .  'cfg/languages/nl.lng.php';
 else
-require $cpath . 'cfg/languages/en.lng.php';						
+require $cpath .  'cfg/languages/en.lng.php';						
 							  
 						  }
 		////////////////////////////////////////////// GEO WELCOME				  
-						  
-						  
+	AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='yellow'>" . clearnamex($welcome_x2) . "</font> <font color='white'>" . clearnamex($nickname) . "</font> <font color='yellow'>".clearnamex($infoofrom)."</font> <font color='fuchsia'>[</font><font color='lime'>" . clearnamex($xxxnw) . "</font><font color='fuchsia'>]</font>
+	<font color='red'>id#" . $idcc . " visit#".$x_db_conn."</font> <font color='white'>" . clearnamex($website)."</font>");
+  
                           ++$x_stop_lp;
                          }
                        }
@@ -1003,7 +1003,7 @@ require $cpath . 'cfg/languages/en.lng.php';
                    {
                     if ((empty($i_ip)) || (strpos($i_ip, '192.168') !== false) || (strpos($i_ip, '255.255') !== false) || (strpos($i_ip, 'localhost') !== false) || (strpos($i_ip, '127.0.0.1') !== false))
                       $i_ip = '37.120.56.200';
-                    $gi     = geoip_open($cpath . "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);
+                    $gi     = geoip_open($cpath .  "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);
                     $record = geoip_record_by_addr($gi, $i_ip);
                     $xxxnnn = ($record->country_name);
                     if ($geox == 1)
@@ -1086,37 +1086,40 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
 		 || ($xxccode == 'TJ')
 		 || ($xxccode == 'TM')
 		 || ($xxccode == 'AB'))
-require $cpath . 'cfg/languages/ru.lng.php';
+require $cpath .  'cfg/languages/ru.lng.php';
 else if ($xxccode == 'DE')
-require $cpath . 'cfg/languages/de.lng.php';
+require $cpath .  'cfg/languages/de.lng.php';
 else
-require $cpath . 'cfg/languages/en.lng.php';					  
+require $cpath .  'cfg/languages/en.lng.php';					  
 							  
-rcon('say ^3' . $welcome_x . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6]', '');
-                      
+rcon('say ^3' . $welcome_x . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xxxnw . '^6]', '');               
 
-require $cpath . 'cfg/_settings.php';
+require $cpath .  'cfg/_settings.php';
 
 if ($language == 'en')
-require $cpath . 'cfg/languages/en.lng.php';
+require $cpath .  'cfg/languages/en.lng.php';
 else if ($language == 'ru')
-require $cpath . 'cfg/languages/ru.lng.php';
+require $cpath .  'cfg/languages/ru.lng.php';
 else if ($language == 'de')
-require $cpath . 'cfg/languages/de.lng.php';
+require $cpath .  'cfg/languages/de.lng.php';
 else if ($language == 'pl')
-require $cpath . 'cfg/languages/pl.lng.php';
+require $cpath .  'cfg/languages/pl.lng.php';
 else if ($language == 'it')
-require $cpath . 'cfg/languages/it.lng.php';
+require $cpath .  'cfg/languages/it.lng.php';
 else if ($language == 'br')
-require $cpath . 'cfg/languages/br.lng.php';
+require $cpath .  'cfg/languages/br.lng.php';
 else if ($language == 'fr')
-require $cpath . 'cfg/languages/fr.lng.php';
+require $cpath .  'cfg/languages/fr.lng.php';
 else if ($language == 'nl')
-require $cpath . 'cfg/languages/nl.lng.php';
+require $cpath .  'cfg/languages/nl.lng.php';
 else
-require $cpath . 'cfg/languages/en.lng.php';						
+require $cpath .  'cfg/languages/en.lng.php';						
 							  
 						  }
+						  
+ AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='yellow'>" . clearnamex($welcome_x) . "</font> <font color='white'>" . clearnamex($nickname) . "</font> <font color='yellow'>".clearnamex($infoofrom)."</font> <font color='fuchsia'>[</font><font color='lime'>" . clearnamex($xxxnw) . "</font><font color='fuchsia'>]</font>");
+ 
+  
 		////////////////////////////////////////////// GEO WELCOME				 					  
 					  
 					  ++$x_stop_lp;
