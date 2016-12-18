@@ -217,7 +217,7 @@ if ($x_stop_lp == 0) {
 						
 						if (empty($x_reason)){
 						usleep($sleep_rcon);
-                                         rcon('tell' "$idnum" '^1ENTER REASON PLEASE!', '');	
+                                         rcon('tell' ' . $idnum . ' '^1ENTER REASON PLEASE!', '');	
 							exit;
 						}
                         // for ($i=0; $i<$player_cnt; $i++)
