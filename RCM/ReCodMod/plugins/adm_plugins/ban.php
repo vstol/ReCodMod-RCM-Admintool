@@ -800,7 +800,10 @@ if ($x_stop_lp == 0)
 			      
                        if (empty($x_reason)){
 						usleep($sleep_rcon);
-                                         rcon('tell' "$idnum" '^1ENTER REASON PLEASE!', '');	
+                                         if (($game_patch != 'cod1_1.1') || ($game_mod != 'codam'))
+                                        rcon('tell  '. $idnum .'  ^1ENTER REASON PLEASE!', '');
+							else
+							rcon('say  ^1ENTER REASON PLEASE!', '');	
 							exit;
 						}
                         if ($x_stop_lp == 0)
