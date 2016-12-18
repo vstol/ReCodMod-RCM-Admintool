@@ -70,7 +70,7 @@ echo "\n--say : [",$datetime, "] : ".$nickr." : ".$msgO;
 					      else
 						  {
 					    AddToLog1clear ("[".$datetime."] " . $dhgsj . " : " . $msgO . "");
-                        AddToLog1("<br/>[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
+                        AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "<SPAN class='tooltipmk'> : Guid : ".$guidn."</span></b> : " . $msgO . "");
 						  }	
 
  $confirm_user=0;
