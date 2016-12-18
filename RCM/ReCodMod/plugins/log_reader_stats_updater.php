@@ -211,7 +211,7 @@ echo ' db5 null ';}
         /////736:04 K;6;allies;NOOB1;7;allies;NOOB2   ;mosin_nagant_mp;107;MOD_PISTOL_BULLET;torso_upper
         if (($game_patch == 'cod1_1.1') || ($game_mod == 'codam'))
          {
-          list($vv1, $iddeath, $idnumb, $death, $idkill, $guidcc, $kill, $vv8, $vv9c, $modkll, $xxk) = explode(';', $parselinetxt);
+          list($vv1, $iddeath, $idnumb, $death, $idkill, $guidcc, $kill, $byweapon, $vv9c, $modkll, $xxk) = explode(';', $parselinetxt);
          echo "\n[kill] : [", $datetime, "] : [" . $kill . " -> " . $death . "] ";
 		 $hitlock = $xxk;
 		 }
