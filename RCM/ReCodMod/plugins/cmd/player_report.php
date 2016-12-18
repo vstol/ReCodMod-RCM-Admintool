@@ -360,5 +360,5 @@ rcon('tell '. $idnum .' ^6[^1RCM^3bot^6] ^7ERROR -> NO ID NUMBER!!!!!', '');
  }
 	}
 }
-}
+}}
 ?>
