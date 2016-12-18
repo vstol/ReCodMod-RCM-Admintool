@@ -446,7 +446,7 @@ $pos = strpos($parseline, '');
            }
           $msgO      = $msgr;
 		  $msgrx   = dddzz($msgr);
-          $msgr      = mb_strtolower($msgr, 'cp1251');
+         // $msgr      = mb_strtolower($msgr, 'cp1251');
           $originalz = $nickr;
           $nivv      = $nickr;
           $msgr      = dddzz($msgr);
@@ -464,7 +464,7 @@ $pos = strpos($parseline, '');
                 else
                  {
                   AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
-                  AddToLog1("<br/>[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
+        AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "<SPAN class='tooltipmk'> : Guid : ".$guidn."</span></b> : " . $msgO . "");
                  }
                 require $cpath . 'ReCodMod/functions/inc_functions2.php';
                 $x_number = 0;
@@ -703,13 +703,13 @@ $pos = strpos($parseline, '');
               else
                {
                 AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
-                AddToLog1("<br/>[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
+  AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "<SPAN class='tooltipmk'> : Guid : ".$guidn."</span></b> : " . $msgO . "");
                }
               echo '.' . $tfinishh = (microtime(true) - $start);
              }
             else
              {
-              $msgr = mb_strtolower($msgr, 'cp1251');
+              ////$msgr = mb_strtolower($msgr, 'cp1251');
              /*
 		     require $cpath . 'ReCodMod/functions/inc_functions2.php';
               for ($i = 0; $i < $player_cnt; $i++)
@@ -725,7 +725,7 @@ $pos = strpos($parseline, '');
                 require $cpath . 'ReCodMod/plugins/log_reader_chat_flood.php';
 			  
 			
-              $msgr = mb_strtolower($msgr, 'cp1251');
+              ////$msgr = mb_strtolower($msgr, 'cp1251');
              }
            }
           ++$x_stop_lp;
