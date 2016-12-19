@@ -105,13 +105,13 @@ $chck_cry = (((($i_id == $idnum) && !$x_cry) && (strpos($x_n3, $x_n4) !== false)
 
 }else{
 $chck_bad = ((($x_n4 == $x_n3) && !$x_mat) 
-|| (strpos($x_n4, $x_n3) !== false));
+|| ((strpos($x_n4, $x_n3) !== false) && (!$x_mat)));
 
 $chck_spam = ((($x_n4 == $x_n3) && !$x_spam) 
-|| (strpos($x_n4, $x_n3) !== false));
+|| ((strpos($x_n4, $x_n3) !== false) && (!$x_spam)));
 
 $chck_cry = ((($x_n4 == $x_n3) && !$x_cry) 
-|| (strpos($x_n4, $x_n3) !== false));
+|| ((strpos($x_n4, $x_n3) !== false) && (!$x_cry)));
 }
 
   if($chck_bad) 
