@@ -69,9 +69,14 @@ echo "\n--say : [",$datetime, "] : ".$nickr." : ".$msgO;
                         AddToLog1clear ("[".$datetime."] " . $dhgsj . " : " . $msgO . "");
 					      else
 						  {
+						      
 					    AddToLog1clear ("[".$datetime."] " . $dhgsj . " : " . $msgO . "");
+						if ($guids == 1)    
                         AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "<SPAN class='tooltipmk'> : Guid : ".$guidn."</span></b> : " . $msgO . "");
-						  }	
+						  else
+				AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "</b> : " . $msgO . "");
+									  
+					      }	
 
  $confirm_user=0;
 if (($chat_protect == 2) || ($chat_protect == 3))
