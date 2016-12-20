@@ -1,17 +1,20 @@
 <?php
 if ($x_stop_lp == 0) {
-    if (('ty' == mb_strtolower(trim(clearnamex($msgr)))) && ($x_number != 1)) {
+	 
+  $user_message = iconv("windows-1251", "utf-8", $user_message), PHP_EOL;
+ 
+    if (('ty' == mb_strtolower(trim(clearnamex($user_message)))) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ^3' . $thxq . '!', '');
         ++$x_number;
     }
-    if (('thx' == mb_strtolower(trim(clearnamex($msgr)))) && ($x_number != 1)) {
+    if (('thx' == mb_strtolower(trim(clearnamex($user_message)))) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ^3Thank you!', '');
-        //$message = AddCheatHelp("[".$datetime."] CHEATER ALARM: " . $i_ip . " (" . $nickr . ") (" . $msgr . ")");    
+        //$message = AddCheatHelp("[".$datetime."] CHEATER ALARM: " . $i_ip . " (" . $nickr . ") (" . $user_message . ")");    
         ++$x_number;
     }
-    if (($msgr == 'gg' || $msgr == 'GG') && ($x_number == 0)) {
+    if (($user_message == 'gg' || $user_message == 'GG') && ($x_number == 0)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3' . $gggq . '! ',
@@ -37,7 +40,7 @@ if ($x_stop_lp == 0) {
         rcon('say ^6 ' . $wordl, '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> Good Game! </font> ");
         ++$x_number;
-    } else if (($msgr == 'gj' || $msgr == 'GJ') && ($x_number == 0)) {
+    } else if (($user_message == 'gj' || $user_message == 'GJ') && ($x_number == 0)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3Good Job! ',
@@ -63,7 +66,7 @@ if ($x_stop_lp == 0) {
         rcon('say ^6 ' . $wordl, '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> Good JOB! </font> ");
         ++$x_number;
-    } else if (($msgr == 'WP' || $msgr == 'wp') && ($x_number == 0)) {
+    } else if (($user_message == 'WP' || $user_message == 'wp') && ($x_number == 0)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3Well Played! ',
@@ -87,7 +90,7 @@ if ($x_stop_lp == 0) {
         rcon('say ^6 ' . $wordl, '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> WP! </font> ");
         ++$x_number;
-    } else if (($msgr == 'n1' || $msgr == 'N1') && ($x_number == 0)) {
+    } else if (($user_message == 'n1' || $user_message == 'N1') && ($x_number == 0)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3Nice ONE! ',
@@ -111,7 +114,7 @@ if ($x_stop_lp == 0) {
         rcon('say ^6 ' . $wordl, '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> Good Game! </font> ");
         ++$x_number;
-    } else if ((strpos($msgr, 'sps') !== false) && ($x_number != 1)) {
+    } else if ((strpos($user_message, 'sps') !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3CIIACU6o! ;) ',
@@ -134,9 +137,9 @@ if ($x_stop_lp == 0) {
         }
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> CIIACU6o! </font> ");
         rcon('say ^6 ' . $wordl, '');
-        //$message = AddCheatHelp("[".$datetime."] CHEATER ALARM: " . $i_ip . " (" . $nickr . ") (" . $msgr . ")");    
+        //$message = AddCheatHelp("[".$datetime."] CHEATER ALARM: " . $i_ip . " (" . $nickr . ") (" . $user_message . ")");    
         ++$x_number;
-    } else if ((strpos($msgr, 'bb ') !== false) && ($x_number == 0) || (strpos($msgr, 'BB ') !== false) && ($x_number == 0) || ($msgr == 'BB') && ($x_number == 0) || ($msgr == 'bb') && ($x_number == 0)) {
+    } else if ((strpos($user_message, 'bb ') !== false) && ($x_number == 0) || (strpos($user_message, 'BB ') !== false) && ($x_number == 0) || ($user_message == 'BB') && ($x_number == 0) || ($user_message == 'bb') && ($x_number == 0)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3Bye, bye, thanks for playing! ;D ',
@@ -163,24 +166,24 @@ if ($x_stop_lp == 0) {
         }
         rcon('say ^6 ' . $wordl, '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> Bye Bye! ;) </font> ");
-        //$message = AddCheatHelp("[".$datetime."] CHEATER ALARM: " . $server_port . " (" . $nickr . ") (" . $msgr . ")");    
+        //$message = AddCheatHelp("[".$datetime."] CHEATER ALARM: " . $server_port . " (" . $nickr . ") (" . $user_message . ")");    
         ++$x_number;
-    } else if ((strpos($msgr, 'haker') !== false) && ($x_number != 1)) {
+    } else if ((strpos($user_message, 'haker') !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ' . $cmdz . '', '');
-        $message = AddCheatHelp("[" . $datetime . "] CHEATER ALARM: " . $server_port . " (" . $nickr . ") (" . $msgr . ")");
+        $message = AddCheatHelp("[" . $datetime . "] CHEATER ALARM: " . $server_port . " (" . $nickr . ") (" . $user_message . ")");
         ++$x_number;
-    } else if ((strpos($msgr, 'fps') !== false) && ($x_number != 1)) {
+    } else if ((strpos($user_message, 'fps') !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ' . $fps3 . '', '');
-        $message = AddCheatHelp("[" . $datetime . "] CHEATER ALARM: " . $server_port . " (" . $nickr . ") (" . $msgr . ")");
+        $message = AddCheatHelp("[" . $datetime . "] CHEATER ALARM: " . $server_port . " (" . $nickr . ") (" . $user_message . ")");
         ++$x_number;
-    } else if ((strpos('ping', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('ping', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ' . $fps3 . '', '');
-        AddToLogInfo("[" . $datetime . "] QUESTION: " . $i_ip . " (" . $nickr . ") (" . $msgr . ") reason: Q");
+        AddToLogInfo("[" . $datetime . "] QUESTION: " . $i_ip . " (" . $nickr . ") (" . $user_message . ") reason: Q");
         ++$x_number;
-    } else if ((strpos('hi', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('hi', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3Hi, ',
@@ -206,9 +209,9 @@ if ($x_stop_lp == 0) {
         }
         rcon('say ^6 ' . $wordl . ' ^7' . $nickr . ' ^3!', '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> Hi player! </font> ");
-        //AddToLogInfo("[".$datetime."] QUESTION: " . $i_ip . " (" . $nickr . ") (" . $msgr . ") reason: Q");    
+        //AddToLogInfo("[".$datetime."] QUESTION: " . $i_ip . " (" . $nickr . ") (" . $user_message . ") reason: Q");    
         ++$x_number;
-    } else if ((strpos('hi server', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('hi server', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3Hi  ',
@@ -230,9 +233,9 @@ if ($x_stop_lp == 0) {
         }
         rcon('say ^6 ' . $wordl . ' ^7' . $nickr . ' ^3!', '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> Hi " . $nickr . "! </font> ");
-        //AddToLogInfo("[".$datetime."] QUESTION: " . $i_ip . " (" . $nickr . ") (" . $msgr . ") reason: Q");    
+        //AddToLogInfo("[".$datetime."] QUESTION: " . $i_ip . " (" . $nickr . ") (" . $user_message . ") reason: Q");    
         ++$x_number;
-    } else if ((strpos('hello', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('hello', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3Hi player ',
@@ -259,7 +262,7 @@ if ($x_stop_lp == 0) {
         rcon('say ^6 ' . $wordl . ' ^7' . $nickr . ' ^3!', '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> Hi player! </font> ");
         ++$x_number;
-    } else if ((strpos('qq', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('qq', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3Ky Ky :D ',
@@ -287,7 +290,7 @@ if ($x_stop_lp == 0) {
         rcon('say ^6 ' . $wordl . ' ^7' . $nickr . ' ^3!', '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> Hi player! </font> ");
         ++$x_number;
-    } else if ((strpos('tits', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('tits', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         $words  = array(
             '^3(  o  ) (  o  ) ',
@@ -314,7 +317,7 @@ if ($x_stop_lp == 0) {
         rcon('say ^6 ' . $wordl, '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> " . $wordl . " </font> ");
         ++$x_number;
-    } else if ((strpos('xxx', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('xxx', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6    ^7O');
         usleep($sleep_rcon);
@@ -323,7 +326,7 @@ if ($x_stop_lp == 0) {
         rcon('say ^6    ^7_|_| \\');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('xl', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('xl', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6    ^7O');
         usleep($sleep_rcon);
@@ -332,7 +335,7 @@ if ($x_stop_lp == 0) {
         rcon('say ^6    ^7_|  /|_');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos($ixz . 'shit', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos($ixz . 'shit', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon("say ^6 \r\r ^7)");
         usleep($sleep_rcon);
@@ -341,7 +344,7 @@ if ($x_stop_lp == 0) {
         rcon("say ^6 ^7(__T__)");
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('rabbit', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('rabbit', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6    ^7( \/ )');
         //usleep($sleep_rcon);
@@ -354,7 +357,7 @@ if ($x_stop_lp == 0) {
         rcon("say ^6    ^7c('')('')");
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('ch', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('ch', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ^3    < >');
         usleep($sleep_rcon);
@@ -365,49 +368,49 @@ if ($x_stop_lp == 0) {
         rcon('say ^6^2/^7*^7*^7*^2\"');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('dr', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('dr', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ' . $fckqq1 . '');
         usleep($sleep_rcon);
         rcon('say ^6 ' . $fckqq2 . '');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('vdk', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('vdk', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ' . $vodqqq . '');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('mc', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('mc', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ^3' . $merrycrr . '');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('ny', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('ny', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ^3' . $nyyycrr . '');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('gl', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('gl', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6  ^3Good Luck!');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('bl', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('bl', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6  ^3Bad Luck!');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('stfu', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('stfu', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6  ^3Shut ta f..k up!');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((strpos('afk', $msgr) !== false) && ($x_number != 1)) {
+    } else if ((strpos('afk', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6  ^3' . $afffk . '');
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
-    } else if ((preg_match('/' . $mistake . '/si', $msgr, $xnon)) && ($x_number != 1)) {
+    } else if ((preg_match('/' . $mistake . '/si', $user_message, $xnon)) && ($x_number != 1)) {
         if ($nickr == $i_name) {
             usleep($sleep_rcon);
             if ($game_patch == 'cod1_1.1') {
@@ -417,11 +420,11 @@ if ($x_stop_lp == 0) {
                 rcon('say ^6  ^7' . $nickr . ' ^3You use unregistered chat command, use console or ^1' . $ixz . 'cmd ^3for info!', '');
             }
             AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> /Mistake command! </font> ");
-            //AddToLogInfo("[".$datetime."] QUESTION: " . $i_ip . " (" . $nickr . ") (" . $msgr . ") reason: Q");    
+            //AddToLogInfo("[".$datetime."] QUESTION: " . $i_ip . " (" . $nickr . ") (" . $user_message . ") reason: Q");    
             ++$x_number;
         }
     }
-    if ((strpos('#fp', $msgr) !== false) && ($x_number != 1)) {
+    if ((strpos('#fp', $user_message) !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon("say ^6    ^3##^7__^3##^7_^3#####^7__^3##^7_____^3##^7______^3####");
         usleep($sleep_rcon);
@@ -435,7 +438,7 @@ if ($x_stop_lp == 0) {
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
     }
-    if ((strpos($msgr, 'govn') !== false) && ($x_number != 1) || (strpos($msgr, 'gavn') !== false) && ($x_number != 1)) {
+    if ((strpos($user_message, 'govn') !== false) && ($x_number != 1) || (strpos($user_message, 'gavn') !== false) && ($x_number != 1)) {
         $words  = array(
             "^3I'OBHO DOJIEKO OT TE69 HE YIIIJIO ",
             "^3DABAU DOCBUDAHU9!",
@@ -468,7 +471,7 @@ if ($x_stop_lp == 0) {
         ///AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='orange'> ".$wordl ." </font> ");  	    
         ++$x_number;
     }
-    if ((strpos($msgr, $ixz . 'cmd') !== false) && ($x_number != 1)) {
+    if ((strpos($user_message, $ixz . 'cmd') !== false) && ($x_number != 1)) {
         try {
             if (empty($adminlists))
                 $db = new PDO('sqlite:' . $cpath . 'ReCodMod/databases/db1.sqlite');
@@ -505,7 +508,7 @@ if ($x_stop_lp == 0) {
                         usleep($sleep_rcon);
                         rcon('say ^6 ' . $cmdzv2 . '', '');
                         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> " . $cmdzv . " </font> ");
-                        AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") ");
+                        AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ") ");
                         ++$x_number;
                         //fclose($connect);	
                         echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
@@ -530,7 +533,7 @@ if ($x_stop_lp == 0) {
                         usleep($sleep_rcon);
                         rcon('say ^6 ' . $cmdzv2 . '', '');
                         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> " . $cmdzv . " </font> ");
-                        AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") ");
+                        AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ") ");
                         ++$x_number;
                         //fclose($connect);	
                         echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
@@ -555,7 +558,7 @@ if ($x_stop_lp == 0) {
                         usleep($sleep_rcon);
                         rcon('say ^6 ' . $cmdzv2 . '', '');
                         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> " . $cmdzv . " </font> ");
-                        AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") ");
+                        AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ") ");
                         ++$x_number;
                         //fclose($connect);	
                         echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
@@ -575,7 +578,7 @@ if ($x_stop_lp == 0) {
             usleep($sleep_rcon);
             rcon('say ^6 ' . $cmdzv2 . '', '');
             AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> " . $cmdzv . " </font> ");
-            AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") ");
+            AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ") ");
             ++$x_number;
             //fclose($connect);	
             echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
@@ -583,18 +586,18 @@ if ($x_stop_lp == 0) {
         }
     }
     /* ------------------>  !cmd fun   <------------------- */
-    else if ((strpos($msgr, $ixz . 'fun') !== false) && ($x_number != 1)) {
+    else if ((strpos($user_message, $ixz . 'fun') !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ' . $cmdfun . '', '');
         AddToLog1("<br/>[" . $datetime . "]<font color='green'> Server :</font> <font color='orange'> " . $cmdfun . " </font> ");
-        AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") ");
+        AddToLogInfo("[" . $datetime . "] cmd: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ") ");
         ++$x_number;
         //fclose($connect);	
         echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
         ++$x_stop_lp; //return;		
     }
     /* ------------------>   !help  <------------------- */
-    if ((strpos($msgr, $ixz . 'time') !== false) && ($x_number != 1)) {
+    if ((strpos($user_message, $ixz . 'time') !== false) && ($x_number != 1)) {
         if (strpos($x_namex, $x_nickx) !== false) {
             //include($cpath."ReCodMod/geoip_bases/MaxMD/timezone/timezone.php");	
             $gi     = geoip_open($cpath . "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);
@@ -618,7 +621,7 @@ if ($x_stop_lp == 0) {
             $serverdate = date('M-d H:i:s');
             usleep($sleep_rcon * 2);
             rcon('say ^6 ^7' . $chistx . ' ^3Geo: ^7' . $xxxnw . ' ^3' . $infootime . ':^7 ' . $user_localtime->format('H:i:s') . ' ^3' . $sunnsett . ': ^7' . date_sunset(time(), SUNFUNCS_RET_STRING, $record->latitude, $record->longitude, ini_get("date.sunset_zenith"), ($user_timezone_offset / 3600)) . ' ^3' . $inforsun . ': ^7' . date_sunrise(time(), SUNFUNCS_RET_STRING, $record->latitude, $record->longitude, ini_get("date.sunrise_zenith"), ($user_timezone_offset / 3600)) . ' ^3' . $infoservv . ': ^7' . $serverdate, '');
-            AddToLogInfo("[" . $datetime . "] Time: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ")");
+            AddToLogInfo("[" . $datetime . "] Time: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ")");
             ++$x_number;
             //f//close($connect);	
             echo '  -time-  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
@@ -626,7 +629,7 @@ if ($x_stop_lp == 0) {
         }
     }
     /* ------------------>  !admin  <------------------- */
-    if ((strpos($msgr, $ixz . 'info') !== false) && ($x_number != 1)) {
+    if ((strpos($user_message, $ixz . 'info') !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         //rcon('say ^6 ^7Watching us ^3RCM '.$z_ver.' , ^5the best admin tool for cracked servers [recod.ru] ^7scripted by: ^1LA', '');
         rcon('say ^6^7__^1***^7_________^1***	', '');
@@ -647,8 +650,8 @@ if ($x_stop_lp == 0) {
         ++$x_stop_lp; //return;		
     }
     /* ------------------>  !admin  <------------------- */
-    //else if(preg_match('/!ip/i', $msgr, $x2205) && ($x_number != 1))
-    if ((strpos($msgr, $ixz . 'ip') !== false) && ($x_number != 1)) {
+    //else if(preg_match('/!ip/i', $user_message, $x2205) && ($x_number != 1))
+    if ((strpos($user_message, $ixz . 'ip') !== false) && ($x_number != 1)) {
         if (strpos($x_namex, $x_nickx) !== false) {
             usleep($sleep_rcon);
             if ((($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5')) && (!empty($guidn)))
@@ -657,7 +660,7 @@ if ($x_stop_lp == 0) {
                 rcon('say ^2My IP:^3 ' . $i_ip, '');
             else
                 rcon('tell ' . $i_id . ' ^2My IP:^3 ' . $i_ip, '');
-            AddToLogInfo("[" . $datetime . "] IP: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: I");
+            AddToLogInfo("[" . $datetime . "] IP: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ") reason: I");
             ++$x_number;
             //fclose($fpX);
             //fclose($connect);	
@@ -665,21 +668,21 @@ if ($x_stop_lp == 0) {
             ++$x_stop_lp; //return;	
         }
     }
-    if ((strpos($msgr, 'chea') !== false) && ($x_number != 1) || (strpos($msgr, 'wallhack') !== false) && ($x_number != 1) || (strpos($msgr, 'haker') !== false) && ($x_number != 1) || (strpos($msgr, 'hack') !== false) && ($x_number != 1) || (strpos($msgr, 'aimbot') !== false) && ($x_number != 1)) {
+    if ((strpos($user_message, 'chea') !== false) && ($x_number != 1) || (strpos($user_message, 'wallhack') !== false) && ($x_number != 1) || (strpos($user_message, 'haker') !== false) && ($x_number != 1) || (strpos($user_message, 'hack') !== false) && ($x_number != 1) || (strpos($user_message, 'aimbot') !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ^1' . $pppanix . '', '');
-        AddToLogInfo("[" . $datetime . "] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");
+        AddToLogInfo("[" . $datetime . "] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ") reason: G+id");
         ++$x_number;
         echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
         ++$x_stop_lp; //return;		
-    } else if ((strpos($msgr, 'admin') !== false) && ($x_number != 1)) {
+    } else if ((strpos($user_message, 'admin') !== false) && ($x_number != 1)) {
         usleep($sleep_rcon);
         rcon('say ^6 ^1' . $adminppp, '');
-        AddToLogInfo("[" . $datetime . "] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ") reason: G+id");
+        AddToLogInfo("[" . $datetime . "] REPORTED: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ") reason: G+id");
         ++$x_number;
         echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
         ++$x_stop_lp; //return;		
-    } else if ((strpos($msgr, $ixz . 'nextmap') !== false) && ($x_number != 1)) {
+    } else if ((strpos($user_message, $ixz . 'nextmap') !== false) && ($x_number != 1)) {
         //$yomapratation = 0;
         usleep($sleep_rcon * 2);
         require $cpath . 'ReCodMod/functions/getinfo/sv_mapRotation.php';
@@ -697,7 +700,7 @@ if ($x_stop_lp == 0) {
         $mapslisst = str_replace($mmapname, "^2" . $mmapname . "^7", $mapslisst);
         usleep($sleep_rcon);
         rcon('say ^6 ^1Map ^7' . $mapslisst . '', '');
-        AddToLogInfo("[" . $datetime . "] nextmap: " . $i_ip . " (" . $x_namex . ") (" . $msgr . ")");
+        AddToLogInfo("[" . $datetime . "] nextmap: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ")");
         ++$x_number;
         echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
         ++$x_stop_lp; //return;		
