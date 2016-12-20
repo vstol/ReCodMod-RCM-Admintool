@@ -7,19 +7,18 @@ $yug = matmat($yug);
 $x_mat = true;
 
   //$dtct = mb_detect_encoding($msgr);
- 
-//if($dtct == 'UTF-8' || $dtct == 'utf-8')
- echo "\n ".$xxyuyu = iconv("windows-1251", "utf-8", $msgr), PHP_EOL;
-//else
-//  $xxyuyu = $msgr;
- 
+  //if($dtct == 'UTF-8' || $dtct == 'utf-8')
+	  
+ echo "\n ".$player_msg = iconv("windows-1251", "utf-8", $msgr), PHP_EOL;
+  $player_msg = matmat($player_msg);
+  $player_msg = mb_strtolower($player_msg);
  
 foreach($matnie as $badword)
 {
-
+  $bdwww = matmat($badword);
 /*	 	
-   preg_match("/".$badword."/si", $yug, $maxb);
-  //$matches = strpos($badword, $yug);
+   preg_match("/".$bdwww."/si", $yug, $maxb);
+  //$matches = strpos($bdwww, $yug);
   if(count($maxb) > 0)
   {  
 	$x_mat = false;
@@ -27,28 +26,44 @@ foreach($matnie as $badword)
   }
 */	 
 	
- 
-preg_match_all("#\b(\pL+)\b#",$xxyuyu,$out);
+ ///////ENGLISH
+preg_match_all("#\b(\w+)\b#",$player_msg,$out);
 for ($i=0; $i< count($out[0]); $i++) {
 	
-  if($out[0][$i] == $badword)
+  if($out[0][$i] == $bdwww)
   {  
 	$x_mat = false;
 	
-        echo " -mat- badword ".$out[0][$i]." detected \n ".$xxyuyu;
+        echo " -mat- badword ".$out[0][$i]." detected \n ".$player_msg;
  
-  }		
+  }	
+
+///////RUSSIAN
+if($x_mat != false)
+{
+preg_match_all("#\b(\[0-9а-яА-ЯёЁ]+)\b#",$player_msg,$out);
+for ($i=0; $i< count($out[0]); $i++) {
+	
+  if($out[0][$i] == $bdwww)
+  {  
+	$x_mat = false;
+	
+        echo " -mat- badword ".$out[0][$i]." detected \n ".$player_msg;
+ 
+  }	  
+}
+}
 	
 	if($x_mat != false)
 { 
 if(strlen($out[0][$i]) > 3)
 {
-preg_match("/".$badword."/si", $out[0][$i], $maxbw);
+preg_match("/".$bdwww."/si", $out[0][$i], $maxbw);
   if(count($maxbw) > 0)
   {  
 	$x_mat = false;
 	//echo" -sqlite3 bad word ".$out[0][$i]." detected- ";
-        echo " -mat- more 3 badword ".$out[0][$i]." detected \n ".$xxyuyu;
+        echo " -mat- more 3 symbols in badword ".$out[0][$i]." detected \n ".$player_msg;
   }	
 }
 }
@@ -60,7 +75,7 @@ $x_spam = true;
 foreach($spams as $spms)
 {
    preg_match("/".$spms."/si", $yug, $maxn);
-  //$matches = strpos($badword, $yug);
+  //$matches = strpos($bdwww, $yug);
   if(count($maxn) > 0)
   {  
 	$x_spam = false;
@@ -73,7 +88,7 @@ $x_cry = true;
 foreach($cryers as $cvr)
 {
    preg_match("/".$cvr."/si", $yug, $maxj);
-  //$matches = strpos($badword, $yug);
+  //$matches = strpos($bdwww, $yug);
   if(count($maxj) > 0)
   {  
 	$x_cry = false;
@@ -105,7 +120,7 @@ preg_match("/".$wordxx."/si", $yug, $maxbw);
   }
 */	  
 	    
-preg_match_all("#\b(\pL+)\b#",$xxyuyu,$out);
+preg_match_all("#\b(\pL+)\b#",$player_msg,$out);
 
 for ($i=0; $i< count($out[0]); $i++) {
 	
@@ -142,16 +157,16 @@ preg_match("/".$wordxx."/si", $out[0][$i], $maxbw);
 
 
 if($x_mat != false){
-foreach($matnie as $badword)
+foreach($matnie as $bdwww)
 {
 
-if (($xxyuyu == $badword) || (strpos($xxyuyu, $badword) !== false))
+if (($player_msg == $bdwww) || (strpos($player_msg, $bdwww) !== false))
 {
 
-if(strlen($xxyuyu) > 2)
+if(strlen($player_msg) > 2)
 {
 echo ' DETECTED WORD!!! ';
-echo  $xxyuyu." == ".$badword;
+echo  $player_msg." == ".$bdwww;
 $x_mat = false;
 }
 }
