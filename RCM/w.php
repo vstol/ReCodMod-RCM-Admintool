@@ -464,7 +464,10 @@ $pos = strpos($parseline, '');
                 else
                  {
                   AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
-        AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "<SPAN class='tooltipmk'> : Guid : ".$guidn."</span></b> : " . $msgO . "");
+                     if ($guids == 1)    
+                        AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "<SPAN class='tooltipmk'> : Guid : ".$guidn."</span></b> : " . $msgO . "");
+						  else
+				AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "</b> : " . $msgO . "");
                  }
                 require $cpath . 'ReCodMod/functions/inc_functions2.php';
                 $x_number = 0;
