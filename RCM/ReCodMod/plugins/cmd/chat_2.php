@@ -127,7 +127,7 @@ else
 	  if ($guids == 0)
 $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip}'");
 	  else
-		  $result = $db4->query("SELECT * FROM x_db_players WHERE x_db_guid='$guidn' LIMIT 1");
+	$db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_guid='{$guidn}'");
 /////////$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$/////////WARNED CENSOR	
 
 	  if ($guids == 0)
