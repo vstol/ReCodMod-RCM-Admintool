@@ -141,7 +141,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^73^1]^7 stop swearing or you get a kick^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS Warning: " . $i_ip . " (" . $i_name . ")");	 
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Warning by RCM '.$z_ver.' = Censored]</font> ");			
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Warning Censored]</font> ");			
 ++$stop_lp; 	    
 }
 /*else if (($ip1 == $i_ip) && ($wrn == 3)){
@@ -156,7 +156,7 @@ else if (($ip1 == $i_ip) && ($wrn == round($wswear/2))){
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 stop swearing or you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked by RCM $z_ver = Censored]</font> ");	
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked - Censored]</font> ");	
 
 }
 
@@ -164,14 +164,14 @@ else if (($ip1 == $i_ip) && ($wrn >= $wswear)){
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: " . $i_ip . " (" . $i_name . ")  r: BANNED");	 
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Temp Ban by RCM $z_ver = Censored]</font> ");
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Temp Ban by RCM = Censored]</font> ");
 	
 }else{
 	
 usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 stop swearing or you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
-AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked by RCM $z_ver = Censored]</font> ");	
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked by RCM  = Censored]</font> ");	
 }
   
      if (($ip1 == $i_ip) && ($wrn == 3))
