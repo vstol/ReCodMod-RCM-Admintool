@@ -1,7 +1,7 @@
 <?php
 if ($x_stop_lp == 0) {
 	 
-  $user_message = iconv("windows-1251", "utf-8", $user_message), PHP_EOL;
+ // $user_message = iconv("windows-1251", "utf-8", $msgr);
  
     if (('ty' == mb_strtolower(trim(clearnamex($user_message)))) && ($x_number != 1)) {
         usleep($sleep_rcon);
