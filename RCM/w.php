@@ -583,14 +583,16 @@ $pos = strpos($parseline, '');
            }
           foreach ($funcommands as $funcommand)
            {
-            if (preg_match('/' . $funcommand . '/si', $msgr, $xnon))
+			   $user_message = iconv("windows-1251", "utf-8", $msgr);
+			   $funcmd = iconv("windows-1251", "utf-8", $funcommand);
+			   
+            if (preg_match('/' . $funcmd . '/si', $user_message, $xnon))
              {
               require $cpath . 'ReCodMod/functions/inc_functions2.php';
               for ($i = 0; $i < $player_cnt; $i++)
                {
                 require $cpath . 'ReCodMod/functions/inc_functions3.php';
-                //if ((!$valid_id) || (!$valid_ping))
-                 // Continue;
+                 
                 $x_namex = clearnamex($i_name);
                 $x_nickx = clearnamex($nickr);
                 if ($x_stop_lp == 0)
