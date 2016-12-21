@@ -64,14 +64,14 @@ if (time()-$cron_timeq>=60*60*$cht_databases) {
 	
  if(file_exists($cpath . 'ReCodMod/databases/db0.sqlite')){
 $file = $cpath . "ReCodMod/databases/db0.sqlite";
-$newfile = $cpath . "ReCodMod/x_logs/backup";
+$newfile = $cpath . "ReCodMod/x_logs/backup/";
 $datetime = date('Y.m.d H:i:s');
 if (!copy($file, $newfile."_".$datetime.".db0.sqlite")) {
     echo "Error copy $file...\n";}}
 	
 	 if(file_exists($cpath . 'ReCodMod/databases/db1.sqlite')){
 $file = $cpath . "ReCodMod/databases/db1.sqlite";
-$newfile = $cpath . "ReCodMod/x_logs/backup";
+$newfile = $cpath . "ReCodMod/x_logs/backup/";
 $datetime = date('Y.m.d H:i:s');
 if (!copy($file, $newfile."_".$datetime.".db1.sqlite")) {
     echo "Error copy $file...\n";}}
@@ -79,14 +79,14 @@ if (!copy($file, $newfile."_".$datetime.".db1.sqlite")) {
 if(!empty($bannlist)){
 	 if(file_exists($cpath . 'ReCodMod/databases/db2.sqlite')){
 $file = $cpath . "ReCodMod/databases/db2.sqlite";
-$newfile = $cpath . "ReCodMod/x_logs/backup";
+$newfile = $cpath . "ReCodMod/x_logs/backup/";
 $datetime = date('Y.m.d H:i:s');
 if (!copy($file, $newfile."_".$datetime.".db2.sqlite")) {
     echo "Error copy $file...\n";}}
 }else{
 	 if(file_exists($bannlist)){
 $file = $bannlist;
-$newfile = $cpath . "ReCodMod/x_logs/backup";
+$newfile = $cpath . "ReCodMod/x_logs/backup/";
 $datetime = date('Y.m.d H:i:s');
 if (!copy($file, $newfile."_".$datetime.".db2.sqlite")) {
     echo "Error copy $file...\n";}}
@@ -94,14 +94,14 @@ if (!copy($file, $newfile."_".$datetime.".db2.sqlite")) {
 
 	 if(file_exists($cpath . 'ReCodMod/databases/db3.sqlite')){
 $file = $cpath . "ReCodMod/databases/db3.sqlite";
-$newfile = $cpath . "ReCodMod/x_logs/backup";
+$newfile = $cpath . "ReCodMod/x_logs/backup/";
 $datetime = date('Y.m.d H:i:s');
 if (!copy($file, $newfile."_".$datetime.".db3.sqlite")) {
     echo "Error copy $file...\n";}}
 	
 	 if(file_exists($cpath . 'ReCodMod/databases/db4.sqlite')){
 $file = $cpath . "ReCodMod/databases/db4.sqlite";
-$newfile = $cpath . "ReCodMod/x_logs/backup";
+$newfile = $cpath . "ReCodMod/x_logs/backup/";
 $datetime = date('Y.m.d H:i:s');
 if (!copy($file, $newfile."_".$datetime.".db4.sqlite")) {
     echo "Error copy $file...\n";}}	
