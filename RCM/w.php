@@ -204,10 +204,10 @@ while (true)
       if ($spps != 221000)
        {
 		   
-		 if (empty($player_cnt))
+		 if ((empty($player_cnt)) || ($player_cnt < 2) )
          {
           $player_cnt = 2;
-		  $xmoretime = 3;
+		  $xmoretime = 200;
          }  
 		 else{ $xmoretime = 1; }
         
