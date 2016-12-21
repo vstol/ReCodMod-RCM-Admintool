@@ -139,34 +139,39 @@ $result = $db4->query("SELECT * FROM x_db_players WHERE x_db_guid='$guidn' LIMIT
     foreach($result as $row)
     {
 		//$pl1 = $row['x_db_name'];
-		$ip1 = $row['x_db_guid'];
+		$gggd = $row['x_db_guid'];
 		$ip1 = $row['x_db_ip'];	
 		$wrn = $row['x_db_warn'];
 
 		echo $ip1.' = = '.$i_ip;
- 
-     if (($ip1 == $i_ip) && ($wrn < 3))
+
+ if ($guids == 0)
+	$ffndr = ($ip1 == $i_ip); 
+	    else
+		  $ffndr = ($guidn == $gggd);  
+	    
+     if (($ffndr) && ($wrn < 3))
 		{
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^73^1]^7 stop swearing or you get a kick^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS Warning: " . $i_ip . " (" . $i_name . ")");	 
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Warning = Censored]</font> ");			
 ++$stop_lp; 	    
-}else if (($ip1 == $i_ip) && ($wrn == 3)){
+}else if (($ffndr) && ($wrn == 3)){
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 stop swearing or you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked = Censored]</font> ");	
 
 }
-else if (($ip1 == $i_ip) && ($wrn == round($wswear/2))){
+else if (($ffndr) && ($wrn == round($wswear/2))){
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 stop swearing or you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked = Censored]</font> ");	
 
 }
-else if (($ip1 == $i_ip) && ($wrn >= $wswear)){
+else if (($ffndr) && ($wrn >= $wswear)){
 	usleep($sleep_rcon*2);
  rcon('say  ^6^7  '. $chistx . ' "^1[^7Bad Word detected!^1] [^7Warning '.$wrn.'^1/^7'.$wswear.'^1]^7 you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: " . $i_ip . " (" . $i_name . ")  r: BANNED");	 
@@ -180,7 +185,7 @@ AddToLog("[".$datetime."] CHAT BAD WORDS KICKER: (" . $i_ip . ") (" . $i_name . 
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[Kicked = Censored]</font> ");	
 }
   
-     if (($ip1 == $i_ip) && ($wrn == 3))
+     if (($ffndr) && ($wrn == 3))
 		{
 usleep($sleep_rcon);
 if (($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5'))
@@ -189,7 +194,7 @@ else
         rcon('clientkick '. $i_id, '');			
 ++$stop_lp; 	    } 
 
-     if (($ip1 == $i_ip) && ($wrn >= $wswear))
+     if (($ffndr) && ($wrn >= $wswear))
 		{
 
 usleep($sleep_rcon);
