@@ -155,7 +155,7 @@ preg_match("/".$wordxx."/si", $out[0][$i], $maxbw);
 }
 
 
-
+/*
 if($x_mat != false){
 foreach($matnie as $bdwww)
 {
@@ -171,5 +171,6 @@ $x_mat = false;
 }
 }
 }}
+*/
 
 ?>	
