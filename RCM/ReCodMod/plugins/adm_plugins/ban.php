@@ -797,7 +797,7 @@ if ($x_stop_lp == 0)
 								}
 							}  
 							  }      
-			      
+			      /*
                        if (empty($x_reason)){
 						usleep($sleep_rcon);
                                          if (($game_patch != 'cod1_1.1') || ($game_mod != 'codam'))
@@ -806,6 +806,7 @@ if ($x_stop_lp == 0)
 							rcon('say  ^1ENTER REASON PLEASE!', '');	
 							exit;
 						}
+				*/		
                         if ($x_stop_lp == 0)
                           {
                             $sql  = "SELECT * FROM x_words WHERE z_words='$x_wooord' LIMIT 1";
