@@ -10,9 +10,15 @@ $x_mat = true;
   //if($dtct == 'UTF-8' || $dtct == 'utf-8')
 	  
  echo "\n ".$player_msg = iconv("windows-1251", "utf-8", $msgr), PHP_EOL;
-  $player_msg = matmat($player_msg);
+  
   $player_msg = mb_strtolower($player_msg);
- 
+
+$yesorno = antimat($player_msg); 
+
+	if(strpos($player_msg, '%CENSORED%') !== false)
+		$x_mat = false;
+	
+ $player_msg = matmat($player_msg);
 foreach($matnie as $badword)
 {
   $bdwww = matmat($badword);
