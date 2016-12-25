@@ -15,8 +15,11 @@ $x_mat = true;
 
 $yesorno = antimat($player_msg); 
 
-	if(strpos($player_msg, '%CENSORED%') !== false)
+	if(strpos($yesorno, '%CENSORED%') !== false){
 		$x_mat = false;
+	echo "ALARM %CENSORED%";
+	}
+
 	
  $player_msg = matmat($player_msg);
 foreach($matnie as $badword)
