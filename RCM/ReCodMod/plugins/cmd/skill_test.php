@@ -41,7 +41,7 @@ echo '    '.$tfinishh = (microtime(true) - $start);
 ++$x_stop_lp;    //return;
       }	
 if ($kl <= 0 || $dth <= 0){  }else{	 	  
-$skil_x = round((($kl-$dth)*($kl/$dth)*10));
+$skil_x = round((pow($kl,0.2)*($kl/$dth)*10));
 $ratio_x = ($kl/$dth);
 
 require $cpath . 'ReCodMod/functions/inc_functions2.php';

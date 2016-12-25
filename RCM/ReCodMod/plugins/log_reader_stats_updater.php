@@ -555,7 +555,7 @@ echo ' db5 null ';}
                      {
 					$ply  = $row['s_player'];
                     $slll = $row['s_skill'];
-                      $skil_x = round((($kl - $dth) * ($kl / $dth) * 10));
+                      $skil_x = round((pow($kl,0.2)*($kl/$dth)*10));
                       if ($kl == 0)
                         $ratio_x = ($kl / 1);
                       else
@@ -624,7 +624,7 @@ fclose($connect);
                      {
                     $ply  = $row['s_player'];
                     $slll = $row['s_skill'];						 
-                      $skil_x = round((($kl - $dth) * ($kl / $dth) * 10));
+                      $skil_x = round((pow($kl,0.2)*($kl/$dth)*10));
                       if ($kl == 0)
                         $ratio_x = ($kl / 1);
                       else
@@ -723,7 +723,7 @@ fclose($connect);
                       $ply  = $row['s_player'];
                       $slll = $row['s_skill'];								  
 								 
-                        $skil_x = round((($kl - $dth) * ($kl / $dth) * 10));
+                        $skil_x = round((pow($kl,0.2)*($kl/$dth)*10));
                         if ($kl == 0)
                           $ratio_x = ($kl / 1);
                         else
@@ -813,7 +813,7 @@ fclose($connect);
 					  $ply  = $row['s_player'];
                       $slll = $row['s_skill']; 
 						 
-                        $skil_x = round((($kl - $dth) * ($kl / $dth) * 10));
+                        $skil_x = round((pow($kl,0.2)*($kl/$dth)*10));
                         if ($kl == 0)
                           $ratio_x = ($kl / 1);
                         else
