@@ -94,7 +94,7 @@ $serveripp = '-';
 
 		<b>TOP 500 $etopx</b> - kills limit $limm - "."\n"."
 <b>Server:</b> $servername /  $serveripp . $server_port / $game_patch
-<br/> <b>Ratio</b> = Kills/Deaths    <b>Skill</b> = (5th Root of(Kills-Deaths) x (Kills/Deaths) x 10)
+<br/> <b>Ratio</b> = Kills/Deaths    <b>Skill</b> = (5th Root of(Kills) x (Kills/Deaths) x 10)
 <br/> <b>Use server commands:</b> ".$ixz."skill ".$ixz."stats ".$ixz."top ".$ixz."rank ".$ixz."toprank and main ".$ixz."cmd  - system <b> ".meessagee($z_ver)."
  </b>"."\n"."
 
@@ -158,7 +158,7 @@ $serveripp = '-';
         $played    = cleart($playedp);
 
 if ($kl <= 0 || $dth <= 0){  }else{	   
-$skil_x = round((pow($kl-$dth,0.2)*($kl/$dth)*10));
+$skil_x = round((pow($kl,0.2)*($kl/$dth)*10));
 
 if ($kl == 0)
 $ratio_x = ($kl/1);		
