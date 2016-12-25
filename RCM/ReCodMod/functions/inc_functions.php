@@ -1453,7 +1453,8 @@ function antimat($mat){
        include($cpath.'ReCodMod/functions/core/classes/antimat.class.php');
        include_once($cpath.'ReCodMod/functions/core/classes/ReflectionTypehint.php');
        include_once($cpath.'ReCodMod/functions/core/classes/UTF8.php');
-        $mat = Censure::parse($mat,'10','',true,'%CENSORED%','CP1251');
+        //$mat = Censure::parse($mat,'10','',true,'%CENSORED%','CP1251');
+	$mat = Censure::parse($mat,'10','',true,'%CENSORED%');
       return $mat;
     }
 
