@@ -115,7 +115,7 @@ rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 }	
 }}else{
 if ($x_stop_lp == 0 ) {	
-$skil_x = round((($kl-$dth)*($kl/$dth)*10));
+$skil_x = round((pow($kl-$dth,0.2)*($kl/$dth)*10));
 $ratio_x = ($kl/$dth);   
   if($x_number == 0){
   usleep($sleep_rcon);
