@@ -90,7 +90,7 @@ list($vv9g1, $vv8g1, $vv7g1) = explode('.',$vv8);
 if(empty($pla))
 $pla = 'None';
 		  
-$skil_x = round((($kl-$dth)*($kl/$dth)*10));
+$skil_x = round((pow($kl-$dth,0.2)*($kl/$dth)*10));
 $ratio_x = ($kl/$dth); 
  require $cpath.'ReCodMod/functions/inc_functions2.php';
 for ($i=0; $i<1; $i++)
