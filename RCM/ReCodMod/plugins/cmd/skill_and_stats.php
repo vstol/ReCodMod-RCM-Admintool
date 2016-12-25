@@ -425,7 +425,7 @@ rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 	
 	}
 }else{		  
-$skil_x = round((($kl-$dth)*($kl/$dth)*10));
+$skil_x = round((($kl)*($kl/$dth)*10));
 $ratio_x = ($kl/$dth);   
  require $cpath.'ReCodMod/functions/inc_functions2.php';
 for ($i=0; $i<1; $i++)
