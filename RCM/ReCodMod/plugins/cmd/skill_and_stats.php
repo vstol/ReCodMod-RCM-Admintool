@@ -218,7 +218,7 @@ else
 rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 	}	
 }else{		  
-$skil_x = round(((pow($kl,0.2))*($kl/$dth)*10));
+$skil_x = round((pow($kl,0.2)*($kl/$dth)*10));
 $ratio_x = ($kl/$dth);
  require $cpath.'ReCodMod/functions/inc_functions2.php';
 for ($i=0; $i<1; $i++)
@@ -322,7 +322,7 @@ $cfall       =  $row['s_fall'];
 if(empty($pla))
 $pla = 'None';
 		  
-$skil_x = round(((pow($kl,0.2))*($kl/$dth)*10));
+$skil_x = round((pow($kl,0.2)*($kl/$dth)*10));
 $ratio_x = ($kl/$dth);
 
 usleep($sleep_rcon);
@@ -425,7 +425,7 @@ rcon("tell ".$i_id."  ^3".$stsnoskl, "");
 	
 	}
 }else{		  
-$skil_x = round(((pow($kl,0.2))*($kl/$dth)*10));
+$skil_x = round((pow($kl,0.2)*($kl/$dth)*10));
 $ratio_x = ($kl/$dth);   
  require $cpath.'ReCodMod/functions/inc_functions2.php';
 for ($i=0; $i<1; $i++)
