@@ -3,7 +3,7 @@
  Admintool for (COD1, COD1:UO, COD2, COD4 & [COD4X 1.8], COD5 all patches)
 (65 and more chat commands in one)
 
-New final version RCM[V.3.x.x] working in all GNU/linux systems and Windows with supporting (PHP 5.2 <= 5.3.0, PHP 7)
+New final version RCM[V.4] working in all GNU/linux systems and Windows with supporting (PHP 5.2 <= 5.3.0, PHP 7)
 
 This version not compactible for x2.2 version update, compactible only |RCM/ReCodMod/databases/| files(ban database, and another sql bases)
 
