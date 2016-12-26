@@ -7,7 +7,7 @@ $yug     = matmat($yug);
 $x_mat   = true;
 //$dtct = mb_detect_encoding($msgr);
 //if($dtct == 'UTF-8' || $dtct == 'utf-8')
-$pl_msg  = iconv("windows-1251", "utf-8", $msgr), PHP_EOL;
+$pl_msg  = iconv("windows-1251", "utf-8", $msgr);
 $pl_msg  = mb_strtolower($pl_msg);
 $yesorno = antimat($pl_msg);
 if (strpos($yesorno, '%CENSORED%') !== false) {
