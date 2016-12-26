@@ -129,7 +129,7 @@ echo "\n\n Your use wrong rcon password -> ($server_rconpass = )
 	}
 	
 if (preg_match("/No rconpassword/i", $rconpassss)){ 
-echo "\n\n No rconpassword set on your game server!\n\n";
+echo "\n\n No rconpassword set on your game server!\n EXAMPLE:  set rcon_password YOURPASSWORD in game server \n";
 	sleep (17000);
 	exit;}	
 	
