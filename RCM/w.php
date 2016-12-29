@@ -7,6 +7,14 @@
 /*/ ///******************  |||      ///\\\*ReCodMod V.4.X [2016]
 /*/ ///******************  ||||||| ///        \\\          skype: larocca2012
 /*/ ///******************/
+
+header('Content-Type: text/html; charset=UTF-8');
+
+mb_internal_encoding('UTF-8'); 
+mb_http_output('UTF-8'); 
+mb_http_input('UTF-8'); 
+mb_regex_encoding('UTF-8');
+
 $spps = 221000;
 usleep(7000);
 function hx($sc)
