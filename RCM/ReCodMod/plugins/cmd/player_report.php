@@ -347,7 +347,7 @@ if ((strpos($msgr, 'xget ') !== false) && ($x_number != 1)
  
  usleep($sleep_rcon);
  
- if(empty($numm))
+ if(!empty($numm))
  {
 rcon('getss '.$numm, '');	
 usleep($sleep_rcon);	
