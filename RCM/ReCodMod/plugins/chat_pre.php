@@ -1,21 +1,25 @@
 <?php
 $msgr    = matmat($msgr);
+$x_n4    = trim(clearnamex($nivv));
 $yug     = mb_strtolower($msgr, 'Windows-1251');
+$msgrxc  = mb_strtolower($msgrx, 'Windows-1251');
 $yug     = matmat($yug);
-$pl_msg  = mb_strtolower($msgr);
 $x_mat   = true;
 //$dtct = mb_detect_encoding($msgr);
 //if($dtct == 'UTF-8' || $dtct == 'utf-8')
+$pl_msg  = iconv("windows-1251", "utf-8", $msgr);
+$player_msg  = mb_strtolower($pl_msg);
+$yesorno = antimat($pl_msg);
 
-$pl_msg  = iconv("windows-1251", "utf-8", $pl_msg);
-
- $yesorno = antimat($pl_msg);
 if (strpos($yesorno, '%CENSORED%') !== false) {
     $x_mat = false;
     echo "\n " . $pl_msg;
     echo " ALARM %CENSORED%";
 }
-$player_msg = matmat($pl_msg);
+
+
+
+$player_msg = matmat($player_msg);
 foreach ($matnie as $badword) {
     $bdwww = matmat($badword);
     ///////ENGLISH
@@ -29,9 +33,7 @@ foreach ($matnie as $badword) {
     ///////RUSSIAN  REGXP 1
     if ($x_mat != false) {
         preg_match_all("#\b(\[0-9а-яА-ЯёЁ]+)\b#", $pl_msg, $out);
-
         for ($i = 0; $i < count($out[0]); $i++) {
- echo 'vvvvvvvvvvvvvvvvv ',$out[0][$i];
             if ($out[0][$i] == $bdwww) {
                 $x_mat = false;
                 echo "\n RUSSIAN  REGXP 1 " . $out[0][$i] . " detected  " . $pl_msg;
@@ -71,8 +73,10 @@ foreach ($matnie as $badword) {
             }
         }
     }
-	
-	   if ($x_mat != false) {
+
+
+
+if ($x_mat != false) {
 		   if(preg_match( '/^([а-яА-ЯЁёa-zA-Z0-9_]+)$/u', $yesorno))
 		   {
                 if (strlen($yesorno) > 4) {
@@ -85,9 +89,12 @@ foreach ($matnie as $badword) {
                     }
                 }
             }
-	   }			
-}
+	   }
 
+
+
+
+}
 $x_spam = true;
 foreach ($spams as $spms) {
     preg_match("/" . $spms . "/si", $yug, $maxn);
