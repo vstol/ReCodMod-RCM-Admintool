@@ -193,6 +193,16 @@ if(
     && (($msgrz[0] == $msgr) || ($msgrz[1] == $msgr) || ($msgrz[2] == $msgr)))
 
 	||
+	//////if (strpos($x_n3, $x_n4) !== false)
+((  ((strpos($x_n3, $x_n4) !== false) && (strpos($nick[0], $x_n4) !== false) && (strpos($nick[1], $x_n4) !== false)) 
+ || ((strpos($x_n3, $x_n4) !== false) && (strpos($nick[1], $x_n4) !== false) && (strpos($nick[2], $x_n4) !== false))
+ || ((strpos($x_n3, $x_n4) !== false) && (strpos($nick[2], $x_n4) !== false) && (strpos($nick[3], $x_n4) !== false)) )
+	&& ((($whilex[0]+$whilex[1]) <= 15) || (($whilex[1]+$whilex[2]) <= 15) || (($whilex[2]+$whilex[3]) <= 15))
+    && (($now_is - $res3[1]) <= 20)
+    && (($msgrz[0] == $msgr) || ($msgrz[1] == $msgr) || ($msgrz[2] == $msgr)) 
+	&& (($msgrz[0] == $msgrz[1]) && ($msgrz[1] == $msgrz[2]) && ($msgrz[2] == $msgrz[0])))
+
+	||	
 	
 	(( (($x_n3 == $x_n4) && ($nick[2] == $x_n4) && ($nick[1] == $x_n4) && ($nick[0] == $x_n4))
 	//|| (($x_n3 == $x_n4) && ($nick[2] == $x_n4) && ($nick[1] == $x_n4) && ($nick[0] == $x_n4))
@@ -291,7 +301,7 @@ if (($ip1 == $i_ip) && ($wrn < 3))
 		{
 			AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
 	usleep($sleep_rcon*2);
- rcon('say  ^6^7  '. $chistx . ' "^1[^7Chat Flooding detected!^1] [^7Warning '.$wrn.'^1/^73^1]^7 stop swearing or you get a kick^1!', '');	
+ rcon('say  ^6^7  '. $chistx . ' "^1[^7Chat Flooding detected!^1] [^7Warning '.$wrn.'^1/^73^1]^7 stop flooding or you get a kick^1!', '');	
 AddToLog("[".$datetime."] CHAT Chat FloodingS Warning: " . $i_ip . " (" . $i_name . ")");	 
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Warning by RCM '.$z_ver.' = Chat Flooding]</font> ");	
 $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip}'");
@@ -300,7 +310,7 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
 }else if (($ip1 == $i_ip) && ($wrn == 3)){
 	AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
 	usleep($sleep_rcon*2);
- rcon('say  ^6^7  '. $chistx . ' "^1[^7Chat Flooding detected!^1] [^7Warning '.$wrn.'^1/^7'.$wflood.'^1]^7 stop swearing or you get a ban^1!', '');	
+ rcon('say  ^6^7  '. $chistx . ' "^1[^7Chat Flooding detected!^1] [^7Warning '.$wrn.'^1/^7'.$wflood.'^1]^7 stop flooding or you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT Chat FloodingS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Chat Flooding]</font> ");	
 usleep($sleep_rcon);
@@ -314,7 +324,7 @@ else
 else if (($ip1 == $i_ip) && ($wrn == round($wflood/2))){
 	AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
 	usleep($sleep_rcon*2);
- rcon('say  ^6^7  '. $chistx . ' "^1[^7Chat Flooding detected!^1] [^7Warning '.$wrn.'^1/^7'.$wflood.'^1]^7 stop swearing or you get a ban^1!', '');	
+ rcon('say  ^6^7  '. $chistx . ' "^1[^7Chat Flooding detected!^1] [^7Warning '.$wrn.'^1/^7'.$wflood.'^1]^7 stop flooding or you get a ban^1!', '');	
 AddToLog("[".$datetime."] CHAT Chat FloodingS KICKER: (" . $i_ip . ") (" . $i_name . ")");	 
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $x_n3 . " <font color='fuchsia'>[Kicked by RCM '.$z_ver.' = Chat Flooding]</font> ");	
 usleep($sleep_rcon);
@@ -369,3 +379,4 @@ $db4->exec("UPDATE x_db_players SET x_db_warn=x_db_warn +1 WHERE x_db_ip='{$i_ip
   } 
 }
 ?>
+
