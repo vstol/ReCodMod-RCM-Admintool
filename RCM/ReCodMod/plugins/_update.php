@@ -74,7 +74,7 @@ $serveripp = '-';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    $num = 0;
 
-   $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_kills>=$limm ORDER BY ($etopx+0) DESC LIMIT 500");
+   $result = $db3->query("SELECT * FROM x_db_play_stats WHERE s_kills>=$limm ORDER BY ($etopx+0) DESC LIMIT 5000");
     foreach($result as $row)
     {		
 
@@ -202,7 +202,7 @@ $serveripp = '-';
  $numberx = 0;
 
 usleep(5000);
-  $result = $db2->query("SELECT * FROM `bans` ORDER BY (id+0) DESC LIMIT 500");
+  $result = $db2->query("SELECT * FROM `bans` ORDER BY (id+0) DESC LIMIT 5000");
 $ik = 0;
    foreach($result as $row)
     {
