@@ -34,8 +34,12 @@ include($cpath . "ReCodMod/geoip_bases/MaxMD/geoipcity.inc");
 include($cpath . "ReCodMod/geoip_bases/MaxMD/timezone/timezone.php");
 
     ini_set("log_errors", "1");
-    ini_set("error_log", $cpath . "ReCodMod/x_errors/$filename");
-    $logging = new log($cpath . "ReCodMod/x_errors/$filename");
+	
+	$xerrrors = ($cpath . "ReCodMod/x_errors/$filename");
+	
+    ini_set("error_log", $xerrrors);
+    $logging = new log($xerrrors);
+	
     set_error_handler("error_handler");
  
          if (empty($adminlists))
@@ -131,15 +135,16 @@ $handlePos=fopen($cpath."ReCodMod/x_logs/chat.log" ,"w+");
 fwrite($handlePos, "1");
   fclose($handlePos);}}
 
- if(file_exists($cpath . 'ReCodMod/x_logs/chat.html')){
+   if(file_exists($cpath . 'ReCodMod/x_logs/chat.html')){
 $file = $cpath . "ReCodMod/x_logs/chat.html";
 $newfile = $cpath . "ReCodMod/x_logs/archive/chat/chat";
 $datetime = date('Y.m.d H:i:s');
-if (!copy($file, $newfile."_".$datetime.".html")) {
+   if (!copy($file, $newfile."_".$datetime.".html")) {
     echo "Error copy $file...\n";}else{
 $handlePos=fopen($cpath."ReCodMod/x_logs/chat.html" ,"w+");
 fwrite($handlePos, "1");
- fclose($handlePos);}}	  
+ fclose($handlePos);}}
+ 
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='silver'> x_logs chat.html 3MB auto reset! </font> "); 
 echo "OK ...";	  
   }

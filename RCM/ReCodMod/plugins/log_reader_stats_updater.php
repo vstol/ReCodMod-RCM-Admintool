@@ -565,6 +565,7 @@ echo ' db5 null ';}
                       $db3->exec("UPDATE x_db_play_stats SET  s_lasttime='{$dtx2}', s_skill='{$skil_x}', s_ratio='{$ratio_n}' WHERE s_player='{$x_kill}'");
                       $tfinishh = substr( (microtime(true) - $start), 0, 4);
 					  if($tfinishh > 20){
+						  errorzz("log_reader_stats_updater.php LINE 568 DATABASES READ TIME ERROR");
 if(!empty($db))
 $db = NULL;
 if(!empty($db1))
@@ -634,6 +635,7 @@ fclose($connect);
                       $db3->exec("UPDATE x_db_play_stats SET  s_lasttime='{$dtx2}', s_skill='{$skil_x}', s_ratio='{$ratio_n}' WHERE s_guid='{$guidcc}'");
                       $tfinishh = substr( (microtime(true) - $start), 0, 4);
 if($tfinishh > 20){
+	errorzz("log_reader_stats_updater.php LINE 638 -  DATABASES READ TIME ERROR");
 if(!empty($db))
 $db = NULL;
 if(!empty($db1))
@@ -733,6 +735,7 @@ fclose($connect);
                         $db3->exec("UPDATE x_db_play_stats SET s_skill='{$skil_x}', s_ratio='{$ratio_n}' WHERE s_player='{$xc_death}'");
                         $tfinishh = substr( (microtime(true) - $start), 0, 6);
  if($tfinishh > 20){
+	 errorzz("log_reader_stats_updater.php LINE 738 -  DATABASES READ TIME ERROR");
 if(!empty($db))
 $db = NULL;
 if(!empty($db1))
@@ -775,6 +778,7 @@ fclose($connect);
 				  
                       echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
 if($tfinishh > 20){
+	errorzz("log_reader_stats_updater.php LINE 781 -  DATABASES READ TIME ERROR");
 if(!empty($db))
 $db = NULL;
 if(!empty($db1))
@@ -823,6 +827,7 @@ fclose($connect);
                         $db3->exec("UPDATE x_db_play_stats SET s_skill='{$skil_x}', s_ratio='{$ratio_n}' WHERE s_guid='{$iddeath}'");
                         echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 6);
 if($tfinishh > 20){
+	errorzz("log_reader_stats_updater.php LINE 830 -  DATABASES READ TIME ERROR");
 if(!empty($db))
 $db = NULL;
 if(!empty($db1))
@@ -871,6 +876,7 @@ fclose($connect);
 					  
                       echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
   if($tfinishh > 20){
+	  errorzz("log_reader_stats_updater.php LINE 879 -  DATABASES READ TIME ERROR");
 if(!empty($db))
 $db = NULL;
 if(!empty($db1))

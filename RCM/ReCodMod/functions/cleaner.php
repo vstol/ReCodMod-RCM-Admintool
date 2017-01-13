@@ -63,12 +63,13 @@ $searchh = substr_count($localIP, '.'); // 3
 if((empty($localIP)) || ($searchh != 3))
 $localIP = $server_ip;
 
+if ($server_ip != 'localhost'){
 if ($server_ip != $localIP){
 echo " 
 \n \n \n You use wrong localhost adress ($server_ip) in [cfg/_connection.php]. 
 \n Your server localhost IP adress is ".$localIP."\n \n \n";
 sleep (3000);
-exit; }
+exit; }}
   
 }else{
 //echo $localIP = getHostByName(php_uname('n'));
@@ -80,12 +81,12 @@ $searchh = substr_count($localIP, '.'); // 3
 if((empty($localIP)) || ($searchh != 3))
 $localIP = $server_ip;	
 
-
+if ($server_ip != 'localhost'){
 if ($server_ip != $localIP){
 echo " \n \n \n You use wrong localhost adress ($server_ip) in [cfg/_connection.php]. \n Your server localhost IP adress is ".$localIP."\n \n \n";
 sleep (3000);
 exit; 
-}
+}}
 
 }
 
@@ -179,12 +180,13 @@ $searchh = substr_count($localIP, '.'); // 3
 if((empty($localIP)) || ($searchh != 3))
 $localIP = $server_ip;
 
+if ($server_ip != 'localhost'){
 if ($server_ip != $localIP){
 echo " 
 \n \n \n You use wrong localhost adress ($server_ip) in [cfg/_connection.php]. 
 \n Your server localhost IP adress is ".$localIP."\n \n \n";
 sleep (3000);
-exit; }
+exit; }}
   
 }else{
 	//if (strpos($xxkmb, '/^7') !== false)
@@ -210,13 +212,13 @@ $searchh = substr_count($localIP, '.'); // 3
 if((empty($localIP)) || ($searchh != 3))
 $localIP = $server_ip;	
 
-
+if ($server_ip != 'localhost'){
 if ($server_ip != $localIP){
 echo " \n \n \n You use wrong localhost adress ($server_ip) in [cfg/_connection.php]. \n Your server localhost IP adress is ".$localIP."\n \n \n";
 sleep (3000);
 exit; 
 }
-
+}
 
 
 }

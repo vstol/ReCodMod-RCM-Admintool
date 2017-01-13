@@ -4,6 +4,7 @@ define ("MOD_NOTICE", 1);
 define ("MOD_WARNING", 2);
 define ("MOD_ERROR", 3);
 define ("MOD_PHPERROR", 4);
+define ("MOD_SQLITEERROR", 5);
 
 class log {
 
@@ -31,6 +32,7 @@ class log {
 				2 => " !! Warning",
 				3 => " !! Error",
 				4 => "PHP-Error",
+				5 => "Exception",
 			);
 
 			$timestamp = date("[d.m.y H:i:s]");

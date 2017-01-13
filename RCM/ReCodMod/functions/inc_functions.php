@@ -1144,6 +1144,15 @@ function AddToLog($s)
     fclose($fp);
 	}	
 	
+	function errorzz($s)
+	{
+	global $xerrrors,$filename;
+	$fp = fopen($xerrrors, 'a');
+    fwrite($fp, $s."\n");
+    fclose($fp);
+	}	
+
+	
 function AddToLogfakerz($s)
 	{
 	global $info_log_fakers;

@@ -1153,6 +1153,7 @@ require $cpath .  'cfg/languages/en.lng.php';
 $tfinishh = 1;	  
 	  
 	  if($tfinishh > 30) {
+		    errorzz("log_reader_geo_welcome.php 1156  - DATABASES READ TIME ERROR");
 	if(!empty($db))
 $db = NULL;
 if(!empty($db1))
@@ -1194,7 +1195,8 @@ fclose($connect);
 	  
 if(empty($tfinishh))	  
 	$tfinishh = 1;	  
-if($tfinishh > 30) 
-	exit;
+if($tfinishh > 30){
+	errorzz("log_reader_geo_welcome.php DATABASES READ TIME ERROR");
+	exit;} 
  }}
 ?>
