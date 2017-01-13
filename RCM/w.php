@@ -354,7 +354,7 @@ while (true)
            }
          }
         $cron_time = filemtime($cpath . "ReCodMod/x_cron/cron_time_top");
-        if ($stime - $cron_time >= 4700)
+        if ($stime - $cron_time >= 43200) //// 12 HOURS SKILL AND RANK UPDATE
          {
           file_put_contents($cpath . "ReCodMod/x_cron/cron_time_top", "");
           require $cpath . 'ReCodMod/plugins/_update.php';
