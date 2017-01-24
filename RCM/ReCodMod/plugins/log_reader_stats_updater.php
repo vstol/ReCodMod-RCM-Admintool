@@ -663,7 +663,7 @@ fclose($connect);
                   if ($stat > 0)
                    {  
                     if ((strpos($byweapon, 'grenade_') !== false) && ($iddeath != $guidcc))	
-                      $db3->exec("UPDATE x_db_play_stats SET s_grenade=s_grenade +1 WHERE s_guid='{$guidcc}'");
+                      $db3->exec("UPDATE x_db_play_stats SET s_player='{$kill}', s_grenade=s_grenade +1 WHERE s_guid='{$guidcc}'");
                     if ((strpos($hitlock, 'head') !== false) && ($iddeath != $guidcc))
                       $db3->exec("UPDATE x_db_play_stats SET s_heads=s_heads +1 WHERE s_guid='{$guidcc}'");
                     if ((strpos($modkll, 'MOD_MELEE') !== false) && ($iddeath != $guidcc))
@@ -673,7 +673,7 @@ fclose($connect);
                     if (($modkll != 'MOD_SUICIDE') && ($iddeath != $guidcc)    
 						|| (($modkll == 'MOD_SUICIDE') && ($iddeath != $guidcc) && ($byweapon != 'none'))
 					    || (($modkll == 'MOD_EXPLOSIVE') && ($iddeath != $guidcc) && ($byweapon == 'none')))
-                      $db3->exec("UPDATE x_db_play_stats SET s_player='{$kill}',s_kills=s_kills +1 WHERE s_guid='{$guidcc}'");
+                      $db3->exec("UPDATE x_db_play_stats SET s_kills=s_kills +1 WHERE s_guid='{$guidcc}'");
 
                 ////////////////AUTO SCREENSHOTS
 				$cron_timeq=filemtime($cpath."ReCodMod/x_cron/cron_y");        
