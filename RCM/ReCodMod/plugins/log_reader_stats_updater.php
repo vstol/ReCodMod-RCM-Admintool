@@ -663,11 +663,11 @@ fclose($connect);
                   if ($stat > 0)
                    {  
                     if ((strpos($byweapon, 'grenade_') !== false) && ($iddeath != $guidcc))	
-                      $db3->exec("UPDATE x_db_play_stats SET s_player='{$kill}',s_grenade=s_grenade +1 WHERE s_guid='{$guidcc}'");
+                      $db3->exec("UPDATE x_db_play_stats SET s_grenade=s_grenade +1 WHERE s_guid='{$guidcc}'");
                     if ((strpos($hitlock, 'head') !== false) && ($iddeath != $guidcc))
-                      $db3->exec("UPDATE x_db_play_stats SET s_player='{$kill}',s_heads=s_heads +1 WHERE s_guid='{$guidcc}'");
+                      $db3->exec("UPDATE x_db_play_stats SET s_heads=s_heads +1 WHERE s_guid='{$guidcc}'");
                     if ((strpos($modkll, 'MOD_MELEE') !== false) && ($iddeath != $guidcc))
-                      $db3->exec("UPDATE x_db_play_stats SET s_player='{$kill}',s_melle=s_melle +1 WHERE s_guid='{$guidcc}'");
+                      $db3->exec("UPDATE x_db_play_stats SET s_melle=s_melle +1 WHERE s_guid='{$guidcc}'");
                     if (($modkll == 'MOD_SUICIDE') && ($iddeath == $guidcc))
                       echo 'suicide';
                     if (($modkll != 'MOD_SUICIDE') && ($iddeath != $guidcc)    
