@@ -15,6 +15,10 @@ if ($x_stop_lp == 0) {
             list($comdfa, $msg_user, $msg_pass) = explode(' ', $msgrx);
         else
             list($comdfa, $msg_pass) = explode(' ', $msgrx);
+
+          if(empty($guidn))
+         $guidn = '0suhye87s5tf&#@45sdjh5fht68';
+
         if (preg_match('/tell;/', $parseline, $xm))
             $jjj = (((trim($foridnum) == trim($idnum)) && (trim($foridnum) == trim($i_id))));
         //else if ($game_patch == 'cod1_1.1')
